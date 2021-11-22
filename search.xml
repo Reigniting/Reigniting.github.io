@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CTFshow-Misc入门-图片篇</title>
-    <url>/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/</url>
-    <content><![CDATA[<p>什么？又出新题了<br>还有一堆web没做，你怎么跑到Misc来摸鱼了？(大雾)<br>这个系列学累了偶尔来做一做，更新随缘~</p>
-<h2 id="图片篇-基础操作"><a href="#图片篇-基础操作" class="headerlink" title="图片篇(基础操作)"></a>图片篇(基础操作)</h2><h3 id="Misc-1"><a href="#Misc-1" class="headerlink" title="Misc 1"></a>Misc 1</h3><p>解压完直接打开即可<br>不会有人傻到一个一个对着打flag吧？不会吧不会吧？<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.png"></p>
-<span id="more"></span>
-<p><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.1.png"></p>
-<h3 id="Misc-2"><a href="#Misc-2" class="headerlink" title="Misc 2"></a>Misc 2</h3><p>打开txt发现是一堆乱码<br>看到文件头的字样推断是png图像<br>修改后缀格式即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.png"><br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.1.png"></p>
-<h3 id="Misc-3"><a href="#Misc-3" class="headerlink" title="Misc 3"></a>Misc 3</h3><p>用bgp查看软件打开即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/3.png"></p>
-<h3 id="Misc-4"><a href="#Misc-4" class="headerlink" title="Misc 4"></a>Misc 4</h3><p>一张一张的看<br>这种题什么也不考察 纯粹耍猴<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/4.png"></p>
-<h2 id="图片篇-信息附加"><a href="#图片篇-信息附加" class="headerlink" title="图片篇(信息附加)"></a>图片篇(信息附加)</h2><h3 id="Misc-5"><a href="#Misc-5" class="headerlink" title="Misc 5"></a>Misc 5</h3><p>010 editor打开搜索ctf字样即可发现最后几行有flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/5.png"></p>
-<h3 id="Misc-6"><a href="#Misc-6" class="headerlink" title="Misc 6"></a>Misc 6</h3><p>没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/6.png"></p>
-<h3 id="Misc-7"><a href="#Misc-7" class="headerlink" title="Misc 7"></a>Misc 7</h3><p>也没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/7.png"></p>
-<h3 id="Misc-8"><a href="#Misc-8" class="headerlink" title="Misc 8"></a>Misc 8</h3><p>里面还藏着一个图片<br>binwalk或者手动提取图片即可<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/8.png"></p>
-<h3 id="Misc-9"><a href="#Misc-9" class="headerlink" title="Misc 9"></a>Misc 9</h3><p>还是没什么好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/9.png"></p>
-<h3 id="Misc-10"><a href="#Misc-10" class="headerlink" title="Misc 10"></a>Misc 10</h3><p>binwalk一把梭<br>打开其中一个文件可以发现flag</p>
-<hr>
-<blockquote>
-<p>生活不是选择，而是热爱。或许你我终将落俗，但浪漫至死不渝。</p>
-</blockquote>
-<hr>
-]]></content>
-      <tags>
-        <tag>CTF</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CTFshow 萌新web1-8</title>
     <url>/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/</url>
     <content><![CDATA[<h2 id="萌新区web1"><a href="#萌新区web1" class="headerlink" title="萌新区web1"></a>萌新区web1</h2><p>web选手培养中……<br>CTFshow这个平台简直不要太赞，以后刷题就在这里了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.0.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.1.png"><br>既然没有漏洞那我就不做了吧（滑稽）<br>这个注释，可以说很照顾萌新了</p>
@@ -55,6 +29,32 @@
       <categories>
         <category>CTFshow刷题合集</category>
       </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CTFshow-Misc入门-图片篇</title>
+    <url>/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/</url>
+    <content><![CDATA[<p>什么？又出新题了<br>还有一堆web没做，你怎么跑到Misc来摸鱼了？(大雾)<br>这个系列学累了偶尔来做一做，更新随缘~</p>
+<h2 id="图片篇-基础操作"><a href="#图片篇-基础操作" class="headerlink" title="图片篇(基础操作)"></a>图片篇(基础操作)</h2><h3 id="Misc-1"><a href="#Misc-1" class="headerlink" title="Misc 1"></a>Misc 1</h3><p>解压完直接打开即可<br>不会有人傻到一个一个对着打flag吧？不会吧不会吧？<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.png"></p>
+<span id="more"></span>
+<p><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.1.png"></p>
+<h3 id="Misc-2"><a href="#Misc-2" class="headerlink" title="Misc 2"></a>Misc 2</h3><p>打开txt发现是一堆乱码<br>看到文件头的字样推断是png图像<br>修改后缀格式即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.png"><br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.1.png"></p>
+<h3 id="Misc-3"><a href="#Misc-3" class="headerlink" title="Misc 3"></a>Misc 3</h3><p>用bgp查看软件打开即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/3.png"></p>
+<h3 id="Misc-4"><a href="#Misc-4" class="headerlink" title="Misc 4"></a>Misc 4</h3><p>一张一张的看<br>这种题什么也不考察 纯粹耍猴<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/4.png"></p>
+<h2 id="图片篇-信息附加"><a href="#图片篇-信息附加" class="headerlink" title="图片篇(信息附加)"></a>图片篇(信息附加)</h2><h3 id="Misc-5"><a href="#Misc-5" class="headerlink" title="Misc 5"></a>Misc 5</h3><p>010 editor打开搜索ctf字样即可发现最后几行有flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/5.png"></p>
+<h3 id="Misc-6"><a href="#Misc-6" class="headerlink" title="Misc 6"></a>Misc 6</h3><p>没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/6.png"></p>
+<h3 id="Misc-7"><a href="#Misc-7" class="headerlink" title="Misc 7"></a>Misc 7</h3><p>也没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/7.png"></p>
+<h3 id="Misc-8"><a href="#Misc-8" class="headerlink" title="Misc 8"></a>Misc 8</h3><p>里面还藏着一个图片<br>binwalk或者手动提取图片即可<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/8.png"></p>
+<h3 id="Misc-9"><a href="#Misc-9" class="headerlink" title="Misc 9"></a>Misc 9</h3><p>还是没什么好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/9.png"></p>
+<h3 id="Misc-10"><a href="#Misc-10" class="headerlink" title="Misc 10"></a>Misc 10</h3><p>binwalk一把梭<br>打开其中一个文件可以发现flag</p>
+<hr>
+<blockquote>
+<p>生活不是选择，而是热爱。或许你我终将落俗，但浪漫至死不渝。</p>
+</blockquote>
+<hr>
+]]></content>
       <tags>
         <tag>CTF</tag>
       </tags>
@@ -200,7 +200,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#x63;&#104;&#x33;&#x33;&#115;&#51;&#109;&#52;&#110;&#x40;&#99;&#x68;&#101;&#x65;&#115;&#101;&#121;&#106;&#97;&#99;&#x6b;&#46;&#108;&#x6f;&#x63;&#x61;&#x6c;">&#x63;&#104;&#x33;&#x33;&#115;&#51;&#109;&#52;&#110;&#x40;&#99;&#x68;&#101;&#x65;&#115;&#101;&#121;&#106;&#97;&#99;&#x6b;&#46;&#108;&#x6f;&#x63;&#x61;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#99;&#104;&#51;&#x33;&#x73;&#x33;&#109;&#x34;&#110;&#64;&#x63;&#x68;&#101;&#x65;&#x73;&#x65;&#121;&#x6a;&#x61;&#99;&#107;&#46;&#x6c;&#x6f;&#x63;&#x61;&#x6c;">&#99;&#104;&#51;&#x33;&#x73;&#x33;&#109;&#x34;&#110;&#64;&#x63;&#x68;&#101;&#x65;&#x73;&#x65;&#121;&#x6a;&#x61;&#99;&#107;&#46;&#x6c;&#x6f;&#x63;&#x61;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
@@ -338,7 +338,7 @@
     <url>/2021/08/24/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5-%E6%9C%AA%E6%9D%A5%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
     <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><p>最近还是没放下CTF<br>学安全跟CTF到底有没有关系呢？<br>我还是不知道<br>我现在会的东西80%来自打CTF认知的，剩下20%都是靶机里学的<br>还是太菜了……<br>CTF差不多也遇到瓶颈了吧，就会点简单的杂项<br>祥云杯就做出来3个杂项（层层取证+鸣雏恋+考古）<br>还是学学专业知识比较好<br>一直想学学编程 C语言还没怎么动呢<br>接下来还有更多的事要忙呢……</p>
 <h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>感觉时间不够用……<br>或者是自己不够努力，三天打鱼两天晒网感动自己吧<br>先把C语言学了，之后自己怎么样也不管了</p>
-<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><p>加了一个安全团队，以后靶机渗透就不在博客更新了，交给团队当内部文库了。<br>一边写vulnhub靶机渗透，一边学习域渗透和尝试复现各种漏洞<br>这里就暂时不更新了，反正也没人看吧<br>想学习交流了可以直接联系我</p>
+<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><p>加了一个安全团队，以后靶机渗透就不在博客更新了，以后都交给团队了。<br>一边写vulnhub靶机渗透，一边学习域渗透和尝试复现各种漏洞<br>这里就暂时不更新了，反正也没人看吧<br>想学习交流了可以直接联系我</p>
 <h2 id="-3"><a href="#-3" class="headerlink" title></a></h2><p>接下来的计划大概是<br>学基础知识  毫无基础可言，所以开始搞一搞<br>学编程语言  C语言 Python<br>学域渗透 从0开始的学习了属于是</p>
 <h2 id="-4"><a href="#-4" class="headerlink" title></a></h2><p>什么时候才能会挖洞呢……</p>
 ]]></content>
@@ -478,45 +478,6 @@
       </tags>
   </entry>
   <entry>
-    <title>靶机DC-5的渗透记录</title>
-    <url>/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>【未完成，以我现在的水平后半部分解决不了，随缘填坑更新】<br>重保期间，在学校当义工。除了盯着屏幕发呆，也没别的事。于是尝试通过靶机渗透学点东西。<br>顺便发现了靶机作者的个人主页。等DC系列结束之后就去尝试一下新系列（挖坑ing）</p>
-<blockquote>
-<p>下载地址：<a href="https://www.vulnhub.com/entry/dc-5,314/">https://www.vulnhub.com/entry/dc-5,314/</a></p>
-</blockquote>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021<br>靶机DC-5×1  网络连接模式：NAT模式<br>老生常谈——所有引擎</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
-<span id="more"></span>
-<p>扫描内网</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>通过mac地址确定靶机后上nmap</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.139</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>80端口开着，去访问一下</p>
-<h2 id="利用文件包含漏洞打nc反弹shell"><a href="#利用文件包含漏洞打nc反弹shell" class="headerlink" title="利用文件包含漏洞打nc反弹shell"></a>利用文件包含漏洞打nc反弹shell</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>在Contact下面发现了提交表格，那么我们的注意力就要放在这里了<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>随便提交了几回发现了一些问题 提交的内容会直接呈现在url里<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>不仅如此 这时间也有些问题<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>查看源码，发现了footer.php 于是去访问了一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>看样子应该是一处漏洞呀在thankuyou.php上也出现了这个问题<br>大概率是存在文件包含漏洞了<br>【这里其实一开始没注意到，后来发现了作者的个人主页，上面给了点小hint】</p>
-<blockquote>
-<p>作者five86的个人主页&gt; <a href="https://www.five86.com/dc-5.html">https://www.five86.com/dc-5.html</a></p>
-</blockquote>
-<p>访问url/thankyou.php?file=/etc/passwd<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>果然存在！ 至于我怎么知道的嘛……感觉+试出来的 这里其实可以考虑用Burp Suite或者Wfuzz遍历枚举一下<br>但是考虑只是个靶机 就试着摸了几下 一个靶机而已干嘛这么麻烦（）<br>根据之前的经验，我们已经知道这是Nginx服务器。在网站上的每一步操作都将会被写入日志文件log内，因此我们可以在这里尝试拿 shell<br>插一嘴，还可以使用Wappalyzer插件进行信息收集<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>先写进去个phpinfo()看一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>看来是可以的，那就直接写入一句话<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>开始打反弹shell 开启端口</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 7777</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>转换为交互式shell</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<p>这个命令可以查找需要root权限才可运行的文件<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>用searchsploit命令搜索screen-4.5.0<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>【利用不成功，我不会了。网上看了看别人写的发现还需要编译。对于我这个菜鸟来说实属超纲，先放一放吧，以后水平提升在转过头来解决掉。】</p>
-<hr>
-<blockquote>
-<p>鲤鱼不跃，岂可成龙？大鹏驻足，焉能腾空？人生能有几回搏，此时不搏何时搏？</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>靶机DC-4的渗透记录</title>
     <url>/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>之前忙比赛，忙期末，没怎么好好学习。这几天全都补回来。</p>
@@ -557,6 +518,45 @@
 <hr>
 <blockquote>
 <p>追逐影子的人，自己就是影子</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>靶机DC-5的渗透记录</title>
+    <url>/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>【未完成，以我现在的水平后半部分解决不了，随缘填坑更新】<br>重保期间，在学校当义工。除了盯着屏幕发呆，也没别的事。于是尝试通过靶机渗透学点东西。<br>顺便发现了靶机作者的个人主页。等DC系列结束之后就去尝试一下新系列（挖坑ing）</p>
+<blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/dc-5,314/">https://www.vulnhub.com/entry/dc-5,314/</a></p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021<br>靶机DC-5×1  网络连接模式：NAT模式<br>老生常谈——所有引擎</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
+<span id="more"></span>
+<p>扫描内网</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>通过mac地址确定靶机后上nmap</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.139</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>80端口开着，去访问一下</p>
+<h2 id="利用文件包含漏洞打nc反弹shell"><a href="#利用文件包含漏洞打nc反弹shell" class="headerlink" title="利用文件包含漏洞打nc反弹shell"></a>利用文件包含漏洞打nc反弹shell</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>在Contact下面发现了提交表格，那么我们的注意力就要放在这里了<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>随便提交了几回发现了一些问题 提交的内容会直接呈现在url里<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>不仅如此 这时间也有些问题<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>查看源码，发现了footer.php 于是去访问了一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>看样子应该是一处漏洞呀在thankuyou.php上也出现了这个问题<br>大概率是存在文件包含漏洞了<br>【这里其实一开始没注意到，后来发现了作者的个人主页，上面给了点小hint】</p>
+<blockquote>
+<p>作者five86的个人主页&gt; <a href="https://www.five86.com/dc-5.html">https://www.five86.com/dc-5.html</a></p>
+</blockquote>
+<p>访问url/thankyou.php?file=/etc/passwd<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>果然存在！ 至于我怎么知道的嘛……感觉+试出来的 这里其实可以考虑用Burp Suite或者Wfuzz遍历枚举一下<br>但是考虑只是个靶机 就试着摸了几下 一个靶机而已干嘛这么麻烦（）<br>根据之前的经验，我们已经知道这是Nginx服务器。在网站上的每一步操作都将会被写入日志文件log内，因此我们可以在这里尝试拿 shell<br>插一嘴，还可以使用Wappalyzer插件进行信息收集<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>先写进去个phpinfo()看一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>看来是可以的，那就直接写入一句话<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>开始打反弹shell 开启端口</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 7777</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>转换为交互式shell</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p>这个命令可以查找需要root权限才可运行的文件<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>用searchsploit命令搜索screen-4.5.0<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>【利用不成功，我不会了。网上看了看别人写的发现还需要编译。对于我这个菜鸟来说实属超纲，先放一放吧，以后水平提升在转过头来解决掉。】</p>
+<hr>
+<blockquote>
+<p>鲤鱼不跃，岂可成龙？大鹏驻足，焉能腾空？人生能有几回搏，此时不搏何时搏？</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -624,7 +624,38 @@
   <entry>
     <title>靶机covfefe: 1渗透记录</title>
     <url>/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>好久不写笔记了，随便整个靶机划划水—</p>
+<blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/covfefe-1,199/">https://www.vulnhub.com/entry/covfefe-1,199/</a></p>
+</blockquote>
+<hr>
+<p>ps：covfefe是川建国自创的新词（） 看起来也是很有趣的靶机（）</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机SSH-私钥泄露×1 NAT模式<br>攻击机 win10  kali 2021.2×1<br>搜索引擎，你学习的热情</p>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>打开虚拟机<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>首先先确定目标ip，这个时候可以扫描内网，如果不知道哪个是我们的目标可以看一下mac地址。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定好ip之后，进行更深一步的探测</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.146</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>可以看到有一个22端口（ssh服务），还有两个http服务。<br>先去网页看一下吧。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>给了两个网页都没东西，用字典工具跑一下看看有没有别的发现<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>先去/robots.txt看看<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>前两个都属于配置文件，不用太关注，直接访问/taxes目录<br>获得了第一个flag    flag1{make_america_great_again}<br>![](10.png<br>好家伙，看来国外的CTF也喜欢玩梗哈哈哈<br>在访问一下/.ssh<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>尝试下载私钥，发现可以下载，那就说明这里有一处漏洞了。<br>拿到私钥我们就无需密码即可进行ssh链接。<br>首先需要修改权限，必须是600！必须是600！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 id_rsa</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14png"><br>修改权限后，进行链接。<br>账户在关键字中有泄露</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -i id_rsa simon@192.168.155.146   </span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>还是需要密码，需要用john进行破解<br>先用ssh2john.py转换成john可识别的信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python /usr/share/john/ssh2john.py id_rsa &gt; 1</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>破解。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>破解出来了，接着ssh链接。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>链接成功。</p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>跳转到/root目录发现有flag文件，但是没有权限打不开。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19..png"><br>不是root权限，需要提权<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>查找root权限可执行文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>/root目录下有个read_message，这不巧了吗，能以root权限运行的程序里就有read_message，就从这里入手。<br>运行一下这个文件看看是什么。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>简单的pwn 通过栈溢出来获取flag。<br>程序的意思大概是如果你是Simon，就会调用execve函数，而这个函数调用程序使用的是root权限。然而buf[]只能储存20个字符，gets（buf）没有限制长度，超过20个字符的字符就会存到缓冲区，覆盖后面的内容。输入超过缓存长度的字符 超出的那部分为拥有root权限的路径。<br>Simon后面随便来十五个字符。</p>
+<p>本人菜，哪里解释错了欢迎师傅们指出来。</p>
+<p>运行文件，在Simon后面随便来十五个字符再加上/bin/sh即可提权成功。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>提权成功，拿到最后一个flag。<br>至此，渗透结束。</p>
+<hr>
+<p>本人萌新一枚，不足之处希望师傅们可以指出来让我好好学习一下。<br>最后，感谢你看到这里~o(<em>￣︶￣</em>)o</p>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
   </entry>
   <entry>
     <title>靶机pWnOS:1.0渗透记录</title>
