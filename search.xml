@@ -179,6 +179,52 @@
       </tags>
   </entry>
   <entry>
+    <title>靶机Cheesey:Cheeseyjack渗透记录</title>
+    <url>/2021/07/22/Cheesey-Cheeseyjack/</url>
+    <content><![CDATA[<p>本来懒得写，但是写完搜了一下发现这个靶机的笔记比较少，就发出来供大家参考。<br>本人巨菜，轻喷。</p>
+<hr>
+<blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/">https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/</a></p>
+</blockquote>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Cheesey: Cheeseyjack×1<br>渗透机kali 2021.2×1 和靶机在同一网段</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机，看一下mac地址。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/1.png"><br>扫描内网，根据mac地址判断渗透靶机的ip。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/2.png"><br>nmap信息探测。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.134</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/3.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/4.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/5.png"></p>
+<span id="more"></span>
+<p>开了不少端口，先记着。web服务开着，先去瞅一眼<br><img src="/2021/07/22/Cheesey-Cheeseyjack/6.png"><br>随便点点，这个网页上还有一些信息，也要收集起来。<br>接下来试着用gobuster扫一下看看（基于go语言的扫描器，高速好用！）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/7.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/8.png"><br>扫到的地址去访问看一下<br>是后台登录界面<br><img src="/2021/07/22/Cheesey-Cheeseyjack/9.png"><br>这个目录藏着一个文档<br><img src="/2021/07/22/Cheesey-Cheeseyjack/10.png"><br>打开看一下<br><img src="/2021/07/22/Cheesey-Cheeseyjack/11.png"><br>吐槽密码设置的太简单了，应该就是弱口令。先把这个信息收集起来。<br>扫一下这个后台登录界面，看看有什么东西。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#x63;&#104;&#51;&#x33;&#115;&#51;&#x6d;&#52;&#x6e;&#x40;&#99;&#104;&#101;&#101;&#115;&#101;&#x79;&#106;&#x61;&#x63;&#x6b;&#x2e;&#108;&#x6f;&#x63;&#97;&#x6c;">&#x63;&#104;&#51;&#x33;&#115;&#51;&#x6d;&#52;&#x6e;&#x40;&#99;&#104;&#101;&#101;&#115;&#101;&#x79;&#106;&#x61;&#x63;&#x6b;&#x2e;&#108;&#x6f;&#x63;&#97;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
+<p>发现有两个用户，于是去crab那里看一下<br><img src="/2021/07/22/Cheesey-Cheeseyjack/22.png"><br>发现了一个todo.txt 打开获得了一点小提示</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. Scold cheese for weak qdpm password (done)</span><br><span class="line">2. Backup SSH keys to /var/backups</span><br><span class="line">3. Change cheese&#x27;s weak password</span><br><span class="line">4. Milk</span><br><span class="line">5. Eggs</span><br><span class="line">6. Stop putting my grocery list on my todo lists</span><br></pre></td></tr></table></figure>
+<p>直接枚举/var/backups的所有内容，发现里面有一个ssh的备份<br><img src="/2021/07/22/Cheesey-Cheeseyjack/23.png"><br>复制粘贴，然后放到文本里<br><img src="/2021/07/22/Cheesey-Cheeseyjack/24.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/25.png"><br>另开一个终端，修改权限，注意必须是600！<br>修改权限后，链接。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -i sshkey crab@192.168.55.134</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/26.png"><br>很明显接下来要提权了，直接<code>sudo -l</code><br><img src="/2021/07/22/Cheesey-Cheeseyjack/27.png"><br>可以发现/home/crab/.bin/就是突破点。crab可以用sudo在这个目录运行所有的内容<br><img src="/2021/07/22/Cheesey-Cheeseyjack/28.png"><br>确定目标后提权就简单了，把bash shell复制到这个目录下，以sudo临时运行 bash，就可以获得root权限了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp /bin/bash /home/crab/.bin/bash</span><br><span class="line">sudo /home/crab/.bin/bash -p</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/29.png"><br>导航到根目录,发现有个root.txt。打开即可获得flag<br><img src="/2021/07/22/Cheesey-Cheeseyjack/30.png"><br>至此，渗透结束。</p>
+<hr>
+<blockquote>
+<p>今天再大的事，到了明天就是小事；今年再大的事，到了明年就是故事。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CTFshow 萌新区杂项1-11</title>
     <url>/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/</url>
     <content><![CDATA[<p>CTFshow刷题合集之萌新杂项~</p>
@@ -211,52 +257,6 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>靶机Cheesey:Cheeseyjack渗透记录</title>
-    <url>/2021/07/22/Cheesey-Cheeseyjack/</url>
-    <content><![CDATA[<p>本来懒得写，但是写完搜了一下发现这个靶机的笔记比较少，就发出来供大家参考。<br>本人巨菜，轻喷。</p>
-<hr>
-<blockquote>
-<p>下载地址：<a href="https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/">https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/</a></p>
-</blockquote>
-<hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Cheesey: Cheeseyjack×1<br>渗透机kali 2021.2×1 和靶机在同一网段</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机，看一下mac地址。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/1.png"><br>扫描内网，根据mac地址判断渗透靶机的ip。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/2.png"><br>nmap信息探测。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/3.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/4.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/5.png"></p>
-<span id="more"></span>
-<p>开了不少端口，先记着。web服务开着，先去瞅一眼<br><img src="/2021/07/22/Cheesey-Cheeseyjack/6.png"><br>随便点点，这个网页上还有一些信息，也要收集起来。<br>接下来试着用gobuster扫一下看看（基于go语言的扫描器，高速好用！）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/7.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/8.png"><br>扫到的地址去访问看一下<br>是后台登录界面<br><img src="/2021/07/22/Cheesey-Cheeseyjack/9.png"><br>这个目录藏着一个文档<br><img src="/2021/07/22/Cheesey-Cheeseyjack/10.png"><br>打开看一下<br><img src="/2021/07/22/Cheesey-Cheeseyjack/11.png"><br>吐槽密码设置的太简单了，应该就是弱口令。先把这个信息收集起来。<br>扫一下这个后台登录界面，看看有什么东西。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#99;&#x68;&#x33;&#51;&#x73;&#x33;&#109;&#x34;&#110;&#64;&#99;&#104;&#101;&#x65;&#x73;&#x65;&#121;&#x6a;&#97;&#99;&#107;&#46;&#x6c;&#111;&#99;&#97;&#x6c;">&#99;&#x68;&#x33;&#51;&#x73;&#x33;&#109;&#x34;&#110;&#64;&#99;&#104;&#101;&#x65;&#x73;&#x65;&#121;&#x6a;&#97;&#99;&#107;&#46;&#x6c;&#111;&#99;&#97;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
-<p>发现有两个用户，于是去crab那里看一下<br><img src="/2021/07/22/Cheesey-Cheeseyjack/22.png"><br>发现了一个todo.txt 打开获得了一点小提示</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. Scold cheese for weak qdpm password (done)</span><br><span class="line">2. Backup SSH keys to /var/backups</span><br><span class="line">3. Change cheese&#x27;s weak password</span><br><span class="line">4. Milk</span><br><span class="line">5. Eggs</span><br><span class="line">6. Stop putting my grocery list on my todo lists</span><br></pre></td></tr></table></figure>
-<p>直接枚举/var/backups的所有内容，发现里面有一个ssh的备份<br><img src="/2021/07/22/Cheesey-Cheeseyjack/23.png"><br>复制粘贴，然后放到文本里<br><img src="/2021/07/22/Cheesey-Cheeseyjack/24.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/25.png"><br>另开一个终端，修改权限，注意必须是600！<br>修改权限后，链接。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -i sshkey crab@192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/26.png"><br>很明显接下来要提权了，直接<code>sudo -l</code><br><img src="/2021/07/22/Cheesey-Cheeseyjack/27.png"><br>可以发现/home/crab/.bin/就是突破点。crab可以用sudo在这个目录运行所有的内容<br><img src="/2021/07/22/Cheesey-Cheeseyjack/28.png"><br>确定目标后提权就简单了，把bash shell复制到这个目录下，以sudo临时运行 bash，就可以获得root权限了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp /bin/bash /home/crab/.bin/bash</span><br><span class="line">sudo /home/crab/.bin/bash -p</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/29.png"><br>导航到根目录,发现有个root.txt。打开即可获得flag<br><img src="/2021/07/22/Cheesey-Cheeseyjack/30.png"><br>至此，渗透结束。</p>
-<hr>
-<blockquote>
-<p>今天再大的事，到了明天就是小事；今年再大的事，到了明年就是故事。</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
       </tags>
   </entry>
   <entry>
@@ -478,45 +478,6 @@
       </tags>
   </entry>
   <entry>
-    <title>靶机DC-5的渗透记录</title>
-    <url>/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>【未完成，以我现在的水平后半部分解决不了，随缘填坑更新】<br>重保期间，在学校当义工。除了盯着屏幕发呆，也没别的事。于是尝试通过靶机渗透学点东西。<br>顺便发现了靶机作者的个人主页。等DC系列结束之后就去尝试一下新系列（挖坑ing）</p>
-<blockquote>
-<p>下载地址：<a href="https://www.vulnhub.com/entry/dc-5,314/">https://www.vulnhub.com/entry/dc-5,314/</a></p>
-</blockquote>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021<br>靶机DC-5×1  网络连接模式：NAT模式<br>老生常谈——所有引擎</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
-<span id="more"></span>
-<p>扫描内网</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>通过mac地址确定靶机后上nmap</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.139</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>80端口开着，去访问一下</p>
-<h2 id="利用文件包含漏洞打nc反弹shell"><a href="#利用文件包含漏洞打nc反弹shell" class="headerlink" title="利用文件包含漏洞打nc反弹shell"></a>利用文件包含漏洞打nc反弹shell</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>在Contact下面发现了提交表格，那么我们的注意力就要放在这里了<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>随便提交了几回发现了一些问题 提交的内容会直接呈现在url里<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>不仅如此 这时间也有些问题<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>查看源码，发现了footer.php 于是去访问了一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>看样子应该是一处漏洞呀在thankuyou.php上也出现了这个问题<br>大概率是存在文件包含漏洞了<br>【这里其实一开始没注意到，后来发现了作者的个人主页，上面给了点小hint】</p>
-<blockquote>
-<p>作者five86的个人主页&gt; <a href="https://www.five86.com/dc-5.html">https://www.five86.com/dc-5.html</a></p>
-</blockquote>
-<p>访问url/thankyou.php?file=/etc/passwd<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>果然存在！ 至于我怎么知道的嘛……感觉+试出来的 这里其实可以考虑用Burp Suite或者Wfuzz遍历枚举一下<br>但是考虑只是个靶机 就试着摸了几下 一个靶机而已干嘛这么麻烦（）<br>根据之前的经验，我们已经知道这是Nginx服务器。在网站上的每一步操作都将会被写入日志文件log内，因此我们可以在这里尝试拿 shell<br>插一嘴，还可以使用Wappalyzer插件进行信息收集<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>先写进去个phpinfo()看一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>看来是可以的，那就直接写入一句话<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>开始打反弹shell 开启端口</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 7777</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>转换为交互式shell</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<p>这个命令可以查找需要root权限才可运行的文件<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>用searchsploit命令搜索screen-4.5.0<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>【利用不成功，我不会了。网上看了看别人写的发现还需要编译。对于我这个菜鸟来说实属超纲，先放一放吧，以后水平提升在转过头来解决掉。】</p>
-<hr>
-<blockquote>
-<p>鲤鱼不跃，岂可成龙？大鹏驻足，焉能腾空？人生能有几回搏，此时不搏何时搏？</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>靶机DC-4的渗透记录</title>
     <url>/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>之前忙比赛，忙期末，没怎么好好学习。这几天全都补回来。</p>
@@ -568,6 +529,68 @@
       </tags>
   </entry>
   <entry>
+    <title>靶机DC-5的渗透记录</title>
+    <url>/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>【未完成，以我现在的水平后半部分解决不了，随缘填坑更新】<br>重保期间，在学校当义工。除了盯着屏幕发呆，也没别的事。于是尝试通过靶机渗透学点东西。<br>顺便发现了靶机作者的个人主页。等DC系列结束之后就去尝试一下新系列（挖坑ing）</p>
+<blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/dc-5,314/">https://www.vulnhub.com/entry/dc-5,314/</a></p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021<br>靶机DC-5×1  网络连接模式：NAT模式<br>老生常谈——所有引擎</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
+<span id="more"></span>
+<p>扫描内网</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>通过mac地址确定靶机后上nmap</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.139</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>80端口开着，去访问一下</p>
+<h2 id="利用文件包含漏洞打nc反弹shell"><a href="#利用文件包含漏洞打nc反弹shell" class="headerlink" title="利用文件包含漏洞打nc反弹shell"></a>利用文件包含漏洞打nc反弹shell</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>在Contact下面发现了提交表格，那么我们的注意力就要放在这里了<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>随便提交了几回发现了一些问题 提交的内容会直接呈现在url里<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>不仅如此 这时间也有些问题<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>查看源码，发现了footer.php 于是去访问了一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>看样子应该是一处漏洞呀在thankuyou.php上也出现了这个问题<br>大概率是存在文件包含漏洞了<br>【这里其实一开始没注意到，后来发现了作者的个人主页，上面给了点小hint】</p>
+<blockquote>
+<p>作者five86的个人主页&gt; <a href="https://www.five86.com/dc-5.html">https://www.five86.com/dc-5.html</a></p>
+</blockquote>
+<p>访问url/thankyou.php?file=/etc/passwd<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>果然存在！ 至于我怎么知道的嘛……感觉+试出来的 这里其实可以考虑用Burp Suite或者Wfuzz遍历枚举一下<br>但是考虑只是个靶机 就试着摸了几下 一个靶机而已干嘛这么麻烦（）<br>根据之前的经验，我们已经知道这是Nginx服务器。在网站上的每一步操作都将会被写入日志文件log内，因此我们可以在这里尝试拿 shell<br>插一嘴，还可以使用Wappalyzer插件进行信息收集<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>先写进去个phpinfo()看一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>看来是可以的，那就直接写入一句话<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>开始打反弹shell 开启端口</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 7777</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>转换为交互式shell</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p>这个命令可以查找需要root权限才可运行的文件<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>用searchsploit命令搜索screen-4.5.0<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>【利用不成功，我不会了。网上看了看别人写的发现还需要编译。对于我这个菜鸟来说实属超纲，先放一放吧，以后水平提升在转过头来解决掉。】</p>
+<hr>
+<blockquote>
+<p>鲤鱼不跃，岂可成龙？大鹏驻足，焉能腾空？人生能有几回搏，此时不搏何时搏？</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>靶机DC-7的渗透记录</title>
+    <url>/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/dc-7,356/">https://www.vulnhub.com/entry/dc-7,356/</a></p>
+</blockquote>
+<hr>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>靶机DC-7×1  网络为NAT模式<br>渗透机kali 2021.2×1  和DC-7在同一网段</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机，ip已经给出来了。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>直接nmap扫。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>web开着，看一下。<br>用的Drupal 8<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"></p>
+<span id="more"></span>
+<p>网页上面给小提示，尝试暴力破解是行不通的，那就取巧。<br>发现网页下方的@DC7USER，百度到了github仓库。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>把仓库下载下来<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>查看config.php文件<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>拿到了用户名密码<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>试了一下，是ssh的密码<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
+<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p>ls看一下当前目录 发现有个邮件。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>这里应该是记录下来执行了什么操作，然后文件存放在了backups目录里。<br>总之先去看一眼。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>不出意外，接下来可能要利用这里，但是没啥思路，暂且放着百度一波drush是什么东西。<br>结果……<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>我这应该属于歪打正着了吧（）<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>改完密码直接登录进去。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>发现有个写文章的地方，上一句话<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>没法不能执行php脚本<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>有丶小问题，不过问题不大。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>drupal是php语言写的，怎么可以不支持呢？<br>Drupal 7引用了PHP filter模块，这个模块在新安装后是默认禁用的。<br>但是在这里的Drupal 8没有看到，可能是需要另外安装。<br>去官网找了一波，找到了拓展包。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>下载之后，把压缩包上传上去安装即可。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>别忘了勾选PHP filter<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>写文章（×）<br>一句话（√）<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>真离谱呀，火绒报毒，我提交的这个页面怎么说都不让我打开。只能先把火绒关了<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>一句话写好了，直接上蚁剑<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>打开蚁剑的终端，准备打一波反弹shell<br>kali这边开启监听  蚁剑打开的终端主动连<br>然后kali这边用python环境打出交互式shell<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>虽然我们不是root权限，但是我们还是可以更改backups.sh<br>这里思路挺多的，比如用这个尝试写个root权限的用户进去<br>也可以在里面写一个反弹shell。这里我选择接着打反弹shell<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>写好之后再开个窗口等着<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"><br>要记着把之前的那个关掉，不然一只占用着，这里是连不上的，等好久才发现原来没关，白等好久= =<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/26.png"><br>提权成功，获得flag。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"><br>渗透结束。</p>
+<hr>
+<blockquote>
+<p>何必喜一时得意，何必悲一时败挫。</p>
+</blockquote>
+<hr>
+]]></content>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>靶机Dina: 1.0.1渗透记录</title>
     <url>/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<blockquote>
@@ -602,29 +625,6 @@
     <title>靶机covfefe: 1渗透记录</title>
     <url>/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>靶机DC-7的渗透记录</title>
-    <url>/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<blockquote>
-<p>下载地址：<a href="https://www.vulnhub.com/entry/dc-7,356/">https://www.vulnhub.com/entry/dc-7,356/</a></p>
-</blockquote>
-<hr>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>靶机DC-7×1  网络为NAT模式<br>渗透机kali 2021.2×1  和DC-7在同一网段</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机，ip已经给出来了。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>直接nmap扫。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>web开着，看一下。<br>用的Drupal 8<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"></p>
-<span id="more"></span>
-<p>网页上面给小提示，尝试暴力破解是行不通的，那就取巧。<br>发现网页下方的@DC7USER，百度到了github仓库。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>把仓库下载下来<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>查看config.php文件<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>拿到了用户名密码<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>试了一下，是ssh的密码<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
-<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p>ls看一下当前目录 发现有个邮件。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>这里应该是记录下来执行了什么操作，然后文件存放在了backups目录里。<br>总之先去看一眼。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>不出意外，接下来可能要利用这里，但是没啥思路，暂且放着百度一波drush是什么东西。<br>结果……<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>我这应该属于歪打正着了吧（）<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>改完密码直接登录进去。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>发现有个写文章的地方，上一句话<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>没法不能执行php脚本<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>有丶小问题，不过问题不大。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>drupal是php语言写的，怎么可以不支持呢？<br>Drupal 7引用了PHP filter模块，这个模块在新安装后是默认禁用的。<br>但是在这里的Drupal 8没有看到，可能是需要另外安装。<br>去官网找了一波，找到了拓展包。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>下载之后，把压缩包上传上去安装即可。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>别忘了勾选PHP filter<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>写文章（×）<br>一句话（√）<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>真离谱呀，火绒报毒，我提交的这个页面怎么说都不让我打开。只能先把火绒关了<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>一句话写好了，直接上蚁剑<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>打开蚁剑的终端，准备打一波反弹shell<br>kali这边开启监听  蚁剑打开的终端主动连<br>然后kali这边用python环境打出交互式shell<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>虽然我们不是root权限，但是我们还是可以更改backups.sh<br>这里思路挺多的，比如用这个尝试写个root权限的用户进去<br>也可以在里面写一个反弹shell。这里我选择接着打反弹shell<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>写好之后再开个窗口等着<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"><br>要记着把之前的那个关掉，不然一只占用着，这里是连不上的，等好久才发现原来没关，白等好久= =<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/26.png"><br>提权成功，获得flag。<br><img src="/2021/08/07/%E9%9D%B6%E6%9C%BADC-7%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"><br>渗透结束。</p>
-<hr>
-<blockquote>
-<p>何必喜一时得意，何必悲一时败挫。</p>
-</blockquote>
-<hr>
-]]></content>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
   </entry>
   <entry>
     <title>靶机pWnOS:1.0渗透记录</title>
