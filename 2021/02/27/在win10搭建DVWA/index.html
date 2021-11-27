@@ -20,44 +20,37 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="很适合初学者的靶机，来尝试一下。  下载地址：https:&#x2F;&#x2F;www.vulnhub.com&#x2F;entry&#x2F;hacksudo-aliens,676&#x2F;   准备靶机hacksudo: aliens×1渗透机Kali Linux2021.2×1  和靶机在同一网段 信息搜集打开靶机确定靶机mac地址扫描内网 1arp-scan -l 判断靶机ip之后用nmap进行信息探测 1nmap -sS -sV -">
+  <meta name="description" content="搭建DVWA漏洞环境下载phpstudy或wamp，我用的是phpstudy2018（此处感谢我的一位同学，很早就给我点到这里了，十分感谢！）打开phpstudy，启动Apache和MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="靶机hacksudo: aliens渗透记录">
-<meta property="og:url" content="http://example.com/2021/07/31/hacksudo-aliens/index.html">
+<meta property="og:title" content="在win10搭建DVWA">
+<meta property="og:url" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/index.html">
 <meta property="og:site_name" content="各种write up">
-<meta property="og:description" content="很适合初学者的靶机，来尝试一下。  下载地址：https:&#x2F;&#x2F;www.vulnhub.com&#x2F;entry&#x2F;hacksudo-aliens,676&#x2F;   准备靶机hacksudo: aliens×1渗透机Kali Linux2021.2×1  和靶机在同一网段 信息搜集打开靶机确定靶机mac地址扫描内网 1arp-scan -l 判断靶机ip之后用nmap进行信息探测 1nmap -sS -sV -">
+<meta property="og:description" content="搭建DVWA漏洞环境下载phpstudy或wamp，我用的是phpstudy2018（此处感谢我的一位同学，很早就给我点到这里了，十分感谢！）打开phpstudy，启动Apache和MySQL">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/1.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/2.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/3.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/4.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/5.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/6.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/7.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/8.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/9.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/10.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/11.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/12.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/13.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/14.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/15.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/16.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/17.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/18.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/19.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/20.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/21.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/22.png">
-<meta property="og:image" content="http://example.com/2021/07/31/hacksudo-aliens/23.png">
-<meta property="article:published_time" content="2021-07-30T17:17:32.000Z">
-<meta property="article:modified_time" content="2021-08-08T03:29:38.816Z">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.1.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.2.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.3.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.4.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.5.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.6.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.65.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.7.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.8.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.9.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.0.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.1.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.2.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.3.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.4.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.5.png">
+<meta property="article:published_time" content="2021-02-27T13:25:56.000Z">
+<meta property="article:modified_time" content="2021-03-23T02:19:30.491Z">
 <meta property="article:author" content="Reigniting">
-<meta property="article:tag" content="靶机渗透记录">
+<meta property="article:tag" content="Web安全学习记录">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/07/31/hacksudo-aliens/1.png">
+<meta name="twitter:image" content="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.1.png">
 
-<link rel="canonical" href="http://example.com/2021/07/31/hacksudo-aliens/">
+<link rel="canonical" href="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/">
 
 
 <script id="page-configurations">
@@ -70,7 +63,7 @@
   };
 </script>
 
-  <title>靶机hacksudo: aliens渗透记录 | 各种write up</title>
+  <title>在win10搭建DVWA | 各种write up</title>
   
 
 
@@ -218,7 +211,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/31/hacksudo-aliens/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -231,7 +224,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          靶机hacksudo: aliens渗透记录
+          在win10搭建DVWA
         </h1>
 
         <div class="post-meta">
@@ -241,15 +234,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-07-31 01:17:32" itemprop="dateCreated datePublished" datetime="2021-07-31T01:17:32+08:00">2021-07-31</time>
+              <time title="创建时间：2021-02-27 21:25:56" itemprop="dateCreated datePublished" datetime="2021-02-27T21:25:56+08:00">2021-02-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-08 11:29:38" itemprop="dateModified" datetime="2021-08-08T11:29:38+08:00">2021-08-08</time>
+                <time title="修改时间：2021-03-23 10:19:30" itemprop="dateModified" datetime="2021-03-23T10:19:30+08:00">2021-03-23</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">Web安全学习记录</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -257,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>700</span>
+              <span>861</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -276,28 +278,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>很适合初学者的靶机，来尝试一下。</p>
-<blockquote>
-<p>下载地址：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/hacksudo-aliens,676/">https://www.vulnhub.com/entry/hacksudo-aliens,676/</a></p>
-</blockquote>
+        <h2 id="搭建DVWA漏洞环境"><a href="#搭建DVWA漏洞环境" class="headerlink" title="搭建DVWA漏洞环境"></a>搭建DVWA漏洞环境</h2><p>下载phpstudy或wamp，我用的是phpstudy2018（此处感谢我的一位同学，很早就给我点到这里了，十分感谢！）<br>打开phpstudy，启动Apache和MySQL<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.1.png"></p>
+<span id="more"></span>  
+<p>然后进入phpadmin<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.2.png"><br>phpmyadmin数据库管理工具的用户名和密码默认都为root<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.3.png"><br>点击数据库，创建名为DVWA的数据库<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.4.png"><br>想查看的话可以通过phpstudy打开数据库存所对应的文件夹<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.5.png"><br>下载dvwa的zip包，解压放置到\phpStudy\PHPTutorial\WWW<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.6.png"><br>然后进入\PHPTutorial\WWW\DVWA-master\config  找到文件config.inc.php.dist<br>复制粘贴一份并将其名称改为config.inc.php【将.dist去掉即可】<br>进去修改配置，修改后如下：<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.65.png"><br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.7.png"><br>保存之后打开浏览器，地址栏输入127.0.0.1/DVWA-master/setup.php<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.8.png"><br>在这里需要看看Setup Check中是否有红色字体的Disabled<br>如果有，需要把问题解决才可以Create/reset database<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.9.png"><br>比如我这里就出问题了。PHP function allow_url_include:disabled<br>解决方法：先进入指定目录<br>选择自己版本的文件夹，我这里是php-5.4.45<br>打开后找到php.int并进行修改<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.0.png"><br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.1.png"><br>修改后如下：<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.2.png"><br>修改后在浏览器打开127.0.0.1/DVWA-master/setup.php<br>问题解决了<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.3.png"><br>点击Create/reset database会自动跳转到DVWA的登录界面<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.4.png"><br>默认用户名：admin  密码：password<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.5.png"><br>登录成功，部署成功！</p>
 <hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机hacksudo: aliens×1<br>渗透机Kali Linux2021.2×1  和靶机在同一网段</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2021/07/31/hacksudo-aliens/1.png"><br>确定靶机mac地址<br><img src="/2021/07/31/hacksudo-aliens/2.png"><br>扫描内网</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/31/hacksudo-aliens/3.png"><br>判断靶机ip之后用nmap进行信息探测</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.131</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/31/hacksudo-aliens/4.png"><br>web服务开着，去看一下<br><img src="/2021/07/31/hacksudo-aliens/5.png"><br>随意点了点，没找到什么东西，用dirb扫一下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http://192.168.55.131/</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/31/hacksudo-aliens/6.png"><br>发现有个/backup目录，去看一眼。<br><img src="/2021/07/31/hacksudo-aliens/7.png"><br>里面有个数据库备份文件，打开获得密码。<br><img src="/2021/07/31/hacksudo-aliens/8.png"><br>namap探测到还有一个网页，是phpMyAdmin后台登录界面。<br><img src="/2021/07/31/hacksudo-aliens/9.png"><br>把刚才收集到的账号密码输进去。<br><img src="/2021/07/31/hacksudo-aliens/10.png"><br>找到用户表，虽然密码都是加密过的，不过加密后的密文里发现root用户和我们是一样的，换成root登录进去。</p>
-<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p><img src="/2021/07/31/hacksudo-aliens/11.png"><br>查看文件写入权限<code>secure_file_priv</code>，如果参数为空，就可以任意写入<br>这里可以看到，是空的。<br><img src="/2021/07/31/hacksudo-aliens/12.png"><br>写入一句话。<br><img src="/2021/07/31/hacksudo-aliens/13.png"><br>蚁剑链接。<br><img src="/2021/07/31/hacksudo-aliens/14.png"><br>配合kali打一波nc反弹shell<br>链接成功之后尝试提权。<br><img src="/2021/07/31/hacksudo-aliens/15.png"></p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>查找suid权限文件。<br><img src="/2021/07/31/hacksudo-aliens/16.png"></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://gtfobins.github.io/">https://gtfobins.github.io/</a></p>
-</blockquote>
-<p>查找了一番，date程序可以用于提权。<br>成功读取/etc/shadow<br><img src="/2021/07/31/hacksudo-aliens/17.png"><br><img src="/2021/07/31/hacksudo-aliens/18.png"><br>找到了hacksudo的密文，使用工具john进行破解。<br><img src="/2021/07/31/hacksudo-aliens/19.png"><br>切换到用户hacksudo。<br><img src="/2021/07/31/hacksudo-aliens/20.png"><br>跟刚才一样，查找suid权限文件。<br><img src="/2021/07/31/hacksudo-aliens/21.png"><br>发现cpulimit程序可用于提权。<br><img src="/2021/07/31/hacksudo-aliens/22.png"><br>参考网站进行提权。<br><img src="/2021/07/31/hacksudo-aliens/23.png"><br>提权成功。进入/root即可读取flag</p>
+<p>我真的适合这条路吗？我不知道<br>一直往前走，就适合了吧<br>2021年3月1日，有件事我可能会记很久，我本来在外面散心情。在外面的时候师傅突然问我要不要学东西，我立马跑回来家打开电脑。事后我觉得很震惊，而且心里酸酸的。时不时有人来问我学习视频看到哪里了，或者打ctf，有人问我博客的事，有人跟我分享学习……他们也给了我动力。<br>接下来，还有很长的路要走<br>加油</p>
 <hr>
 <blockquote>
-<p>相识虽浅，似是经年。静守时光，以待流年。</p>
+<p>我希望我希望的有希望</p>
 </blockquote>
 <hr>
 
@@ -309,7 +297,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 靶机渗透记录</a>
+              <a href="/tags/Web%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> Web安全学习记录</a>
           </div>
 
         
@@ -318,12 +306,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/07/22/Cheesey-Cheeseyjack/" rel="prev" title="靶机Cheesey:Cheeseyjack渗透记录">
-      <i class="fa fa-chevron-left"></i> 靶机Cheesey:Cheeseyjack渗透记录
+    <a href="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/" rel="prev" title="CTFshow萌新区密码+隐写">
+      <i class="fa fa-chevron-left"></i> CTFshow萌新区密码+隐写
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" rel="next" title="靶机pWnOS:1.0渗透记录">
-      靶机pWnOS:1.0渗透记录 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/03/07/CTFshow-Web%E5%85%A5%E9%97%A8-%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%861-20/" rel="next" title="CTFshow-Web入门-信息搜集1-20">
+      CTFshow-Web入门-信息搜集1-20 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -383,7 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">信息搜集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">渗透测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E6%9D%83"><span class="nav-number">4.</span> <span class="nav-text">提权</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BADVWA%E6%BC%8F%E6%B4%9E%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">搭建DVWA漏洞环境</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
