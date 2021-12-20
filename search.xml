@@ -645,7 +645,31 @@
   <entry>
     <title>靶机Hemisphere-Gemini渗透记录</title>
     <url>/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>准备<br>靶机Hemisphere-Gemini×1<br>渗透机kali 2021.2×1 和靶机在同一网段<br>如果网卡不一致还需要先改一下靶机网卡<br>靶机很简单很简单，放轻松~</p>
+<p>信息搜集<br>打开靶机</p>
+<p>老规矩，首先要确定靶机ip。先看mac地址是多少</p>
+<p>然后扫描确定ip<br>arp-scan -l</p>
+<p>确定ip之后用nmap进行更深层次的信息探测<br>nmap -sS -sV -A -Pn -n -p- 192.168.155.163</p>
+<p>80端口开着，可以先访问一下网页</p>
+<p>点了点没什么东西，那就在扫一下目录<br>gobuster dir -u  <a href="http://192.168.155.163/">http://192.168.155.163/</a> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50</p>
+<p>访问/Portal 又是一个页面，先点点</p>
+<p>渗透测试<br>（靶机有些简单，但也要把步骤明确好，勿喷勿喷）<br>第一种思路：<br>观察一下url<br>Sobre nosotros</p>
+<p>Contacto</p>
+<p>url后面的参数是view=文件 感觉可能是cat xxx<br>可能存在存在本地文件注入 (LFI)漏洞<br>手动测试了两下，果然！</p>
+<p>看到了一个名字叫wlliam的普通用户，尝试了一会，发现到了ssh备份文件</p>
+<p>好，上kali!<br>把id_rsa的内容保存在一个文件里，然后修改权限为600<br>这样就可以ssh链接了</p>
+<p>查看user.txt 获得第一个flag</p>
+<p>第二种思路：<br>之前nmap搜集到了smb服务的信息<br>接着信息搜集<br>enum4linux 192.168.155.163</p>
+<p>扫描后得到了一个名为william的账户<br>smb服务是开放的，我们还可以趁着这个机会去爆破密码</p>
+<p>（这是第二种思路，放在此处仅仅为了提供一种思路）</p>
+<p>提权<br>接下来就要提权了<br>find / -perm -u=s -type f 2&gt;/dev/null</p>
+<p>/etc/passwd倒是第一见，看一下权限</p>
+<p>所有用户都有读写执行权限，那我们可以生成一个用户密码写入/etc/passwd</p>
+<p>openssl passwd -1 -salt reigniting 123456</p>
+<p>echo ‘reigniting:$1$reigniti$xfzUaIQTdvQl8beISQhxk/:0:0:reigniting:/home/reigniting:/bin/bash’ &gt;&gt; /etc/passwd</p>
+<p>用户添加成功，接着su reigniting</p>
+<p>提权成功，获得第二flag<br>至此，渗透结束</p>
+]]></content>
   </entry>
   <entry>
     <title>靶机covfefe: 1渗透记录</title>
@@ -768,6 +792,99 @@
 ]]></content>
       <tags>
         <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Red Hat 7配置samba服务器</title>
+    <url>/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<p>是Linux学习，也是社团作业。<br>因为要求到点交，就认真的写了一下。<br>挺简单的，完全没啥需要注意的<br>学长给的步骤好多，有的感觉没必要，但还是照着操作了</p>
+<blockquote>
+<p>Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置“NetBIOS over TCP/IP”使得Samba不但能与局域网络主机分享资源，还能与全世界的电脑分享资源。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="打开物理机-修改IP地址"><a href="#打开物理机-修改IP地址" class="headerlink" title="打开物理机 修改IP地址"></a>打开物理机 修改IP地址</h2><p>物理机Win+R打开cmd  输入ipconfig查看当前ip<br>我们的虚拟机只需要和物理机配在同一网段就可以了</p>
+<h2 id="打开虚拟机-修改IP地址"><a href="#打开虚拟机-修改IP地址" class="headerlink" title="打开虚拟机 修改IP地址"></a>打开虚拟机 修改IP地址</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/1.png"><br>进入vi模式后，按i开始编辑，变化前后如下</p>
+<h4 id="编辑前"><a href="#编辑前" class="headerlink" title="编辑前"></a>编辑前</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/2.png"></p>
+<h4 id="编辑后"><a href="#编辑后" class="headerlink" title="编辑后"></a>编辑后</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/3.png"></p>
+<p>按ESC退出编辑 shift+:（冒号）至底部并输入wq后回车即可保存</p>
+<h2 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建挂载点"><a href="#创建挂载点" class="headerlink" title="创建挂载点"></a>创建挂载点</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br></pre></td></tr></table></figure>
+
+<h2 id="链接光盘"><a href="#链接光盘" class="headerlink" title="链接光盘"></a>链接光盘</h2><p>点击vm左下角光盘图标即可<br><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/4.png"></p>
+<h2 id="挂载光盘"><a href="#挂载光盘" class="headerlink" title="挂载光盘"></a>挂载光盘</h2><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/5.png"></p>
+<h2 id="创建本地yum源"><a href="#创建本地yum源" class="headerlink" title="创建本地yum源"></a>创建本地yum源</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/yum.repos.d/dev.repo</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/6.png"></p>
+<h2 id="清理yum源"><a href="#清理yum源" class="headerlink" title="清理yum源"></a>清理yum源</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/7.png"></p>
+<h2 id="安装samba"><a href="#安装samba" class="headerlink" title="安装samba"></a>安装samba</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y install samba</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/8.png"><br><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/8.1.png"></p>
+<h2 id="配置samba的配置文件"><a href="#配置samba的配置文件" class="headerlink" title="配置samba的配置文件"></a>配置samba的配置文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/samba/smb.conf</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置前："><a href="#配置前：" class="headerlink" title="配置前："></a>配置前：</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/9.png"></p>
+<h4 id="配置后："><a href="#配置后：" class="headerlink" title="配置后："></a>配置后：</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/10.png"></p>
+<h2 id="创建共享位置并设置权限"><a href="#创建共享位置并设置权限" class="headerlink" title="创建共享位置并设置权限"></a>创建共享位置并设置权限</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /opt/share</span><br><span class="line">chmod 777 /opt/share</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/11.png"></p>
+<h2 id="创建smb用户"><a href="#创建smb用户" class="headerlink" title="创建smb用户"></a>创建smb用户</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">smbpasswd -a 用户名</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/12.png"> </p>
+<h2 id="重启samba服务"><a href="#重启samba服务" class="headerlink" title="重启samba服务"></a>重启samba服务</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service smb restart</span><br><span class="line">service nmb restart</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/13.png"></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>物理机打开我的电脑 输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\\虚拟机的IP地址</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/14.png"><br>输入在虚拟机里设置的用户名和密码即可<br><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/15.png"></p>
+<hr>
+<blockquote>
+<p>没有比人更高的山,没有比脚更长的路</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>Linux学习记录</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RedHat7 DHCP服务器配置</title>
+    <url>/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<p>社团作业 没有难度</p>
+<blockquote>
+<p>DHCP（动态主机配置协议）是一个局域网的网络协议。指的是由服务器控制一段IP地址范围，客户机登录服务器时就可以自动获得服务器分配的IP地址和子网掩码。担任DHCP服务器的计算机需要安装TCP/IP协议，并为其设置静态IP地址、子网掩码、默认网关等内容。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="创建挂载点"><a href="#创建挂载点" class="headerlink" title="创建挂载点"></a>创建挂载点</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/1.png"></p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/yum.repos.d/dev.repo</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[dvd]</span><br><span class="line">name = dvd</span><br><span class="line">baseurl = file:///mnt/cdrom</span><br><span class="line">gpgcheck = 0</span><br><span class="line">enabled = 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置IP"><a href="#配置IP" class="headerlink" title="配置IP"></a>配置IP</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/3.png"></p>
+<h2 id="关闭selinux和防火墙"><a href="#关闭selinux和防火墙" class="headerlink" title="关闭selinux和防火墙"></a>关闭selinux和防火墙</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">setenforce 0</span><br><span class="line">getenforce</span><br><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/4.png"></p>
+<blockquote>
+<p>DHCP工作流程：<br>1 客户端发送广播向服务器申请IP地址<br>2 服务器收到请求后查看主配置文件dhcpd.conf，先根据客户端的mac地址查看是否为客户端设置了固定的IP地址<br>3 如果为客户端设置了固定的IP地址，则将该IP地址发送给客户端。如果没有设置固定IP地址，则将地址池中的IP地址发送给客户端。<br>4 客户端收到服务器回应后，客户端给与服务器回应，告诉已经使用了分配的IP地址。<br>5 服务器将相关租约信息存入数据库</p>
+</blockquote>
+<h2 id="安装DHCP"><a href="#安装DHCP" class="headerlink" title="安装DHCP"></a>安装DHCP</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y install dhcp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/5.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf</span><br></pre></td></tr></table></figure>
+<h2 id="修改dhcpd-conf-主配置文件"><a href="#修改dhcpd-conf-主配置文件" class="headerlink" title="修改dhcpd.conf 主配置文件"></a>修改dhcpd.conf 主配置文件</h2><p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/6.png"><br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/7.png"><br>将另一台虚拟机配置为DHCP自动获取IP<br>关闭VMware软件自带的DHCP功能<br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/8.jpg"></p>
+<h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart dhcpd</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/9.png"></p>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开另一台虚拟机（Linux/windows），网卡改成vmnet8，把IP地址调成自动获取（dhcp），然后重启网络服务器。然后IP就应该自动获取了。<br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/10.jpg"><br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/11.jpg"><br>这样就算完成了</p>
+<hr>
+<blockquote>
+<p>对深海的恐惧，对深海的向往，人类源自海洋，我们回不去的故乡。​</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>Linux学习记录</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
 </search>
