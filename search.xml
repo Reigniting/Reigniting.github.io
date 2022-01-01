@@ -906,7 +906,11 @@
 <span id="more"></span>
 <p>顺便看了看phpinfo的信息，是lxd容器<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
 <blockquote>
-<p>科普<a href="https://www.linuxprobe.com/lxd-2-0-introduce.html">https://www.linuxprobe.com/lxd-2-0-introduce.html</a><br>再回到index.php这里 我们访问这里就会显示ls -al的结果，是不是有可能存在漏洞呢？<br>用wfuzz测试一下<br>wfuzz是一款Python开发的Web安全模糊测试工具。可以用在做请求参数参数类的模糊测试，也可以用来做Web目录扫描等操作。</p>
+<p>科普<a href="https://www.linuxprobe.com/lxd-2-0-introduce.html">https://www.linuxprobe.com/lxd-2-0-introduce.html</a></p>
+</blockquote>
+<p>再回到index.php这里 我们访问这里就会显示ls -al的结果，是不是有可能存在漏洞呢？<br>用wfuzz测试一下</p>
+<blockquote>
+<p>wfuzz是一款Python开发的Web安全模糊测试工具。可以用在做请求参数参数类的模糊测试，也可以用来做Web目录扫描等操作。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wfuzz -w /usr/share/dirb/wordlists/common.txt  -u &#x27;http://192.168.155.157/index.php?FUZZ=1&#x27;</span><br></pre></td></tr></table></figure>
 <p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
