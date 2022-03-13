@@ -947,7 +947,7 @@
     <title>蓝桥杯刷题记录</title>
     <url>/2022/02/13/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>花了300“大洋”，怎么说也得拿个奖回来吧<br>这里记录一下刷题记录，从易到难，从0到1，顺便学一学Python<br>祝各位师傅题题AC</p>
-<h3 id="超级玛丽游戏"><a href="#超级玛丽游戏" class="headerlink" title="超级玛丽游戏"></a>超级玛丽游戏</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(&#x27;&#x27;&#x27;                ********</span><br><span class="line">              ************</span><br><span class="line">               ####....#.</span><br><span class="line">             #..###.....##....</span><br><span class="line">             ###.......######              ###            ###</span><br><span class="line">                ...........               #...#          #...#</span><br><span class="line">               ##*#######                 #.#.#          #.#.#</span><br><span class="line">            ####*******######             #.#.#          #.#.#</span><br><span class="line">           ...#***.****.*###....          #...#          #...#</span><br><span class="line">           ....**********##.....           ###            ###</span><br><span class="line">           ....****    *****....</span><br><span class="line">             ####        ####</span><br><span class="line">           ######        ######</span><br><span class="line">##############################################################</span><br><span class="line">#...#......#.##...#......#.##...#......#.##------------------#</span><br><span class="line">###########################################------------------#</span><br><span class="line">#..#....#....##..#....#....##..#....#....#####################</span><br><span class="line">##########################################    #----------#</span><br><span class="line">#.....#......##.....#......##.....#......#    #----------#</span><br><span class="line">##########################################    #----------#</span><br><span class="line">#.#..#....#..##.#..#....#..##.#..#....#..#    #----------#</span><br><span class="line">##########################################    ############&#x27;&#x27;&#x27;)</span><br></pre></td></tr></table></figure>
+<h2 id="第一次更新"><a href="#第一次更新" class="headerlink" title="第一次更新"></a>第一次更新</h2><h3 id="超级玛丽游戏"><a href="#超级玛丽游戏" class="headerlink" title="超级玛丽游戏"></a>超级玛丽游戏</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(&#x27;&#x27;&#x27;                ********</span><br><span class="line">              ************</span><br><span class="line">               ####....#.</span><br><span class="line">             #..###.....##....</span><br><span class="line">             ###.......######              ###            ###</span><br><span class="line">                ...........               #...#          #...#</span><br><span class="line">               ##*#######                 #.#.#          #.#.#</span><br><span class="line">            ####*******######             #.#.#          #.#.#</span><br><span class="line">           ...#***.****.*###....          #...#          #...#</span><br><span class="line">           ....**********##.....           ###            ###</span><br><span class="line">           ....****    *****....</span><br><span class="line">             ####        ####</span><br><span class="line">           ######        ######</span><br><span class="line">##############################################################</span><br><span class="line">#...#......#.##...#......#.##...#......#.##------------------#</span><br><span class="line">###########################################------------------#</span><br><span class="line">#..#....#....##..#....#....##..#....#....#####################</span><br><span class="line">##########################################    #----------#</span><br><span class="line">#.....#......##.....#......##.....#......#    #----------#</span><br><span class="line">##########################################    #----------#</span><br><span class="line">#.#..#....#..##.#..#....#..##.#..#....#..#    #----------#</span><br><span class="line">##########################################    ############&#x27;&#x27;&#x27;)</span><br></pre></td></tr></table></figure>
 <h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello,World!"></a>Hello,World!</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(&quot;Hello,World!&quot;)</span><br></pre></td></tr></table></figure>
 <h3 id="A-B-Problem"><a href="#A-B-Problem" class="headerlink" title="A+B Problem"></a>A+B Problem</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n = input().split()</span><br><span class="line">print(int(n[0]) + int(n[1]))  #将输入的两个值转换为int类型</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
@@ -959,7 +959,96 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n = int(input())</span><br><span class="line">if n &lt;= 150:</span><br><span class="line">    a = n * 0.4463</span><br><span class="line">    print(&quot;&#123;0:.1f&#125;&quot;.format(a))</span><br><span class="line">if 151 &lt;= n &lt;= 400:</span><br><span class="line">    a = (n-150) * 0.4663 + 150 * 0.4463</span><br><span class="line">    print(&quot;&#123;0:.1f&#125;&quot;.format(a))</span><br><span class="line">if n &gt;= 401:</span><br><span class="line">    a = (n-400) * 0.5663 + 250 * 0.4663 + 150 * 0.4463</span><br><span class="line">    print(&quot;&#123;0:.1f&#125;&quot;.format(a))</span><br></pre></td></tr></table></figure>
 <h3 id="小玉在游泳"><a href="#小玉在游泳" class="headerlink" title="小玉在游泳"></a>小玉在游泳</h3><p>思路不难，让小玉先游，游一步算一步，正好游的大于输入值了就停</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n = float(input())</span><br><span class="line">b = 1  # 游了几步呢？</span><br><span class="line">a = 2   # 小玉现在游了多少米？</span><br><span class="line">c = 2   # 上一步游了多少米呢？</span><br><span class="line">while a &lt; n:</span><br><span class="line">    c = 0.98 * c</span><br><span class="line">    b += 1</span><br><span class="line">    a += c</span><br><span class="line">if a &gt;= n:</span><br><span class="line">    print(b)</span><br></pre></td></tr></table></figure>
-
+<hr>
+<h2 id="2022-3-2更新"><a href="#2022-3-2更新" class="headerlink" title="2022.3.2更新"></a>2022.3.2更新</h2><hr>
+<h3 id="CSP-J2019-江西-面积"><a href="#CSP-J2019-江西-面积" class="headerlink" title="[CSP-J2019 江西] 面积"></a>[CSP-J2019 江西] 面积</h3><p>正方形面积会算吧？长方形面积会算吧？<br>打印出来一串字母会吧？这题不就AC啦？<br>‘a * a’和’a ** 2’是一个意思a的平方<br>‘’’<br>a,b,c = map(int,input().split())<br>if int(a ** 2) &gt; int(b * c):<br>    print(“Alice”)<br>else:<br>    print(“Bob”)<br>‘’’</p>
+<h3 id="字符三角形"><a href="#字符三角形" class="headerlink" title="字符三角形"></a>字符三角形</h3><p>妹想到吧，还有这种操作……<br>‘’’<br>a=input();<br>print(“  “+a)<br>print(“ “+a+a+a)<br>print(a+a+a+a+a)<br>‘’’</p>
+<h3 id="梦中的统计"><a href="#梦中的统计" class="headerlink" title="梦中的统计"></a>梦中的统计</h3><p>一开始比较懵逼，后来理解什么意思了<br>首先选两个数字，第二个数字比第一个大，比如1和7<br>那么结果就是0 1 1 1 1 1 1 1 0 0<br>也就是说输出的结果是标记1数到7中间经过的数字<br>1和3是0 1 1 1 0 0 0 0 0 0<br>‘’’<br>n = input().split();a=’’;b=’’  # 输入两个数<br>for i in range(int(n[0]),int(n[1])+1):<br>    b = str(i)<br>    a = a + b<br>print(a.count(‘0’),a.count(‘1’),a.count(‘2’),a.count(‘3’),a.count(‘4’),a.count(‘5’),a.count(‘6’),a.count(‘7’),a.count(‘8’),a.count(‘9’))<br>‘’’</p>
+<h3 id><a href="#" class="headerlink" title></a></h3>]]></content>
+  </entry>
+  <entry>
+    <title>pwn学习小总结</title>
+    <url>/2022/03/13/pwn%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>每天进步多一点，妈妈夸我小天才~（雾）</p>
+<p>感谢在我前进道路上为我指点迷津的各位师傅（鞠躬）</p>
+<p>对我来讲，学汇编学pwn真的不是个容易活……只能加油，加油。加加油了！！</p>
+<h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><h2 id="何为寄存器？"><a href="#何为寄存器？" class="headerlink" title="何为寄存器？"></a>何为寄存器？</h2><p>看了点资料，还是有点迷，于是打开知乎发现一条匿名用户的解答</p>
+<blockquote>
+<p>寄存器就是你的口袋。身上只有那么几个，只装最常用或者马上要用的东西。</p>
+<p>内存就是你的背包。有时候拿点什么放到口袋里，有时候从口袋里拿出点东西放在背包里。</p>
+<p>辅存就是你家里的抽屉。可以放很多东西，但存取不方便。 </p>
+</blockquote>
+<p>还有一个回答我也很喜欢</p>
+<blockquote>
+<p>如果把被储存的东西比作能量：</p>
+<ol>
+<li><p>寄存器就是 ATP，可以随时拿来用，性能高，但数量有限；</p>
+</li>
+<li><p>内存就是葡萄糖，性能一般，但是存量可以比较多；</p>
+</li>
+<li><p>外存（比如硬盘）就是脂肪，容量可以非常大，性能很差，要先转化为葡萄糖（存进内存），然后转化为 ATP（放到寄存器）才能直接利用（存取）。</p>
+</li>
+</ol>
+</blockquote>
+<p>了解完什么是寄存器之后再来见一见常见的寄存器有哪些</p>
+<h2 id="几个常用的寄存器"><a href="#几个常用的寄存器" class="headerlink" title="几个常用的寄存器"></a>几个常用的寄存器</h2><p>首先，e开头的为x32，r开头的为x64。</p>
+<p>寄存器有多种用途，但每一个都有“专长”，有各自的特别之处</p>
+<h3 id="数据寄存器：AX、BX、CX、DX"><a href="#数据寄存器：AX、BX、CX、DX" class="headerlink" title="数据寄存器：AX、BX、CX、DX"></a>数据寄存器：AX、BX、CX、DX</h3><p>一般寄存器:AX、BX、CX、DX<br>AX:累积暂存器，BX:基底暂存器，CX:计数暂存器，DX:资料暂存器</p>
+<p>一个寄存器可以存放16bit,也就是2bytes. 所以也被称为16位寄存器</p>
+<blockquote>
+<p>1GB=1024MB=1024*1024KB</p>
+<p>1KB=1024Byte（字节）  1Byte=8bit（比特）</p>
+</blockquote>
+<p>那它们有什么特殊的地方使得它们和其他寄存器不一样呢？ 那是因为这四个16位寄存器可以被分为两个8位寄存器，比如</p>
+<p>​    AX = AH + AL， BX = BH+BL, CX = CH + CL,  DX = DH+DL</p>
+<blockquote>
+<p>AH是AX的高字节（高8位），AL是AX的低字节（低8位）</p>
+<p>其余三个同理</p>
+</blockquote>
+<h3 id="变址寄存器：SI、DI"><a href="#变址寄存器：SI、DI" class="headerlink" title="变址寄存器：SI、DI"></a>变址寄存器：SI、DI</h3><p>变址寄存器:SI、DI<br>SI:源变址寄存器，DI:目的变址寄存器</p>
+<p>SI DI不能够分成两个8位寄存器来使用，二者都是在某个地址的基础上进行偏移变化所以叫基址暂存器。</p>
+<p>这两个寄存器有自动增量和自动减量的功能所以用于变址是很方便的。</p>
+<h3 id="指针寄存器：SP、BP"><a href="#指针寄存器：SP、BP" class="headerlink" title="指针寄存器：SP、BP"></a>指针寄存器：SP、BP</h3><p>堆叠、基底暂存器:SP、BP<br>SP:堆栈指针暂存器，BP:基底指针暂存器</p>
+<p>先说BP，基底指针暂存器其内存放着一个指针，其内存放着一个指针，该指针永远指向系统栈最上面一个栈帧的底部。</p>
+<blockquote>
+<p>bp/ebp/rbp 栈基址寄存器—指向栈底</p>
+</blockquote>
+<p>在8086CPU中，只有bx，si，di，bp这4个寄存器可以用来进行内存单元的寻址</p>
+<p>这4个寄存器可以单个出现或只能以四种组合出现;bx和si，bx和di，bp和si，bp和di</p>
+<blockquote>
+<p>bx和bp不能同时出现，si和di不能同时出现</p>
+</blockquote>
+<p>接着是SP，堆叠指标暂存器，其内存放着一个指针，该指针永远指向系统栈最上面一个栈帧的栈顶。SP的作用就是指示当前要出栈或入栈的数据，并在操作执行后自动递增或递减。</p>
+<blockquote>
+<p>sp/esp/rsp（16bit/32bit/64bit）栈寄存器—指向栈顶</p>
+</blockquote>
+<h3 id="段寄存器（特殊寄存器）"><a href="#段寄存器（特殊寄存器）" class="headerlink" title="段寄存器（特殊寄存器）"></a>段寄存器（特殊寄存器）</h3><blockquote>
+<p>CS——代码段寄存器(Code Segment Register)，其值为代码段的段值。<br>DS——数据段寄存器(Data Segment Register)，其值为数据段的段值。<br>ES——附加段寄存器(Extra Segment Register)，其值为附加数据段的段值。<br>SS——堆栈段寄存器(Stack Segment Register)，其值为堆栈段的段值。<br>FS——附加段寄存器(Extra Segment Register)，其值为附加数据段的段值。<br>GS——附加段寄存器(Extra Segment Register)，其值为附加数据段的段值。</p>
+</blockquote>
+<h3 id="指令指针寄存器：IP"><a href="#指令指针寄存器：IP" class="headerlink" title="指令指针寄存器：IP"></a>指令指针寄存器：IP</h3><p>CS和IP，两个最关键的寄存器，他们指示了cpu当前要读取指令的地方</p>
+<p>修改CS、IP的指令不同于修改通用的寄存器值的指令，修改通用寄存器的值可以用mov 指令（mav ax,123），mov指令被称为传送指令。而修改CS、IP的指令是jmp指令。jmp指令也被称为转移指令（在X86上不能直接给IP赋值）</p>
+<blockquote>
+<p>ip/eip/rip 程序指令寄存器—指向下一条待执行指令</p>
+</blockquote>
+<h3 id="标志寄存器（特殊寄存器）"><a href="#标志寄存器（特殊寄存器）" class="headerlink" title="标志寄存器（特殊寄存器）"></a>标志寄存器（特殊寄存器）</h3><blockquote>
+<p>进位标志位(Carry Flag &amp;&amp; CF)：当无符号数的计算结果超出其范围时，CF被置为1， 否则CF被置为0。<br>溢出标志位(Overflow Flag &amp;&amp; OV)：当有符号数的计算结果超出其范围时，OV被置为1，否则OV被置为0。<br>符号标志位(Sign Flag &amp;&amp; SF)：算术或逻辑操作产生负结果时，SF被置为1，否则SF被置为0。<br>零标志位(Zero Flag &amp;&amp; ZF)：算数或逻辑结果产生的结果为零时，ZF被置为1，否则ZF被置为0。<br>辅助进位标志位(Auxiliary Carry Flag &amp;&amp; AC)：运算时若最低的四位产生了进位，那么AC被置为1，否则AC被置为0。<br>奇偶校验标志位(Parity Flag)：目标操作数最低有效字节中的1的个数为偶数时，PF被置为1，否则PF被置为0。</p>
+</blockquote>
+<h3 id="常用的汇编指令"><a href="#常用的汇编指令" class="headerlink" title="常用的汇编指令"></a>常用的汇编指令</h3><h3 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h3><p>PUSH：把字压入堆栈                      POP： 把字弹出堆栈</p>
+<p>MOV：传送字或传送字节</p>
+<p>MOVSX：先符号扩展,再传送           MOVZX：先零扩展,再传送  </p>
+<h3 id="简单加减算术指令"><a href="#简单加减算术指令" class="headerlink" title="简单加减算术指令"></a>简单加减算术指令</h3><p>算数运算类指令包括加减乘除、比较与调整指令</p>
+<p>ADD： 加法。                         SUB： 减法</p>
+<p>ADC： 带进位加法                  SBB： 带借位减法</p>
+<p>INC： 加 1                               DEC： 减 1</p>
+<p>AAA： 加法的ASCII码调整        AAS： 减法的ASCII码调整</p>
+<p>AAM： 乘法的ASCII码调整       AAD： 除法的ASCII码]调整</p>
+<p>NEG：去补 （对操作数取补（相反数））</p>
+<p>CMP： 比较（两个操作数作减法，仅修改标志位，不回送结果）</p>
+<h3 id="输入输出端口传送指令"><a href="#输入输出端口传送指令" class="headerlink" title="输入输出端口传送指令"></a>输入输出端口传送指令</h3><p>IN I/O端口输入   (IN 累加器, {端口号│DX} )<br>OUT I/O端口输出  ( OUT {端口号│DX},累加器 )</p>
+<p>输入输出端口由立即方式指定时, 其范围是 0-255; 由寄存器 DX 指定时,其范围是 0-65535</p>
+<h3 id="逻辑运算指令"><a href="#逻辑运算指令" class="headerlink" title="逻辑运算指令"></a>逻辑运算指令</h3><h3 id="内存访问指令-amp-内存读取指令"><a href="#内存访问指令-amp-内存读取指令" class="headerlink" title="内存访问指令&amp;内存读取指令"></a>内存访问指令&amp;内存读取指令</h3><p>（当ldr后面没有=号时为内存读取指令）</p>
+<h3 id="存储指令"><a href="#存储指令" class="headerlink" title="存储指令"></a>存储指令</h3><h3 id="常用条件转移指令"><a href="#常用条件转移指令" class="headerlink" title="常用条件转移指令"></a>常用条件转移指令</h3><h3 id="堆栈和堆栈操作"><a href="#堆栈和堆栈操作" class="headerlink" title="堆栈和堆栈操作"></a>堆栈和堆栈操作</h3><h3 id="取有效地址指令"><a href="#取有效地址指令" class="headerlink" title="取有效地址指令"></a>取有效地址指令</h3><h3 id="过程调用和返回指令"><a href="#过程调用和返回指令" class="headerlink" title="过程调用和返回指令"></a>过程调用和返回指令</h3><h2 id="GCC编译保护机制以及编译命令"><a href="#GCC编译保护机制以及编译命令" class="headerlink" title="GCC编译保护机制以及编译命令"></a>GCC编译保护机制以及编译命令</h2><h2 id="简单使用pwntools"><a href="#简单使用pwntools" class="headerlink" title="简单使用pwntools"></a>简单使用pwntools</h2><h2 id="简单使用IDA"><a href="#简单使用IDA" class="headerlink" title="简单使用IDA"></a>简单使用IDA</h2><h2 id="简单使用pwngdb"><a href="#简单使用pwngdb" class="headerlink" title="简单使用pwngdb"></a>简单使用pwngdb</h2><h2 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出"></a>栈溢出</h2><h1 id="引用资料出处"><a href="#引用资料出处" class="headerlink" title="引用资料出处"></a>引用资料出处</h1><p>如何通俗地解释什么是寄存器？<a href="https://www.zhihu.com/question/20539463">https://www.zhihu.com/question/20539463</a></p>
+<p>汇编常用指令 <a href="https://ai-exception.blog.csdn.net/article/details/82950848">https://ai-exception.blog.csdn.net/article/details/82950848</a></p>
 ]]></content>
   </entry>
 </search>
