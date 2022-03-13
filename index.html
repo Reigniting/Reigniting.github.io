@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-03-13 09:22:59 / 修改时间：11:17:28" itemprop="dateCreated datePublished" datetime="2022-03-13T09:22:59+08:00">2022-03-13</time>
+              <time title="创建时间：2022-03-13 09:22:59 / 修改时间：11:39:24" itemprop="dateCreated datePublished" datetime="2022-03-13T09:22:59+08:00">2022-03-13</time>
             </span>
 
           <br>
@@ -225,14 +225,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -308,21 +308,37 @@
 <h3 id="标志寄存器（特殊寄存器）"><a href="#标志寄存器（特殊寄存器）" class="headerlink" title="标志寄存器（特殊寄存器）"></a>标志寄存器（特殊寄存器）</h3><blockquote>
 <p>进位标志位(Carry Flag &amp;&amp; CF)：当无符号数的计算结果超出其范围时，CF被置为1， 否则CF被置为0。<br>溢出标志位(Overflow Flag &amp;&amp; OV)：当有符号数的计算结果超出其范围时，OV被置为1，否则OV被置为0。<br>符号标志位(Sign Flag &amp;&amp; SF)：算术或逻辑操作产生负结果时，SF被置为1，否则SF被置为0。<br>零标志位(Zero Flag &amp;&amp; ZF)：算数或逻辑结果产生的结果为零时，ZF被置为1，否则ZF被置为0。<br>辅助进位标志位(Auxiliary Carry Flag &amp;&amp; AC)：运算时若最低的四位产生了进位，那么AC被置为1，否则AC被置为0。<br>奇偶校验标志位(Parity Flag)：目标操作数最低有效字节中的1的个数为偶数时，PF被置为1，否则PF被置为0。</p>
 </blockquote>
-<h3 id="常用的汇编指令"><a href="#常用的汇编指令" class="headerlink" title="常用的汇编指令"></a>常用的汇编指令</h3><h3 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h3><p>PUSH：把字压入堆栈                      POP： 把字弹出堆栈</p>
+<h2 id="常用的汇编指令"><a href="#常用的汇编指令" class="headerlink" title="常用的汇编指令"></a>常用的汇编指令</h2><h3 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h3><p>PUSH：把字压入堆栈                      POP： 把字弹出堆栈</p>
 <p>MOV：传送字或传送字节</p>
 <p>MOVSX：先符号扩展,再传送           MOVZX：先零扩展,再传送  </p>
 <h3 id="简单加减算术指令"><a href="#简单加减算术指令" class="headerlink" title="简单加减算术指令"></a>简单加减算术指令</h3><p>算数运算类指令包括加减乘除、比较与调整指令</p>
-<p>ADD： 加法。                         SUB： 减法</p>
+<p>ADD： 加法                             SUB： 减法</p>
 <p>ADC： 带进位加法                  SBB： 带借位减法</p>
-<p>INC： 加 1                               DEC： 减 1</p>
+<p>MUL： 乘法                             DIV： 除法</p>
+<p>MUL和DIV结果回送AH和AL（字节运算），或DX和AX（字运算）</p>
+<p>INC： 加 1                                 DEC： 减 1</p>
 <p>AAA： 加法的ASCII码调整        AAS： 减法的ASCII码调整</p>
 <p>AAM： 乘法的ASCII码调整       AAD： 除法的ASCII码]调整</p>
 <p>NEG：去补 （对操作数取补（相反数））</p>
 <p>CMP： 比较（两个操作数作减法，仅修改标志位，不回送结果）</p>
 <h3 id="输入输出端口传送指令"><a href="#输入输出端口传送指令" class="headerlink" title="输入输出端口传送指令"></a>输入输出端口传送指令</h3><p>IN I/O端口输入   (IN 累加器, {端口号│DX} )<br>OUT I/O端口输出  ( OUT {端口号│DX},累加器 )</p>
 <p>输入输出端口由立即方式指定时, 其范围是 0-255; 由寄存器 DX 指定时,其范围是 0-65535</p>
-<h3 id="逻辑运算指令"><a href="#逻辑运算指令" class="headerlink" title="逻辑运算指令"></a>逻辑运算指令</h3><h3 id="内存访问指令-amp-内存读取指令"><a href="#内存访问指令-amp-内存读取指令" class="headerlink" title="内存访问指令&amp;内存读取指令"></a>内存访问指令&amp;内存读取指令</h3><p>（当ldr后面没有=号时为内存读取指令）</p>
-<h3 id="存储指令"><a href="#存储指令" class="headerlink" title="存储指令"></a>存储指令</h3><h3 id="常用条件转移指令"><a href="#常用条件转移指令" class="headerlink" title="常用条件转移指令"></a>常用条件转移指令</h3><h3 id="堆栈和堆栈操作"><a href="#堆栈和堆栈操作" class="headerlink" title="堆栈和堆栈操作"></a>堆栈和堆栈操作</h3><h3 id="取有效地址指令"><a href="#取有效地址指令" class="headerlink" title="取有效地址指令"></a>取有效地址指令</h3><h3 id="过程调用和返回指令"><a href="#过程调用和返回指令" class="headerlink" title="过程调用和返回指令"></a>过程调用和返回指令</h3><h2 id="GCC编译保护机制以及编译命令"><a href="#GCC编译保护机制以及编译命令" class="headerlink" title="GCC编译保护机制以及编译命令"></a>GCC编译保护机制以及编译命令</h2><h2 id="简单使用pwntools"><a href="#简单使用pwntools" class="headerlink" title="简单使用pwntools"></a>简单使用pwntools</h2><h2 id="简单使用IDA"><a href="#简单使用IDA" class="headerlink" title="简单使用IDA"></a>简单使用IDA</h2><h2 id="简单使用pwngdb"><a href="#简单使用pwngdb" class="headerlink" title="简单使用pwngdb"></a>简单使用pwngdb</h2><h2 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出"></a>栈溢出</h2><h1 id="引用资料出处"><a href="#引用资料出处" class="headerlink" title="引用资料出处"></a>引用资料出处</h1><p>如何通俗地解释什么是寄存器？<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20539463">https://www.zhihu.com/question/20539463</a></p>
+<h3 id="逻辑运算指令"><a href="#逻辑运算指令" class="headerlink" title="逻辑运算指令"></a>逻辑运算指令</h3><p>逻辑运算类指令分为逻辑运算指令和移位指令两大类</p>
+<p>运算指令：</p>
+<p>AND： 与运算                               or： 或运算</p>
+<p>XOR： 异或运算                           NOT： 取反。</p>
+<p>TEST： 测试   （两操作数作与运算，仅修改标志位，不回送结果）</p>
+<p>移位指令：</p>
+<p>SHL： 逻辑左移。                         SAL： 算术左移。(=SHL)</p>
+<p>RCL： 通过进位的循环左移          RCR： 通过进位的循环右移</p>
+<h3 id="程序转移指令"><a href="#程序转移指令" class="headerlink" title="程序转移指令"></a>程序转移指令</h3><p>控制转移类指令包括无条件转移指令、条件转移指令、循环控制指令、中断指令、子程序调用和返回指令</p>
+<p>无条件转移指令：</p>
+<p>JMP： 无条件转移指令</p>
+<p>CALL： 过程调用                          RET/RETF： 过程返回</p>
+<p>中断指令：</p>
+<p>INT： 中断指令            INTO： 溢出中断        IRET： 中断返回</p>
+<h3 id="内存访问指令-amp-内存读取指令"><a href="#内存访问指令-amp-内存读取指令" class="headerlink" title="内存访问指令&amp;内存读取指令"></a>内存访问指令&amp;内存读取指令</h3><p>（当ldr后面没有=号时为内存读取指令）</p>
+<h3 id="存储指令"><a href="#存储指令" class="headerlink" title="存储指令"></a>存储指令</h3><h3 id="堆栈和堆栈操作"><a href="#堆栈和堆栈操作" class="headerlink" title="堆栈和堆栈操作"></a>堆栈和堆栈操作</h3><h3 id="取有效地址指令"><a href="#取有效地址指令" class="headerlink" title="取有效地址指令"></a>取有效地址指令</h3><h3 id="过程调用和返回指令"><a href="#过程调用和返回指令" class="headerlink" title="过程调用和返回指令"></a>过程调用和返回指令</h3><h2 id="GCC编译保护机制以及编译命令"><a href="#GCC编译保护机制以及编译命令" class="headerlink" title="GCC编译保护机制以及编译命令"></a>GCC编译保护机制以及编译命令</h2><h2 id="简单使用pwntools"><a href="#简单使用pwntools" class="headerlink" title="简单使用pwntools"></a>简单使用pwntools</h2><h2 id="简单使用IDA"><a href="#简单使用IDA" class="headerlink" title="简单使用IDA"></a>简单使用IDA</h2><h2 id="简单使用pwngdb"><a href="#简单使用pwngdb" class="headerlink" title="简单使用pwngdb"></a>简单使用pwngdb</h2><h2 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出"></a>栈溢出</h2><h1 id="引用资料出处"><a href="#引用资料出处" class="headerlink" title="引用资料出处"></a>引用资料出处</h1><p>如何通俗地解释什么是寄存器？<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20539463">https://www.zhihu.com/question/20539463</a></p>
 <p>汇编常用指令 <a target="_blank" rel="noopener" href="https://ai-exception.blog.csdn.net/article/details/82950848">https://ai-exception.blog.csdn.net/article/details/82950848</a></p>
 
       
