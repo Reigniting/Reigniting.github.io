@@ -972,7 +972,7 @@
     <content><![CDATA[<p>每天进步多一点，妈妈夸我小天才~（雾）</p>
 <p>感谢在我前进道路上为我指点迷津的各位师傅（鞠躬）</p>
 <p>对我来讲，学汇编学pwn真的不是个容易活……只能加油，加油，加加油了！！</p>
-<h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><p>有亿点累的一天orz</p>
+<h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><p>有亿点累的一天orz（其实用了三天来学这些东西）</p>
 <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p><strong>CPU对存储器的读写</strong></p>
 <p>CPU要想进行数据的读写，必须和外部器件（即芯片）进行三类信息的交互： </p>
 <p>1.地址信息：存储单元的地址 2.控制信息：芯片的选择，读或写命令 3.数据信息：读或写的数据</p>
@@ -1169,7 +1169,7 @@
 <p>【以后可能在这里或者另开一个笔记写使用，目前只是简单整理】</p>
 <h2 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出"></a>栈溢出</h2><h3 id="栈（stack）"><a href="#栈（stack）" class="headerlink" title="栈（stack）"></a>栈（stack）</h3><p>对于二进制安全,栈结构是最基本要了解的东西</p>
 <p>【栈】作为偏旁为木的左右结构的汉字，理解起来并不难。意思大概可以概括为客栈、通道、木制品这三样。在计算机术语中的栈，就是指数据暂时存储的地方。</p>
-<p>既然是数据暂时存储的地方自然而然的就有进栈、出栈的说法了——栈一种先进后出的数据结构</p>
+<p>既然是数据暂时存储的地方自然而然的就有进栈、出栈的说法了——栈，一种先进后出的数据结构</p>
 <p>栈是一段连续的内存单元，也就是一段连续的内存地址。</p>
 <p>栈就是一个桶，后放进去的先拿出来，它下面本来有的东西要等它出来之后才能出来（先进后出Last In First Out)</p>
 <blockquote>
@@ -1230,6 +1230,86 @@
 <p>CTF Wiki  <a href="https://ctf-wiki.org/pwn/linux/user-mode/stackoverflow/x86/stackoverflow-basic/">https://ctf-wiki.org/pwn/linux/user-mode/stackoverflow/x86/stackoverflow-basic/</a></p>
 <p>安全总结—-栈溢出（一）  <a href="https://bbs.pediy.com/thread-185767.htm">https://bbs.pediy.com/thread-185767.htm</a></p>
 <p>栈溢出基础（一）  <a href="https://www.secpulse.com/archives/70608.html">https://www.secpulse.com/archives/70608.html</a></p>
+]]></content>
+      <categories>
+        <category>我的pwn学习之路</category>
+      </categories>
+      <tags>
+        <tag>pwn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的pwn学习之路——第二天</title>
+    <url>/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/</url>
+    <content><![CDATA[<p>几天不摸，感觉又回到解放前了。</p>
+<p>以后一定要多尝试学习不同的东西，保持热爱，放好心态！</p>
+<p>pwn学习之路系列的第二天，开坑！</p>
+<p>这里记录一下写题的一些工具使用和碎碎念</p>
+<p>当你拿到题目之后……（接下来用一道入门级别的题目做栗子）</p>
+<p>第一件事要做的是checksec 他可以查看保护机制，这样有理由后续做题的分析</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">checksec 文件   #看开启了哪些保护机制</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/1.png"></p>
+<p>虽然开启不开启我都不会写吧，但是还是要装装样子滴</p>
+<p>然后可以用objdump看一些东西，比方说打印函数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">objdump -D 文件名   #可以看到文件的全部</span><br></pre></td></tr></table></figure>
+
+<p>用pwngdb的时候很难看到所有的东西，提前看一看还是很重要的</p>
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">objdump -R 文件名   #可以看到打印函数</span><br></pre></td></tr></table></figure>
+
+<p>看到打印函数是很有用的</p>
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/3.png"></p>
+<p>接下来就可以上pwngdb了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gdb 文件     #启动pwngdb</span><br></pre></td></tr></table></figure>
+
+<p>一些简单的操作之前有篇文章写的有，我不额外多写了，讲点实际做题中用到的东西</p>
+<p>输入一大串字符，溢出与否有回显，这个时候同学就想，那我可以一点一点的试，什么时候正好溢出了，不就可以算偏移了吗？现在有个更简单快捷的办法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cyclic 要输入的字符的长度</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/4.png"></p>
+<p>可以看到是由英文字母组成的有规律的字符串，因此最大可以设置的值为26×26×26=456976</p>
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/5.png"></p>
+<p>复制生成的字符串，在pwngdb中进行调试，当出现报错后，就可以再通过cyclic计算要偏移的字节了</p>
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/6.png"></p>
+<p>这里报的错其实指的是输入的十六进制的字符，根据指出那一段溢出，可以接着算偏移</p>
+<p>为什么呢？</p>
+<p>因为恰恰就是这几个字符去覆盖了main返回地址，所以可以数数这一串字符距离字符串首字母间隔了多少字符</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cyclic -l 报错的4位字符</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/7.png"></p>
+]]></content>
+      <categories>
+        <category>我的pwn学习之路</category>
+      </categories>
+      <tags>
+        <tag>pwn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>尝试接触Windows Debug</title>
+    <url>/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/</url>
+    <content><![CDATA[<p>最近在努力接触汇编，同学时刻告诫我要多动手，这篇笔记便是动手的证明。</p>
+<p>感谢某位小天才的督促^_^</p>
+<hr>
+<h1 id="Debug是什么？"><a href="#Debug是什么？" class="headerlink" title="Debug是什么？"></a>Debug是什么？</h1><p>debug是Windows 16位或者32位机器上的一款调试工具。</p>
+<p>也就是说64位是没有滴~</p>
+<p>本次学习环境为Windows 2003  进入cmd后输入debug即可。</p>
+<h1 id="初识Debug"><a href="#初识Debug" class="headerlink" title="初识Debug"></a>初识Debug</h1><p>debug /?</p>
+<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/1.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">r 显示当前所有寄存器和标志位的状态</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a 在内存中直接编写代码</span><br></pre></td></tr></table></figure>
+
+<p>输入汇编指令后跟段地址:偏移地址（例：a 0000:0100）</p>
+<p>回车之后就可以输入了，停止输入时按Enter键即可</p>
+<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/3.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">d 显示存储器内容</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/4.png"></p>
+<p>没修改之前的</p>
+<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/5.png"></p>
 ]]></content>
       <categories>
         <category>我的pwn学习之路</category>
