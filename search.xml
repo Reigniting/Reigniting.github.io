@@ -901,13 +901,14 @@
 <blockquote>
 <p>下载链接：<a href="https://www.vulnhub.com/entry/containme-1,729/">https://www.vulnhub.com/entry/containme-1,729/</a></p>
 </blockquote>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩，确定靶机ip。先看mac地址<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>然后扫描确定ip</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩，确定靶机ip。先看mac地址</p>
+<span id="more"></span>
+
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>然后扫描确定ip</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
 <p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定ip之后用nmap进行更深层次的信息探测</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.12</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>web服务开着，先去瞅一眼吧<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>这个界面没啥好说的，随便输了个目录发现了端倪<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
-<span id="more"></span>
-<p>顺便看了看phpinfo的信息，是lxd容器<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>web服务开着，先去瞅一眼吧<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>这个界面没啥好说的，随便输了个目录发现了端倪<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>顺便看了看phpinfo的信息，是lxd容器<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
 <blockquote>
 <p>科普<a href="https://www.linuxprobe.com/lxd-2-0-introduce.html">https://www.linuxprobe.com/lxd-2-0-introduce.html</a></p>
 </blockquote>
