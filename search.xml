@@ -1311,49 +1311,49 @@
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>hack the box的靶机Toxic环境</p>
 <p>BurpSuite×1</p>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>选好靶机，打开环境</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"> </p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.jpg"> </p>
 <p>给出了公网地址，先去访问看一下</p>
 <span id="more"></span>
 
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"> </p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.jpg"> </p>
 <p>是一个简单的页面 目前没有看到什么东西</p>
 <p>然后把提供的源代码也下载下来进行代码审计</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"> </p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.jpg"> </p>
 <p>在这里可以清晰的看到 网页的cookie值是序列化后在进行base64编码得到的</p>
 <p>且里面带有要访问地址的目录（/www/index.html）</p>
 <p>于是用BurpSuite进行抓包</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.jpg"></p>
 <p>找个网站解密一下</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.jpg"></p>
 <p>确实是这样的，那么思路就来了</p>
 <p>后面要读取的内容是index.html，那我们可不可以换成别的读取呢？</p>
 <p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
 <p>s代表是长度，所以这里要改成15（/ect/passwd长度为15）</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.jpg"></p>
 <p>把编码过的cookie值放进去可以看到，确实能读取到敏感信息</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.jpg"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.jpg"></p>
 <p>而且这里显示的还有Nginx用户，那么就可以试着读取常用的一些目录</p>
 <blockquote>
 <p><a href="https://developer.aliyun.com/article/704954">https://developer.aliyun.com/article/704954</a></p>
 </blockquote>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.jpg"></p>
 <p>Nginx服务器在网站上的每一步操作都将会被写入日志文件log内，所以可以去看一下</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"></p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.jpg"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.jpg"></p>
 <p>通过index.php文件能够读取敏感文件，可以确定这是存在本地文件包含漏洞</p>
 <p>那就尝试通过index写入一句话</p>
 <p>因为每个访问都记录下了user-agent头，所以把语句写到user-agent里去。</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.jpg"></p>
 <p>也能被执行</p>
 <p>接着就通过system()函数读取本地目录（太懒不想去连马了）</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.jpg"></p>
 <p>看到了一个有flag字样的文件</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.jpg"></p>
 <p>去读取这个文件</p>
-<p> <img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"></p>
+<p> <img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.jpg"></p>
 <p>漏洞利用成功，拿到了flag</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.jpg"></p>
 <p>结束。</p>
 <p>简单吧~</p>
 ]]></content>
