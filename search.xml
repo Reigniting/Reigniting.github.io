@@ -947,29 +947,6 @@
       </tags>
   </entry>
   <entry>
-    <title>蓝桥杯刷题记录</title>
-    <url>/2022/02/13/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>花了300“大洋”，怎么说也得拿个奖回来吧<br>这里记录一下刷题记录，从易到难，从0到1，顺便学一学Python<br>祝各位师傅题题AC</p>
-<h2 id="第一次更新"><a href="#第一次更新" class="headerlink" title="第一次更新"></a>第一次更新</h2><h3 id="超级玛丽游戏"><a href="#超级玛丽游戏" class="headerlink" title="超级玛丽游戏"></a>超级玛丽游戏</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(&#x27;&#x27;&#x27;                ********</span><br><span class="line">              ************</span><br><span class="line">               ####....#.</span><br><span class="line">             #..###.....##....</span><br><span class="line">             ###.......######              ###            ###</span><br><span class="line">                ...........               #...#          #...#</span><br><span class="line">               ##*#######                 #.#.#          #.#.#</span><br><span class="line">            ####*******######             #.#.#          #.#.#</span><br><span class="line">           ...#***.****.*###....          #...#          #...#</span><br><span class="line">           ....**********##.....           ###            ###</span><br><span class="line">           ....****    *****....</span><br><span class="line">             ####        ####</span><br><span class="line">           ######        ######</span><br><span class="line">##############################################################</span><br><span class="line">#...#......#.##...#......#.##...#......#.##------------------#</span><br><span class="line">###########################################------------------#</span><br><span class="line">#..#....#....##..#....#....##..#....#....#####################</span><br><span class="line">##########################################    #----------#</span><br><span class="line">#.....#......##.....#......##.....#......#    #----------#</span><br><span class="line">##########################################    #----------#</span><br><span class="line">#.#..#....#..##.#..#....#..##.#..#....#..#    #----------#</span><br><span class="line">##########################################    ############&#x27;&#x27;&#x27;)</span><br></pre></td></tr></table></figure>
-<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello,World!"></a>Hello,World!</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(&quot;Hello,World!&quot;)</span><br></pre></td></tr></table></figure>
-<h3 id="A-B-Problem"><a href="#A-B-Problem" class="headerlink" title="A+B Problem"></a>A+B Problem</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n = input().split()</span><br><span class="line">print(int(n[0]) + int(n[1]))  #将输入的两个值转换为int类型</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="输出第二个整数"><a href="#输出第二个整数" class="headerlink" title="输出第二个整数"></a>输出第二个整数</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a,b,c = map(int,input().split())</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
-<h3 id="对齐输出"><a href="#对齐输出" class="headerlink" title="对齐输出"></a>对齐输出</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a,b,c = map(int,input().split())</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
-<h3 id="小玉买文具"><a href="#小玉买文具" class="headerlink" title="小玉买文具"></a>小玉买文具</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n=input().split()</span><br><span class="line">print((int(n[0])*10 + int(n[1]))//19)</span><br></pre></td></tr></table></figure>
-<h3 id="三角形面积"><a href="#三角形面积" class="headerlink" title="三角形面积"></a>三角形面积</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a,b,c=map(float,input().split())</span><br><span class="line">p = 1/2*(a+b+c)</span><br><span class="line">S = (p*(p-a)*(p-b)*(p-c))**0.5</span><br><span class="line">print(&quot;%0.1f&quot; % S)</span><br></pre></td></tr></table></figure>
-<h3 id="小玉家的电费"><a href="#小玉家的电费" class="headerlink" title="小玉家的电费"></a>小玉家的电费</h3><p>懵逼的同学先搞懂电费到底怎么算哈</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n = int(input())</span><br><span class="line">if n &lt;= 150:</span><br><span class="line">    a = n * 0.4463</span><br><span class="line">    print(&quot;&#123;0:.1f&#125;&quot;.format(a))</span><br><span class="line">if 151 &lt;= n &lt;= 400:</span><br><span class="line">    a = (n-150) * 0.4663 + 150 * 0.4463</span><br><span class="line">    print(&quot;&#123;0:.1f&#125;&quot;.format(a))</span><br><span class="line">if n &gt;= 401:</span><br><span class="line">    a = (n-400) * 0.5663 + 250 * 0.4663 + 150 * 0.4463</span><br><span class="line">    print(&quot;&#123;0:.1f&#125;&quot;.format(a))</span><br></pre></td></tr></table></figure>
-<h3 id="小玉在游泳"><a href="#小玉在游泳" class="headerlink" title="小玉在游泳"></a>小玉在游泳</h3><p>思路不难，让小玉先游，游一步算一步，正好游的大于输入值了就停</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n = float(input())</span><br><span class="line">b = 1  # 游了几步呢？</span><br><span class="line">a = 2   # 小玉现在游了多少米？</span><br><span class="line">c = 2   # 上一步游了多少米呢？</span><br><span class="line">while a &lt; n:</span><br><span class="line">    c = 0.98 * c</span><br><span class="line">    b += 1</span><br><span class="line">    a += c</span><br><span class="line">if a &gt;= n:</span><br><span class="line">    print(b)</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="2022-3-2更新"><a href="#2022-3-2更新" class="headerlink" title="2022.3.2更新"></a>2022.3.2更新</h2><hr>
-<h3 id="CSP-J2019-江西-面积"><a href="#CSP-J2019-江西-面积" class="headerlink" title="[CSP-J2019 江西] 面积"></a>[CSP-J2019 江西] 面积</h3><p>正方形面积会算吧？长方形面积会算吧？<br>打印出来一串字母会吧？这题不就AC啦？<br>‘a * a’和’a ** 2’是一个意思a的平方<br>‘’’<br>a,b,c = map(int,input().split())<br>if int(a ** 2) &gt; int(b * c):<br>    print(“Alice”)<br>else:<br>    print(“Bob”)<br>‘’’</p>
-<h3 id="字符三角形"><a href="#字符三角形" class="headerlink" title="字符三角形"></a>字符三角形</h3><p>妹想到吧，还有这种操作……<br>‘’’<br>a=input();<br>print(“  “+a)<br>print(“ “+a+a+a)<br>print(a+a+a+a+a)<br>‘’’</p>
-<h3 id="梦中的统计"><a href="#梦中的统计" class="headerlink" title="梦中的统计"></a>梦中的统计</h3><p>一开始比较懵逼，后来理解什么意思了<br>首先选两个数字，第二个数字比第一个大，比如1和7<br>那么结果就是0 1 1 1 1 1 1 1 0 0<br>也就是说输出的结果是标记1数到7中间经过的数字<br>1和3是0 1 1 1 0 0 0 0 0 0<br>‘’’<br>n = input().split();a=’’;b=’’  # 输入两个数<br>for i in range(int(n[0]),int(n[1])+1):<br>    b = str(i)<br>    a = a + b<br>print(a.count(‘0’),a.count(‘1’),a.count(‘2’),a.count(‘3’),a.count(‘4’),a.count(‘5’),a.count(‘6’),a.count(‘7’),a.count(‘8’),a.count(‘9’))<br>‘’’</p>
-<h3 id><a href="#" class="headerlink" title></a></h3>]]></content>
-  </entry>
-  <entry>
     <title>我的pwn学习之路——第一天</title>
     <url>/2022/03/13/pwn%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>每天进步多一点，妈妈夸我小天才~（雾）</p>
@@ -1323,6 +1300,67 @@
       </categories>
       <tags>
         <tag>pwn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>靶机Toxic的渗透记录</title>
+    <url>/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>简单的靶机，so easy box</p>
+<p>初学者友好机，学累了就做一个玩玩吧^_^</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>hack the box的靶机Toxic环境</p>
+<p>BurpSuite×1</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>选好靶机，打开环境</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"> </p>
+<p>给出了公网地址，先去访问看一下</p>
+<span id="more"></span>
+
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"> </p>
+<p>是一个简单的页面 目前没有看到什么东西</p>
+<p>然后把提供的源代码也下载下来进行代码审计</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"> </p>
+<p>在这里可以清晰的看到 网页的cookie值是序列化后在进行base64编码得到的</p>
+<p>且里面带有要访问地址的目录（/www/index.html）</p>
+<p>于是用BurpSuite进行抓包</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"></p>
+<p>找个网站解密一下</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"></p>
+<p>确实是这样的，那么思路就来了</p>
+<p>后面要读取的内容是index.html，那我们可不可以换成别的读取呢？</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
+<p>s代表是长度，所以这里要改成15（/ect/passwd长度为15）</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
+<p>把编码过的cookie值放进去可以看到，确实能读取到敏感信息</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"></p>
+<p>而且这里显示的还有Nginx用户，那么就可以试着读取常用的一些目录</p>
+<blockquote>
+<p><a href="https://developer.aliyun.com/article/704954">https://developer.aliyun.com/article/704954</a></p>
+</blockquote>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"></p>
+<p>Nginx服务器在网站上的每一步操作都将会被写入日志文件log内，所以可以去看一下</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"></p>
+<p>通过index.php文件能够读取敏感文件，可以确定这是存在本地文件包含漏洞</p>
+<p>那就尝试通过index写入一句话</p>
+<p>因为每个访问都记录下了user-agent头，所以把语句写到user-agent里去。</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"></p>
+<p>也能被执行</p>
+<p>接着就通过system()函数读取本地目录（太懒不想去连马了）</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
+<p>看到了一个有flag字样的文件</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"></p>
+<p>去读取这个文件</p>
+<p> <img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"></p>
+<p>漏洞利用成功，拿到了flag</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"></p>
+<p>结束。</p>
+<p>简单吧~</p>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
       </tags>
   </entry>
 </search>
