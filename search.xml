@@ -646,7 +646,10 @@
     <title>靶机Hemisphere-Gemini渗透记录</title>
     <url>/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Hemisphere-Gemini×1<br>渗透机kali 2021.2×1 和靶机在同一网段<br>如果网卡不一致还需要先改一下靶机网卡<br>靶机很简单很简单，放轻松~</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩，首先要确定靶机ip。先看mac地址是多少<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>然后扫描确定ip</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩，首先要确定靶机ip。先看mac地址是多少</p>
+<span id="more"></span>
+
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>然后扫描确定ip</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定ip之后用nmap进行更深层次的信息探测</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.163</span><br></pre></td></tr></table></figure>
@@ -1251,6 +1254,8 @@
 
 <p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/1.png"></p>
 <p>虽然开启不开启我都不会写吧，但是还是要装装样子滴</p>
+<span id="more"></span>
+
 <p>然后可以用objdump看一些东西，比方说打印函数</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">objdump -D 文件名   #可以看到文件的全部</span><br></pre></td></tr></table></figure>
 
@@ -1297,6 +1302,8 @@
 <p>本次学习环境为Windows 2003  进入cmd后输入debug即可。</p>
 <h1 id="初识Debug"><a href="#初识Debug" class="headerlink" title="初识Debug"></a>初识Debug</h1><p>debug /?</p>
 <p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/1.png"></p>
+<span id="more"></span>
+
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">r 显示当前所有寄存器和标志位的状态</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/2.png"></p>
