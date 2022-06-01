@@ -311,7 +311,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#x63;&#104;&#x33;&#x33;&#115;&#x33;&#109;&#52;&#110;&#64;&#x63;&#x68;&#101;&#101;&#115;&#101;&#121;&#106;&#97;&#x63;&#x6b;&#x2e;&#108;&#111;&#x63;&#97;&#108;">&#x63;&#104;&#x33;&#x33;&#115;&#x33;&#109;&#52;&#110;&#64;&#x63;&#x68;&#101;&#101;&#115;&#101;&#121;&#106;&#97;&#x63;&#x6b;&#x2e;&#108;&#111;&#x63;&#97;&#108;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#99;&#104;&#51;&#x33;&#x73;&#x33;&#x6d;&#52;&#x6e;&#x40;&#99;&#x68;&#x65;&#x65;&#115;&#101;&#x79;&#106;&#x61;&#x63;&#x6b;&#46;&#x6c;&#111;&#x63;&#x61;&#x6c;">&#99;&#104;&#51;&#x33;&#x73;&#x33;&#x6d;&#52;&#x6e;&#x40;&#99;&#x68;&#x65;&#x65;&#115;&#101;&#x79;&#106;&#x61;&#x63;&#x6b;&#46;&#x6c;&#111;&#x63;&#x61;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
@@ -426,7 +426,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -475,12 +475,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">43k</span>
+    <span title="站点总字数">44k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">39 分钟</span>
+    <span title="站点阅读时长">40 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

@@ -191,6 +191,214 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/31/hacksudo-aliens/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reigniting">
+      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种write up">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/31/hacksudo-aliens/" class="post-title-link" itemprop="url">靶机hacksudo: aliens渗透记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-31 01:17:32" itemprop="dateCreated datePublished" datetime="2021-07-31T01:17:32+08:00">2021-07-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-08 11:29:38" itemprop="dateModified" datetime="2021-08-08T11:29:38+08:00">2021-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>700</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>很适合初学者的靶机，来尝试一下。</p>
+<blockquote>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/hacksudo-aliens,676/">https://www.vulnhub.com/entry/hacksudo-aliens,676/</a></p>
+</blockquote>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机hacksudo: aliens×1<br>渗透机Kali Linux2021.2×1  和靶机在同一网段</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2021/07/31/hacksudo-aliens/1.png"><br>确定靶机mac地址<br><img src="/2021/07/31/hacksudo-aliens/2.png"><br>扫描内网</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/31/hacksudo-aliens/3.png"><br>判断靶机ip之后用nmap进行信息探测</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.131</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/31/hacksudo-aliens/4.png"><br>web服务开着，去看一下<br><img src="/2021/07/31/hacksudo-aliens/5.png"><br>随意点了点，没找到什么东西，用dirb扫一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http://192.168.55.131/</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/31/hacksudo-aliens/6.png"><br>发现有个/backup目录，去看一眼。<br><img src="/2021/07/31/hacksudo-aliens/7.png"><br>里面有个数据库备份文件，打开获得密码。<br><img src="/2021/07/31/hacksudo-aliens/8.png"><br>namap探测到还有一个网页，是phpMyAdmin后台登录界面。<br><img src="/2021/07/31/hacksudo-aliens/9.png"><br>把刚才收集到的账号密码输进去。<br><img src="/2021/07/31/hacksudo-aliens/10.png"><br>找到用户表，虽然密码都是加密过的，不过加密后的密文里发现root用户和我们是一样的，换成root登录进去。</p>
+<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p><img src="/2021/07/31/hacksudo-aliens/11.png"><br>查看文件写入权限<code>secure_file_priv</code>，如果参数为空，就可以任意写入<br>这里可以看到，是空的。<br><img src="/2021/07/31/hacksudo-aliens/12.png"><br>写入一句话。<br><img src="/2021/07/31/hacksudo-aliens/13.png"><br>蚁剑链接。<br><img src="/2021/07/31/hacksudo-aliens/14.png"><br>配合kali打一波nc反弹shell<br>链接成功之后尝试提权。<br><img src="/2021/07/31/hacksudo-aliens/15.png"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>查找suid权限文件。<br><img src="/2021/07/31/hacksudo-aliens/16.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://gtfobins.github.io/">https://gtfobins.github.io/</a></p>
+</blockquote>
+<p>查找了一番，date程序可以用于提权。<br>成功读取/etc/shadow<br><img src="/2021/07/31/hacksudo-aliens/17.png"><br><img src="/2021/07/31/hacksudo-aliens/18.png"><br>找到了hacksudo的密文，使用工具john进行破解。<br><img src="/2021/07/31/hacksudo-aliens/19.png"><br>切换到用户hacksudo。<br><img src="/2021/07/31/hacksudo-aliens/20.png"><br>跟刚才一样，查找suid权限文件。<br><img src="/2021/07/31/hacksudo-aliens/21.png"><br>发现cpulimit程序可用于提权。<br><img src="/2021/07/31/hacksudo-aliens/22.png"><br>参考网站进行提权。<br><img src="/2021/07/31/hacksudo-aliens/23.png"><br>提权成功。进入/root即可读取flag</p>
+<hr>
+<blockquote>
+<p>相识虽浅，似是经年。静守时光，以待流年。</p>
+</blockquote>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/22/Cheesey-Cheeseyjack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reigniting">
+      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种write up">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/22/Cheesey-Cheeseyjack/" class="post-title-link" itemprop="url">靶机Cheesey:Cheeseyjack渗透记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-22 16:18:12" itemprop="dateCreated datePublished" datetime="2021-07-22T16:18:12+08:00">2021-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-03 17:56:44" itemprop="dateModified" datetime="2021-08-03T17:56:44+08:00">2021-08-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">靶机渗透记录</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本来懒得写，但是写完搜了一下发现这个靶机的笔记比较少，就发出来供大家参考。<br>本人巨菜，轻喷。</p>
+<hr>
+<blockquote>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/">https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/</a></p>
+</blockquote>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Cheesey: Cheeseyjack×1<br>渗透机kali 2021.2×1 和靶机在同一网段</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机，看一下mac地址。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/1.png"><br>扫描内网，根据mac地址判断渗透靶机的ip。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/2.png"><br>nmap信息探测。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.134</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/3.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/4.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/5.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/22/Cheesey-Cheeseyjack/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -685,195 +893,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Reigniting">
-      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="各种write up">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">RedHat7 DHCP服务器配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-05 21:28:07" itemprop="dateCreated datePublished" datetime="2021-04-05T21:28:07+08:00">2021-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-23 17:32:00" itemprop="dateModified" datetime="2021-12-23T17:32:00+08:00">2021-12-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">Linux学习记录</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>820</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>社团作业 没有难度</p>
-<blockquote>
-<p>DHCP（动态主机配置协议）是一个局域网的网络协议。指的是由服务器控制一段IP地址范围，客户机登录服务器时就可以自动获得服务器分配的IP地址和子网掩码。担任DHCP服务器的计算机需要安装TCP/IP协议，并为其设置静态IP地址、子网掩码、默认网关等内容。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Reigniting">
-      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="各种write up">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/" class="post-title-link" itemprop="url">CTFshow-Misc入门-图片篇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-29 16:42:55" itemprop="dateCreated datePublished" datetime="2021-03-29T16:42:55+08:00">2021-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:18:35" itemprop="dateModified" datetime="2021-05-25T11:18:35+08:00">2021-05-25</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>369</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>什么？又出新题了<br>还有一堆web没做，你怎么跑到Misc来摸鱼了？(大雾)<br>这个系列学累了偶尔来做一做，更新随缘~</p>
-<h2 id="图片篇-基础操作"><a href="#图片篇-基础操作" class="headerlink" title="图片篇(基础操作)"></a>图片篇(基础操作)</h2><h3 id="Misc-1"><a href="#Misc-1" class="headerlink" title="Misc 1"></a>Misc 1</h3><p>解压完直接打开即可<br>不会有人傻到一个一个对着打flag吧？不会吧不会吧？<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -941,7 +964,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -990,12 +1013,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">43k</span>
+    <span title="站点总字数">44k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">39 分钟</span>
+    <span title="站点阅读时长">40 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
