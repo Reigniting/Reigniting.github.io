@@ -20,27 +20,27 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》 算是自己看书和学习的一个总结和整理。 事件发生前未雨绸缪，事件发生后亡羊补牢。——何为应急响应 顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力中写到的内容我认为也可以适当修改添加到简历当中。 常见网络安全应急响应场景： 勒索病毒，挖矿木马，Webshell,网页篡改，DDoS攻击，数据泄露，流量劫">
+  <meta name="description" content="这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》 算是自己看书和学习的一个总结和整理。  事件发生前未雨绸缪，事件发生后亡羊补牢。  顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力中写到的内容我认为也可以适当修改添加到简历当中。 常见网络安全应急响应场景： 勒索病毒，挖矿木马，Webshell,网页篡改，DDoS攻击，数据泄露，流量劫持 应急响应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络安全应急响应windows篇">
 <meta property="og:url" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/index.html">
 <meta property="og:site_name" content="各种write up">
-<meta property="og:description" content="这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》 算是自己看书和学习的一个总结和整理。 事件发生前未雨绸缪，事件发生后亡羊补牢。——何为应急响应 顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力中写到的内容我认为也可以适当修改添加到简历当中。 常见网络安全应急响应场景： 勒索病毒，挖矿木马，Webshell,网页篡改，DDoS攻击，数据泄露，流量劫">
+<meta property="og:description" content="这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》 算是自己看书和学习的一个总结和整理。  事件发生前未雨绸缪，事件发生后亡羊补牢。  顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力中写到的内容我认为也可以适当修改添加到简历当中。 常见网络安全应急响应场景： 勒索病毒，挖矿木马，Webshell,网页篡改，DDoS攻击，数据泄露，流量劫持 应急响应">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.png">
-<meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/2.png">
-<meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/3.png">
+<meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.jpg">
+<meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/2.jpg">
+<meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/3.jpg">
 <meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/4.png">
-<meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/5.png">
+<meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/5.jpg">
 <meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/6.png">
 <meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/7.png">
 <meta property="og:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/8.png">
 <meta property="article:published_time" content="2022-06-01T02:09:48.000Z">
-<meta property="article:modified_time" content="2022-06-01T04:25:49.510Z">
+<meta property="article:modified_time" content="2022-06-01T07:16:25.965Z">
 <meta property="article:author" content="Reigniting">
 <meta property="article:tag" content="这般那般，如梦似幻">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.png">
+<meta name="twitter:image" content="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.jpg">
 
 <link rel="canonical" href="http://example.com/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/">
 
@@ -227,7 +227,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-06-01 10:09:48 / 修改时间：12:25:49" itemprop="dateCreated datePublished" datetime="2022-06-01T10:09:48+08:00">2022-06-01</time>
+              <time title="创建时间：2022-06-01 10:09:48 / 修改时间：15:16:25" itemprop="dateCreated datePublished" datetime="2022-06-01T10:09:48+08:00">2022-06-01</time>
             </span>
 
           <br>
@@ -236,7 +236,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>995</span>
+              <span>987</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,25 +257,28 @@
       
         <p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
 <p>算是自己看书和学习的一个总结和整理。</p>
-<p>事件发生前未雨绸缪，事件发生后亡羊补牢。——何为应急响应</p>
+<blockquote>
+<p>事件发生前未雨绸缪，事件发生后亡羊补牢。</p>
+</blockquote>
 <p>顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力中写到的内容我认为也可以适当修改添加到简历当中。</p>
 <p>常见网络安全应急响应场景：</p>
 <p>勒索病毒，挖矿木马，Webshell,网页篡改，DDoS攻击，数据泄露，流量劫持</p>
 <p>应急响应分析流程如下：</p>
 <p>事件类型→时间范围→系统排查→进程排查→服务排查→文件痕迹检查→日志分析→(关联推理)→结论</p>
 <p>下面就是对技能点的总结</p>
+<hr>
 <h2 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h2><h3 id="Windows服务"><a href="#Windows服务" class="headerlink" title="Windows服务"></a>Windows服务</h3><h4 id="系统信息工具"><a href="#系统信息工具" class="headerlink" title="系统信息工具"></a>系统信息工具</h4><p>如果只是简单的了解可以通过命令行输入【systeminfo】该命令能查看主机名、操作系统版本等信息。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.jpg"></p>
 <p>更详细一些的内容可以通过命令行输入【winmsd】或【msinfo32】(这个是前者的更新版本)</p>
 <p>例如靶机windows2003用的就是【winmsd】命令</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/2.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/2.jpg"></p>
 <p>win10电脑是【msinfo32】命令</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/3.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/3.jpg"></p>
 <h4 id="正在运行的任务"><a href="#正在运行的任务" class="headerlink" title="正在运行的任务"></a>正在运行的任务</h4><p>在【系统信】息窗口中，单击【软件环境】中的【正在运行任务】选项，可以查看正在运行任务的名称、状态、路径</p>
 <p>进程ID等信息。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/4.png"></p>
 <h4 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【服务】选项，可以查看服务的名称、状态、路径等信息。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/5.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/5.jpg"></p>
 <h4 id="系统驱动服务"><a href="#系统驱动服务" class="headerlink" title="系统驱动服务"></a>系统驱动服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【系统驱动程序】选项，可以查看系统驱动程序的名称、描述、文件等信息。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/6.png"></p>
 <h4 id="加载的模块"><a href="#加载的模块" class="headerlink" title="加载的模块"></a>加载的模块</h4><p>在【系统信息】窗口中，单击【软件环境】中的【加载的模块】选项，可以查看加载的模块名称、路径等信息。</p>

@@ -551,25 +551,28 @@
     <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/</url>
     <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
 <p>算是自己看书和学习的一个总结和整理。</p>
-<p>事件发生前未雨绸缪，事件发生后亡羊补牢。——何为应急响应</p>
+<blockquote>
+<p>事件发生前未雨绸缪，事件发生后亡羊补牢。</p>
+</blockquote>
 <p>顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力中写到的内容我认为也可以适当修改添加到简历当中。</p>
 <p>常见网络安全应急响应场景：</p>
 <p>勒索病毒，挖矿木马，Webshell,网页篡改，DDoS攻击，数据泄露，流量劫持</p>
 <p>应急响应分析流程如下：</p>
 <p>事件类型→时间范围→系统排查→进程排查→服务排查→文件痕迹检查→日志分析→(关联推理)→结论</p>
 <p>下面就是对技能点的总结</p>
+<hr>
 <h2 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h2><h3 id="Windows服务"><a href="#Windows服务" class="headerlink" title="Windows服务"></a>Windows服务</h3><h4 id="系统信息工具"><a href="#系统信息工具" class="headerlink" title="系统信息工具"></a>系统信息工具</h4><p>如果只是简单的了解可以通过命令行输入【systeminfo】该命令能查看主机名、操作系统版本等信息。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.jpg"></p>
 <p>更详细一些的内容可以通过命令行输入【winmsd】或【msinfo32】(这个是前者的更新版本)</p>
 <p>例如靶机windows2003用的就是【winmsd】命令</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/2.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/2.jpg"></p>
 <p>win10电脑是【msinfo32】命令</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/3.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/3.jpg"></p>
 <h4 id="正在运行的任务"><a href="#正在运行的任务" class="headerlink" title="正在运行的任务"></a>正在运行的任务</h4><p>在【系统信】息窗口中，单击【软件环境】中的【正在运行任务】选项，可以查看正在运行任务的名称、状态、路径</p>
 <p>进程ID等信息。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/4.png"></p>
 <h4 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【服务】选项，可以查看服务的名称、状态、路径等信息。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/5.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/5.jpg"></p>
 <h4 id="系统驱动服务"><a href="#系统驱动服务" class="headerlink" title="系统驱动服务"></a>系统驱动服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【系统驱动程序】选项，可以查看系统驱动程序的名称、描述、文件等信息。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/6.png"></p>
 <h4 id="加载的模块"><a href="#加载的模块" class="headerlink" title="加载的模块"></a>加载的模块</h4><p>在【系统信息】窗口中，单击【软件环境】中的【加载的模块】选项，可以查看加载的模块名称、路径等信息。</p>
