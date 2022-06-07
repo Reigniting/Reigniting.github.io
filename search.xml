@@ -568,7 +568,7 @@
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/2.jpg"></p>
 <p>win10电脑是【msinfo32】命令</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/3.jpg"></p>
-<h4 id="正在运行的任务"><a href="#正在运行的任务" class="headerlink" title="正在运行的任务"></a>正在运行的任务</h4><p>在【系统信】息窗口中，单击【软件环境】中的【正在运行任务】选项，可以查看正在运行任务的名称、状态、路径</p>
+<h4 id="正在运行的任务"><a href="#正在运行的任务" class="headerlink" title="正在运行的任务"></a>正在运行的任务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【正在运行任务】选项，可以查看正在运行任务的名称、状态、路径</p>
 <p>进程ID等信息。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/4.png"></p>
 <h4 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【服务】选项，可以查看服务的名称、状态、路径等信息。</p>
@@ -580,18 +580,33 @@
 <h4 id="启动程序"><a href="#启动程序" class="headerlink" title="启动程序"></a>启动程序</h4><p>在【系统信息】窗口中，单击【软件环境】中的【启动程序】选项，可以查看启动程序命令、用户名、位置等信息。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/8.png"></p>
 <h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><p>Windows系统中排查恶意账户有以下4种方法：</p>
-<p>1.命令行方法【无法看到隐藏账户】</p>
-<p>net user</p>
-<p>进一步收集账户信息可加上username</p>
-<p>2.图形界面方法</p>
-<p>我的电脑→右键→管理→计算机管理（本地）→本地用户和组→用户</p>
+<h4 id="1-命令行方法【无法看到隐藏账户】"><a href="#1-命令行方法【无法看到隐藏账户】" class="headerlink" title="1.命令行方法【无法看到隐藏账户】"></a>1.命令行方法【无法看到隐藏账户】</h4><p>net user</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/9.png"></p>
+<p>进一步收集账户信息可加上username、</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/10.png"></p>
+<h4 id="2-图形界面方法"><a href="#2-图形界面方法" class="headerlink" title="2.图形界面方法"></a>2.图形界面方法</h4><p>我的电脑→右键→管理→计算机管理（本地）→本地用户和组→用户</p>
 <p>或者在命令行输入【lusrmgr.msc】</p>
 <p>可以看到带$的隐藏账户</p>
-<p>3.注册表方法</p>
-<p>在命令行中输入【regedit】即可打开注册表编辑器</p>
+<h4 id="3-注册表方法"><a href="#3-注册表方法" class="headerlink" title="3.注册表方法"></a>3.注册表方法</h4><p>在命令行中输入【regedit】即可打开注册表编辑器</p>
 <p>选择【HKEY_LOCAL_MACHINE】下的【SAM】选项，右键点击权限界面并进入高级安全设置，更改权限然后才能看到东西，不然啥也看不到。</p>
-<p>4.wmic方法</p>
-<p>wmic useraccount get name,SID</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/11.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/12.png"></p>
+<p>双击Users文件夹可以看到对应账号F值的二进制数据（可右键导出），若发现两个账号相同 ，则发现克隆账号。</p>
+<h4 id="4-wmic方法"><a href="#4-wmic方法" class="headerlink" title="4.wmic方法"></a>4.wmic方法</h4><p>wmic useraccount get name,SID</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/13.png"></p>
+<h3 id="Windows启动项"><a href="#Windows启动项" class="headerlink" title="Windows启动项"></a>Windows启动项</h3><p>启动项是病毒后门等实现持久化驻留的一种常用方法，在应急响应中也是排查的必要项目</p>
+<p>1.通过【系统配置】对话框查看</p>
+<p>Win+R 输入【msconfig】即可</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/14.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/15.png"></p>
+<p>2.通过注册表查看</p>
+<p>看书</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/16.png"></p>
+<p>路径：HKEY_LOCAL_MACHINE_SOFTWARE\Microsoft\Windows\CurrentVersion\Run</p>
+<p>添加注册表也是惯用手段了。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.png"></p>
+<h3 id="Windows防火墙网络出入"><a href="#Windows防火墙网络出入" class="headerlink" title="Windows防火墙网络出入"></a>Windows防火墙网络出入</h3><p>netsh Firewall show state</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/18.png"></p>
 ]]></content>
   </entry>
   <entry>
