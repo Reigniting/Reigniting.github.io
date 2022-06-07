@@ -558,8 +558,10 @@
 <p>常见网络安全应急响应场景：</p>
 <p>勒索病毒，挖矿木马，Webshell,网页篡改，DDoS攻击，数据泄露，流量劫持</p>
 <p>应急响应分析流程如下：</p>
+<blockquote>
 <p>事件类型→时间范围→系统排查→进程排查→服务排查→文件痕迹检查→日志分析→(关联推理)→结论</p>
-<p>下面就是对技能点的总结</p>
+</blockquote>
+<p>下面就是对技能点的总结。</p>
 <hr>
 <h2 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h2><h3 id="Windows服务"><a href="#Windows服务" class="headerlink" title="Windows服务"></a>Windows服务</h3><h4 id="系统信息工具"><a href="#系统信息工具" class="headerlink" title="系统信息工具"></a>系统信息工具</h4><p>如果只是简单的了解可以通过命令行输入【systeminfo】该命令能查看主机名、操作系统版本等信息。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.jpg"></p>
@@ -580,9 +582,10 @@
 <h4 id="启动程序"><a href="#启动程序" class="headerlink" title="启动程序"></a>启动程序</h4><p>在【系统信息】窗口中，单击【软件环境】中的【启动程序】选项，可以查看启动程序命令、用户名、位置等信息。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/8.png"></p>
 <h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><p>Windows系统中排查恶意账户有以下4种方法：</p>
-<h4 id="1-命令行方法【无法看到隐藏账户】"><a href="#1-命令行方法【无法看到隐藏账户】" class="headerlink" title="1.命令行方法【无法看到隐藏账户】"></a>1.命令行方法【无法看到隐藏账户】</h4><p>net user</p>
+<h4 id="1-命令行方法【无法看到隐藏账户】"><a href="#1-命令行方法【无法看到隐藏账户】" class="headerlink" title="1.命令行方法【无法看到隐藏账户】"></a>1.命令行方法【无法看到隐藏账户】</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">net user   #查看用户（不包括隐藏用户）</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/9.png"></p>
-<p>进一步收集账户信息可加上username、</p>
+<p>进一步收集账户信息可加上username</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/10.png"></p>
 <h4 id="2-图形界面方法"><a href="#2-图形界面方法" class="headerlink" title="2.图形界面方法"></a>2.图形界面方法</h4><p>我的电脑→右键→管理→计算机管理（本地）→本地用户和组→用户</p>
 <p>或者在命令行输入【lusrmgr.msc】</p>
@@ -594,20 +597,28 @@
 <p>双击Users文件夹可以看到对应账号F值的二进制数据（可右键导出），若发现两个账号相同 ，则发现克隆账号。</p>
 <h4 id="4-wmic方法"><a href="#4-wmic方法" class="headerlink" title="4.wmic方法"></a>4.wmic方法</h4><p>wmic useraccount get name,SID</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/13.png"></p>
-<h3 id="Windows启动项"><a href="#Windows启动项" class="headerlink" title="Windows启动项"></a>Windows启动项</h3><p>启动项是病毒后门等实现持久化驻留的一种常用方法，在应急响应中也是排查的必要项目</p>
+<h3 id="Windows启动项"><a href="#Windows启动项" class="headerlink" title="Windows启动项"></a>Windows启动项</h3><blockquote>
+<p>启动项是病毒后门等实现持久化驻留的一种常用方法，在应急响应中也是排查的必要项目</p>
+</blockquote>
 <p>1.通过【系统配置】对话框查看</p>
 <p>Win+R 输入【msconfig】即可</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/14.png"></p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/15.png"></p>
 <p>2.通过注册表查看</p>
-<p>看书</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/16.png"></p>
-<p>路径：HKEY_LOCAL_MACHINE_SOFTWARE\Microsoft\Windows\CurrentVersion\Run</p>
+<p>看书吧 暂时懒得打字了orz</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/16.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">路径：HKEY_LOCAL_MACHINE_SOFTWARE\Microsoft\Windows\CurrentVersion\Run</span><br></pre></td></tr></table></figure>
+
 <p>添加注册表也是惯用手段了。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.png"></p>
-<h3 id="Windows防火墙网络出入"><a href="#Windows防火墙网络出入" class="headerlink" title="Windows防火墙网络出入"></a>Windows防火墙网络出入</h3><p>netsh Firewall show state</p>
+<h3 id="Windows防火墙网络出入"><a href="#Windows防火墙网络出入" class="headerlink" title="Windows防火墙网络出入"></a>Windows防火墙网络出入</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh Firewall show state   #查看系统防火墙状态</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/18.png"></p>
-]]></content>
+<p>在新版虽然已被弃用，但仍可以提供所需要的信息</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/19.png"></p>
+<hr>
+<h2 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h2><h3 id="通过【任务管理器】查看"><a href="#通过【任务管理器】查看" class="headerlink" title="通过【任务管理器】查看"></a>通过【任务管理器】查看</h3><p>实践中我发现了各版本间有写不同，比如win10在进程格右键就能选择，而2003在【查看】选项中，win7的叫法也有所不同，不过差距都不大。2003我没有发现显示映像路径和命令行设置设置，很苦恼T T</p>
+<h3 id="使用【tasklist】命令进行排查"><a href="#使用【tasklist】命令进行排查" class="headerlink" title="使用【tasklist】命令进行排查"></a>使用【tasklist】命令进行排查</h3>]]></content>
   </entry>
   <entry>
     <title>靶机ContainMe: 1渗透记录</title>
