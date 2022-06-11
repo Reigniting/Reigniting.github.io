@@ -618,8 +618,46 @@
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/19.png"></p>
 <hr>
 <h2 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h2><h3 id="通过【任务管理器】查看"><a href="#通过【任务管理器】查看" class="headerlink" title="通过【任务管理器】查看"></a>通过【任务管理器】查看</h3><p>实践中我发现了各版本间有写不同，比如win10在进程格右键就能选择，而2003在【查看】选项中，win7的叫法也有所不同，不过差距都不大。Windows 2003我没有发现显示映像路径和命令行设置设置，很苦恼T T</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/20.png"></p>
 <p>总之就是要看到进程名称、PID、命令行，可以初步判断哪些进程和行为可疑，方便锁定目标。</p>
-<h3 id="使用【tasklist】命令进行排查"><a href="#使用【tasklist】命令进行排查" class="headerlink" title="使用【tasklist】命令进行排查"></a>使用【tasklist】命令进行排查</h3>]]></content>
+<h3 id="使用【tasklist】命令进行排查"><a href="#使用【tasklist】命令进行排查" class="headerlink" title="使用【tasklist】命令进行排查"></a>使用【tasklist】命令进行排查</h3><p>和一些参数一起食用更佳</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tasklist /svc  #显示每个进程和服务的对应情况</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/21.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tasklist /m</span><br></pre></td></tr></table></figure>
+
+<p>对于某些加载DLL的恶意进程可以使用</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/22.png"></p>
+<p>查找特定的DLL后跟相应的进程模块即可。tasklist命令还有过滤器功能，可以结合具体情况使用</p>
+<p>【tasklist /?】</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/23.png"></p>
+<h3 id="使用【netstat】命令进行排查"><a href="#使用【netstat】命令进行排查" class="headerlink" title="使用【netstat】命令进行排查"></a>使用【netstat】命令进行排查</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/24.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano | findstr &quot;ESTABLISHED&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.png"></p>
+<p>ESTABLISHED，含义TCP:连接成功</p>
+<p>如果需要定位筛查具体名称的话，还可以联动tasklist</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tasklist | find &quot;PID&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anb 可以查找发起外连的程序，不过需要管理员权限</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wmic process get name,parentprocessid,processid /format:csv</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
   </entry>
   <entry>
     <title>靶机ContainMe: 1渗透记录</title>
