@@ -306,7 +306,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-23 10:50:56" itemprop="dateModified" datetime="2022-06-23T10:50:56+08:00">2022-06-23</time>
+                <time title="修改时间：2022-06-23 11:41:26" itemprop="dateModified" datetime="2022-06-23T11:41:26+08:00">2022-06-23</time>
               </span>
 
           <br>
@@ -315,14 +315,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.7k</span>
+              <span>5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -340,14 +340,15 @@
 <p>事件发生前未雨绸缪，事件发生后亡羊补牢。</p>
 </blockquote>
 <p>顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力。</p>
+<p> <img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/0.jpg"></p>
 <p>这几个技能点稍加修改包装，简历不就又能加几行了吗（）</p>
 <p>常见网络安全应急响应场景：</p>
-<p>勒索病毒，挖矿木马，Webshell，网页篡改，DDoS攻击，数据泄露，流量劫持</p>
+<p>勒索病毒，挖矿木马，Webshell，网页篡改，DDoS攻击，数据泄露，流量劫持等</p>
 <p>应急响应分析流程如下：</p>
 <blockquote>
 <p>事件类型→时间范围→系统排查→进程排查→服务排查→文件痕迹检查→日志分析→(关联推理)→结论</p>
 </blockquote>
-<p>下面就是对技能点的总结。</p>
+<p>下面就是对技能点的简单总结。</p>
 <hr>
 <h2 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h2><h3 id="Windows服务"><a href="#Windows服务" class="headerlink" title="Windows服务"></a>Windows服务</h3><h4 id="系统信息工具"><a href="#系统信息工具" class="headerlink" title="系统信息工具"></a>系统信息工具</h4><p>如果只是简单的了解可以通过命令行输入【systeminfo】该命令能查看主机名、操作系统版本等信息。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.jpg"></p>
@@ -390,13 +391,13 @@
 <h4 id="1-通过【系统配置】对话框查看"><a href="#1-通过【系统配置】对话框查看" class="headerlink" title="1.通过【系统配置】对话框查看"></a>1.通过【系统配置】对话框查看</h4><p>Win+R 输入【msconfig】即可</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/14.png"></p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/15.png"></p>
-<h4 id="2-通过注册表查看"><a href="#2-通过注册表查看" class="headerlink" title="2.通过注册表查看"></a>2.通过注册表查看</h4><p>看书吧 暂时懒得打字了orz</p>
+<h4 id="2-通过注册表查看"><a href="#2-通过注册表查看" class="headerlink" title="2.通过注册表查看"></a>2.通过注册表查看</h4><p>各个目录的含义看书吧 懒得打字了orz</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/16.jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#不完全统计</span><br><span class="line">Explorer/Run键：</span><br><span class="line">HKEY_LOCAL_MACHINE_SOFTWARE\Microsoft\Windows\CurrentVersion\Run</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Policies/Explorer/Run</span><br><span class="line">Userinit键：</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/WindowsNT/CurrentVersion/Winlogon/Userinit</span><br><span class="line">RunServicesOnce键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">RunServices键：</span><br><span class="line">KEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServices</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/ CurrentVersion/RunServices</span><br><span class="line">Run键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">Load键</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/WindowsNT/CurrentVersion/Windows/load</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#注册表放自启动项目录（不完全整理）</span><br><span class="line">Explorer/Run键：</span><br><span class="line">HKEY_LOCAL_MACHINE_SOFTWARE\Microsoft\Windows\CurrentVersion\Run</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Policies/Explorer/Run</span><br><span class="line">Userinit键：</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/WindowsNT/CurrentVersion/Winlogon/Userinit</span><br><span class="line">RunServicesOnce键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">RunServices键：</span><br><span class="line">KEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServices</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/ CurrentVersion/RunServices</span><br><span class="line">Run键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">Load键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/WindowsNT/CurrentVersion/Windows/load</span><br><span class="line">RunOnce/Setup键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunOnce/Setup</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunOnce</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/RunOnceEx</span><br></pre></td></tr></table></figure>
 
 <p>添加注册表也是惯用手段了。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.png"></p>
-<h3 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h3><p>不详细讲了，看图就完事儿了</p>
+<h3 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h3><p>不详细讲了，看图就完事儿了，这个方法还是很明显的</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.5.png"></p>
 <h3 id="Windows防火墙网络出入"><a href="#Windows防火墙网络出入" class="headerlink" title="Windows防火墙网络出入"></a>Windows防火墙网络出入</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh Firewall show state   #查看系统防火墙状态</span><br></pre></td></tr></table></figure>
 
@@ -426,22 +427,26 @@
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.png"></p>
 <p>ESTABLISHED，含义TCP:连接成功</p>
 <p>如果需要定位筛查具体名称的话，还可以联动tasklist</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist | find &quot;PID&quot;</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如tasklist | find &quot;PID&quot;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anb 可以查找发起外连的程序，不过需要管理员权限</span><br></pre></td></tr></table></figure>
 
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic process get name,parentprocessid,processid /format:csv 这样看起来就简洁一点</span><br></pre></td></tr></table></figure>
 
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic process get name,parentprocessid,processid /format:csv</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="文件痕迹检查"><a href="#文件痕迹检查" class="headerlink" title="文件痕迹检查"></a>文件痕迹检查</h3><p>它们告诉我，你曾经存在过。</p>
-<h4 id="敏感目录"><a href="#敏感目录" class="headerlink" title="敏感目录"></a>敏感目录</h4><h5 id="各个盘下的-temp、-tmp文件夹"><a href="#各个盘下的-temp、-tmp文件夹" class="headerlink" title="各个盘下的/temp、/tmp文件夹"></a>各个盘下的/temp、/tmp文件夹</h5><h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><p>包括但不仅限于：浏览器历史记录、下载文件、cookie信息</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.3.png"></p>
+<h3 id="文件痕迹检查"><a href="#文件痕迹检查" class="headerlink" title="文件痕迹检查"></a>文件痕迹检查</h3><blockquote>
+<p>它们告诉我，你曾经存在过。</p>
+</blockquote>
+<h4 id="敏感目录"><a href="#敏感目录" class="headerlink" title="敏感目录"></a>敏感目录</h4><p>各个盘下的/temp、/tmp文件夹</p>
+<p>例如c:\windows\system32\inetsrv\MetaBase.<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=xml&spm=1001.2101.3001.7020">xml</a>     #IIS配置文件</p>
+<p>还有就是MySQL，PHP，Apache等等的配置文件，这里不在过多阐述和总结。</p>
+<p>网上有很多现成又详细的总结，这里简单的其他博主的优秀文章。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_50464560/article/details/119063335">https://blog.csdn.net/weixin_50464560/article/details/119063335</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lzz710107110/article/details/122386379">https://blog.csdn.net/lzz710107110/article/details/122386379</a></p>
+</blockquote>
+<h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><p>包括但不仅限于：浏览器历史记录、下载文件、cookie信息</p>
 <h4 id="查看用户Recent文件"><a href="#查看用户Recent文件" class="headerlink" title="查看用户Recent文件"></a>查看用户Recent文件</h4><p>访问过的文件夹或文件是有记录的如C:/Documents and Settings\Default User\Recent</p>
 <p>C:/Documents and Settings\用户名\Recent</p>
 <h4 id="查看预读取文件"><a href="#查看预读取文件" class="headerlink" title="查看预读取文件"></a>查看预读取文件</h4><p>Win+R输入【%SystemRoot%\Prefetch】即可发现pf预读取文件</p>
@@ -454,18 +459,26 @@
 <p>很好用的命令 就是太长了记不住</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/31.png"></p>
 <h4 id="对文件的创建时间、修改时间、访问时间进行排查"><a href="#对文件的创建时间、修改时间、访问时间进行排查" class="headerlink" title="对文件的创建时间、修改时间、访问时间进行排查"></a>对文件的创建时间、修改时间、访问时间进行排查</h4><p>hacker有时候为了掩人耳目会对时间进行修改，然而这种行为经不起推敲。</p>
-<p>修改时间后，这三种时间会有逻辑上的问题，需要重点排查！</p>
-<h4 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h4><p>不能判断哪个是webshell的话就上D盾</p>
+<p>修改时间后，这三种时间会有逻辑上的问题，需要工程师留心注意。</p>
+<h4 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h4><p>不能判断哪个是webshell的话就上D盾，上云沙箱</p>
+<p>或者看对外建立的链接，去查ip或者外联传输的情况。</p>
 <h3 id="日志分析"><a href="#日志分析" class="headerlink" title="日志分析"></a>日志分析</h3><p>分为系统日志，安全性日志，应用程序日志</p>
 <p>除了windows系统日志，还可以对中间件日志，ftp日志，数据库日志进行相关分析</p>
-<p>【待补充】</p>
+<p>【这些东西有很多，笔者在此不多赘述，大家自行利用搜索引擎收集即可】</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/32.png"></p>
 <h3 id="内存分析"><a href="#内存分析" class="headerlink" title="内存分析"></a>内存分析</h3><p>分析的话，主要是各种工具的使用，在此不多赘述。</p>
-<h3 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h3><p>Wireshark很棒的分析工具，1、要会抓包 2、要会分析（善用过滤器）</p>
+<p>市面上流行的商业软件都很不错，比如取证大师，火眼，盘古石等。</p>
+<p>当然volatility等也是很优秀的（建议用2版本）</p>
+<h3 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h3><p>Wireshark是很棒的分析工具，1、要会抓包 2、要会分析（善用过滤器）简单分享几个我用的比较多的。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ip.addr == ip    #过滤特定ip</span><br><span class="line">ip.src == ip     #过滤源ip</span><br><span class="line">ip.dst == ip     #过滤目的ip</span><br><span class="line">http、https、smtp、arp等协议直接输入即可筛选</span><br><span class="line">top.sort == 端口号 #对端口号进行过滤</span><br><span class="line">tcp contains xxx   #在数据包中筛查某一关键字</span><br><span class="line">arp.opcode==2     #过滤ARP应答帧</span><br><span class="line">arp.opcode==1     #过滤ARP请求帧</span><br><span class="line">http.response==1 &amp;&amp; http.response.code==200 #响应请求成功的包</span><br><span class="line">tcp.flags.ack==1&amp;&amp;tcp.flags.syn==1   #抓握手包</span><br></pre></td></tr></table></figure>
 
 <h3 id="威胁情报"><a href="#威胁情报" class="headerlink" title="威胁情报"></a>威胁情报</h3><p>ip和域名网上多查查</p>
-<p>遇见可疑文件没事儿了多找几个地方上传一下，气死红队（）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">https://x.threatbook.cn/  #微步平时也要闲着没事逛逛，说不定有意外惊喜呢</span><br><span class="line">https://ti.qianxin.com/   #奇安信威胁情报中心（个人认为做得非常好）</span><br><span class="line">https://ti.nsfocus.com/  #绿盟威胁情报云</span><br><span class="line">https://ti.360.com/#/homepage   #360威胁情报中心</span><br><span class="line">https://exchange.xforce.ibmcloud.com/ #IBM X-Force Exchange</span><br><span class="line">https://whois.chinaz.com/    #站长之家</span><br><span class="line">https://ip138.com/   #ip查询网</span><br><span class="line">http://www.scap.org.cn/   #VULHUB信息安全漏洞门户</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>遇见可疑文件有事儿没事儿了多找几个地方上传一下，气死红队（）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://www.virustotal.com/gui/home/upload  #virustotal</span><br><span class="line">https://s.threatbook.cn/   #微步云沙箱</span><br><span class="line">https://ata.360.cn/     #360安全大脑沙箱云</span><br><span class="line">https://habo.qq.com/  #腾讯哈勃系统</span><br><span class="line">https://sandbox.freebuf.com/detect?theme=freebuf  #大圣云沙箱（有点慢）</span><br></pre></td></tr></table></figure>
+
+<p>总结的内容到这里就要结束了，当然整本书300+页，后面有很多经典案例分享，如挖矿木马，勒索病毒，流量劫持等等。总的来说，是一本非常可读的书，值得想了解应急响应的同学学习一番。这些也有可能给红队的同学一些小启发哟~</p>
 <blockquote>
 <p>若不去改变，明天永远只是今天的重演。</p>
 </blockquote>
@@ -1109,12 +1122,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">47k</span>
+    <span title="站点总字数">48k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">43 分钟</span>
+    <span title="站点阅读时长">44 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
