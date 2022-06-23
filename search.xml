@@ -560,9 +560,10 @@
 <blockquote>
 <p>事件发生前未雨绸缪，事件发生后亡羊补牢。</p>
 </blockquote>
-<p>顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力中写到的内容我认为也可以适当修改添加到简历当中。</p>
+<p>顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力。</p>
+<p>这几个技能点稍加修改包装，简历不就又能加几行了吗（）</p>
 <p>常见网络安全应急响应场景：</p>
-<p>勒索病毒，挖矿木马，Webshell,网页篡改，DDoS攻击，数据泄露，流量劫持</p>
+<p>勒索病毒，挖矿木马，Webshell，网页篡改，DDoS攻击，数据泄露，流量劫持</p>
 <p>应急响应分析流程如下：</p>
 <blockquote>
 <p>事件类型→时间范围→系统排查→进程排查→服务排查→文件痕迹检查→日志分析→(关联推理)→结论</p>
@@ -601,7 +602,8 @@
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/11.png"></p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/12.png"></p>
 <p>双击Users文件夹可以看到对应账号F值的二进制数据（可右键导出），若发现两个账号相同 ，则发现克隆账号。</p>
-<h4 id="4-wmic方法"><a href="#4-wmic方法" class="headerlink" title="4.wmic方法"></a>4.wmic方法</h4><p>wmic useraccount get name,SID</p>
+<h4 id="4-wmic方法"><a href="#4-wmic方法" class="headerlink" title="4.wmic方法"></a>4.wmic方法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wmic useraccount get name,SID</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/13.png"></p>
 <h3 id="Windows启动项"><a href="#Windows启动项" class="headerlink" title="Windows启动项"></a>Windows启动项</h3><blockquote>
 <p>启动项是病毒后门等实现持久化驻留的一种常用方法，在应急响应中也是排查的必要项目</p>
@@ -611,7 +613,7 @@
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/15.png"></p>
 <h4 id="2-通过注册表查看"><a href="#2-通过注册表查看" class="headerlink" title="2.通过注册表查看"></a>2.通过注册表查看</h4><p>看书吧 暂时懒得打字了orz</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/16.jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">路径：HKEY_LOCAL_MACHINE_SOFTWARE\Microsoft\Windows\CurrentVersion\Run</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#不完全统计</span><br><span class="line">Explorer/Run键：</span><br><span class="line">HKEY_LOCAL_MACHINE_SOFTWARE\Microsoft\Windows\CurrentVersion\Run</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Policies/Explorer/Run</span><br><span class="line">Userinit键：</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/WindowsNT/CurrentVersion/Winlogon/Userinit</span><br><span class="line">RunServicesOnce键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">RunServices键：</span><br><span class="line">KEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServices</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/ CurrentVersion/RunServices</span><br><span class="line">Run键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">Load键</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/WindowsNT/CurrentVersion/Windows/load</span><br></pre></td></tr></table></figure>
 
 <p>添加注册表也是惯用手段了。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.png"></p>
@@ -635,8 +637,8 @@
 <p>对于某些加载DLL的恶意进程可以使用</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/22.png"></p>
 <p>查找特定的DLL后跟相应的进程模块即可。tasklist命令还有过滤器功能，可以结合具体情况使用</p>
-<p>【tasklist /?】</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/23.png"></p>
+<p>不知道有哪些功能的可以【tasklist /?】</p>
 <h4 id="使用【netstat】命令进行排查"><a href="#使用【netstat】命令进行排查" class="headerlink" title="使用【netstat】命令进行排查"></a>使用【netstat】命令进行排查</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/24.png"></p>
@@ -647,7 +649,13 @@
 <p>如果需要定位筛查具体名称的话，还可以联动tasklist</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tasklist | find &quot;PID&quot;</span><br></pre></td></tr></table></figure>
 
+
+
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anb 可以查找发起外连的程序，不过需要管理员权限</span><br></pre></td></tr></table></figure>
+
+
+
+
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wmic process get name,parentprocessid,processid /format:csv</span><br></pre></td></tr></table></figure>
 
@@ -673,12 +681,12 @@
 <p>除了windows系统日志，还可以对中间件日志，ftp日志，数据库日志进行相关分析</p>
 <p>【待补充】</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/32.png"></p>
-<h3 id="内存分析"><a href="#内存分析" class="headerlink" title="内存分析"></a>内存分析</h3><p>分析的话，主要是各种工具的使用。</p>
+<h3 id="内存分析"><a href="#内存分析" class="headerlink" title="内存分析"></a>内存分析</h3><p>分析的话，主要是各种工具的使用，在此不多赘述。</p>
 <h3 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h3><p>Wireshark很棒的分析工具，1、要会抓包 2、要会分析（善用过滤器）</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip.addr == ip    #过滤特定ip</span><br><span class="line">ip.src == ip     #过滤源ip</span><br><span class="line">ip.dst == ip     #过滤目的ip</span><br><span class="line">http、https、smtp、arp等协议直接输入即可筛选</span><br><span class="line">top.sort == 端口号 #对端口号进行过滤</span><br><span class="line">tcp contains xxx   #在数据包中筛查某一关键字</span><br><span class="line">arp.opcode==2     #过滤ARP应答帧</span><br><span class="line">arp.opcode==1     #过滤ARP请求帧</span><br><span class="line">http.response==1 &amp;&amp; http.response.code==200 #响应请求成功的包</span><br><span class="line">tcp.flags.ack==1&amp;&amp;tcp.flags.syn==1   #抓握手包</span><br></pre></td></tr></table></figure>
 
 <h3 id="威胁情报"><a href="#威胁情报" class="headerlink" title="威胁情报"></a>威胁情报</h3><p>ip和域名网上多查查</p>
-<p>遇见可疑文件没事儿多找几个地方上传一下</p>
+<p>遇见可疑文件没事儿了多找几个地方上传一下，气死红队（）</p>
 <blockquote>
 <p>若不去改变，明天永远只是今天的重演。</p>
 </blockquote>
