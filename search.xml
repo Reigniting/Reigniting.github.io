@@ -606,7 +606,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service --status-all  #可查看所有服务的状态</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/15.png">        </p>
-<blockquote>
+<h1 id="文件痕迹排查"><a href="#文件痕迹排查" class="headerlink" title="文件痕迹排查"></a>文件痕迹排查</h1><blockquote>
 <p>“我不知道怎么形容，但它一直存在”</p>
 </blockquote>
 <hr>
