@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-03 15:21:10" itemprop="dateModified" datetime="2022-08-03T15:21:10+08:00">2022-08-03</time>
+                <time title="修改时间：2022-08-03 16:42:36" itemprop="dateModified" datetime="2022-08-03T16:42:36+08:00">2022-08-03</time>
               </span>
 
           <br>
@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -254,31 +254,20 @@
 <p>在用WMIC执行命令过程中，操作系统默认不会将WMIC的操作记录在日志中，因此也是红队必备！</p>
 <p><strong>但要记得</strong></p>
 <p>使用WMIC连接远程主机，需要目标主机开放135和445(135 端⼝是 WMIC 默认的管理端⼝,445是远程连接端口)</p>
-<p>犹豫这几天比较急着学，所以只学暂时会用到的，本篇笔记不包含所有用法！【回头填坑，画大饼中】</p>
+<p>可用<strong>netstat -an</strong>查看开放端口</p>
+<p>由于这几天比较急着学，所以只学暂时会用到的，本篇笔记不包含所有用法！【回头填坑，画大饼中】</p>
 <p>想要把回显的结果保存到文本里就在最后加上 <strong>&gt; D:\1.txt</strong> 即可</p>
 <h5 id="查看主机内的账号"><a href="#查看主机内的账号" class="headerlink" title="查看主机内的账号"></a>查看主机内的账号</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic useraccount get name,SID</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; useraccount get name,SID</span><br></pre></td></tr></table></figure>
 
-
-
-<h5 id="查看工作组-域"><a href="#查看工作组-域" class="headerlink" title="查看工作组/域"></a>查看工作组/域</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic computersystem get domain</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; computersystem get domain</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="列出进程的核心信息"><a href="#列出进程的核心信息" class="headerlink" title="列出进程的核心信息"></a>列出进程的核心信息</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic process list brief</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process list brief</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="wmic开启3389端口"><a href="#wmic开启3389端口" class="headerlink" title="wmic开启3389端口"></a>wmic开启3389端口</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic RDTOGGLE WHERE ServerName=&#x27;%COMPUTERNAME%&#x27; call SetAllowTSConnections 1</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; RDTOGGLE WHERE ServerName=&#x27;WIN-TO2CN3V2VPR&#x27; call SetAllowTSConnections 1</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="获取可执行文件的路径"><a href="#获取可执行文件的路径" class="headerlink" title="获取可执行文件的路径"></a><strong>获取可执行文件的路径</strong></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic process where name=&quot;vmtoolsd.exe&quot; get executablepath</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process where name=&quot;vmtoolsd.exe&quot; get executablepath</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="执行程序"><a href="#执行程序" class="headerlink" title="执行程序"></a><strong>执行程序</strong></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">本地：</span><br><span class="line">wmic process call create &quot;calc&quot;</span><br><span class="line">远程：</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &quot;calc&quot;</span><br></pre></td></tr></table></figure>
-
-
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1014,7 +1003,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">50k</span>
+    <span title="站点总字数">51k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
