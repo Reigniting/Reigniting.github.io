@@ -555,6 +555,8 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/3.png"></p>
+<span id="more"></span>
+
 <h3 id="模块信息"><a href="#模块信息" class="headerlink" title="模块信息"></a>模块信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsmod</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/4.png"></p>
@@ -630,6 +632,8 @@
 <p>事件类型→时间范围→系统排查→进程排查→服务排查→文件痕迹检查→日志分析→(关联推理)→结论</p>
 </blockquote>
 <p>下面就是对技能点的简单总结。</p>
+<span id="more"></span>
+
 <hr>
 <h2 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h2><h3 id="Windows服务"><a href="#Windows服务" class="headerlink" title="Windows服务"></a>Windows服务</h3><h4 id="系统信息工具"><a href="#系统信息工具" class="headerlink" title="系统信息工具"></a>系统信息工具</h4><p>如果只是简单的了解可以通过命令行输入【systeminfo】该命令能查看主机名、操作系统版本等信息。</p>
 <p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.jpg"></p>
@@ -1588,5 +1592,38 @@
       <tags>
         <tag>pwn</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>强大工具wmic的学习记录</title>
+    <url>/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>Windows 系统自带的 wmic 命令——内网大杀器！</p>
+<p>在用WMIC执行命令过程中，操作系统默认不会将WMIC的操作记录在日志中，因此也是红队必备！</p>
+<p><strong>但要记得</strong></p>
+<p>使用WMIC连接远程主机，需要目标主机开放135和445(135 端⼝是 WMIC 默认的管理端⼝,445是远程连接端口)</p>
+<p>犹豫这几天比较急着学，所以只学暂时会用到的，本篇笔记不包含所有用法！【回头填坑，画大饼中】</p>
+<p>想要把回显的结果保存到文本里就在最后加上 <strong>&gt; D:\1.txt</strong> 即可</p>
+<h5 id="查看主机内的账号"><a href="#查看主机内的账号" class="headerlink" title="查看主机内的账号"></a>查看主机内的账号</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic useraccount get name,SID</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; useraccount get name,SID</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="查看工作组-域"><a href="#查看工作组-域" class="headerlink" title="查看工作组/域"></a>查看工作组/域</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic computersystem get domain</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; computersystem get domain</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="列出进程的核心信息"><a href="#列出进程的核心信息" class="headerlink" title="列出进程的核心信息"></a>列出进程的核心信息</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic process list brief</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process list brief</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="wmic开启3389端口"><a href="#wmic开启3389端口" class="headerlink" title="wmic开启3389端口"></a>wmic开启3389端口</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic RDTOGGLE WHERE ServerName=&#x27;%COMPUTERNAME%&#x27; call SetAllowTSConnections 1</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; RDTOGGLE WHERE ServerName=&#x27;WIN-TO2CN3V2VPR&#x27; call SetAllowTSConnections 1</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="获取可执行文件的路径"><a href="#获取可执行文件的路径" class="headerlink" title="获取可执行文件的路径"></a><strong>获取可执行文件的路径</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic process where name=&quot;vmtoolsd.exe&quot; get executablepath</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process where name=&quot;vmtoolsd.exe&quot; get executablepath</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="执行程序"><a href="#执行程序" class="headerlink" title="执行程序"></a><strong>执行程序</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地：</span><br><span class="line">wmic process call create &quot;calc&quot;</span><br><span class="line">远程：</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &quot;calc&quot;</span><br></pre></td></tr></table></figure>
+
+]]></content>
   </entry>
 </search>
