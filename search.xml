@@ -1,27 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CTFshow-Misc入门-图片篇</title>
-    <url>/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/</url>
-    <content><![CDATA[<p>什么？又出新题了<br>还有一堆web没做，你怎么跑到Misc来摸鱼了？(大雾)<br>这个系列学累了偶尔来做一做，更新随缘~</p>
-<h2 id="图片篇-基础操作"><a href="#图片篇-基础操作" class="headerlink" title="图片篇(基础操作)"></a>图片篇(基础操作)</h2><h3 id="Misc-1"><a href="#Misc-1" class="headerlink" title="Misc 1"></a>Misc 1</h3><p>解压完直接打开即可<br>不会有人傻到一个一个对着打flag吧？不会吧不会吧？<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.png"></p>
+    <title>CTFshow萌新区密码+隐写</title>
+    <url>/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/</url>
+    <content><![CDATA[<h2 id="萌新区-密码1"><a href="#萌新区-密码1" class="headerlink" title="萌新区 密码1"></a>萌新区 密码1</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/1.1.png"><br>密文一看就是十六进制，先将十六进制转换为字符串<br>结果如下所示</p>
 <span id="more"></span>
-<p><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.1.png"></p>
-<h3 id="Misc-2"><a href="#Misc-2" class="headerlink" title="Misc 2"></a>Misc 2</h3><p>打开txt发现是一堆乱码<br>看到文件头的字样推断是png图像<br>修改后缀格式即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.png"><br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.1.png"></p>
-<h3 id="Misc-3"><a href="#Misc-3" class="headerlink" title="Misc 3"></a>Misc 3</h3><p>用bgp查看软件打开即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/3.png"></p>
-<h3 id="Misc-4"><a href="#Misc-4" class="headerlink" title="Misc 4"></a>Misc 4</h3><p>一张一张的看<br>这种题什么也不考察 纯粹耍猴<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/4.png"></p>
-<h2 id="图片篇-信息附加"><a href="#图片篇-信息附加" class="headerlink" title="图片篇(信息附加)"></a>图片篇(信息附加)</h2><h3 id="Misc-5"><a href="#Misc-5" class="headerlink" title="Misc 5"></a>Misc 5</h3><p>010 editor打开搜索ctf字样即可发现最后几行有flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/5.png"></p>
-<h3 id="Misc-6"><a href="#Misc-6" class="headerlink" title="Misc 6"></a>Misc 6</h3><p>没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/6.png"></p>
-<h3 id="Misc-7"><a href="#Misc-7" class="headerlink" title="Misc 7"></a>Misc 7</h3><p>也没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/7.png"></p>
-<h3 id="Misc-8"><a href="#Misc-8" class="headerlink" title="Misc 8"></a>Misc 8</h3><p>里面还藏着一个图片<br>binwalk或者手动提取图片即可<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/8.png"></p>
-<h3 id="Misc-9"><a href="#Misc-9" class="headerlink" title="Misc 9"></a>Misc 9</h3><p>还是没什么好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/9.png"></p>
-<h3 id="Misc-10"><a href="#Misc-10" class="headerlink" title="Misc 10"></a>Misc 10</h3><p>binwalk一把梭<br>打开其中一个文件可以发现flag</p>
+<p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/1.2.png"><br>这个【=】懂得都懂 我们直接上base64<br>这里有一点需要注意一下 并不是所有的后面带【=】的就一定是base64<br>当初base58的设计用意便是混淆base64<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/1.3.png"><br>观察一下 加上给个提示格式是KEY{} 不难看出这个是栅栏密码<br>分成两部分然后一上一下竖着看即可 这里我们直接用在线工具了<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/1.4.png"><br>先肉眼看一下，栏数是2<br>然后拆成两串<br>KYdf0a3ebd5c4dc160-<br>E{fb63ee0298b8f4d8}<br>然后竖过来读<br>工具赛高 ！！！<br>出答案这里让我自己看我会晕的QAQ</p>
+<h2 id="萌新区-密码2"><a href="#萌新区-密码2" class="headerlink" title="萌新区 密码2"></a>萌新区 密码2</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/2.1.png"><br>做题人也很累 低头看了看键盘<br>看看电脑键盘 就会发现这些字母包围的分别是f w y<br>flag为KEY{fwy}</p>
+<h2 id="萌新区-密码3"><a href="#萌新区-密码3" class="headerlink" title="萌新区 密码3"></a>萌新区 密码3</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/3.1.png"><br>摩斯密码 二话不说先转一下<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/3.2.png"><br>解密出来的内容里有提示是培根密码<br>因此提取后面的md 将m换成A，d换成B<br>就是AABBABABAAABBBABABBAAAAAAABBABAABBA<br>然后在线工具了解一下</p>
+<blockquote>
+<p>每个英文字母都可以用AB来表示，而且都是5个A或B的组合</p>
+</blockquote>
+<p>题目共有35个AB 这也就说明解密出来的东西是7个英文字母组成的</p>
+<p>培根密码实际上就是一种替换密码，对应转换即可加密解密 。它的特殊之处在于：可以通过不明显的特征来隐藏密码信息，比如大小写、正斜体等，只要两个不同的属性，密码即可隐藏</p>
+<p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/3.3.png"></p>
+<h2 id="萌新区-密码-4"><a href="#萌新区-密码-4" class="headerlink" title="萌新区 密码#4"></a>萌新区 密码#4</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/4.1.png"><br>上来先base64伺候<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/4.2.png"><br>【&lt;】是html的&lt;，有些base64解码能写成&lt;，有一些不能<br>有的base85能解出来粗糙的 有些就直接不给解出来 需注意格式<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/4.3.png"></p>
+<h2 id="萌新区-萌新-隐写2"><a href="#萌新区-萌新-隐写2" class="headerlink" title="萌新区 萌新 隐写2"></a>萌新区 萌新 隐写2</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx2.1.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx2.2.png"><br>附件的压缩包需要密码<br>直接上破解工具<br>破解的时间比较长 闲来无事搜了一下这道题的wp  发现最早这道题是给的有提示的<br>天啊 不早说 等的好辛苦T T<br>Hint:文件的主人喜欢用生日做密码，而且还是个90后。<br>生日的话 我们可以做一个密码字典 这样会快一点 纯数字也好破解<br>密码为19981000 打开压缩包即可获取flag</p>
+<h2 id="萌新区-萌新-隐写3"><a href="#萌新区-萌新-隐写3" class="headerlink" title="萌新区 萌新 隐写3"></a>萌新区 萌新 隐写3</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx3.1.jpg"><br>flag就在图片上</p>
+<h2 id="萌新区-萌新-隐写4"><a href="#萌新区-萌新-隐写4" class="headerlink" title="萌新区 萌新 隐写4"></a>萌新区 萌新 隐写4</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx4.2.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx4.3.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx4.4.jpg"><br>Word设置显示隐藏文字即可 </p>
+<h2 id="萌新区-萌新-隐写5"><a href="#萌新区-萌新-隐写5" class="headerlink" title="萌新区 萌新 隐写5"></a>萌新区 萌新 隐写5</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx5.1.png"><br>中文转Unicode编码<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx5.2.png"><br>然后16进制转字符<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx5.3.png"><br>然后base32解码即可得出结果</p>
+<h2 id="萌新区-萌新-隐写6"><a href="#萌新区-萌新-隐写6" class="headerlink" title="萌新区 萌新 隐写6"></a>萌新区 萌新 隐写6</h2><p>用audacity打开音频，发现左声道是摩斯电码<br>把右声道静音，音量提高然后导出来<br>找一个在线的摩斯电码音频解码的网站<br>然后上传就行了<br>不知道为啥我没解成功  好像我的声音还是太小了</p>
+<h2 id="萌新区-隐写1"><a href="#萌新区-隐写1" class="headerlink" title="萌新区 隐写1"></a>萌新区 隐写1</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX1.1.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX1.2.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX1.3.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX1.4.png"><br>懒得打字了 直接看图吧 懂得都懂</p>
+<h2 id="萌新区-隐写2"><a href="#萌新区-隐写2" class="headerlink" title="萌新区 隐写2"></a>萌新区 隐写2</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX2.10.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX2.3.png"><br>提示已经很明显了 我们直接走JPHS<br>然后打开看一下 flag就是这么的简单明了<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX2.20.png"></p>
 <hr>
 <blockquote>
-<p>生活不是选择，而是热爱。或许你我终将落俗，但浪漫至死不渝。</p>
+<p>“我即辰星，我即黎明。”</p>
 </blockquote>
 <hr>
 ]]></content>
+      <categories>
+        <category>CTFshow刷题合集</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CTFshow 萌新web1-8</title>
+    <url>/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/</url>
+    <content><![CDATA[<h2 id="萌新区web1"><a href="#萌新区web1" class="headerlink" title="萌新区web1"></a>萌新区web1</h2><p>web选手培养中……<br>CTFshow这个平台简直不要太赞，以后刷题就在这里了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.0.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.1.png"><br>既然没有漏洞那我就不做了吧（滑稽）<br>这个注释，可以说很照顾萌新了</p>
+<span id="more"></span>
+<p>flag in id=1000  flag已经告诉我们在哪里了，所以我们只需要用sql执行语句查找就行了<br>直接大于999会出现错误提示<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.2.png"><br>所以我们给它加点料嘻嘻(#^.^#)<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.3.png"><br>后来想了想，应该不止一种解法 应该还可以用十六进制（用0x3e8绕过）<br>用十六进制就好比试卷上的计算题1+1+=？答案那里你写了个two类似吧~<br>（当然解法也能用二进制，也可以用别的方法）</p>
+<h2 id="萌新区web2"><a href="#萌新区web2" class="headerlink" title="萌新区web2"></a>萌新区web2</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.1.png"><br>应该还是有问题的（）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.2.png"><br>看着跟web1差不多嘛…<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.3.png"><br>所以这跟web1有什么区别吗？？</p>
+<h2 id="萌新区web3"><a href="#萌新区web3" class="headerlink" title="萌新区web3"></a>萌新区web3</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.1.png"><br>没问题吗？我不信233333<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.2.png"><br>没有过滤【‘’】 所以……(#^.^#)<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.3.png"><br>这跟web1 web2 有什么区别吗？</p>
+<h2 id="萌新区web4"><a href="#萌新区web4" class="headerlink" title="萌新区web4"></a>萌新区web4</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.1.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.2.png"><br>依然可以用【‘’】 不多说了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.3.png"></p>
+<h2 id="萌新区web5"><a href="#萌新区web5" class="headerlink" title="萌新区web5"></a>萌新区web5</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/5.1.png"><br>痛下杀手可还行<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/5.2.png"><br>这次多加了正则匹配，不能用?id=’1000’来解题了<br>可以使用【^】按位异或来绕过<br>1000的二进制是1111101000<br>只要找两个按位异或就行了，比如1111100000（992）和1000（8）</p>
+<h2 id="萌新区web6"><a href="#萌新区web6" class="headerlink" title="萌新区web6"></a>萌新区web6</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.1.png"><br>我猜这回不能按位异或了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.2.png"><br>果然……<br>不过不能按位异或，我们还可以取反呀~~<br>~~（双重含义）（笑）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.3.png"></p>
+<h2 id="萌新区web7"><a href="#萌新区web7" class="headerlink" title="萌新区web7"></a>萌新区web7</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.1.png"><br>我猜取反也给过滤了<br>如果取反也过滤了，就只能输入1111101000惹<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.2.png"><br>恩 我们输入二进制的1000 开头加上【0b】表示是二进制<br>1+1=two？这谁写的答案啊（恼）<br>……算了也算对的吧 放你一马<br>大概是这样子的（雾）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.3.png"></p>
+<h2 id="萌新区web8"><a href="#萌新区web8" class="headerlink" title="萌新区web8"></a>萌新区web8</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.1.png"><br>0.0    哦豁？被辞职了？<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.2.png"><br>这个代码……emmmmm<br>看了一眼write up  好家伙，阿呆删库跑路了 无形玩梗最为致命hhh<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.3.png"></p>
+<blockquote>
+<blockquote>
+<p>现在是2020年1月10日 0:19 萌新专区web1-8【阿呆第一季】结束了<br>毫无睡意，但是不是很想写web了  所以干点别的去(#^.^#)<br>不出意外接下来几天会写点别的 web暂时这样吧~~</p>
+</blockquote>
+</blockquote>
+<hr>
+<p>这是放寒假的时候从1月9日-1月10日做的萌新web题，现在把这个write up作为我在博客上的第一篇文章摆在这里，markdown语法一点也不难，纯粹为了写文章服务。非常非常赞！写write up也算是为我学习添了一点动力。希望自己能坚持下去吧！</p>
+<hr>
+<blockquote>
+<p>阳光下的泡沫，是彩色的。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>CTFshow刷题合集</category>
+      </categories>
       <tags>
         <tag>CTF</tag>
       </tags>
@@ -111,74 +153,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CTFshow萌新区密码+隐写</title>
-    <url>/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/</url>
-    <content><![CDATA[<h2 id="萌新区-密码1"><a href="#萌新区-密码1" class="headerlink" title="萌新区 密码1"></a>萌新区 密码1</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/1.1.png"><br>密文一看就是十六进制，先将十六进制转换为字符串<br>结果如下所示</p>
-<span id="more"></span>
-<p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/1.2.png"><br>这个【=】懂得都懂 我们直接上base64<br>这里有一点需要注意一下 并不是所有的后面带【=】的就一定是base64<br>当初base58的设计用意便是混淆base64<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/1.3.png"><br>观察一下 加上给个提示格式是KEY{} 不难看出这个是栅栏密码<br>分成两部分然后一上一下竖着看即可 这里我们直接用在线工具了<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/1.4.png"><br>先肉眼看一下，栏数是2<br>然后拆成两串<br>KYdf0a3ebd5c4dc160-<br>E{fb63ee0298b8f4d8}<br>然后竖过来读<br>工具赛高 ！！！<br>出答案这里让我自己看我会晕的QAQ</p>
-<h2 id="萌新区-密码2"><a href="#萌新区-密码2" class="headerlink" title="萌新区 密码2"></a>萌新区 密码2</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/2.1.png"><br>做题人也很累 低头看了看键盘<br>看看电脑键盘 就会发现这些字母包围的分别是f w y<br>flag为KEY{fwy}</p>
-<h2 id="萌新区-密码3"><a href="#萌新区-密码3" class="headerlink" title="萌新区 密码3"></a>萌新区 密码3</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/3.1.png"><br>摩斯密码 二话不说先转一下<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/3.2.png"><br>解密出来的内容里有提示是培根密码<br>因此提取后面的md 将m换成A，d换成B<br>就是AABBABABAAABBBABABBAAAAAAABBABAABBA<br>然后在线工具了解一下</p>
-<blockquote>
-<p>每个英文字母都可以用AB来表示，而且都是5个A或B的组合</p>
-</blockquote>
-<p>题目共有35个AB 这也就说明解密出来的东西是7个英文字母组成的</p>
-<p>培根密码实际上就是一种替换密码，对应转换即可加密解密 。它的特殊之处在于：可以通过不明显的特征来隐藏密码信息，比如大小写、正斜体等，只要两个不同的属性，密码即可隐藏</p>
-<p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/3.3.png"></p>
-<h2 id="萌新区-密码-4"><a href="#萌新区-密码-4" class="headerlink" title="萌新区 密码#4"></a>萌新区 密码#4</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/4.1.png"><br>上来先base64伺候<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/4.2.png"><br>【&lt;】是html的&lt;，有些base64解码能写成&lt;，有一些不能<br>有的base85能解出来粗糙的 有些就直接不给解出来 需注意格式<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/4.3.png"></p>
-<h2 id="萌新区-萌新-隐写2"><a href="#萌新区-萌新-隐写2" class="headerlink" title="萌新区 萌新 隐写2"></a>萌新区 萌新 隐写2</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx2.1.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx2.2.png"><br>附件的压缩包需要密码<br>直接上破解工具<br>破解的时间比较长 闲来无事搜了一下这道题的wp  发现最早这道题是给的有提示的<br>天啊 不早说 等的好辛苦T T<br>Hint:文件的主人喜欢用生日做密码，而且还是个90后。<br>生日的话 我们可以做一个密码字典 这样会快一点 纯数字也好破解<br>密码为19981000 打开压缩包即可获取flag</p>
-<h2 id="萌新区-萌新-隐写3"><a href="#萌新区-萌新-隐写3" class="headerlink" title="萌新区 萌新 隐写3"></a>萌新区 萌新 隐写3</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx3.1.jpg"><br>flag就在图片上</p>
-<h2 id="萌新区-萌新-隐写4"><a href="#萌新区-萌新-隐写4" class="headerlink" title="萌新区 萌新 隐写4"></a>萌新区 萌新 隐写4</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx4.2.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx4.3.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx4.4.jpg"><br>Word设置显示隐藏文字即可 </p>
-<h2 id="萌新区-萌新-隐写5"><a href="#萌新区-萌新-隐写5" class="headerlink" title="萌新区 萌新 隐写5"></a>萌新区 萌新 隐写5</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx5.1.png"><br>中文转Unicode编码<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx5.2.png"><br>然后16进制转字符<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/yx5.3.png"><br>然后base32解码即可得出结果</p>
-<h2 id="萌新区-萌新-隐写6"><a href="#萌新区-萌新-隐写6" class="headerlink" title="萌新区 萌新 隐写6"></a>萌新区 萌新 隐写6</h2><p>用audacity打开音频，发现左声道是摩斯电码<br>把右声道静音，音量提高然后导出来<br>找一个在线的摩斯电码音频解码的网站<br>然后上传就行了<br>不知道为啥我没解成功  好像我的声音还是太小了</p>
-<h2 id="萌新区-隐写1"><a href="#萌新区-隐写1" class="headerlink" title="萌新区 隐写1"></a>萌新区 隐写1</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX1.1.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX1.2.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX1.3.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX1.4.png"><br>懒得打字了 直接看图吧 懂得都懂</p>
-<h2 id="萌新区-隐写2"><a href="#萌新区-隐写2" class="headerlink" title="萌新区 隐写2"></a>萌新区 隐写2</h2><p><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX2.10.png"><br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX2.3.png"><br>提示已经很明显了 我们直接走JPHS<br>然后打开看一下 flag就是这么的简单明了<br><img src="/2021/01/14/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E5%AF%86%E7%A0%81-%E9%9A%90%E5%86%99/YX2.20.png"></p>
-<hr>
-<blockquote>
-<p>“我即辰星，我即黎明。”</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>CTFshow刷题合集</category>
-      </categories>
-      <tags>
-        <tag>CTF</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CTFshow 萌新web1-8</title>
-    <url>/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/</url>
-    <content><![CDATA[<h2 id="萌新区web1"><a href="#萌新区web1" class="headerlink" title="萌新区web1"></a>萌新区web1</h2><p>web选手培养中……<br>CTFshow这个平台简直不要太赞，以后刷题就在这里了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.0.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.1.png"><br>既然没有漏洞那我就不做了吧（滑稽）<br>这个注释，可以说很照顾萌新了</p>
-<span id="more"></span>
-<p>flag in id=1000  flag已经告诉我们在哪里了，所以我们只需要用sql执行语句查找就行了<br>直接大于999会出现错误提示<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.2.png"><br>所以我们给它加点料嘻嘻(#^.^#)<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.3.png"><br>后来想了想，应该不止一种解法 应该还可以用十六进制（用0x3e8绕过）<br>用十六进制就好比试卷上的计算题1+1+=？答案那里你写了个two类似吧~<br>（当然解法也能用二进制，也可以用别的方法）</p>
-<h2 id="萌新区web2"><a href="#萌新区web2" class="headerlink" title="萌新区web2"></a>萌新区web2</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.1.png"><br>应该还是有问题的（）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.2.png"><br>看着跟web1差不多嘛…<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.3.png"><br>所以这跟web1有什么区别吗？？</p>
-<h2 id="萌新区web3"><a href="#萌新区web3" class="headerlink" title="萌新区web3"></a>萌新区web3</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.1.png"><br>没问题吗？我不信233333<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.2.png"><br>没有过滤【‘’】 所以……(#^.^#)<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.3.png"><br>这跟web1 web2 有什么区别吗？</p>
-<h2 id="萌新区web4"><a href="#萌新区web4" class="headerlink" title="萌新区web4"></a>萌新区web4</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.1.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.2.png"><br>依然可以用【‘’】 不多说了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.3.png"></p>
-<h2 id="萌新区web5"><a href="#萌新区web5" class="headerlink" title="萌新区web5"></a>萌新区web5</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/5.1.png"><br>痛下杀手可还行<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/5.2.png"><br>这次多加了正则匹配，不能用?id=’1000’来解题了<br>可以使用【^】按位异或来绕过<br>1000的二进制是1111101000<br>只要找两个按位异或就行了，比如1111100000（992）和1000（8）</p>
-<h2 id="萌新区web6"><a href="#萌新区web6" class="headerlink" title="萌新区web6"></a>萌新区web6</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.1.png"><br>我猜这回不能按位异或了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.2.png"><br>果然……<br>不过不能按位异或，我们还可以取反呀~~<br>~~（双重含义）（笑）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.3.png"></p>
-<h2 id="萌新区web7"><a href="#萌新区web7" class="headerlink" title="萌新区web7"></a>萌新区web7</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.1.png"><br>我猜取反也给过滤了<br>如果取反也过滤了，就只能输入1111101000惹<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.2.png"><br>恩 我们输入二进制的1000 开头加上【0b】表示是二进制<br>1+1=two？这谁写的答案啊（恼）<br>……算了也算对的吧 放你一马<br>大概是这样子的（雾）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.3.png"></p>
-<h2 id="萌新区web8"><a href="#萌新区web8" class="headerlink" title="萌新区web8"></a>萌新区web8</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.1.png"><br>0.0    哦豁？被辞职了？<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.2.png"><br>这个代码……emmmmm<br>看了一眼write up  好家伙，阿呆删库跑路了 无形玩梗最为致命hhh<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.3.png"></p>
-<blockquote>
-<blockquote>
-<p>现在是2020年1月10日 0:19 萌新专区web1-8【阿呆第一季】结束了<br>毫无睡意，但是不是很想写web了  所以干点别的去(#^.^#)<br>不出意外接下来几天会写点别的 web暂时这样吧~~</p>
-</blockquote>
-</blockquote>
-<hr>
-<p>这是放寒假的时候从1月9日-1月10日做的萌新web题，现在把这个write up作为我在博客上的第一篇文章摆在这里，markdown语法一点也不难，纯粹为了写文章服务。非常非常赞！写write up也算是为我学习添了一点动力。希望自己能坚持下去吧！</p>
-<hr>
-<blockquote>
-<p>阳光下的泡沫，是彩色的。</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>CTFshow刷题合集</category>
-      </categories>
-      <tags>
-        <tag>CTF</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CTFshow 萌新区杂项1-11</title>
     <url>/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/</url>
     <content><![CDATA[<p>CTFshow刷题合集之萌新杂项~</p>
@@ -214,6 +188,32 @@
       </tags>
   </entry>
   <entry>
+    <title>CTFshow-Misc入门-图片篇</title>
+    <url>/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/</url>
+    <content><![CDATA[<p>什么？又出新题了<br>还有一堆web没做，你怎么跑到Misc来摸鱼了？(大雾)<br>这个系列学累了偶尔来做一做，更新随缘~</p>
+<h2 id="图片篇-基础操作"><a href="#图片篇-基础操作" class="headerlink" title="图片篇(基础操作)"></a>图片篇(基础操作)</h2><h3 id="Misc-1"><a href="#Misc-1" class="headerlink" title="Misc 1"></a>Misc 1</h3><p>解压完直接打开即可<br>不会有人傻到一个一个对着打flag吧？不会吧不会吧？<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.png"></p>
+<span id="more"></span>
+<p><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.1.png"></p>
+<h3 id="Misc-2"><a href="#Misc-2" class="headerlink" title="Misc 2"></a>Misc 2</h3><p>打开txt发现是一堆乱码<br>看到文件头的字样推断是png图像<br>修改后缀格式即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.png"><br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.1.png"></p>
+<h3 id="Misc-3"><a href="#Misc-3" class="headerlink" title="Misc 3"></a>Misc 3</h3><p>用bgp查看软件打开即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/3.png"></p>
+<h3 id="Misc-4"><a href="#Misc-4" class="headerlink" title="Misc 4"></a>Misc 4</h3><p>一张一张的看<br>这种题什么也不考察 纯粹耍猴<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/4.png"></p>
+<h2 id="图片篇-信息附加"><a href="#图片篇-信息附加" class="headerlink" title="图片篇(信息附加)"></a>图片篇(信息附加)</h2><h3 id="Misc-5"><a href="#Misc-5" class="headerlink" title="Misc 5"></a>Misc 5</h3><p>010 editor打开搜索ctf字样即可发现最后几行有flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/5.png"></p>
+<h3 id="Misc-6"><a href="#Misc-6" class="headerlink" title="Misc 6"></a>Misc 6</h3><p>没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/6.png"></p>
+<h3 id="Misc-7"><a href="#Misc-7" class="headerlink" title="Misc 7"></a>Misc 7</h3><p>也没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/7.png"></p>
+<h3 id="Misc-8"><a href="#Misc-8" class="headerlink" title="Misc 8"></a>Misc 8</h3><p>里面还藏着一个图片<br>binwalk或者手动提取图片即可<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/8.png"></p>
+<h3 id="Misc-9"><a href="#Misc-9" class="headerlink" title="Misc 9"></a>Misc 9</h3><p>还是没什么好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/9.png"></p>
+<h3 id="Misc-10"><a href="#Misc-10" class="headerlink" title="Misc 10"></a>Misc 10</h3><p>binwalk一把梭<br>打开其中一个文件可以发现flag</p>
+<hr>
+<blockquote>
+<p>生活不是选择，而是热爱。或许你我终将落俗，但浪漫至死不渝。</p>
+</blockquote>
+<hr>
+]]></content>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>靶机Cheesey:Cheeseyjack渗透记录</title>
     <url>/2021/07/22/Cheesey-Cheeseyjack/</url>
     <content><![CDATA[<p>本来懒得写，但是写完搜了一下发现这个靶机的笔记比较少，就发出来供大家参考。<br>本人巨菜，轻喷。</p>
@@ -235,7 +235,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#99;&#x68;&#51;&#x33;&#x73;&#51;&#109;&#52;&#110;&#64;&#99;&#x68;&#101;&#101;&#x73;&#x65;&#x79;&#106;&#x61;&#x63;&#107;&#x2e;&#108;&#x6f;&#x63;&#97;&#x6c;">&#99;&#x68;&#51;&#x33;&#x73;&#51;&#109;&#52;&#110;&#64;&#99;&#x68;&#101;&#101;&#x73;&#x65;&#x79;&#106;&#x61;&#x63;&#107;&#x2e;&#108;&#x6f;&#x63;&#97;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#x63;&#104;&#x33;&#x33;&#115;&#51;&#x6d;&#52;&#x6e;&#x40;&#x63;&#x68;&#101;&#x65;&#x73;&#x65;&#x79;&#x6a;&#97;&#x63;&#x6b;&#x2e;&#x6c;&#x6f;&#99;&#x61;&#x6c;">&#x63;&#104;&#x33;&#x33;&#115;&#51;&#x6d;&#52;&#x6e;&#x40;&#x63;&#x68;&#101;&#x65;&#x73;&#x65;&#x79;&#x6a;&#97;&#x63;&#x6b;&#x2e;&#x6c;&#x6f;&#99;&#x61;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
@@ -861,6 +861,60 @@
       </tags>
   </entry>
   <entry>
+    <title>靶机DC-2的渗透记录</title>
+    <url>/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<blockquote>
+<p>下载地址<a href="https://www.vulnhub.com/entry/dc-2,311/">https://www.vulnhub.com/entry/dc-2,311/</a></p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021.1<br>靶机DC-2×1 和渗透机在同一局域网<br>还有搜索引擎^_^</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开虚拟机 需要登录<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>话不多说，直接用从DC-1那里学来的本事，直接扫</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>还是看一眼mac地址 从而判断ip<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>接下来直接namp走一波</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -Pn -n 192.168.174.141</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>再来一次看看版本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.174.141</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>嗯？开着80web服务端口 原本在22的ssh换了地方在7744<br>总之先去看看网页什么样子<br>又打开了一个win7的虚拟机 想看一下结果发现访问不成<br>搜索引擎探索了一下 这种情况可以尝试加个hosts<br>加了一下 然后可以打开了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
+<h2 id="flag-1"><a href="#flag-1" class="headerlink" title="flag 1"></a>flag 1</h2><p>网页上直接有个flag<br>点击获得flag 1<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Flag 1:</span><br><span class="line">Your usual wordlists probably won&#x27;t work, so instead, maybe you justneed to be cewl.</span><br><span class="line">More passwords is always better, but sometimes you just can&#x27;t win themall.</span><br><span class="line">Log in as one to see the next flag.</span><br><span class="line">lf you can&#x27;t find it, log in as another.</span><br></pre></td></tr></table></figure>
+
+<h2 id="flag-2"><a href="#flag-2" class="headerlink" title="flag 2"></a>flag 2</h2><p>flag 1提示我们要用到cewl<br>上搜索引擎！</p>
+<blockquote>
+<p>字典生成工具Cewl使用全指南 <a href="https://www.freebuf.com/articles/network/190128.html">https://www.freebuf.com/articles/network/190128.html</a><br>  <a href="https://www.codercto.com/a/44828.html">https://www.codercto.com/a/44828.html</a></p>
+</blockquote>
+<p>先来生成一个字典</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cewl http://dc-2/ -w dict.txt</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>可以打开看一下<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>用wpscan扫一下看看能不能知道用户</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wpscan --url http://dc-2/ -e u</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>3个用户 我们把他们加到user字典里 以防万一我密码字典也加一下 这样就可以开始爆破了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wpsacn --url http://dc-2 -U user.txt  -P  dict.txt</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>爆破出来了两个账号，没有admin，感觉后面可能要提权啊<br>wordpress的默认登录后台地址是url/wp-login.php<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>直接输入账号密码登录成功<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>打开pages界面即可发现flag<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">If you can&#x27;t exploit WordPress and take a shortcut, there is another way.</span><br><span class="line"></span><br><span class="line">Hope you found another entry point.</span><br></pre></td></tr></table></figure>
+
+<h2 id="flag-3"><a href="#flag-3" class="headerlink" title="flag 3"></a>flag 3</h2><p>另一个方式，应该指的是ssh<br>ssh尝试连接 jerry登不了但是tom可以</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh tom@192.168.174.141 -p 7744  #password:parturient</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>接下来我觉得应该是渗透过程中最难的环节了<br>我这个菜鸟啥也不懂 从搜索引擎那里学了好久<br>果然还有很多东西需要学习啊<br>连接上后发现不能cat flag<br>因为ssh远程连接到服务器的环境变量中不包含对应可执行文件的路径。<br>这个需要自行添加 需要绕过rbash</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BASH_CMDS[a]=/bin/sh;a</span><br><span class="line">/bin/bash</span><br><span class="line">export PATH=$PATH:/bin/</span><br><span class="line">export PATH=$PATH:/usr/bin</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>添加后即可查看flag 3</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Poor old Tom is always running after Jerry.Perhaps he should su for all the stress he causes.</span><br></pre></td></tr></table></figure>
+
+<h2 id="flag-4"><a href="#flag-4" class="headerlink" title="flag 4"></a>flag 4</h2><p>提示给了su 于是切换到用户jerry<br>目录也要跳出来<br>flag 4很轻松的就出来了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Good to see that you &#x27;ve made it this far - but you &quot;re not home yet.</span><br><span class="line"></span><br><span class="line">You still need to get the final flag(the only flag that really counts!! !).No hints here - you &#x27;re on your own now. :-)</span><br><span class="line"></span><br><span class="line">Go on - git outta here! ! ! !</span><br></pre></td></tr></table></figure>
+<h2 id="Final-flag"><a href="#Final-flag" class="headerlink" title="Final-flag"></a>Final-flag</h2><p>提示了git<br>这些我也不懂，但是之前刷ctf的入门题的时候提到过git相关的东西<br>文件配置不当从而给了我们提权的机会<br>执行sudo -l<br>可以发现不需要密码就能够执行<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>需要调整终端大小，使其一次性无法显示完这条命令的回显结果<br>在下面输入<code>!/bin/bash</code>即可 可以用whoami确认一下<br>跳出目录 就能获取Final-flag了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>总的来说，DC-2还算简单一些，有了之前的经验所以做起来更顺手也更快了<br>学到了很多的东西 收获颇多<br>目前来看，信息搜集和善用搜索引擎在渗透靶机的时候不可或缺</p>
+<hr>
+<blockquote>
+<p>自觉此心无一事，小鱼跳出绿萍中。——姜夔· 《湖上寓居杂咏》</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>靶机DC-1的渗透记录</title>
     <url>/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>发现一个靶机，来学习一下</p>
@@ -930,60 +984,6 @@
 <hr>
 <blockquote>
 <p>逆风的方向,更适合飞翔, 我不怕千万人阻挡 ,只怕自己投降</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>靶机DC-2的渗透记录</title>
-    <url>/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<blockquote>
-<p>下载地址<a href="https://www.vulnhub.com/entry/dc-2,311/">https://www.vulnhub.com/entry/dc-2,311/</a></p>
-</blockquote>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021.1<br>靶机DC-2×1 和渗透机在同一局域网<br>还有搜索引擎^_^</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开虚拟机 需要登录<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>话不多说，直接用从DC-1那里学来的本事，直接扫</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>还是看一眼mac地址 从而判断ip<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>接下来直接namp走一波</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -Pn -n 192.168.174.141</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>再来一次看看版本</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.174.141</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>嗯？开着80web服务端口 原本在22的ssh换了地方在7744<br>总之先去看看网页什么样子<br>又打开了一个win7的虚拟机 想看一下结果发现访问不成<br>搜索引擎探索了一下 这种情况可以尝试加个hosts<br>加了一下 然后可以打开了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
-<h2 id="flag-1"><a href="#flag-1" class="headerlink" title="flag 1"></a>flag 1</h2><p>网页上直接有个flag<br>点击获得flag 1<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Flag 1:</span><br><span class="line">Your usual wordlists probably won&#x27;t work, so instead, maybe you justneed to be cewl.</span><br><span class="line">More passwords is always better, but sometimes you just can&#x27;t win themall.</span><br><span class="line">Log in as one to see the next flag.</span><br><span class="line">lf you can&#x27;t find it, log in as another.</span><br></pre></td></tr></table></figure>
-
-<h2 id="flag-2"><a href="#flag-2" class="headerlink" title="flag 2"></a>flag 2</h2><p>flag 1提示我们要用到cewl<br>上搜索引擎！</p>
-<blockquote>
-<p>字典生成工具Cewl使用全指南 <a href="https://www.freebuf.com/articles/network/190128.html">https://www.freebuf.com/articles/network/190128.html</a><br>  <a href="https://www.codercto.com/a/44828.html">https://www.codercto.com/a/44828.html</a></p>
-</blockquote>
-<p>先来生成一个字典</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cewl http://dc-2/ -w dict.txt</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>可以打开看一下<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>用wpscan扫一下看看能不能知道用户</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wpscan --url http://dc-2/ -e u</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>3个用户 我们把他们加到user字典里 以防万一我密码字典也加一下 这样就可以开始爆破了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wpsacn --url http://dc-2 -U user.txt  -P  dict.txt</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>爆破出来了两个账号，没有admin，感觉后面可能要提权啊<br>wordpress的默认登录后台地址是url/wp-login.php<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>直接输入账号密码登录成功<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>打开pages界面即可发现flag<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">If you can&#x27;t exploit WordPress and take a shortcut, there is another way.</span><br><span class="line"></span><br><span class="line">Hope you found another entry point.</span><br></pre></td></tr></table></figure>
-
-<h2 id="flag-3"><a href="#flag-3" class="headerlink" title="flag 3"></a>flag 3</h2><p>另一个方式，应该指的是ssh<br>ssh尝试连接 jerry登不了但是tom可以</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh tom@192.168.174.141 -p 7744  #password:parturient</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>接下来我觉得应该是渗透过程中最难的环节了<br>我这个菜鸟啥也不懂 从搜索引擎那里学了好久<br>果然还有很多东西需要学习啊<br>连接上后发现不能cat flag<br>因为ssh远程连接到服务器的环境变量中不包含对应可执行文件的路径。<br>这个需要自行添加 需要绕过rbash</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BASH_CMDS[a]=/bin/sh;a</span><br><span class="line">/bin/bash</span><br><span class="line">export PATH=$PATH:/bin/</span><br><span class="line">export PATH=$PATH:/usr/bin</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>添加后即可查看flag 3</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Poor old Tom is always running after Jerry.Perhaps he should su for all the stress he causes.</span><br></pre></td></tr></table></figure>
-
-<h2 id="flag-4"><a href="#flag-4" class="headerlink" title="flag 4"></a>flag 4</h2><p>提示给了su 于是切换到用户jerry<br>目录也要跳出来<br>flag 4很轻松的就出来了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Good to see that you &#x27;ve made it this far - but you &quot;re not home yet.</span><br><span class="line"></span><br><span class="line">You still need to get the final flag(the only flag that really counts!! !).No hints here - you &#x27;re on your own now. :-)</span><br><span class="line"></span><br><span class="line">Go on - git outta here! ! ! !</span><br></pre></td></tr></table></figure>
-<h2 id="Final-flag"><a href="#Final-flag" class="headerlink" title="Final-flag"></a>Final-flag</h2><p>提示了git<br>这些我也不懂，但是之前刷ctf的入门题的时候提到过git相关的东西<br>文件配置不当从而给了我们提权的机会<br>执行sudo -l<br>可以发现不需要密码就能够执行<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>需要调整终端大小，使其一次性无法显示完这条命令的回显结果<br>在下面输入<code>!/bin/bash</code>即可 可以用whoami确认一下<br>跳出目录 就能获取Final-flag了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>总的来说，DC-2还算简单一些，有了之前的经验所以做起来更顺手也更快了<br>学到了很多的东西 收获颇多<br>目前来看，信息搜集和善用搜索引擎在渗透靶机的时候不可或缺</p>
-<hr>
-<blockquote>
-<p>自觉此心无一事，小鱼跳出绿萍中。——姜夔· 《湖上寓居杂咏》</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -1221,6 +1221,67 @@
       </tags>
   </entry>
   <entry>
+    <title>靶机Toxic的渗透记录</title>
+    <url>/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>简单的靶机，so easy box</p>
+<p>初学者友好机，学累了就做一个玩玩吧^_^</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>hack the box的靶机Toxic环境</p>
+<p>BurpSuite×1</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>选好靶机，打开环境</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.jpg"> </p>
+<p>给出了公网地址，先去访问看一下</p>
+<span id="more"></span>
+
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.jpg"> </p>
+<p>是一个简单的页面 目前没有看到什么东西</p>
+<p>然后把提供的源代码也下载下来进行代码审计</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.jpg"> </p>
+<p>在这里可以清晰的看到 网页的cookie值是序列化后在进行base64编码得到的</p>
+<p>且里面带有要访问地址的目录（/www/index.html）</p>
+<p>于是用BurpSuite进行抓包</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.jpg"></p>
+<p>找个网站解密一下</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.jpg"></p>
+<p>确实是这样的，那么思路就来了</p>
+<p>后面要读取的内容是index.html，那我们可不可以换成别的读取呢？</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
+<p>s代表是长度，所以这里要改成15（/ect/passwd长度为15）</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.jpg"></p>
+<p>把编码过的cookie值放进去可以看到，确实能读取到敏感信息</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.jpg"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.jpg"></p>
+<p>而且这里显示的还有Nginx用户，那么就可以试着读取常用的一些目录</p>
+<blockquote>
+<p><a href="https://developer.aliyun.com/article/704954">https://developer.aliyun.com/article/704954</a></p>
+</blockquote>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.jpg"></p>
+<p>Nginx服务器在网站上的每一步操作都将会被写入日志文件log内，所以可以去看一下</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.jpg"></p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.jpg"></p>
+<p>通过index.php文件能够读取敏感文件，可以确定这是存在本地文件包含漏洞</p>
+<p>那就尝试通过index写入一句话</p>
+<p>因为每个访问都记录下了user-agent头，所以把语句写到user-agent里去。</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.jpg"></p>
+<p>也能被执行</p>
+<p>接着就通过system()函数读取本地目录（太懒不想去连马了）</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.jpg"></p>
+<p>看到了一个有flag字样的文件</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.jpg"></p>
+<p>去读取这个文件</p>
+<p> <img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.jpg"></p>
+<p>漏洞利用成功，拿到了flag</p>
+<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.jpg"></p>
+<p>结束。</p>
+<p>简单吧~</p>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>靶机covfefe: 1渗透记录</title>
     <url>/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="好久不写笔记了，随便整个靶机划划水"><a href="#好久不写笔记了，随便整个靶机划划水" class="headerlink" title="好久不写笔记了，随便整个靶机划划水"></a>好久不写笔记了，随便整个靶机划划水</h2><blockquote>
@@ -1293,67 +1354,6 @@
 </blockquote>
 <hr>
 ]]></content>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>靶机Toxic的渗透记录</title>
-    <url>/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>简单的靶机，so easy box</p>
-<p>初学者友好机，学累了就做一个玩玩吧^_^</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>hack the box的靶机Toxic环境</p>
-<p>BurpSuite×1</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>选好靶机，打开环境</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.jpg"> </p>
-<p>给出了公网地址，先去访问看一下</p>
-<span id="more"></span>
-
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.jpg"> </p>
-<p>是一个简单的页面 目前没有看到什么东西</p>
-<p>然后把提供的源代码也下载下来进行代码审计</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.jpg"> </p>
-<p>在这里可以清晰的看到 网页的cookie值是序列化后在进行base64编码得到的</p>
-<p>且里面带有要访问地址的目录（/www/index.html）</p>
-<p>于是用BurpSuite进行抓包</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.jpg"></p>
-<p>找个网站解密一下</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.jpg"></p>
-<p>确实是这样的，那么思路就来了</p>
-<p>后面要读取的内容是index.html，那我们可不可以换成别的读取呢？</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
-<p>s代表是长度，所以这里要改成15（/ect/passwd长度为15）</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.jpg"></p>
-<p>把编码过的cookie值放进去可以看到，确实能读取到敏感信息</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.jpg"></p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.jpg"></p>
-<p>而且这里显示的还有Nginx用户，那么就可以试着读取常用的一些目录</p>
-<blockquote>
-<p><a href="https://developer.aliyun.com/article/704954">https://developer.aliyun.com/article/704954</a></p>
-</blockquote>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.jpg"></p>
-<p>Nginx服务器在网站上的每一步操作都将会被写入日志文件log内，所以可以去看一下</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.jpg"></p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.jpg"></p>
-<p>通过index.php文件能够读取敏感文件，可以确定这是存在本地文件包含漏洞</p>
-<p>那就尝试通过index写入一句话</p>
-<p>因为每个访问都记录下了user-agent头，所以把语句写到user-agent里去。</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.jpg"></p>
-<p>也能被执行</p>
-<p>接着就通过system()函数读取本地目录（太懒不想去连马了）</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.jpg"></p>
-<p>看到了一个有flag字样的文件</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.jpg"></p>
-<p>去读取这个文件</p>
-<p> <img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.jpg"></p>
-<p>漏洞利用成功，拿到了flag</p>
-<p><img src="/2022/04/12/%E9%9D%B6%E6%9C%BAToxic%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.jpg"></p>
-<p>结束。</p>
-<p>简单吧~</p>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
       <tags>
         <tag>靶机渗透记录</tag>
       </tags>
