@@ -838,6 +838,9 @@
 </blockquote>
 <hr>
 ]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
       <tags>
         <tag>靶机渗透记录</tag>
       </tags>
@@ -985,6 +988,9 @@
 </blockquote>
 <hr>
 ]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
       <tags>
         <tag>靶机渗透记录</tag>
       </tags>
@@ -1092,6 +1098,9 @@
 </blockquote>
 <hr>
 ]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
       <tags>
         <tag>靶机渗透记录</tag>
       </tags>
@@ -1366,6 +1375,304 @@
       </categories>
       <tags>
         <tag>pwn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>强大工具wmic的学习记录</title>
+    <url>/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>Windows 系统自带的 wmic 命令——内网大杀器！</p>
+<p>在用WMIC执行命令过程中，操作系统默认不会将WMIC的操作记录在日志中，因此也是红队必备！</p>
+<p><strong>但要记得</strong></p>
+<p>使用WMIC连接远程主机，需要目标主机开放135和445(135 端⼝是 WMIC 默认的管理端⼝,445是远程连接端口)</p>
+<p>可用<strong>netstat -an</strong>查看开放端口</p>
+<p>由于这几天比较急着学，所以只学暂时会用到的，本篇笔记不包含所有用法！【回头填坑，画大饼中】</p>
+<p>想要把回显的结果保存到文本里就在最后加上 <strong>&gt; D:\1.txt</strong> 即可</p>
+<h5 id="查看主机内的账号"><a href="#查看主机内的账号" class="headerlink" title="查看主机内的账号"></a>查看主机内的账号</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic useraccount get name,SID</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; useraccount get name,SID</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1.png"></p>
+<span id="more"></span>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/2.png"></p>
+<h5 id="查看工作组-域"><a href="#查看工作组-域" class="headerlink" title="查看工作组/域"></a>查看工作组/域</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic computersystem get domain</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; computersystem get domain</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/3.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/4.png"></p>
+<h5 id="列出进程的核心信息"><a href="#列出进程的核心信息" class="headerlink" title="列出进程的核心信息"></a>列出进程的核心信息</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic process list brief</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process list brief</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/5.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/6.png"></p>
+<h5 id="wmic开启3389端口"><a href="#wmic开启3389端口" class="headerlink" title="wmic开启3389端口"></a>wmic开启3389端口</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic RDTOGGLE WHERE ServerName=&#x27;QBY-11A2C3B9FAE&#x27; call SetAllowTSConnections 1</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &#x27;cmd.exe /c REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections /t REG_DWORD /d 0 /f&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/7.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/8.png"></p>
+<p>wmic开启telnet服务</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic SERVICE where name=&quot;tlntsvr&quot; call startservice   </span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; SERVICE where name=&quot;tlntsvr&quot; call startservice   </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/12.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/13.png"></p>
+<h5 id="获取可执行文件的路径"><a href="#获取可执行文件的路径" class="headerlink" title="获取可执行文件的路径"></a><strong>获取可执行文件的路径</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic process where name=&quot;vmtoolsd.exe&quot; get executablepath</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process where name=&quot;vmtoolsd.exe&quot; get executablepath</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/9.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/10.png"></p>
+<h5 id="执行程序"><a href="#执行程序" class="headerlink" title="执行程序"></a><strong>执行程序</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地：</span><br><span class="line">wmic process call create &quot;calc&quot;</span><br><span class="line">远程：(未成功打开)</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &quot;calc&quot;</span><br><span class="line"></span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &#x27;cmd.exe /c calc&#x27;</span><br><span class="line">虽然回显了，但是那台靶机并没有弹出计算器，不晓得啥情况</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/11.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/14.png"></p>
+<p>这是两张本地验证。</p>
+<p>虽然在日志不留痕迹，但事实上如果本地有杀软还是会拦截并有弹窗提示。</p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/15.png"></p>
+<p>因此，对抗杀软也是学习安全必经之路。希望自己可以开个坑来琢磨一下~</p>
+<hr>
+<blockquote>
+<p>星光不问赶路人，时光不负有心人。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>我的内网学习之路</category>
+      </categories>
+      <tags>
+        <tag>内网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络安全应急响应Linux篇</title>
+    <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/</url>
+    <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
+<p>算是自己看书和学习的一个总结和整理。这里是对Linux的小总结</p>
+<p>【正在更新中,其实大部分需要掌握的基础部分写的差不多了，虽然坑没填完但也够看了】</p>
+<h1 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h1><h2 id="Linux系统"><a href="#Linux系统" class="headerlink" title="Linux系统"></a>Linux系统</h2><h3 id="cpu信息"><a href="#cpu信息" class="headerlink" title="cpu信息"></a>cpu信息</h3><p>【lscpu】命令可查看cpu相关信息，包括型号、主频、内核等</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/1.png"></p>
+<h3 id="操作系统信息"><a href="#操作系统信息" class="headerlink" title="操作系统信息"></a>操作系统信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -a </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/3.png"></p>
+<span id="more"></span>
+
+<h3 id="模块信息"><a href="#模块信息" class="headerlink" title="模块信息"></a>模块信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsmod</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/4.png"></p>
+<h2 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h2><h3 id="查看系统所有用户信息"><a href="#查看系统所有用户信息" class="headerlink" title="查看系统所有用户信息"></a>查看系统所有用户信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd  </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/5.png"></p>
+<h3 id="分析超级权限账户"><a href="#分析超级权限账户" class="headerlink" title="分析超级权限账户"></a>分析超级权限账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if($3==0)print $1&#125;&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/6.png"></p>
+<h3 id="查看可登录的账户"><a href="#查看可登录的账户" class="headerlink" title="查看可登录的账户"></a>查看可登录的账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep &#x27;/bin/bash&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/7.png"></p>
+<h3 id="查看用户错误的登录信息"><a href="#查看用户错误的登录信息" class="headerlink" title="查看用户错误的登录信息"></a>查看用户错误的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/8.png"></p>
+<h3 id="查看所有用户最后的登录信息"><a href="#查看所有用户最后的登录信息" class="headerlink" title="查看所有用户最后的登录信息"></a>查看所有用户最后的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastlog | more</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/9.png"></p>
+<h3 id="查看用户最近登录信息"><a href="#查看用户最近登录信息" class="headerlink" title="查看用户最近登录信息"></a>查看用户最近登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">last</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/10.png"></p>
+<h3 id="查看当前用户登录系统情况"><a href="#查看当前用户登录系统情况" class="headerlink" title="查看当前用户登录系统情况"></a>查看当前用户登录系统情况</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">who</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/11.png"></p>
+<h3 id="查看空口令账户"><a href="#查看空口令账户" class="headerlink" title="查看空口令账户"></a>查看空口令账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;length($2)==0 &#123;print $1&#125;&#x27; /etc/shadow</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动项"><a href="#启动项" class="headerlink" title="启动项"></a>启动项</h2><p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/12.jpg"></p>
+<h2 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line">crontab -u root -l</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/13.png"></p>
+<p>这条显示的命令为腾讯云的资源监控</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/14.jpg">                                    </p>
+<h1 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -antlp | more #查看网络连接</span><br><span class="line"></span><br><span class="line">ls -alt /proc/【PID】#查看对应的可执行程序</span><br><span class="line"></span><br><span class="line">lsof -p PID #查看该进程打开的文件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kill -9 PID #结束进程</span><br><span class="line"></span><br><span class="line">rm -rf filename #删除目标文件</span><br><span class="line"></span><br><span class="line">若删除不成功lsattr filename查看是否被加上i属性然后使用chattr -i filename移除i属性，在进行文件的删除</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ps -ef | awk &#x27;&#123;print&#125;&#x27; | sort -n | uniq &gt; 1  #查看隐藏进程123</span><br><span class="line"></span><br><span class="line">ls /proc | sort -n | uniq &gt; 2</span><br><span class="line"></span><br><span class="line">diff 1 2 #对比</span><br></pre></td></tr></table></figure>
+
+<p>可以用top查看资源占用情况，可针对性的重点排查cpu占用率较高的进程</p>
+<h1 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chkconfig --list  #查看系统运行的服务</span><br></pre></td></tr></table></figure>
+
+<p>等级0表示：表示关机</p>
+<p>等级1表示：单用户模式</p>
+<p>等级2表示：无网络连接的多用户命令行模式</p>
+<p>等级3表示：有网络连接的多用户命令行模式</p>
+<p>等级4表示：不可用</p>
+<p>等级5表示：带图形界面的多用户模式</p>
+<p>等级6表示：重新启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service --status-all  #可查看所有服务的状态</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/15.png">        </p>
+<h1 id="文件痕迹排查"><a href="#文件痕迹排查" class="headerlink" title="文件痕迹排查"></a>文件痕迹排查</h1><blockquote>
+<p>“我不知道怎么形容，但它一直存在”</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>蓝队学习之路</category>
+      </categories>
+      <tags>
+        <tag>应急响应</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络安全应急响应windows篇</title>
+    <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/</url>
+    <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
+<p>算是自己看书和学习的一个总结和整理。</p>
+<blockquote>
+<p>事件发生前未雨绸缪，事件发生后亡羊补牢。</p>
+</blockquote>
+<p>顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力。</p>
+<p> <img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/0.jpg"></p>
+<p>这几个技能点稍加修改包装，简历不就又能加几行了吗（）</p>
+<p>常见网络安全应急响应场景：</p>
+<p>勒索病毒，挖矿木马，Webshell，网页篡改，DDoS攻击，数据泄露，流量劫持等</p>
+<p>应急响应分析流程如下：</p>
+<blockquote>
+<p>事件类型→时间范围→系统排查→进程排查→服务排查→文件痕迹检查→日志分析→(关联推理)→结论</p>
+</blockquote>
+<p>下面就是对技能点的简单总结。</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h2><h3 id="Windows服务"><a href="#Windows服务" class="headerlink" title="Windows服务"></a>Windows服务</h3><h4 id="系统信息工具"><a href="#系统信息工具" class="headerlink" title="系统信息工具"></a>系统信息工具</h4><p>如果只是简单的了解可以通过命令行输入【systeminfo】该命令能查看主机名、操作系统版本等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.jpg"></p>
+<p>更详细一些的内容可以通过命令行输入【winmsd】或【msinfo32】(这个是前者的更新版本)</p>
+<p>例如靶机windows2003用的就是【winmsd】命令</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/2.jpg"></p>
+<p>win10电脑是【msinfo32】命令</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/3.jpg"></p>
+<h4 id="正在运行的任务"><a href="#正在运行的任务" class="headerlink" title="正在运行的任务"></a>正在运行的任务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【正在运行任务】选项，可以查看正在运行任务的名称、状态、路径</p>
+<p>进程ID等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/4.png"></p>
+<h4 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【服务】选项，可以查看服务的名称、状态、路径等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/5.jpg"></p>
+<h4 id="系统驱动服务"><a href="#系统驱动服务" class="headerlink" title="系统驱动服务"></a>系统驱动服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【系统驱动程序】选项，可以查看系统驱动程序的名称、描述、文件等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/6.png"></p>
+<h4 id="加载的模块"><a href="#加载的模块" class="headerlink" title="加载的模块"></a>加载的模块</h4><p>在【系统信息】窗口中，单击【软件环境】中的【加载的模块】选项，可以查看加载的模块名称、路径等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/7.png"></p>
+<h4 id="启动程序"><a href="#启动程序" class="headerlink" title="启动程序"></a>启动程序</h4><p>在【系统信息】窗口中，单击【软件环境】中的【启动程序】选项，可以查看启动程序命令、用户名、位置等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/8.png"></p>
+<h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><p>Windows系统中排查恶意账户有以下4种方法：</p>
+<h4 id="1-命令行方法【无法看到隐藏账户】"><a href="#1-命令行方法【无法看到隐藏账户】" class="headerlink" title="1.命令行方法【无法看到隐藏账户】"></a>1.命令行方法【无法看到隐藏账户】</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">net user   #查看用户（不包括隐藏用户）</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/9.png"></p>
+<p>进一步收集账户信息可加上username</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/10.png"></p>
+<h4 id="2-图形界面方法"><a href="#2-图形界面方法" class="headerlink" title="2.图形界面方法"></a>2.图形界面方法</h4><p>我的电脑→右键→管理→计算机管理（本地）→本地用户和组→用户</p>
+<p>或者在命令行输入【lusrmgr.msc】</p>
+<p>可以看到带$的隐藏账户</p>
+<h4 id="3-注册表方法"><a href="#3-注册表方法" class="headerlink" title="3.注册表方法"></a>3.注册表方法</h4><p>在命令行中输入【regedit】即可打开注册表编辑器</p>
+<p>选择【HKEY_LOCAL_MACHINE】下的【SAM】选项，右键点击权限界面并进入高级安全设置，更改权限然后才能看到东西，不然啥也看不到。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/11.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/12.png"></p>
+<p>双击Users文件夹可以看到对应账号F值的二进制数据（可右键导出），若发现两个账号相同 ，则发现克隆账号。</p>
+<h4 id="4-wmic方法"><a href="#4-wmic方法" class="headerlink" title="4.wmic方法"></a>4.wmic方法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wmic useraccount get name,SID</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/13.png"></p>
+<h3 id="Windows启动项"><a href="#Windows启动项" class="headerlink" title="Windows启动项"></a>Windows启动项</h3><blockquote>
+<p>启动项是病毒后门等实现持久化驻留的一种常用方法，在应急响应中也是排查的必要项目</p>
+</blockquote>
+<h4 id="1-通过【系统配置】对话框查看"><a href="#1-通过【系统配置】对话框查看" class="headerlink" title="1.通过【系统配置】对话框查看"></a>1.通过【系统配置】对话框查看</h4><p>Win+R 输入【msconfig】即可</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/14.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/15.png"></p>
+<h4 id="2-通过注册表查看"><a href="#2-通过注册表查看" class="headerlink" title="2.通过注册表查看"></a>2.通过注册表查看</h4><p>各个目录的含义看书吧 懒得打字了orz</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/16.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#注册表放自启动项目录（不完全整理）</span><br><span class="line">Explorer/Run键：</span><br><span class="line">HKEY_LOCAL_MACHINE_SOFTWARE\Microsoft\Windows\CurrentVersion\Run</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Policies/Explorer/Run</span><br><span class="line">Userinit键：</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/WindowsNT/CurrentVersion/Winlogon/Userinit</span><br><span class="line">RunServicesOnce键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">RunServices键：</span><br><span class="line">KEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServices</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/ CurrentVersion/RunServices</span><br><span class="line">Run键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">Load键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/WindowsNT/CurrentVersion/Windows/load</span><br><span class="line">RunOnce/Setup键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunOnce/Setup</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunOnce</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/RunOnceEx</span><br></pre></td></tr></table></figure>
+
+<p>添加注册表也是惯用手段了。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.png"></p>
+<h3 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h3><p>不详细讲了，看图就完事儿了，这个方法还是很明显的</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.5.png"></p>
+<h3 id="Windows防火墙网络出入"><a href="#Windows防火墙网络出入" class="headerlink" title="Windows防火墙网络出入"></a>Windows防火墙网络出入</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh Firewall show state   #查看系统防火墙状态</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/18.png"></p>
+<p>在新版虽然已被弃用，但仍可以提供所需要的信息</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/19.png"></p>
+<hr>
+<h2 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h2><h3 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h3><h4 id="通过【任务管理器】查看"><a href="#通过【任务管理器】查看" class="headerlink" title="通过【任务管理器】查看"></a>通过【任务管理器】查看</h4><p>实践中我发现了各版本间有写不同，比如win10在进程格右键就能选择，而2003在【查看】选项中，win7的叫法也有所不同，不过差距都不大。Windows 2003我没有发现显示映像路径和命令行设置设置，很苦恼T T</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/20.png"></p>
+<p>总之就是要看到进程名称、PID、命令行，可以初步判断哪些进程和行为可疑，方便锁定目标。</p>
+<h4 id="使用【tasklist】命令进行排查"><a href="#使用【tasklist】命令进行排查" class="headerlink" title="使用【tasklist】命令进行排查"></a>使用【tasklist】命令进行排查</h4><p>和一些参数一起食用更佳</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tasklist /svc  #显示每个进程和服务的对应情况</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/21.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tasklist /m</span><br></pre></td></tr></table></figure>
+
+<p>对于某些加载DLL的恶意进程可以使用</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/22.png"></p>
+<p>查找特定的DLL后跟相应的进程模块即可。tasklist命令还有过滤器功能，可以结合具体情况使用</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/23.png"></p>
+<p>不知道有哪些功能的可以【tasklist /?】</p>
+<h4 id="使用【netstat】命令进行排查"><a href="#使用【netstat】命令进行排查" class="headerlink" title="使用【netstat】命令进行排查"></a>使用【netstat】命令进行排查</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/24.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano | findstr &quot;ESTABLISHED&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.png"></p>
+<p>ESTABLISHED，含义TCP:连接成功</p>
+<p>如果需要定位筛查具体名称的话，还可以联动tasklist</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">例如tasklist | find &quot;PID&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anb 可以查找发起外连的程序，不过需要管理员权限</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wmic process get name,parentprocessid,processid /format:csv 这样看起来就简洁一点</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.3.png"></p>
+<h3 id="文件痕迹检查"><a href="#文件痕迹检查" class="headerlink" title="文件痕迹检查"></a>文件痕迹检查</h3><blockquote>
+<p>它们告诉我，你曾经存在过。</p>
+</blockquote>
+<h4 id="敏感目录"><a href="#敏感目录" class="headerlink" title="敏感目录"></a>敏感目录</h4><p>各个盘下的/temp、/tmp文件夹</p>
+<p>例如c:\windows\system32\inetsrv\MetaBase.<a href="https://so.csdn.net/so/search?q=xml&spm=1001.2101.3001.7020">xml</a>     #IIS配置文件</p>
+<p>还有就是MySQL，PHP，Apache等等的配置文件，这里不在过多阐述和总结。</p>
+<p>网上有很多现成又详细的总结，这里简单的其他博主的优秀文章。</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/weixin_50464560/article/details/119063335">https://blog.csdn.net/weixin_50464560/article/details/119063335</a></p>
+<p><a href="https://blog.csdn.net/lzz710107110/article/details/122386379">https://blog.csdn.net/lzz710107110/article/details/122386379</a></p>
+</blockquote>
+<h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><p>包括但不仅限于：浏览器历史记录、下载文件、cookie信息</p>
+<h4 id="查看用户Recent文件"><a href="#查看用户Recent文件" class="headerlink" title="查看用户Recent文件"></a>查看用户Recent文件</h4><p>访问过的文件夹或文件是有记录的如C:/Documents and Settings\Default User\Recent</p>
+<p>C:/Documents and Settings\用户名\Recent</p>
+<h4 id="查看预读取文件"><a href="#查看预读取文件" class="headerlink" title="查看预读取文件"></a>查看预读取文件</h4><p>Win+R输入【%SystemRoot%\Prefetch】即可发现pf预读取文件</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/28.png"></p>
+<p>另外，Amcache.hve【%SystemRoot%\appcompat\Programs 】文件可查询应用程序的执行路径、上次执行的时间及SHA1值</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/29.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/30.png"></p>
+<h3 id="时间点查找"><a href="#时间点查找" class="headerlink" title="时间点查找"></a>时间点查找</h3><h4 id="可列出攻击日期内新增的文件，从而发现相关的恶意软件。"><a href="#可列出攻击日期内新增的文件，从而发现相关的恶意软件。" class="headerlink" title="可列出攻击日期内新增的文件，从而发现相关的恶意软件。"></a>可列出攻击日期内新增的文件，从而发现相关的恶意软件。</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">forfiles /m *.zip /d +2022/5/30 /s /p c:\ /c &quot;cmd /c echo @path @fdate @ftime&quot; 2&gt;null</span><br></pre></td></tr></table></figure>
+
+<p>很好用的命令 就是太长了记不住</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/31.png"></p>
+<h4 id="对文件的创建时间、修改时间、访问时间进行排查"><a href="#对文件的创建时间、修改时间、访问时间进行排查" class="headerlink" title="对文件的创建时间、修改时间、访问时间进行排查"></a>对文件的创建时间、修改时间、访问时间进行排查</h4><p>hacker有时候为了掩人耳目会对时间进行修改，然而这种行为经不起推敲。</p>
+<p>修改时间后，这三种时间会有逻辑上的问题，需要工程师留心注意。</p>
+<h4 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h4><p>不能判断哪个是webshell的话就上D盾，上云沙箱</p>
+<p>或者看对外建立的链接，去查ip或者外联传输的情况。</p>
+<h3 id="日志分析"><a href="#日志分析" class="headerlink" title="日志分析"></a>日志分析</h3><p>分为系统日志，安全性日志，应用程序日志</p>
+<p>除了windows系统日志，还可以对中间件日志，ftp日志，数据库日志进行相关分析</p>
+<p>【这些东西有很多，笔者在此不多赘述，大家自行利用搜索引擎收集即可】</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/32.png"></p>
+<h3 id="内存分析"><a href="#内存分析" class="headerlink" title="内存分析"></a>内存分析</h3><p>分析的话，主要是各种工具的使用，在此不多赘述。</p>
+<p>市面上流行的商业软件都很不错，比如取证大师，火眼，盘古石等。</p>
+<p>当然volatility等也是很优秀的（建议用2版本）</p>
+<h3 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h3><p>Wireshark是很棒的分析工具，1、要会抓包 2、要会分析（善用过滤器）简单分享几个我用的比较多的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip.addr == ip    #过滤特定ip</span><br><span class="line">ip.src == ip     #过滤源ip</span><br><span class="line">ip.dst == ip     #过滤目的ip</span><br><span class="line">http、https、smtp、arp等协议直接输入即可筛选</span><br><span class="line">top.sort == 端口号 #对端口号进行过滤</span><br><span class="line">tcp contains xxx   #在数据包中筛查某一关键字</span><br><span class="line">arp.opcode==2     #过滤ARP应答帧</span><br><span class="line">arp.opcode==1     #过滤ARP请求帧</span><br><span class="line">http.response==1 &amp;&amp; http.response.code==200 #响应请求成功的包</span><br><span class="line">tcp.flags.ack==1&amp;&amp;tcp.flags.syn==1   #抓握手包</span><br></pre></td></tr></table></figure>
+
+<h3 id="威胁情报"><a href="#威胁情报" class="headerlink" title="威胁情报"></a>威胁情报</h3><p>ip和域名网上多查查</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://x.threatbook.cn/  #微步平时也要闲着没事逛逛，说不定有意外惊喜呢</span><br><span class="line">https://ti.qianxin.com/   #奇安信威胁情报中心（个人认为做得非常好）</span><br><span class="line">https://ti.nsfocus.com/  #绿盟威胁情报云</span><br><span class="line">https://ti.360.com/#/homepage   #360威胁情报中心</span><br><span class="line">https://exchange.xforce.ibmcloud.com/ #IBM X-Force Exchange</span><br><span class="line">https://whois.chinaz.com/    #站长之家</span><br><span class="line">https://ip138.com/   #ip查询网</span><br><span class="line">http://www.scap.org.cn/   #VULHUB信息安全漏洞门户</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>遇见可疑文件有事儿没事儿了多找几个地方上传一下，气死红队（）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://www.virustotal.com/gui/home/upload  #virustotal</span><br><span class="line">https://s.threatbook.cn/   #微步云沙箱</span><br><span class="line">https://ata.360.cn/     #360安全大脑沙箱云</span><br><span class="line">https://habo.qq.com/  #腾讯哈勃系统</span><br><span class="line">https://sandbox.freebuf.com/detect?theme=freebuf  #大圣云沙箱（有点慢）</span><br></pre></td></tr></table></figure>
+
+<p>总结的内容到这里就要结束了，当然整本书300+页，后面有很多经典案例分享，如挖矿木马，勒索病毒，流量劫持等等。总的来说，是一本非常可读的书，值得想了解应急响应的同学学习一番。这些也有可能给红队的同学一些小启发哟~</p>
+<blockquote>
+<p>若不去改变，明天永远只是今天的重演。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>蓝队学习之路</category>
+      </categories>
+      <tags>
+        <tag>应急响应</tag>
       </tags>
   </entry>
 </search>
