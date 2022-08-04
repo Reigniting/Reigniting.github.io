@@ -62,7 +62,7 @@
 <hr>
 ]]></content>
       <categories>
-        <category>CTFshow刷题合集</category>
+        <category>CTF刷题合集</category>
       </categories>
       <tags>
         <tag>CTF</tag>
@@ -209,6 +209,9 @@
 </blockquote>
 <hr>
 ]]></content>
+      <categories>
+        <category>CTF刷题合集</category>
+      </categories>
       <tags>
         <tag>CTF</tag>
       </tags>
@@ -396,19 +399,20 @@
 <h2 id="信息收集，收集什么？"><a href="#信息收集，收集什么？" class="headerlink" title="信息收集，收集什么？"></a>信息收集，收集什么？</h2><p>大概分为域名、服务器、Web程序这几种。<br>域名：whois信息  收集子域名  备案信息<br>服务器：dns信息  端口服务的开放情况  真实ip<br>Web程序：网站架构  敏感目录  敏感信息  源码泄露<br>网络空间：旁站查询  C端查询  指纹信息  waf探测<br>除了技术方面，还有一个突破口——社会工程学</p>
 <p>看看，这么多东西。收集起来还是很累的<br>做好信息收集真的很重要，收集到信息的同时，你也逐渐有了渗透的思路<br>整理一些信息收集的方法，以供自己学习</p>
 <h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><h3 id="whois信息"><a href="#whois信息" class="headerlink" title="whois信息"></a>whois信息</h3><blockquote>
-<p><a href="http://whois.chinaz.com/">http://whois.chinaz.com/</a>       #站长之家暂不支持.edu.cn域名查询<br>  <a href="https://x.threatbook.cn/">https://x.threatbook.cn/</a>       #平时也要闲着没事逛逛，说不定有意外惊喜呢<br>  <a href="https://www.huoxian.cn/">https://www.huoxian.cn/</a>    #火线，不过里面的资产是火线的规则收集的，并不是企业的而且爬虫全部搞定有点难实现</p>
+<p><a href="http://whois.chinaz.com/">http://whois.chinaz.com/</a>       #站长之家暂不支持.edu.cn域名查询<br>  <a href="https://x.threatbook.cn/">https://x.threatbook.cn/</a>       #平时也要闲着没事逛逛，说不定有意外惊喜呢</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Linux whois命令  </span><br><span class="line">whois 网址                  #查询域名信息</span><br><span class="line">whois -H                    #查询域名信息省略法律声明</span><br><span class="line">whois -p 端口 网址          #指定端口查询</span><br></pre></td></tr></table></figure>
 <p>查询whois信息的工具其实就是调用了网站接口 用网站查询效率就可以了<br>国际域名可以设置隐私保护，但国内域名不可以<br>而且只要在国内，必备案</p>
 <h2 id="收集子域名、资产"><a href="#收集子域名、资产" class="headerlink" title="收集子域名、资产"></a>收集子域名、资产</h2><blockquote>
-<p><a href="https://phpinfo.me/domain/">https://phpinfo.me/domain/</a>     #如果遇见泛解析防御机制就没有办法了<br>    <a href="https://fofa.so/">https://fofa.so</a>      #FoFa搜索引擎<br>    <a href="https://www.zoomeye.org/">https://www.zoomeye.org/</a>       #钟馗之眼<br>    <a href="https://www.dnsdb.io/zh-cn/">https://www.dnsdb.io/zh-cn/</a>        #Dnsdb<br>    <a href="https://hunter.qianxin.com/">https://hunter.qianxin.com/</a>    #奇安信网络空间测绘<br>    <a href="https://www.shodan.io/">https://www.shodan.io/</a><br>值得一提的是，shodan 的强大之处在于它可以探测到大致的地理位<br>置和获取一些摄像头，有利于给我们更多的线索</p>
+<p><a href="https://phpinfo.me/domain/">https://phpinfo.me/domain/</a>     #如果遇见泛解析防御机制就没有办法了<br>    <a href="https://fofa.so/">https://fofa.so</a>      #FoFa搜索引擎<br>    <a href="https://www.zoomeye.org/">https://www.zoomeye.org/</a>       #钟馗之眼<br>    <a href="https://www.dnsdb.io/zh-cn/">https://www.dnsdb.io/zh-cn/</a>        #Dnsdb<br>    <a href="https://hunter.qianxin.com/">https://hunter.qianxin.com/</a>    #奇安信网络空间测绘<br>    <a href="https://www.shodan.io/">https://www.shodan.io/</a><br>值得一提的是，shodan 的强大之处在于它可以探测到大致的地理位<br>置和获取一些摄像头，有利于给我们更多的线索<br>在后来的挖洞探索中，我发现在服务器配置灯塔也是非常棒的选择！</p>
 </blockquote>
-<h3 id="搜索引擎语法"><a href="#搜索引擎语法" class="headerlink" title="搜索引擎语法"></a>搜索引擎语法</h3><p>site:xxx.com<br>site:xxx.com intext:管理<br>site:xxx.com inurl:login/admin<br>site:xxx.com intitle:后台<br>site:xxx.com filetype:文件的格式（docx xlsx）</p>
+<p><img src="/2021/05/11/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86Information-Gathering/dengta.png"></p>
+<h3 id="搜索引擎语法"><a href="#搜索引擎语法" class="headerlink" title="搜索引擎语法"></a>搜索引擎语法</h3><p>site:xxx.com<br>site:xxx.com intext:管理<br>site:xxx.com inurl:login/admin<br>site:xxx.com intitle:后台<br>site:xxx.com filetype:文件的格式（docx xlsx）              </p>
 <h2 id="服务器信息收集"><a href="#服务器信息收集" class="headerlink" title="服务器信息收集"></a>服务器信息收集</h2><h3 id="DNS信息搜集"><a href="#DNS信息搜集" class="headerlink" title="DNS信息搜集"></a>DNS信息搜集</h3><p>nslookup可用于查询DNS的记录，查询域名解析是否正常<br>不过还是直接去在线网站查</p>
 <blockquote>
 <p><a href="https://tool.chinaz.com/dns/">https://tool.chinaz.com/dns/</a>     #站长之家<br>  <a href="https://www.vsping.com/#/">https://www.vsping.com/#/</a>      #vsping，用着还行</p>
 </blockquote>
-<h3 id="探测端口服务"><a href="#探测端口服务" class="headerlink" title="探测端口服务"></a>探测端口服务</h3><p>网站多多少少都有，也有在线的</p>
+<h3 id="探测端口服务"><a href="#探测端口服务" class="headerlink" title="探测端口服务"></a>探测端口服务</h3><p>在线的</p>
 <blockquote>
 <p><a href="http://coolaf.com/tool/port">http://coolaf.com/tool/port</a><br>  <a href="http://www.ip33.com/port_scan.html">http://www.ip33.com/port_scan.html</a></p>
 </blockquote>
