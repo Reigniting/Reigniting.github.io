@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="每天进步多一点，妈妈夸我小天才~（雾） 感谢在我前进道路上为我指点迷津的各位师傅（鞠躬） 对我来讲，学汇编学pwn真的不是个容易活……只能加油，加油，加加油了！！ 第一天有亿点累的一天orz（其实用了三天来学这些东西） 前置知识CPU对存储器的读写 CPU要想进行数据的读写，必须和外部器件（即芯片）进行三类信息的交互：  1.地址信息：存储单元的地址 2.控制信息：芯片的选择，读或写命令 3.数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的pwn学习之路——第一天">
+<meta property="og:url" content="http://example.com/2022/03/13/pwn%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="各种write up">
+<meta property="og:description" content="每天进步多一点，妈妈夸我小天才~（雾） 感谢在我前进道路上为我指点迷津的各位师傅（鞠躬） 对我来讲，学汇编学pwn真的不是个容易活……只能加油，加油，加加油了！！ 第一天有亿点累的一天orz（其实用了三天来学这些东西） 前置知识CPU对存储器的读写 CPU要想进行数据的读写，必须和外部器件（即芯片）进行三类信息的交互：  1.地址信息：存储单元的地址 2.控制信息：芯片的选择，读或写命令 3.数据">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/03/13/pwn%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/checksec.png">
+<meta property="og:image" content="http://example.com/2022/03/13/pwn%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/gdb1.png">
+<meta property="article:published_time" content="2022-03-13T01:22:59.000Z">
+<meta property="article:modified_time" content="2022-08-04T01:51:40.412Z">
+<meta property="article:author" content="Reigniting">
+<meta property="article:tag" content="pwn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/03/13/pwn%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/checksec.png">
+
+<link rel="canonical" href="http://example.com/2022/03/13/pwn%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>我的pwn学习之路——第一天 | 各种write up</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">各种write up</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/13/pwn%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reigniting">
+      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种write up">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          我的pwn学习之路——第一天
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-13 09:22:59" itemprop="dateCreated datePublished" datetime="2022-03-13T09:22:59+08:00">2022-03-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-04 09:51:40" itemprop="dateModified" datetime="2022-08-04T09:51:40+08:00">2022-08-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">我的pwn学习之路</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>12k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>11 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>每天进步多一点，妈妈夸我小天才~（雾）</p>
+<p>感谢在我前进道路上为我指点迷津的各位师傅（鞠躬）</p>
+<p>对我来讲，学汇编学pwn真的不是个容易活……只能加油，加油，加加油了！！</p>
+<h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><p>有亿点累的一天orz（其实用了三天来学这些东西）</p>
+<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p><strong>CPU对存储器的读写</strong></p>
+<p>CPU要想进行数据的读写，必须和外部器件（即芯片）进行三类信息的交互： </p>
+<p>1.地址信息：存储单元的地址 2.控制信息：芯片的选择，读或写命令 3.数据信息：读或写的数据</p>
+<p>CPU=运算器+控制器+【寄存器】，器件之间通过总线相连</p>
+<p>一个16位寄存器所能存储的数据的最大值为多少？ </p>
+<p>因为每一位存放的数据是0或1，那么最大的数值自然就是 1111 1111 1111 1111（2），也就是2^16-1</p>
+<span id="more"></span>
+
+<p><strong>汇编指令是不区分大小写的</strong><br>mov AX,BX 的意思是将BX中的数据放在AX中<br>add AX,BX 的意思是将BX与AX相加，放在AX中</p>
+<p><strong>如果超过数据的存储范围，就会有数据的丢失</strong><br>这里的丢失，指的就是进位制不能在8位寄存器中保存，但是CPU不是真的丢弃这个进位值。</p>
+<p><strong>CPU访问内存单元时要给出内存单元的地址，所有的内存单元构成的存储空间是一个一维的线性空间。</strong></p>
+<p>我们将这个唯一的地址称为物理地址。</p>
+<p><strong>关于段空间</strong></p>
+<p>内存没有分段，段的划分来自于CPU，</p>
+<p>由于8086CPU用“（段地址×16）+偏移地址=物理地址”的方式给出内存单元的物理地址，</p>
+<p>使得我们可以用分段的方式来管理内存。</p>
+<h2 id="何为寄存器？"><a href="#何为寄存器？" class="headerlink" title="何为寄存器？"></a>何为寄存器？</h2><p>看了点资料，还是有点迷，于是打开知乎发现一条匿名用户的解答</p>
+<blockquote>
+<p>寄存器就是你的口袋。身上只有那么几个，只装最常用或者马上要用的东西。</p>
+<p>内存就是你的背包。有时候拿点什么放到口袋里，有时候从口袋里拿出点东西放在背包里。</p>
+<p>辅存就是你家里的抽屉。可以放很多东西，但存取不方便。 </p>
+</blockquote>
+<p>还有一个回答我也很喜欢</p>
+<blockquote>
+<p>如果把被储存的东西比作能量：</p>
+<ol>
+<li><p>寄存器就是 ATP，可以随时拿来用，性能高，但数量有限；</p>
+</li>
+<li><p>内存就是葡萄糖，性能一般，但是存量可以比较多；</p>
+</li>
+<li><p>外存（比如硬盘）就是脂肪，容量可以非常大，性能很差，要先转化为葡萄糖（存进内存），然后转化为 ATP（放到寄存器）才能直接利用（存取）。</p>
+</li>
+</ol>
+</blockquote>
+<p>了解完什么是寄存器之后再来见一见常见的寄存器有哪些</p>
+<h2 id="几个常用的寄存器"><a href="#几个常用的寄存器" class="headerlink" title="几个常用的寄存器"></a>几个常用的寄存器</h2><p>首先，e开头的为x32，r开头的为x64。</p>
+<p>寄存器有多种用途，但每一个都有“专长”，有各自的特别之处</p>
+<h3 id="数据寄存器：AX、BX、CX、DX"><a href="#数据寄存器：AX、BX、CX、DX" class="headerlink" title="数据寄存器：AX、BX、CX、DX"></a>数据寄存器：AX、BX、CX、DX</h3><p>一般寄存器:AX、BX、CX、DX<br>AX:累积暂存器，BX:基底暂存器，CX:计数暂存器，DX:资料暂存器</p>
+<p>一个寄存器可以存放16bit,也就是2bytes. 所以也被称为16位寄存器</p>
+<blockquote>
+<p>1GB=1024MB=1024*1024KB</p>
+<p>1KB=1024Byte（字节）  1Byte=8bit（比特）</p>
+</blockquote>
+<p>那它们有什么特殊的地方使得它们和其他寄存器不一样呢？ 那是因为这四个16位寄存器可以被分为两个8位寄存器，比如</p>
+<p>​    AX = AH + AL， BX = BH+BL, CX = CH + CL,  DX = DH+DL</p>
+<blockquote>
+<p>AH是AX的高字节（高8位），AL是AX的低字节（低8位）</p>
+<p>其余三个同理</p>
+</blockquote>
+<p>一个16位寄存器所能存储的数据的最大值为多少？ </p>
+<p>因为每一位存放的数据是0或1，那么最大的数值就是 1111 1111 1111 1111（2），也就是2^16-1</p>
+<h3 id="变址寄存器：SI、DI"><a href="#变址寄存器：SI、DI" class="headerlink" title="变址寄存器：SI、DI"></a>变址寄存器：SI、DI</h3><p>SI:源变址寄存器，DI:目的变址寄存器</p>
+<p>SI DI不能够分成两个8位寄存器来使用，二者都是在某个地址的基础上进行偏移变化所以叫基址暂存器。</p>
+<p>这两个寄存器有自动增量和自动减量的功能所以用于变址是很方便的。</p>
+<h3 id="指针寄存器：SP、BP"><a href="#指针寄存器：SP、BP" class="headerlink" title="指针寄存器：SP、BP"></a>指针寄存器：SP、BP</h3><p>SP:堆栈指针暂存器，BP:基底指针暂存器</p>
+<p>先说BP，基底指针暂存器其内存放着一个指针，该指针永远指向系统栈最上面一个栈帧的底部。</p>
+<blockquote>
+<p>bp/ebp/rbp 栈基址寄存器—指向栈底</p>
+</blockquote>
+<p>在8086CPU中，只有bx，si，di，bp这4个寄存器可以用来进行内存单元的寻址</p>
+<p>这4个寄存器可以单个出现或只能以四种组合出现;bx和si，bx和di，bp和si，bp和di</p>
+<blockquote>
+<p>bx和bp不能同时出现，si和di不能同时出现</p>
+</blockquote>
+<p>接着是SP，堆叠指标暂存器，其内存放着一个指针，该指针永远指向系统栈最上面一个栈帧的栈顶。SP的作用就是指示当前要出栈或入栈的数据，并在操作执行后自动递增或递减。</p>
+<blockquote>
+<p>sp/esp/rsp（16bit/32bit/64bit）栈寄存器—指向栈顶</p>
+</blockquote>
+<h3 id="段寄存器（特殊寄存器）"><a href="#段寄存器（特殊寄存器）" class="headerlink" title="段寄存器（特殊寄存器）"></a>段寄存器（特殊寄存器）</h3><p>段寄存器就是提供段地址的</p>
+<blockquote>
+<p>CS——代码段寄存器(Code Segment Register)，其值为代码段的段值<br>DS——数据段寄存器(Data Segment Register)，其值为数据段的段值<br>ES——附加段寄存器(Extra Segment Register)，其值为附加数据段的段值<br>SS——堆栈段寄存器(Stack Segment Register)，其值为堆栈段的段值<br>FS——附加段寄存器(Extra Segment Register)，其值为附加数据段的段值<br>GS——附加段寄存器(Extra Segment Register)，其值为附加数据段的段值</p>
+</blockquote>
+<h3 id="指令指针寄存器：IP"><a href="#指令指针寄存器：IP" class="headerlink" title="指令指针寄存器：IP"></a>指令指针寄存器：IP</h3><p>CS和IP，两个最关键的寄存器，他们指示了cpu当前要读取指令的地方</p>
+<p>修改CS、IP的指令不同于修改通用的寄存器值的指令，修改通用寄存器的值可以用mov 指令（mav ax,123），mov指令被称为传送指令。而修改CS、IP的指令是jmp指令。jmp指令也被称为转移指令（在X86上不能直接给IP赋值）</p>
+<blockquote>
+<p>ip/eip/rip 程序指令寄存器—指向下一条待执行指令</p>
+</blockquote>
+<h3 id="标志寄存器（特殊寄存器）"><a href="#标志寄存器（特殊寄存器）" class="headerlink" title="标志寄存器（特殊寄存器）"></a>标志寄存器（特殊寄存器）</h3><p>进位标志位(Carry Flag &amp;&amp; CF)：当无符号数的计算结果超出其范围时，CF被置为1， 否则CF被置为0。<br>溢出标志位(Overflow Flag &amp;&amp; OV)：当有符号数的计算结果超出其范围时，OV被置为1，否则OV被置为0。<br>符号标志位(Sign Flag &amp;&amp; SF)：算术或逻辑操作产生负结果时，SF被置为1，否则SF被置为0。<br>零标志位(Zero Flag &amp;&amp; ZF)：算数或逻辑结果产生的结果为零时，ZF被置为1，否则ZF被置为0。<br>辅助进位标志位(Auxiliary Carry Flag &amp;&amp; AC)：运算时若最低的四位产生了进位，那么AC被置为1，否则AC被置为0。<br>奇偶校验标志位(Parity Flag)：目标操作数最低有效字节中的1的个数为偶数时，PF被置为1，否则PF被置为0。</p>
+<h2 id="常用的汇编指令"><a href="#常用的汇编指令" class="headerlink" title="常用的汇编指令"></a>常用的汇编指令</h2><p>汇编语言发展至今，有以下3类指令组成：</p>
+<p>1.汇编指令       机器码的助记符，有对应的机器码</p>
+<p>2.伪指令           没有对应的机器码，由编译器执行，计算机不执行</p>
+<p>3.其他符号       如+,-,*,/等，由编译器识别，没有对应的机器码</p>
+<blockquote>
+<p>不区分大小写，比如<code>mov</code>和<code>MOV</code>是一样的</p>
+</blockquote>
+<h3 id="简单算术指令"><a href="#简单算术指令" class="headerlink" title="简单算术指令"></a>简单算术指令</h3><p>算数运算类指令包括加减乘除、比较与调整指令</p>
+<p>ADD： 加法                               SUB： 减法</p>
+<p>ADC： 带进位加法                    SBB： 带借位减法</p>
+<p>MUL： 乘法                               DIV： 除法</p>
+<p>MUL和DIV结果回送AH和AL（字节运算），或DX和AX（字运算）</p>
+<p>INC： 加 1                                 DEC： 减 1</p>
+<p>AAA： 加法的ASCII码调整        AAS： 减法的ASCII码调整</p>
+<p>AAM： 乘法的ASCII码调整       AAD： 除法的ASCII码]调整</p>
+<p>NEG：去补 （对操作数取补（相反数））</p>
+<p>CMP： 比较（两个操作数作减法，仅修改标志位，不回送结果）</p>
+<h3 id="输入输出端口传送指令"><a href="#输入输出端口传送指令" class="headerlink" title="输入输出端口传送指令"></a>输入输出端口传送指令</h3><p>IN I/O端口输入   (IN 累加器, {端口号│DX} )<br>OUT I/O端口输出  ( OUT {端口号│DX},累加器 )</p>
+<p>输入输出端口由立即方式指定时, 其范围是 0-255; 由寄存器 DX 指定时,其范围是 0-65535</p>
+<h3 id="逻辑运算指令"><a href="#逻辑运算指令" class="headerlink" title="逻辑运算指令"></a>逻辑运算指令</h3><p>逻辑运算类指令分为逻辑运算指令和移位指令两大类</p>
+<p>运算指令：</p>
+<p>AND： 与运算                              OR： 或运算</p>
+<p>XOR： 异或运算                           NOT： 取反。</p>
+<p>TEST： 测试   （两操作数作与运算，仅修改标志位，不回送结果）</p>
+<p>移位指令：</p>
+<p>SHL： 逻辑左移。                         SAL： 算术左移。(=SHL)</p>
+<p>RCL： 通过进位的循环左移          RCR： 通过进位的循环右移</p>
+<h3 id="程序转移指令"><a href="#程序转移指令" class="headerlink" title="程序转移指令"></a>程序转移指令</h3><p>控制转移类指令包括无条件转移指令、条件转移指令、循环控制指令、中断指令、子程序调用和返回指令</p>
+<p>无条件转移指令：</p>
+<p>JMP： 无条件转移指令</p>
+<p>CALL： 过程调用                          RET/RETF： 过程返回</p>
+<p>中断指令：</p>
+<p>INT： 中断指令              INTO： 溢出中断          IRET： 中断返回</p>
+<h3 id="内存访问指令-amp-内存读取指令"><a href="#内存访问指令-amp-内存读取指令" class="headerlink" title="内存访问指令&amp;内存读取指令"></a>内存访问指令&amp;内存读取指令</h3><p>（当ldr后面没有=号时为内存读取指令）</p>
+<h3 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h3><p>PUSH：把字压入堆栈     进栈指令   把16位数据src压入堆栈                  </p>
+<p>POP：把字弹出堆栈       出栈指令   从堆栈弹出16位数据至dst</p>
+<p>MOV：传送字或传送字节</p>
+<p>MOVSX：先符号扩展,再传送           MOVZX：先零扩展,再传送  </p>
+<h3 id="目的地址传送指令"><a href="#目的地址传送指令" class="headerlink" title="目的地址传送指令"></a>目的地址传送指令</h3><p>LEA：装入有效地址                        </p>
+<p>LDS：传送目标指针,把指针内容装入DS           LES：传送目标指针,把指针内容装入ES</p>
+<p>LFS：传送目标指针,把指针内容装入FS            LGS：传送目标指针,把指针内容装入GS</p>
+<p>LSS：传送目标指针,把指针内容装入SS</p>
+<h3 id="标志传送指令"><a href="#标志传送指令" class="headerlink" title="标志传送指令"></a>标志传送指令</h3><p>LAHF：标志寄存器传送,把标志装入AH<br>SAHF：标志寄存器传送,把AH内容装入标志寄存器<br>PUSHF：标志入栈                    POPF：标志出栈</p>
+<h3 id="程序转移指令-1"><a href="#程序转移指令-1" class="headerlink" title="程序转移指令"></a>程序转移指令</h3><p>JMP：无条件转移指令<br>CALL：过程调用              RET/RETF：过程返回</p>
+<h3 id="伪指令"><a href="#伪指令" class="headerlink" title="伪指令"></a>伪指令</h3><p>DW 定义字(2字节)       PROC 定义过程       SEGMENT 定义段<br>ASSUME 建立段寄存器寻址<br>ENDS 段结束              END 程序结束          ENDP 过程结束</p>
+<h2 id="GCC编译保护机制以及编译命令"><a href="#GCC编译保护机制以及编译命令" class="headerlink" title="GCC编译保护机制以及编译命令"></a>GCC编译保护机制以及编译命令</h2><p>科普向但是大多自己看不懂@_@</p>
+<p>Linux操作系统中gcc相关的安全保护机制有：1.栈Canaries保护、2.PIE机制、3.NX、4.fortity、relro机制。</p>
+<p>checksec 文件     （gdb里peda插件里自带的checksec功能）</p>
+<p><img src="/2022/03/13/pwn%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/checksec.png"></p>
+<p>然后就是对这些机制进行简单了解</p>
+<p>Arch，xx位的程序，图中为x64</p>
+<h3 id="RELRO"><a href="#RELRO" class="headerlink" title="RELRO"></a>RELRO</h3><p>Relocation Read-Only (RELRO) 让加载器将重定位表中加载时解析的符号标记为只读，这减少了GOT覆写攻击的面积。此项技术主要针对 GOT 改写的攻击方式。它分为两种，Partial RELRO 和 Full RELRO。<br>部分RELRO 易受到攻击，例如攻击者可以atoi.got为system.plt，进而输入/bin/sh\x00获得shell<br>完全RELRO 使整个 GOT 只读，从而无法被覆盖，但这样会大大增加程序的启动时间，因为程序在启动之前需要解析所有的符号。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gcc -o test test.c // 默认情况下，是Partial RELRO</span><br><span class="line">gcc -z norelro -o test test.c // 关闭，即No RELRO</span><br><span class="line">gcc -z lazy -o test test.c // 部分开启，即Partial RELRO</span><br><span class="line">gcc -z now -o test test.c // 全部开启，即Full RELRO</span><br></pre></td></tr></table></figure>
+
+<p>（此时的我并不懂GOT是啥玩意儿……）</p>
+<p>如果开启了FULL RELRO，那么我们是无法修改got表的</p>
+<h3 id="Stack-canary"><a href="#Stack-canary" class="headerlink" title="Stack-canary"></a>Stack-canary</h3><p>栈溢出保护是一种缓冲区溢出攻击缓解手段，当函数存在缓冲区溢出攻击漏洞时，攻击者可以覆盖栈上的返回地址来让shellcode能够得到执行。当启用栈保护后，函数开始执行的时候会先往栈里插入类似cookie的信息，当函数真正返回的时候会验证cookie信息是否合法，如果不合法就停止程序运行。攻击者在覆盖返回地址的时候往往也会将cookie信息给覆盖掉，导致栈保护检查失败而阻止shellcode的执行。</p>
+<p>cookie信息在Linux中被称为canary</p>
+<p>通过验证cookie，来判断执行的代码是不是恶意代码。嗯，应该是这个意思</p>
+<p>如果该项保护被打开那么无法直接覆盖EIP让程序任意跳转，因为在跳转后将会进行cookie校验（可绕过）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gcc -o test test.c				// 默认情况下，不开启Canary保护</span><br><span class="line">gcc -fno-stack-protector -o test test.c  //禁用栈保护</span><br><span class="line">gcc -fstack-protector -o test test.c   //启用堆栈保护，不过只为局部变量中含有 char 数组的函数插入保护代码</span><br><span class="line">gcc -fstack-protector-all -o test test.c //启用堆栈保护，为所有函数插入保护代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="NX"><a href="#NX" class="headerlink" title="NX"></a>NX</h3><p>即No-eXecute（不可执行）的意思，NX（DEP）的基本原理是将数据所在内存页标识为不可执行，当程序溢出成功转入shellcode时，程序会尝试在数据页面上执行指令，此时CPU就会抛出异常，而不是去执行恶意指令。</p>
+<p>作用：栈上的数据没有执行权限,防止栈溢出+ 跳到栈上执行shellcode</p>
+<p>gcc编译器默认开启了NX选项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -o test test.c // 默认情况下，开启NX保护</span><br><span class="line">gcc -z execstack -o test test.c // 禁用NX保护</span><br><span class="line">gcc -z noexecstack -o test test.c // 开启NX保护</span><br></pre></td></tr></table></figure>
+
+<h3 id="PIE-ASLR"><a href="#PIE-ASLR" class="headerlink" title="PIE(ASLR)"></a>PIE(ASLR)</h3><p>该项表示地址随机化保护，如果开启了该项那么程序每次运行的地址都会变化，如果未开启那么No PIE（0x8048000）括号内的代表程序基址</p>
+<p>内存地址随机化机制（address space layout randomization)，有以下三种情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0 - 表示关闭进程地址空间随机化。</span><br><span class="line">1 - 表示将mmap的基址，stack和vdso页面随机化。</span><br><span class="line">2 - 表示在1的基础上增加栈（heap）的随机化。</span><br><span class="line">可以防范基于Ret2libc方式的针对DEP的攻击。ASLR和DEP配合使用，能有效阻止攻击者在堆栈上运行恶意代码。</span><br><span class="line"></span><br><span class="line">sudo -s echo 0 &gt; /proc/sys/kernel/randomize_va_space</span><br><span class="line"></span><br><span class="line">gcc -o test test.c			// 默认情况下，开启PIE保护</span><br><span class="line">gcc -no-pie -o test test.c		// 禁用PIE保护</span><br></pre></td></tr></table></figure>
+
+<p>作用：代码部分地址无关，防止构造ROP链进行攻击</p>
+<h2 id="简单使用pwntools"><a href="#简单使用pwntools" class="headerlink" title="简单使用pwntools"></a>简单使用pwntools</h2><p>神库，学起来</p>
+<blockquote>
+<p><strong>pwntools</strong>是一个CTF框架和漏洞利用开发库，用Python开发，<strong>旨在让使用者简单快速的编写exploit</strong>。</p>
+</blockquote>
+<p>导入pwntools包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br></pre></td></tr></table></figure>
+
+<p><strong>context</strong>是pwntools用来设置环境的功能。一些二进制文件的情况不同，设置环境来正常运行exp，例如一些时候需要进行汇编，32位汇编和64位汇编不同，若不设置context可能会导致一些问题</p>
+<p>os是设置系统   arch是设置架构  debug是<strong>设置日志记录级别</strong>，方便出现问题的时候排查错误。设置后，通过管道发送和接收的数据都会被打印在屏幕上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context(os=&#x27;linux&#x27;, arch=&#x27;amd64&#x27;, log_level=&#x27;debug&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>生成shellcode</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shellcode = asm(shellcraft.sh())</span><br></pre></td></tr></table></figure>
+
+<p>通过ip和端口号链接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 第一种连接方式，通过ip和port去连接</span><br><span class="line">p = remote(&#x27;127.0.0.1&#x27;, 8888)  </span><br><span class="line"># 第二种连接方式，通过ssh连接</span><br><span class="line">shell = ssh(host=&#x27;192.168.14.144&#x27;, user=&#x27;root&#x27;, port=2222, password=&#x27;123456&#x27;)</span><br><span class="line">#第三种连接方式，本地调试</span><br><span class="line">p = porcess(&quot;./文件名&quot;)</span><br><span class="line">#关闭连接</span><br><span class="line">close() </span><br></pre></td></tr></table></figure>
+
+<p>pwntools提供的有<strong>打包函数</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p32/p64: 打包一个整数，分别打包为32位或64位</span><br><span class="line">u32/u64: 解包一个字符串，得到整数</span><br><span class="line">payload = p32(0xdeadbeef)  </span><br><span class="line">payload = p64(0xdeadbeef)  </span><br></pre></td></tr></table></figure>
+
+<p>打包的时候要指定程序是32位还是64位的，他们之间打包后的长度是不同的。<br>建立连接后就可以<strong>发送和接收数据</strong>了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">conn.send(data) #发送数据</span><br><span class="line">conn.sendline(data) #发送一行数据，相当于在数据后面加\n</span><br><span class="line">#接收数据，numb制定接收的字节，timeout指定超时</span><br><span class="line">conn.recv(numb = 2048, timeout = default)</span><br><span class="line">#接受一行数据，keepends为是否保留行尾的\n</span><br><span class="line">conn.recvline(keepends=True)</span><br><span class="line">#接受数据直到我们设置的标志出现</span><br><span class="line">conn.recvuntil(&quot;Hello,World\n&quot;,drop=fasle)    #接收到指定数据结束</span><br><span class="line">conn.recvall()  #一直接收直到 EOF(文件结束符)</span><br><span class="line">conn.recvrepeat(timeout = default)  #持续接受直到EOF或timeout</span><br><span class="line">#直接进行交互，相当于回到shell的模式，在取得shell之后使用</span><br><span class="line">conn.interactive()</span><br></pre></td></tr></table></figure>
+
+<p><strong>汇编与反汇编</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; asm(&#x27;mov eax, 0&#x27;)   #汇编</span><br><span class="line">&#x27;\xb8\x00\x00\x00\x00&#x27;</span><br><span class="line">&gt;&gt;&gt; disasm(&#x27;\xb8\x0b\x00\x00\x00&#x27;)  #反汇编</span><br><span class="line">&#x27;   0:   b8 0b 00 00 00          mov    eax,0xb&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="简单使用IDA"><a href="#简单使用IDA" class="headerlink" title="简单使用IDA"></a>简单使用IDA</h2><p>神器，学起来^_^</p>
+<p>暂且贴几个会看的链接，以后自己用了在慢慢整理</p>
+<p>IDA的简单使用</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/connerlink/p/15639752.html">https://www.cnblogs.com/connerlink/p/15639752.html</a></p>
+<p>通过一个例子来介绍IDA的简单使用</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Casuall/article/details/100191563">https://blog.csdn.net/Casuall/article/details/100191563</a></p>
+<h2 id="简单使用pwngdb"><a href="#简单使用pwngdb" class="headerlink" title="简单使用pwngdb"></a>简单使用pwngdb</h2><p>妈的，不是为了打比赛我哪会知道gdb是啥玩意儿啊</p>
+<p>亲民的用法介绍不多，B站有个小姐姐的视频私以为很不错，不过不是pwngdb</p>
+<p>这里写命令+用法，会慢慢更新</p>
+<p>启动gdb，终端输入gdb即可</p>
+<p><img src="/2022/03/13/pwn%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/gdb1.png"></p>
+<p>pwngdb启动后,要先使用file或exec-file命令指出要运行的程序，不然会报错</p>
+<p>热知识：gdb中也是可以使用Tab键的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">run 文件名                 #运行文件（或 r 文件名）</span><br><span class="line">quit                       #退出gdb（或  q ）</span><br><span class="line">list                     #显示源程序，跟数字就是显示第x行</span><br><span class="line">编译程序时一定要加上-g参数，把源程序信息编译到执行文件中、这样才可以用list命令显示程序的源代码</span><br><span class="line">info                       #查看源代码的内存地址</span><br><span class="line">info line后面可以跟：行号、函数名、文件名:行号、文件名:函数名</span><br><span class="line">disassemble                #反汇编， disassemble main反汇编main函数</span><br><span class="line">disassemble /m             #/m是同时显示源码 </span><br><span class="line">break                       #下断点，后跟要设置断点的行数（b同理）</span><br><span class="line">info breakpoints           #查看断点信息 info break同理</span><br><span class="line">backtrace               #查看栈信息。当程序调用了一个函数时，函数的地址、参数、局部变量都会被压入栈中。此时，可以用gdb命令来查看当前栈中的信息。(bt命令同理)</span><br><span class="line">info all-registers           #查看所有寄存器的值，包括浮点寄存器</span><br><span class="line">info registers                #查看寄存器的值，除了浮点寄存器</span><br><span class="line">print                        #修改被调试程序运行时的变量值(p同理)</span><br><span class="line">whatis                      #显示某个变量的名字</span><br><span class="line">jump                         #跳转执行</span><br><span class="line">next                      #不进入的单步执行 </span><br><span class="line">step                       #进入的单步执行</span><br><span class="line">set args                      #可指定运行时参数</span><br><span class="line">show args                   #命令可以查看设置好的运行参数</span><br><span class="line">examine （n/f/u）addr         #查看内存地址中的值（x同理）   </span><br></pre></td></tr></table></figure>
+
+<p>n 是一个正整数，表示显示内存的长度，也就是说从当前地址向后显示几个地址的内容。<br>f 表示显示的格式，参见上面。如果地址所指的是字符串，那么格式可以是s，如果地十是指令地址，那么格式可以是i。<br>u 表示从当前地址往后请求的字节数，如果不指定的话，GDB默认是4个bytes。u参数可以用下面的字符来代替，b表示单字节，h表示双字节，w表示四字 节，g表示八字节。</p>
+<p>n/f/u三个参数可以一起使用</p>
+<p>【以后可能在这里或者另开一个笔记写使用，目前只是简单整理】</p>
+<h2 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出"></a>栈溢出</h2><h3 id="栈（stack）"><a href="#栈（stack）" class="headerlink" title="栈（stack）"></a>栈（stack）</h3><p>对于二进制安全,栈结构是最基本要了解的东西</p>
+<p>【栈】作为偏旁为木的左右结构的汉字，理解起来并不难。意思大概可以概括为客栈、通道、木制品这三样。在计算机术语中的栈，就是指数据暂时存储的地方。</p>
+<p>既然是数据暂时存储的地方自然而然的就有进栈、出栈的说法了——栈，一种先进后出的数据结构</p>
+<p>栈是一段连续的内存单元，也就是一段连续的内存地址。</p>
+<p>栈就是一个桶，后放进去的先拿出来，它下面本来有的东西要等它出来之后才能出来（先进后出Last In First Out)</p>
+<blockquote>
+<p>堆栈本身就是栈，只是换了个抽象的名字。</p>
+<blockquote>
+<p>栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</p>
+<p>堆（操作系统）： 一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收，分配方式倒是类似于链表。</p>
+</blockquote>
+</blockquote>
+<p><strong>从内存角度看</strong>: </p>
+<p> 入栈: push    将16位寄存器或者内存中的字型数据 —–&gt;栈顶标记的上面</p>
+<p> 出栈: pop    将栈顶标记所标识的字型数据 —–&gt; 16位寄存器或内存中</p>
+<p>在8086cpu中，在任意时刻，将段地址寄存器ss和偏移地址寄存器sp所组合出来的内存地址当做栈顶标记。</p>
+<p><strong>栈的作用</strong></p>
+<p>1.栈可以临时性保存数据   2. 可以交换数据</p>
+<p>在内存中，在内存10000H~1000FH处分配了16个单元的栈空间。然鹅系统并不会把他当做栈使用</p>
+<p>这时候就需要用到寄存器SS、SP（堆栈和指针）了</p>
+<p>当寄存器SS、SP所指向的地址就会被当做栈使用</p>
+<p><strong>关于SS和SP如何寻址</strong></p>
+<p>8086CPU中提供两个16位的地址，一个是段地址，用来指向一个段空间（最大空间为64KB），另一个是偏移地址</p>
+<p><strong>物理地址=段地址x16+偏移地址</strong>    </p>
+<h3 id="溢出（Overflow）"><a href="#溢出（Overflow）" class="headerlink" title="溢出（Overflow）"></a>溢出（Overflow）</h3><p>【溢出】这个词语的解释是充满某个容器并向外流出。作为一种被黑客利用的漏洞，它的解释是：开发的程序，加上一些精心构造的参数运行后，可以得到电脑的管理员权限，你在你自己电脑上能够做的事情，黑客也做到，等于你的电脑就是他的了。溢出是程序设计者设计时的不足所带来的错误。</p>
+<h4 id="溢出的原因"><a href="#溢出的原因" class="headerlink" title="溢出的原因"></a><strong>溢出的原因</strong></h4><p>现实状况</p>
+<p>在几乎所有计算机语言中，不管是新的语言还是旧的语言，使缓冲区溢出的任何尝试通常都会被该语言本身自动检测并阻止（比如通过引发一个异常或根据需要给缓冲区添加更多空间）。但是有两种语言不是这样：C 和 C++ 语言。C 和 C++ 语言通常只是让额外的数据乱写到其余内存的任何位置，而这种情况可能被利用从而导致恐怖的结果。更糟糕的是，用 C 和 C++ 编写正确的代码来始终如一地处理缓冲区溢出则更为困难；很容易就会意外地导致缓冲区溢出。除了 C 和 C++ 使用得 非常广泛外，上述这些可能都是不相关的事实；例如，Red Hat Linux 7.1 中 86% 的代码行都是用 C 或 C ++ 编写的。因此，大量的代码对这个问题都是脆弱的，因为实现语言无法保护代码避免这个问题。</p>
+<p>客观原因</p>
+<p>在 C 和 C++ 语言本身中，这个问题是不容易解决的。该问题基于 C 语言的根本设计决定（特别是 C 语言中指针和数组的处理方式）。由于 C++ 是最兼容的 C 语言超集，它也具有相同的问题。存在一些能防止这个问题的 C/C++ 兼容版本，但是它们存在极其严重的性能问题。而且一旦改变 C 语言来防止这个问题，它就不再是 C 语言了。许多语言（比如 Java 和 C#）在语法上类似 C，但它们实际上是不同的语言，将现有 C 或 C++ 程序改为使用那些语言是一项艰巨的任务。</p>
+<p>普遍因素</p>
+<p>然而，其他语言的用户也不应该沾沾自喜。有些语言存在允许缓冲区溢出发生的“转义”子句。Ada 一般会检测和防止缓冲区溢出（即针对这样的尝试引发一个异常），但是不同的程序可能会禁用这个特性。C# 一般会检测和防止缓冲区溢出，但是它允许程序员将某些例程定义为“不安全的”，而这样的代码 可能 会导致缓冲区溢出。因此如果您使用那些转义机制，就需要使用 C/C++ 程序所必须使用的相同种类的保护机制。许多语言都是用 C 语言来实现的（至少部分是用 C 语言来实现的 ），并且用任何语言编写的所有程序本质上都依赖用 C 或 C++ 编写的库。因此，所有程序都会继承那些问题，所以了解这些问题是很重要的。</p>
+<h4 id="溢出原因"><a href="#溢出原因" class="headerlink" title="溢出原因"></a>溢出原因</h4><p>数据类型超过了计算机字长的界限就会出现数据溢出的情况。导致内存溢出问题的原因有很多，比如：<br>(1) 使用非类型安全(non-type-safe)的语言如 C/C++ 等。<br>(2) 以不可靠的方式存取或者复制内存缓冲区。<br>(3)编译器设置的内存缓冲区太靠近关键数据结构。</p>
+<p><strong>因素分析</strong></p>
+<p>1.内存溢出问题是 C 语言或者 C++ 语言所固有的缺陷，它们既不检查数组边界，又不检查类型可靠性(type-safety)。众所周知，用 C/C++ 语言开发的程序由于目标代码非常接近机器内核，因而能够直接访问内存和寄存器，这种特性大大提升了 C/C++ 语言代码的性能。只要合理编码，C/C++应用程序在执行效率上必然优于其它高级语言。然而，C/C++ 语言导致内存溢出问题的可能性也要大许多。其他语言也存在内存溢出问题，但它往往不是程序员的失误，而是应用程序的运行时环境出错所致。</p>
+<p>2.当应用程序读取用户(也可能是恶意攻击者)数据，试图复制到应用程序开辟的内存缓冲区中，却无法保证缓冲区的空间足够时，内存缓冲区就可能会溢出。想一想，如果你向200ml的玻璃杯中倒入 250ml 的水，那么多出来 50ml的水怎么办？当然会漫到玻璃杯外面了</p>
+<p>3.最重要的是，C/C++编译器开辟的内存缓冲区常常邻近重要的数据结构。假设某个函数的堆栈紧接在在内存缓冲区后面时，其中保存的函数返回地址就会与内存缓冲区相邻。此时，恶意攻击者就可以向内存缓冲区复制大量数据，从而使得内存缓冲区溢出并覆盖原先保存于堆栈中的函数返回地址。这样，函数的返回地址就被攻击者换成了他指定的数值；一旦函数调用完毕，就会继续执行“函数返回地址”处的代码。非但如此，C++ 的某些其它数据结构，比如 v-table 、例外事件处理程序、函数指针等，也可能受到类似的攻击。</p>
+<h4 id="栈为什么会溢出"><a href="#栈为什么会溢出" class="headerlink" title="栈为什么会溢出"></a>栈为什么会溢出</h4><p>对每个程序来说，栈能使用的内存是有限的，一般是 1M~8M，这在编译时就已经决定了，程序运行期间不能再改变。如果程序使用的栈内存超出最大值，就会发生栈溢出（Stack Overflow）错误，程序就崩溃了。</p>
+<p>这个就像木桶里的水，木桶的容量有限，水满了自然会溢出来。</p>
+<h3 id="栈溢出-1"><a href="#栈溢出-1" class="headerlink" title="栈溢出"></a>栈溢出</h3><p>栈溢出指的是程序向栈中某个变量中写入的字节数超过了这个变量本身所申请的字节数，因而导致与其相邻的栈中的变量的值被改变。这种问题是一种特定的缓冲区溢出漏洞，类似的还有堆溢出，bss 段溢出等溢出方式。栈溢出漏洞轻则可以使程序崩溃，重则可以使攻击者控制程序执行流程。此外，我们也不难发现，发生栈溢出的基本前提是</p>
+<ul>
+<li>程序必须向栈上写入数据。</li>
+<li>写入的数据大小没有被良好地控制。</li>
+</ul>
+<p>pwn手法有很多，包括：</p>
+<p>修改返回地址，让其指向溢出数据中的一段指令（shellcode）</p>
+<p>修改返回地址，让其指向内存中已有的某个函数（return2libc）</p>
+<p>修改返回地址，让其指向内存中已有的一段指令（ROP）</p>
+<p>修改某个被调用函数的地址，让其指向另一个函数（hijack GOT）</p>
+<p>【这里空一些示例，还在摸索ing】</p>
+<h1 id="引用资料出处"><a href="#引用资料出处" class="headerlink" title="引用资料出处"></a>引用资料出处</h1><p>如何通俗地解释什么是寄存器？<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20539463">https://www.zhihu.com/question/20539463</a></p>
+<p>汇编常用指令 <a target="_blank" rel="noopener" href="https://ai-exception.blog.csdn.net/article/details/82950848">https://ai-exception.blog.csdn.net/article/details/82950848</a></p>
+<p>8086汇编指令笔记  <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32651225/article/details/53928654?spm=1001.2014.3001.5502">https://blog.csdn.net/qq_32651225/article/details/53928654?spm=1001.2014.3001.5502</a></p>
+<p>汇编入门 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27803491/article/details/123026031">https://blog.csdn.net/qq_27803491/article/details/123026031</a></p>
+<p>汇编语言学习笔记(【汇编语言】小甲鱼零基础汇编)  <a target="_blank" rel="noopener" href="https://blog.csdn.net/inv1796915552/article/details/109559495">https://blog.csdn.net/inv1796915552/article/details/109559495</a></p>
+<p>linux漏洞缓解机制介绍 <a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-226696.htm">https://bbs.pediy.com/thread-226696.htm</a></p>
+<p>gdb使用总结 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/cxz2009/archive/2011/08/31/2160855.html">https://www.cnblogs.com/cxz2009/archive/2011/08/31/2160855.html</a></p>
+<p>Linux GDB使用总结 <a target="_blank" rel="noopener" href="https://blog.csdn.net/Utotao/article/details/91354704">https://blog.csdn.net/Utotao/article/details/91354704</a></p>
+<p>实例—使用gcc编译器 <a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/75b45b57cc17552707220898">https://wenku.baidu.com/view/75b45b57cc17552707220898</a></p>
+<p>溢出（计算机程序） <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%BA%A2%E5%87%BA/1775951?fr=aladdin">https://baike.baidu.com/item/%E6%BA%A2%E5%87%BA/1775951?fr=aladdin</a></p>
+<p>利用汇编详解栈结构  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wh4am1/p/6818892.html">https://www.cnblogs.com/wh4am1/p/6818892.html</a></p>
+<p>CTF Wiki  <a target="_blank" rel="noopener" href="https://ctf-wiki.org/pwn/linux/user-mode/stackoverflow/x86/stackoverflow-basic/">https://ctf-wiki.org/pwn/linux/user-mode/stackoverflow/x86/stackoverflow-basic/</a></p>
+<p>安全总结—-栈溢出（一）  <a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-185767.htm">https://bbs.pediy.com/thread-185767.htm</a></p>
+<p>栈溢出基础（一）  <a target="_blank" rel="noopener" href="https://www.secpulse.com/archives/70608.html">https://www.secpulse.com/archives/70608.html</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/pwn/" rel="tag"><i class="fa fa-tag"></i> pwn</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" rel="prev" title="靶机ContainMe: 1渗透记录">
+      <i class="fa fa-chevron-left"></i> 靶机ContainMe: 1渗透记录
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/15/%E5%B0%9D%E8%AF%95%E6%8E%A5%E8%A7%A6Windows-Debug/" rel="next" title="尝试接触Windows Debug">
+      尝试接触Windows Debug <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="nav-number">1.</span> <span class="nav-text">第一天</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="nav-number">1.1.</span> <span class="nav-text">前置知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%95%E4%B8%BA%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">何为寄存器？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">几个常用的寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9AAX%E3%80%81BX%E3%80%81CX%E3%80%81DX"><span class="nav-number">1.3.1.</span> <span class="nav-text">数据寄存器：AX、BX、CX、DX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E5%9D%80%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9ASI%E3%80%81DI"><span class="nav-number">1.3.2.</span> <span class="nav-text">变址寄存器：SI、DI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9ASP%E3%80%81BP"><span class="nav-number">1.3.3.</span> <span class="nav-text">指针寄存器：SP、BP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%88%E7%89%B9%E6%AE%8A%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%89"><span class="nav-number">1.3.4.</span> <span class="nav-text">段寄存器（特殊寄存器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E6%8C%87%E9%92%88%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9AIP"><span class="nav-number">1.3.5.</span> <span class="nav-text">指令指针寄存器：IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%BF%97%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%88%E7%89%B9%E6%AE%8A%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%89"><span class="nav-number">1.3.6.</span> <span class="nav-text">标志寄存器（特殊寄存器）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text">常用的汇编指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%AE%97%E6%9C%AF%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.1.</span> <span class="nav-text">简单算术指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.2.</span> <span class="nav-text">输入输出端口传送指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.3.</span> <span class="nav-text">逻辑运算指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.4.</span> <span class="nav-text">程序转移指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E8%AE%BF%E9%97%AE%E6%8C%87%E4%BB%A4-amp-%E5%86%85%E5%AD%98%E8%AF%BB%E5%8F%96%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.5.</span> <span class="nav-text">内存访问指令&amp;内存读取指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.6.</span> <span class="nav-text">数据传送指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84%E5%9C%B0%E5%9D%80%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.7.</span> <span class="nav-text">目的地址传送指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%BF%97%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.8.</span> <span class="nav-text">标志传送指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4-1"><span class="nav-number">1.4.9.</span> <span class="nav-text">程序转移指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.10.</span> <span class="nav-text">伪指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCC%E7%BC%96%E8%AF%91%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6%E4%BB%A5%E5%8F%8A%E7%BC%96%E8%AF%91%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.</span> <span class="nav-text">GCC编译保护机制以及编译命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RELRO"><span class="nav-number">1.5.1.</span> <span class="nav-text">RELRO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack-canary"><span class="nav-number">1.5.2.</span> <span class="nav-text">Stack-canary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NX"><span class="nav-number">1.5.3.</span> <span class="nav-text">NX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PIE-ASLR"><span class="nav-number">1.5.4.</span> <span class="nav-text">PIE(ASLR)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8pwntools"><span class="nav-number">1.6.</span> <span class="nav-text">简单使用pwntools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8IDA"><span class="nav-number">1.7.</span> <span class="nav-text">简单使用IDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8pwngdb"><span class="nav-number">1.8.</span> <span class="nav-text">简单使用pwngdb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88%E6%BA%A2%E5%87%BA"><span class="nav-number">1.9.</span> <span class="nav-text">栈溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%EF%BC%88stack%EF%BC%89"><span class="nav-number">1.9.1.</span> <span class="nav-text">栈（stack）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%A2%E5%87%BA%EF%BC%88Overflow%EF%BC%89"><span class="nav-number">1.9.2.</span> <span class="nav-text">溢出（Overflow）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%A2%E5%87%BA%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.9.2.1.</span> <span class="nav-text">溢出的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%A2%E5%87%BA%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.9.2.2.</span> <span class="nav-text">溢出原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%88%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%BA%A2%E5%87%BA"><span class="nav-number">1.9.2.3.</span> <span class="nav-text">栈为什么会溢出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E6%BA%A2%E5%87%BA-1"><span class="nav-number">1.9.3.</span> <span class="nav-text">栈溢出</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%B5%84%E6%96%99%E5%87%BA%E5%A4%84"><span class="nav-number">2.</span> <span class="nav-text">引用资料出处</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Reigniting"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Reigniting</p>
+  <div class="site-description" itemprop="description">对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Reigniting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">53k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">48 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false,"scale":0.5},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

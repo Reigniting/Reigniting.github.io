@@ -238,7 +238,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#x63;&#x68;&#x33;&#x33;&#115;&#51;&#x6d;&#x34;&#110;&#64;&#99;&#x68;&#x65;&#x65;&#115;&#101;&#x79;&#x6a;&#97;&#x63;&#x6b;&#46;&#x6c;&#111;&#x63;&#97;&#x6c;">&#x63;&#x68;&#x33;&#x33;&#115;&#51;&#x6d;&#x34;&#110;&#64;&#99;&#x68;&#x65;&#x65;&#115;&#101;&#x79;&#x6a;&#97;&#x63;&#x6b;&#46;&#x6c;&#111;&#x63;&#97;&#x6c;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#99;&#104;&#x33;&#51;&#115;&#51;&#109;&#52;&#x6e;&#64;&#x63;&#104;&#x65;&#101;&#115;&#101;&#121;&#106;&#97;&#x63;&#x6b;&#46;&#x6c;&#111;&#99;&#97;&#108;">&#99;&#104;&#x33;&#51;&#115;&#51;&#109;&#52;&#x6e;&#64;&#x63;&#104;&#x65;&#101;&#115;&#101;&#121;&#106;&#97;&#x63;&#x6b;&#46;&#x6c;&#111;&#99;&#97;&#108;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
@@ -431,16 +431,6 @@
       </tags>
   </entry>
   <entry>
-    <title>博客更新通知+未来学习计划</title>
-    <url>/2021/08/24/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5-%E6%9C%AA%E6%9D%A5%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
-    <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><p>最近还是没放下CTF<br>学安全跟CTF到底有没有关系呢？<br>我还是不知道<br>我现在会的东西80%来自打CTF认知的，剩下20%都是靶机里学的<br>还是太菜了……<br>CTF差不多也遇到瓶颈了吧，就会点简单的杂项<br>祥云杯就做出来3个杂项（层层取证+鸣雏恋+考古）<br>还是学学专业知识比较好<br>一直想学学编程 C语言还没怎么动呢<br>接下来还有更多的事要忙呢……</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>感觉时间不够用……<br>或者是自己不够努力，三天打鱼两天晒网感动自己吧<br>先把C语言学了，之后自己怎么样也不管了</p>
-<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><p>加了一个安全团队，以后靶机渗透就不在博客更新了，以后都交给团队了。<br>一边写vulnhub靶机渗透，一边学习域渗透和尝试复现各种漏洞<br>这里就暂时不更新了，反正也没人看吧<br>想学习交流了可以直接联系我</p>
-<h2 id="-3"><a href="#-3" class="headerlink" title></a></h2><p>接下来的计划大概是<br>学基础知识  毫无基础可言，所以开始搞一搞<br>学编程语言  C语言 Python<br>学域渗透 从0开始的学习了属于是</p>
-<h2 id="-4"><a href="#-4" class="headerlink" title></a></h2><p>什么时候才能会挖洞呢……</p>
-]]></content>
-  </entry>
-  <entry>
     <title>在win10搭建DVWA</title>
     <url>/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/</url>
     <content><![CDATA[<h2 id="搭建DVWA漏洞环境"><a href="#搭建DVWA漏洞环境" class="headerlink" title="搭建DVWA漏洞环境"></a>搭建DVWA漏洞环境</h2><p>下载phpstudy或wamp，我用的是phpstudy2018（此处感谢我的一位同学，很早就给我点到这里了，十分感谢！）<br>打开phpstudy，启动Apache和MySQL<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.1.png"></p>
@@ -494,6 +484,16 @@
       <tags>
         <tag>pwn</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>博客更新通知+未来学习计划</title>
+    <url>/2021/08/24/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5-%E6%9C%AA%E6%9D%A5%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
+    <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><p>最近还是没放下CTF<br>学安全跟CTF到底有没有关系呢？<br>我还是不知道<br>我现在会的东西80%来自打CTF认知的，剩下20%都是靶机里学的<br>还是太菜了……<br>CTF差不多也遇到瓶颈了吧，就会点简单的杂项<br>祥云杯就做出来3个杂项（层层取证+鸣雏恋+考古）<br>还是学学专业知识比较好<br>一直想学学编程 C语言还没怎么动呢<br>接下来还有更多的事要忙呢……</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>感觉时间不够用……<br>或者是自己不够努力，三天打鱼两天晒网感动自己吧<br>先把C语言学了，之后自己怎么样也不管了</p>
+<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><p>加了一个安全团队，以后靶机渗透就不在博客更新了，以后都交给团队了。<br>一边写vulnhub靶机渗透，一边学习域渗透和尝试复现各种漏洞<br>这里就暂时不更新了，反正也没人看吧<br>想学习交流了可以直接联系我</p>
+<h2 id="-3"><a href="#-3" class="headerlink" title></a></h2><p>接下来的计划大概是<br>学基础知识  毫无基础可言，所以开始搞一搞<br>学编程语言  C语言 Python<br>学域渗透 从0开始的学习了属于是</p>
+<h2 id="-4"><a href="#-4" class="headerlink" title></a></h2><p>什么时候才能会挖洞呢……</p>
+]]></content>
   </entry>
   <entry>
     <title>强大工具wmic的学习记录</title>
@@ -600,6 +600,85 @@
       </categories>
       <tags>
         <tag>pwn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络安全应急响应Linux篇</title>
+    <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/</url>
+    <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
+<p>算是自己看书和学习的一个总结和整理。这里是对Linux的小总结</p>
+<p>【正在更新中,其实大部分需要掌握的基础部分写的差不多了，虽然坑没填完但也够看了】</p>
+<h1 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h1><h2 id="Linux系统"><a href="#Linux系统" class="headerlink" title="Linux系统"></a>Linux系统</h2><h3 id="cpu信息"><a href="#cpu信息" class="headerlink" title="cpu信息"></a>cpu信息</h3><p>【lscpu】命令可查看cpu相关信息，包括型号、主频、内核等</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/1.png"></p>
+<h3 id="操作系统信息"><a href="#操作系统信息" class="headerlink" title="操作系统信息"></a>操作系统信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -a </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/3.png"></p>
+<span id="more"></span>
+
+<h3 id="模块信息"><a href="#模块信息" class="headerlink" title="模块信息"></a>模块信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsmod</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/4.png"></p>
+<h2 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h2><h3 id="查看系统所有用户信息"><a href="#查看系统所有用户信息" class="headerlink" title="查看系统所有用户信息"></a>查看系统所有用户信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd  </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/5.png"></p>
+<h3 id="分析超级权限账户"><a href="#分析超级权限账户" class="headerlink" title="分析超级权限账户"></a>分析超级权限账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if($3==0)print $1&#125;&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/6.png"></p>
+<h3 id="查看可登录的账户"><a href="#查看可登录的账户" class="headerlink" title="查看可登录的账户"></a>查看可登录的账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep &#x27;/bin/bash&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/7.png"></p>
+<h3 id="查看用户错误的登录信息"><a href="#查看用户错误的登录信息" class="headerlink" title="查看用户错误的登录信息"></a>查看用户错误的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/8.png"></p>
+<h3 id="查看所有用户最后的登录信息"><a href="#查看所有用户最后的登录信息" class="headerlink" title="查看所有用户最后的登录信息"></a>查看所有用户最后的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastlog | more</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/9.png"></p>
+<h3 id="查看用户最近登录信息"><a href="#查看用户最近登录信息" class="headerlink" title="查看用户最近登录信息"></a>查看用户最近登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">last</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/10.png"></p>
+<h3 id="查看当前用户登录系统情况"><a href="#查看当前用户登录系统情况" class="headerlink" title="查看当前用户登录系统情况"></a>查看当前用户登录系统情况</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">who</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/11.png"></p>
+<h3 id="查看空口令账户"><a href="#查看空口令账户" class="headerlink" title="查看空口令账户"></a>查看空口令账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;length($2)==0 &#123;print $1&#125;&#x27; /etc/shadow</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动项"><a href="#启动项" class="headerlink" title="启动项"></a>启动项</h2><p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/12.jpg"></p>
+<h2 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line">crontab -u root -l</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/13.png"></p>
+<p>这条显示的命令为腾讯云的资源监控</p>
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/14.jpg">                                    </p>
+<h1 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -antlp | more #查看网络连接</span><br><span class="line"></span><br><span class="line">ls -alt /proc/【PID】#查看对应的可执行程序</span><br><span class="line"></span><br><span class="line">lsof -p PID #查看该进程打开的文件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kill -9 PID #结束进程</span><br><span class="line"></span><br><span class="line">rm -rf filename #删除目标文件</span><br><span class="line"></span><br><span class="line">若删除不成功lsattr filename查看是否被加上i属性然后使用chattr -i filename移除i属性，在进行文件的删除</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ps -ef | awk &#x27;&#123;print&#125;&#x27; | sort -n | uniq &gt; 1  #查看隐藏进程123</span><br><span class="line"></span><br><span class="line">ls /proc | sort -n | uniq &gt; 2</span><br><span class="line"></span><br><span class="line">diff 1 2 #对比</span><br></pre></td></tr></table></figure>
+
+<p>可以用top查看资源占用情况，可针对性的重点排查cpu占用率较高的进程</p>
+<h1 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chkconfig --list  #查看系统运行的服务</span><br></pre></td></tr></table></figure>
+
+<p>等级0表示：表示关机</p>
+<p>等级1表示：单用户模式</p>
+<p>等级2表示：无网络连接的多用户命令行模式</p>
+<p>等级3表示：有网络连接的多用户命令行模式</p>
+<p>等级4表示：不可用</p>
+<p>等级5表示：带图形界面的多用户模式</p>
+<p>等级6表示：重新启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service --status-all  #可查看所有服务的状态</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/15.png">        </p>
+<h1 id="文件痕迹排查"><a href="#文件痕迹排查" class="headerlink" title="文件痕迹排查"></a>文件痕迹排查</h1><blockquote>
+<p>“我不知道怎么形容，但它一直存在”</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>蓝队学习之路</category>
+      </categories>
+      <tags>
+        <tag>应急响应</tag>
       </tags>
   </entry>
   <entry>
@@ -754,85 +833,6 @@
 <p>总结的内容到这里就要结束了，当然整本书300+页，后面有很多经典案例分享，如挖矿木马，勒索病毒，流量劫持等等。总的来说，是一本非常可读的书，值得想了解应急响应的同学学习一番。这些也有可能给红队的同学一些小启发哟~</p>
 <blockquote>
 <p>若不去改变，明天永远只是今天的重演。</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>蓝队学习之路</category>
-      </categories>
-      <tags>
-        <tag>应急响应</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网络安全应急响应Linux篇</title>
-    <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/</url>
-    <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
-<p>算是自己看书和学习的一个总结和整理。这里是对Linux的小总结</p>
-<p>【正在更新中,其实大部分需要掌握的基础部分写的差不多了，虽然坑没填完但也够看了】</p>
-<h1 id="系统排查"><a href="#系统排查" class="headerlink" title="系统排查"></a>系统排查</h1><h2 id="Linux系统"><a href="#Linux系统" class="headerlink" title="Linux系统"></a>Linux系统</h2><h3 id="cpu信息"><a href="#cpu信息" class="headerlink" title="cpu信息"></a>cpu信息</h3><p>【lscpu】命令可查看cpu相关信息，包括型号、主频、内核等</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/1.png"></p>
-<h3 id="操作系统信息"><a href="#操作系统信息" class="headerlink" title="操作系统信息"></a>操作系统信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -a </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/2.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/3.png"></p>
-<span id="more"></span>
-
-<h3 id="模块信息"><a href="#模块信息" class="headerlink" title="模块信息"></a>模块信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsmod</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/4.png"></p>
-<h2 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h2><h3 id="查看系统所有用户信息"><a href="#查看系统所有用户信息" class="headerlink" title="查看系统所有用户信息"></a>查看系统所有用户信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd  </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/5.png"></p>
-<h3 id="分析超级权限账户"><a href="#分析超级权限账户" class="headerlink" title="分析超级权限账户"></a>分析超级权限账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if($3==0)print $1&#125;&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/6.png"></p>
-<h3 id="查看可登录的账户"><a href="#查看可登录的账户" class="headerlink" title="查看可登录的账户"></a>查看可登录的账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | grep &#x27;/bin/bash&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/7.png"></p>
-<h3 id="查看用户错误的登录信息"><a href="#查看用户错误的登录信息" class="headerlink" title="查看用户错误的登录信息"></a>查看用户错误的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/8.png"></p>
-<h3 id="查看所有用户最后的登录信息"><a href="#查看所有用户最后的登录信息" class="headerlink" title="查看所有用户最后的登录信息"></a>查看所有用户最后的登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lastlog | more</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/9.png"></p>
-<h3 id="查看用户最近登录信息"><a href="#查看用户最近登录信息" class="headerlink" title="查看用户最近登录信息"></a>查看用户最近登录信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">last</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/10.png"></p>
-<h3 id="查看当前用户登录系统情况"><a href="#查看当前用户登录系统情况" class="headerlink" title="查看当前用户登录系统情况"></a>查看当前用户登录系统情况</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">who</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/11.png"></p>
-<h3 id="查看空口令账户"><a href="#查看空口令账户" class="headerlink" title="查看空口令账户"></a>查看空口令账户</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">awk -F: &#x27;length($2)==0 &#123;print $1&#125;&#x27; /etc/shadow</span><br></pre></td></tr></table></figure>
-
-<h2 id="启动项"><a href="#启动项" class="headerlink" title="启动项"></a>启动项</h2><p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/12.jpg"></p>
-<h2 id="任务计划"><a href="#任务计划" class="headerlink" title="任务计划"></a>任务计划</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line">crontab -u root -l</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/13.png"></p>
-<p>这条显示的命令为腾讯云的资源监控</p>
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/14.jpg">                                    </p>
-<h1 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -antlp | more #查看网络连接</span><br><span class="line"></span><br><span class="line">ls -alt /proc/【PID】#查看对应的可执行程序</span><br><span class="line"></span><br><span class="line">lsof -p PID #查看该进程打开的文件</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kill -9 PID #结束进程</span><br><span class="line"></span><br><span class="line">rm -rf filename #删除目标文件</span><br><span class="line"></span><br><span class="line">若删除不成功lsattr filename查看是否被加上i属性然后使用chattr -i filename移除i属性，在进行文件的删除</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ps -ef | awk &#x27;&#123;print&#125;&#x27; | sort -n | uniq &gt; 1  #查看隐藏进程123</span><br><span class="line"></span><br><span class="line">ls /proc | sort -n | uniq &gt; 2</span><br><span class="line"></span><br><span class="line">diff 1 2 #对比</span><br></pre></td></tr></table></figure>
-
-<p>可以用top查看资源占用情况，可针对性的重点排查cpu占用率较高的进程</p>
-<h1 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chkconfig --list  #查看系统运行的服务</span><br></pre></td></tr></table></figure>
-
-<p>等级0表示：表示关机</p>
-<p>等级1表示：单用户模式</p>
-<p>等级2表示：无网络连接的多用户命令行模式</p>
-<p>等级3表示：有网络连接的多用户命令行模式</p>
-<p>等级4表示：不可用</p>
-<p>等级5表示：带图形界面的多用户模式</p>
-<p>等级6表示：重新启动</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service --status-all  #可查看所有服务的状态</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/15.png">        </p>
-<h1 id="文件痕迹排查"><a href="#文件痕迹排查" class="headerlink" title="文件痕迹排查"></a>文件痕迹排查</h1><blockquote>
-<p>“我不知道怎么形容，但它一直存在”</p>
 </blockquote>
 <hr>
 ]]></content>
