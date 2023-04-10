@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-11 03:17:27" itemprop="dateModified" datetime="2023-04-11T03:17:27+08:00">2023-04-11</time>
+                <time title="修改时间：2023-04-11 03:26:53" itemprop="dateModified" datetime="2023-04-11T03:26:53+08:00">2023-04-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -304,7 +304,7 @@
 <p>有过滤，可以fuzz一下看看过滤了什么，不过这里没啥必要哈</p>
 <p>Target过滤了&lt;&gt;，我不知道咋办，我很菜。这个漏洞的payload没了尖括号咋执行啊（挠头）</p>
 <p>但是第二个feedback框把exec换成大写就完事了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--#exec cmd=&quot;id&quot; --&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--#EXEC cmd=&quot;id&quot; --&gt;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"></p>
 <p>不钻牛角尖，也不浪费时间，虽然这两个框框过滤的东西不一样，但是只要能执行一个就够了</p>
