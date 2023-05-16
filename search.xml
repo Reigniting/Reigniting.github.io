@@ -431,16 +431,6 @@
       </tags>
   </entry>
   <entry>
-    <title>博客更新通知+未来学习计划</title>
-    <url>/2021/08/24/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5-%E6%9C%AA%E6%9D%A5%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
-    <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><p>最近还是没放下CTF<br>学安全跟CTF到底有没有关系呢？<br>我还是不知道<br>我现在会的东西80%来自打CTF认知的，剩下20%都是靶机里学的<br>还是太菜了……<br>CTF差不多也遇到瓶颈了吧，就会点简单的杂项<br>祥云杯就做出来3个杂项（层层取证+鸣雏恋+考古）<br>还是学学专业知识比较好<br>一直想学学编程 C语言还没怎么动呢<br>接下来还有更多的事要忙呢……</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>感觉时间不够用……<br>或者是自己不够努力，三天打鱼两天晒网感动自己吧<br>先把C语言学了，之后自己怎么样也不管了</p>
-<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><p>加了一个安全团队，以后靶机渗透就不在博客更新了，以后都交给团队了。<br>一边写vulnhub靶机渗透，一边学习域渗透和尝试复现各种漏洞<br>这里就暂时不更新了，反正也没人看吧<br>想学习交流了可以直接联系我</p>
-<h2 id="-3"><a href="#-3" class="headerlink" title></a></h2><p>接下来的计划大概是<br>学基础知识  毫无基础可言，所以开始搞一搞<br>学编程语言  C语言 Python<br>学域渗透 从0开始的学习了属于是</p>
-<h2 id="-4"><a href="#-4" class="headerlink" title></a></h2><p>什么时候才能会挖洞呢……</p>
-]]></content>
-  </entry>
-  <entry>
     <title>在win10搭建DVWA</title>
     <url>/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/</url>
     <content><![CDATA[<h2 id="搭建DVWA漏洞环境"><a href="#搭建DVWA漏洞环境" class="headerlink" title="搭建DVWA漏洞环境"></a>搭建DVWA漏洞环境</h2><p>下载phpstudy或wamp，我用的是phpstudy2018（此处感谢我的一位同学，很早就给我点到这里了，十分感谢！）<br>打开phpstudy，启动Apache和MySQL<br><img src="/2021/02/27/%E5%9C%A8win10%E6%90%AD%E5%BB%BADVWA/2.1.png"></p>
@@ -1775,13 +1765,5 @@
   </div>
 </div>
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-  </entry>
-  <entry>
-    <title>拖更说明</title>
-    <url>/2023/04/26/%E6%8B%96%E6%9B%B4%E8%AF%B4%E6%98%8E/</url>
-    <content><![CDATA[<p>最近在挖洞，成果出来了会全部填坑</p>
-<p>靶机会照常打，马上就更</p>
-<p>经高人指点决定开始复现漏洞，已提上日程</p>
-]]></content>
   </entry>
 </search>
