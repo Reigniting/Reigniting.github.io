@@ -31,18 +31,24 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="关于一些医院对外资产只有小程序这件事…… 没咋搞过小程序，真的不熟  这星期补全 医院1发现一处逻辑漏洞 可导致信息泄露">
+  <meta name="description" content="关于一些医院对外资产只有小程序这件事…… 没咋搞过小程序，真的不熟  很快就补全 医院1发现一处逻辑漏洞 可导致信息泄露 某小程序里有一处功能点，输入姓名&amp;身份证号查询体检报告  但是该功能点未对姓名进行校验。比如……">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记一次针对某医院小程序的渗透测试(施工中)">
 <meta property="og:url" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="各种write up">
-<meta property="og:description" content="关于一些医院对外资产只有小程序这件事…… 没咋搞过小程序，真的不熟  这星期补全 医院1发现一处逻辑漏洞 可导致信息泄露">
+<meta property="og:description" content="关于一些医院对外资产只有小程序这件事…… 没咋搞过小程序，真的不熟  很快就补全 医院1发现一处逻辑漏洞 可导致信息泄露 某小程序里有一处功能点，输入姓名&amp;身份证号查询体检报告  但是该功能点未对姓名进行校验。比如……">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png">
+<meta property="og:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png">
+<meta property="og:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/2.png">
+<meta property="og:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/3.jpeg">
+<meta property="og:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/4.png">
 <meta property="article:published_time" content="2023-06-19T01:49:59.000Z">
-<meta property="article:modified_time" content="2023-06-25T06:16:16.766Z">
+<meta property="article:modified_time" content="2023-06-27T06:47:26.318Z">
 <meta property="article:author" content="Reigniting">
-<meta property="article:tag" content="这般那般，如梦似幻">
+<meta property="article:tag" content="渗透笔记">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png">
 
 <link rel="canonical" href="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
 
@@ -235,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-25 14:16:16" itemprop="dateModified" datetime="2023-06-25T14:16:16+08:00">2023-06-25</time>
+                <time title="修改时间：2023-06-27 14:47:26" itemprop="dateModified" datetime="2023-06-27T14:47:26+08:00">2023-06-27</time>
               </span>
 
           
@@ -251,7 +257,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>61</span>
+              <span>363</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -271,10 +277,24 @@
 
       
         <p>关于一些医院对外资产只有小程序这件事……</p>
-<p>没咋搞过小程序，真的不熟  这星期补全</p>
+<p>没咋搞过小程序，真的不熟  很快就补全</p>
 <h2 id="医院1"><a href="#医院1" class="headerlink" title="医院1"></a>医院1</h2><p>发现一处逻辑漏洞 可导致信息泄露</p>
+<p>某小程序里有一处功能点，输入姓名&amp;身份证号查询体检报告</p>
+<p><img src="/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png"></p>
+<p>但是该功能点未对姓名进行校验。比如……</p>
 <span id="more"></span>
 
+<p>比如这样↓↓↓</p>
+<p><img src="/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png"></p>
+<p>可以看到这个人真实姓名不叫大帅哥，但是依然可以通过功能点查询是否体检和体检信息</p>
+<p>只要身份证号输进入就会查询是否有体检信息，逻辑设计缺陷因此造成逻辑漏洞。</p>
+<p>那怎么把危害扩大呢……我们知道身份证号是有规律的，规律涉及性别、地区、登记顺序、出生年月日等，因此可以随机生成出真实的身份信息，收集后用于爆破。</p>
+<p>于是乎，拦截发送的数据包 对其身份证参数Idcard进行爆破</p>
+<p><img src="/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/2.png"></p>
+<p>可以看到，没有对请求次数做校验，也没有对姓名做校验。功能点被随意爆破身份信息。</p>
+<p><img src="/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/3.jpeg"></p>
+<p>等等！你没有爆破成功的案例呀！这里贴出来用于狡辩的言论（逃）</p>
+<p><img src="/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/4.png"></p>
 <h2 id="医院2"><a href="#医院2" class="headerlink" title="医院2"></a>医院2</h2><h2 id="医院3"><a href="#医院3" class="headerlink" title="医院3"></a>医院3</h2>
     </div>
 
@@ -293,6 +313,9 @@
 </div>
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B8%97%E9%80%8F%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 渗透笔记</a>
+          </div>
 
         
 
@@ -429,12 +452,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">56k</span>
+    <span title="站点总字数">57k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">51 分钟</span>
+    <span title="站点阅读时长">52 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
