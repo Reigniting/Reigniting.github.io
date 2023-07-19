@@ -202,6 +202,235 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reigniting">
+      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种write up">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">一篇记录从外网打点到内网渗透全过程的笔记(施工中)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-14 13:53:40" itemprop="dateCreated datePublished" datetime="2023-07-14T13:53:40+08:00">2023-07-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-19 17:53:43" itemprop="dateModified" datetime="2023-07-19T17:53:43+08:00">2023-07-19</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>925</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>难是不难 但跟我是问题大王有什么关系呢</p>
+<p>纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑的心路历程</p>
+<h2 id="外网打点，启动！"><a href="#外网打点，启动！" class="headerlink" title="外网打点，启动！"></a>外网打点，启动！</h2><p>发现了一个目标 里面藏着陈年老洞</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/1.png"></p>
+<p>登录账号密码是弱口令admin/admin</p>
+<p>去网上找到了已知漏洞试着打了一下。strust2系列没扫出来，不过文件上传是存在的。</p>
+<p>经过测试发现，传上去的压缩包会自动解压，因此我们只需把webshell放在压缩包里就高枕无忧了。</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/2.png"></p>
+<p>传上之后访问目录 用管理工具连上之后发现机子是繁体中文 于是又换了gbk编码</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/3.png"></p>
+<p>内网漫游，开始！</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/4.png"></p>
+<h2 id="第一台机子"><a href="#第一台机子" class="headerlink" title="第一台机子"></a>第一台机子</h2><p>机子出网 且国内外均可访问   系统Windows XP 5.1 x86 </p>
+<p>除了机子比较老，找用户 找组 找域控 都很顺利</p>
+<p>但就是因为太老了……后续反而是被一些简单的问题困住了</p>
+<p> 想传mimikatz和cs马 发现会被杀 原来还有杀软啊 失敬失敬</p>
+<p>进程里没看到熟悉的名字 查了一下发现是诺顿 听过名字但是从来没见到过</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/5.png"></p>
+<p>无奈寻找别的解决办法 发现注册表活动不会管 于是开了3389</p>
+<p>内网3389开了 外网一扫开出来的也是3389 离谱啊离谱啊</p>
+<p>加用户 放到组里 然后连后门账号</p>
+<p>熟悉而又遥远的提示音  朴素却带给我无限启蒙的windows xp系统桌面映入眼帘</p>
+<p>你们拿到这种目标一般先干什么？</p>
+<p>黑客：横向 提权 留后门 持久化 拿下域控</p>
+<p>Reigniting：玩三维弹球咯</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/6.png"></p>
+<p>居然国内外均可访问，我哭死</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/7.png"></p>
+<p>得想办法把诺顿关掉 右下角不显示图标  任务管理器进去之后手动终结进程发现没权限 </p>
+<p>webshell拿的system终止不了 这个用户也不行 没事 不传mimikatz还可以想别的办法</p>
+<p>注册表导出了SAM和system文件 拖下来解密后得到了密码 是弱口令</p>
+<p>接着换administrator登上去   用administrator也终止不了 只能说这台机子当年还是费了不少心去加固的</p>
+<p>虽然进程终止不了 但是可以暂停服务 杀软就这样被解决掉了</p>
+<p>周末歇了两天 发现杀软关不掉了 额额想了半天 传上去了一个jsp大马和bat程序</p>
+<p>这样就实现了端口扫描和批量探测存活主机（）</p>
+<h2 id="内网打点，启动！"><a href="#内网打点，启动！" class="headerlink" title="内网打点，启动！"></a>内网打点，启动！</h2><p>bat程序ping下了c段所有ip，后面发现有一部分是linux，那些就先不管了，我也没法管（）</p>
+<p>把windows部分的ip拿到大马上扫</p>
+<p>折磨人的时刻开始了……</p>
+<p>我的域控，你怎么啥也不开啊（捶桌）</p>
+<hr>
+<blockquote>
+<p>对未来的真正慷慨,就是把最卓越的努力献给现在</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+<div>
+  
+</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/11/%E6%B4%9E%E6%80%81IAST%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reigniting">
+      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种write up">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/11/%E6%B4%9E%E6%80%81IAST%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/" class="post-title-link" itemprop="url">洞态IAST的部署与使用体验(施工中)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-11 11:58:00" itemprop="dateCreated datePublished" datetime="2023-07-11T11:58:00+08:00">2023-07-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-14 13:55:25" itemprop="dateModified" datetime="2023-07-14T13:55:25+08:00">2023-07-14</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>203</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>洞态IAST官网<a target="_blank" rel="noopener" href="https://dongtai.io/">https://dongtai.io/</a></p>
+</blockquote>
+<p>洞态IAST支持多种部署方案，这只是其中一种</p>
+<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#脚本需要root或sudo特权才能运行</span><br><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br><span class="line"></span><br><span class="line">#查看版本</span><br><span class="line">docker -v &amp;&amp; docker-compose --version</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<blockquote>
+<p>好学不倦,常思不足</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+<div>
+  
+</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/19/%E7%8E%AB%E7%91%B0%E8%8A%B1%E7%9A%84%E8%94%B7%E8%96%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -667,203 +896,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/11/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E5%BF%AB%E9%80%92%E8%AF%88%E9%AA%97%E7%9F%AD%E4%BF%A1%E7%9A%84%E7%A4%BE%E5%B7%A5%E5%B0%9D%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Reigniting">
-      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="各种write up">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/04/11/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E5%BF%AB%E9%80%92%E8%AF%88%E9%AA%97%E7%9F%AD%E4%BF%A1%E7%9A%84%E7%A4%BE%E5%B7%A5%E5%B0%9D%E8%AF%95/" class="post-title-link" itemprop="url">记一次针对快递诈骗短信的社工尝试</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-11 12:00:13" itemprop="dateCreated datePublished" datetime="2023-04-11T12:00:13+08:00">2023-04-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-26 13:35:57" itemprop="dateModified" datetime="2023-04-26T13:35:57+08:00">2023-04-26</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>777</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          Here's something encrypted, password is required to continue reading.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/04/11/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E5%BF%AB%E9%80%92%E8%AF%88%E9%AA%97%E7%9F%AD%E4%BF%A1%E7%9A%84%E7%A4%BE%E5%B7%A5%E5%B0%9D%E8%AF%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-<div>
-  
-</div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Reigniting">
-      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="各种write up">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">靶机H.A.S.T.E: 1渗透记录</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-08 20:46:12" itemprop="dateCreated datePublished" datetime="2023-04-08T20:46:12+08:00">2023-04-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-11 03:31:30" itemprop="dateModified" datetime="2023-04-11T03:31:30+08:00">2023-04-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">靶机渗透记录</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>老年人复健</p>
-<p>虽然学安全的时候经常摸鱼，但是不学安全的日子人就完全废掉了orz</p>
-<blockquote>
-<p> 下载地址：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/haste-1,203/">https://www.vulnhub.com/entry/haste-1,203/</a></p>
-</blockquote>
-<p>△注：该靶机仅涉及外网打点+拿shell，无后续提权考点</p>
-<p>本人水平极差，小白一枚，勿喷</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>毫无知识储备的大脑，一台kali2021.2，一台刚下载好还热乎的靶机</p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>还是之前的那些步骤拿到打包好的靶机之后看一眼mac地址</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/04/08/%E9%9D%B6%E6%9C%BAH-A-S-T-E-1%E6%B8%97%E9%80%8F%E8%AE%B0%E5%BD%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-<div>
-  
-</div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -935,7 +967,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -947,7 +979,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -983,12 +1015,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">60k</span>
+    <span title="站点总字数">61k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">55 分钟</span>
+    <span title="站点阅读时长">56 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
