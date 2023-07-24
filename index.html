@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 14:16:18" itemprop="dateModified" datetime="2023-07-24T14:16:18+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 17:33:43" itemprop="dateModified" datetime="2023-07-24T17:33:43+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -242,7 +242,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -273,38 +273,58 @@
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/3.png"></p>
 <p>内网漫游，开始！</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/4.png"></p>
-<h2 id="第一台主机-Windows-XP"><a href="#第一台主机-Windows-XP" class="headerlink" title="第一台主机 Windows XP"></a>第一台主机 Windows XP</h2><p>系统Windows XP 5.1 x86   除了机子比较老，找用户 找组 找域控 都很顺利</p>
-<p>但就是因为太老了……后续反而是被一些简单的问题困住了</p>
-<p> 想传mimikatz和cs马 发现会被杀 原来还有杀软啊 失敬失敬</p>
-<p>进程里没看到熟悉的名字 查了一下发现是诺顿 听过名字但是从来没见到过</p>
+<h2 id="第一台主机-Windows-XP"><a href="#第一台主机-Windows-XP" class="headerlink" title="第一台主机 Windows XP"></a>第一台主机 Windows XP</h2><p>系统Windows XP 5.1 x86  </p>
+<p>这回，我们的目标是一个叫做dc02的域控</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/5.png"></p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/6.png"></p>
+<p> 除了机子比较老，找用户 找组 找域控 都很顺利</p>
+<p>但就是因为太老了……后续反而是被一些简单的问题困住了</p>
+<p> 想传fscan、mimikatz和cs马 发现会被杀 原来还有杀软啊 失敬失敬</p>
+<p>进程里没看到熟悉的名字 查了一下发现是诺顿 听过名字但是从来没见到过</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/7.png"></p>
 <p>无奈寻找别的解决办法 发现注册表活动不会管 于是开了3389</p>
-<p>内网3389开了 外网一扫开出来的也是3389 离谱啊离谱啊</p>
-<p>加用户 放到组里 然后连后门账号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REG ADD &quot;HKLMSYSTEMCurrentControlSetControlTerminal Server&quot; /v fDenyTSConnections /t REG_DWORD /d 0 /f</span><br></pre></td></tr></table></figure>
+
+<p>内网3389打开了 去外网扫了一下开出来的也是3389 离谱啊离谱啊</p>
+<p>加用户 放到组里 然后连后门账号 基本操作就不赘述了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net user ABC /123</span><br><span class="line">net localgroup administrators ABC /add</span><br></pre></td></tr></table></figure>
+
 <p>熟悉而又遥远的提示音  朴素却带给我无限启蒙的windows xp系统桌面映入眼帘</p>
 <p>你们拿到这种目标一般先干什么？</p>
 <p>黑客：横向 提权 留后门 持久化 拿下域控</p>
 <p>Reigniting：好耶 玩三维弹球咯~</p>
-<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/6.png"></p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/8.png"></p>
 <p>居然国内外均可访问，我哭死</p>
-<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/7.png"></p>
-<p>任务管理器进去之后手动终结进程发现没权限 </p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/9.png"></p>
+<p>任务管理器进去之后手动终结进程发现没权限  </p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/10.png"></p>
+<p>右下角也是空空如也</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/11.png"></p>
 <p>webshell拿的system终止不了 这个用户也不行 没事 不传mimikatz还可以想别的办法</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/12.png"></p>
 <p>注册表导出了SAM和system文件 拖下来解密后得到了密码 是弱口令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reg save HKLM\SAM sam.hive</span><br><span class="line">reg save HKLM\SYSTEM system.hive</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/13.png"></p>
 <p>接着换administrator登上去   用administrator也终止不了 只能说这台机子当年还是费了不少心去加固的</p>
 <p>闹了半天右下角有诺顿 图标是个文件夹（流汗黄豆）行吧，我是sb</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/14.png"></p>
 <p>虽然进程终止不了 但是右键可以暂停服务 杀软就这样被解决掉了</p>
-<p>周末歇了两天 发现杀软又关不掉了 服了呀不知道咋解决 想了半天传上去了一个jsp大马和bat程序</p>
+<hr>
+<p>好家伙，周末歇了两天 发现杀软又关不掉了  一传文件就会被杀 即使不杀，执行敏感操作的时候也会一刀咔嚓</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/15.jpg"></p>
+<p>服了呀不知道咋解决 想了半天传上去了一个jsp大马和bat程序</p>
 <p>这样就实现了简易版端口扫描和批量探测存活主机（）</p>
-<h2 id="内网横向，启动！"><a href="#内网横向，启动！" class="headerlink" title="内网横向，启动！"></a>内网横向，启动！</h2><p>bat程序ping下了c段所有ip，后面发现有一部分是linux，那些就先不管了，我也没法管（）</p>
+<h2 id="内网横向，启动！"><a href="#内网横向，启动！" class="headerlink" title="内网横向，启动！"></a>内网横向，启动！</h2><p>bat程序ping下了c段所有ip，从TTL来看有一部分是linux，那些就先不管了，我也没法管（）</p>
 <p>把windows部分的ip拿到大马上扫</p>
 <p>折磨人的时刻开始了……</p>
-<p>我的域控，你怎么啥也不开啊（捶桌）</p>
 <p>大部分机子都是没开3389的，于是扫到开3389的，是xp的都试了一遍密码 可惜没有一台和我拿到的这台一样</p>
-<p>其余的server系列肯定也不可能是这个密码 不符合规范</p>
+<p>其余的server系列肯定也不可能是这个密码 不符合规范 根据我的登门拜访可以发现 内网应有尽有</p>
+<p>Windows XP      Windows Server 2003       Windows Server 2008      Wwindows Server 2012 还有不知道什么情况连不上去的</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/16.jpg">     <img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/17.jpg">       <img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/18.jpg">       <img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/19.jpg"></p>
 <h2 id="第二次外网打点，爱来自防火墙与VPN"><a href="#第二次外网打点，爱来自防火墙与VPN" class="headerlink" title="第二次外网打点，爱来自防火墙与VPN"></a>第二次外网打点，爱来自防火墙与VPN</h2><p>停在这台机子挪不动了 不知不觉过了一个星期了</p>
 <p>三维弹球玩不下去了 得想想办法了</p>
-<h2 id="第二台主机Windows-2003"><a href="#第二台主机Windows-2003" class="headerlink" title="第二台主机Windows  2003"></a>第二台主机Windows  2003</h2><h2 id="第三台主机Server-2008与第四台主机Windows-7"><a href="#第三台主机Server-2008与第四台主机Windows-7" class="headerlink" title="第三台主机Server 2008与第四台主机Windows 7"></a>第三台主机Server 2008与第四台主机Windows 7</h2><h2 id="年纪轻轻就拿下域控与域内456台主机"><a href="#年纪轻轻就拿下域控与域内456台主机" class="headerlink" title="年纪轻轻就拿下域控与域内456台主机"></a>年纪轻轻就拿下域控与域内456台主机</h2><h2 id="看来事情没有这么简单-第三次外网打点，启动"><a href="#看来事情没有这么简单-第三次外网打点，启动" class="headerlink" title="看来事情没有这么简单    第三次外网打点，启动"></a>看来事情没有这么简单    第三次外网打点，启动</h2><p>内网也只能活动在那个c段域控 跨网段是一点点路都没有</p>
+<h2 id="第二台主机Windows-2003"><a href="#第二台主机Windows-2003" class="headerlink" title="第二台主机Windows  2003"></a>第二台主机Windows  2003</h2><h2 id="第三台主机Server-2008与第四台主机Windows-7"><a href="#第三台主机Server-2008与第四台主机Windows-7" class="headerlink" title="第三台主机Server 2008与第四台主机Windows 7"></a>第三台主机Server 2008与第四台主机Windows 7</h2><h2 id="年纪轻轻成功拿下域控与域内456台主机（错乱）"><a href="#年纪轻轻成功拿下域控与域内456台主机（错乱）" class="headerlink" title="年纪轻轻成功拿下域控与域内456台主机（错乱）"></a>年纪轻轻成功拿下域控与域内456台主机（错乱）</h2><h2 id="看来事情没有这么简单-第三次外网，启不动了已经"><a href="#看来事情没有这么简单-第三次外网，启不动了已经" class="headerlink" title="看来事情没有这么简单    第三次外网，启不动了已经"></a>看来事情没有这么简单    第三次外网，启不动了已经</h2><p>内网也只能活动在那个c段域控 跨网段是一点点路都没有</p>
 <p>又回到了防火墙，看看有没有什么新的思路吧</p>
 <p>果不其然，在配置列表发现了几个公网ip，看来都是一个归属，那就开搞！</p>
 <hr>
@@ -564,7 +584,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-28 09:23:54" itemprop="dateModified" datetime="2023-06-28T09:23:54+08:00">2023-06-28</time>
+                <time title="修改时间：2023-07-24 15:09:49" itemprop="dateModified" datetime="2023-07-24T15:09:49+08:00">2023-07-24</time>
               </span>
 
           <br>
