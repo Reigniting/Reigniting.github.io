@@ -2100,8 +2100,7 @@
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/3.png"></p>
 <p>内网漫游，开始！</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/4.png"></p>
-<h2 id="第一台机子"><a href="#第一台机子" class="headerlink" title="第一台机子"></a>第一台机子</h2><p>机子出网 且国内外均可访问   系统Windows XP 5.1 x86 </p>
-<p>除了机子比较老，找用户 找组 找域控 都很顺利</p>
+<h2 id="第一台主机-Windows-XP"><a href="#第一台主机-Windows-XP" class="headerlink" title="第一台主机 Windows XP"></a>第一台主机 Windows XP</h2><p>系统Windows XP 5.1 x86   除了机子比较老，找用户 找组 找域控 都很顺利</p>
 <p>但就是因为太老了……后续反而是被一些简单的问题困住了</p>
 <p> 想传mimikatz和cs马 发现会被杀 原来还有杀软啊 失敬失敬</p>
 <p>进程里没看到熟悉的名字 查了一下发现是诺顿 听过名字但是从来没见到过</p>
@@ -2112,7 +2111,7 @@
 <p>熟悉而又遥远的提示音  朴素却带给我无限启蒙的windows xp系统桌面映入眼帘</p>
 <p>你们拿到这种目标一般先干什么？</p>
 <p>黑客：横向 提权 留后门 持久化 拿下域控</p>
-<p>Reigniting：玩三维弹球咯</p>
+<p>Reigniting：好耶 玩三维弹球咯~</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/6.png"></p>
 <p>居然国内外均可访问，我哭死</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/7.png"></p>
@@ -2120,14 +2119,15 @@
 <p>webshell拿的system终止不了 这个用户也不行 没事 不传mimikatz还可以想别的办法</p>
 <p>注册表导出了SAM和system文件 拖下来解密后得到了密码 是弱口令</p>
 <p>接着换administrator登上去   用administrator也终止不了 只能说这台机子当年还是费了不少心去加固的</p>
-<p>虽然进程终止不了 但是可以暂停服务 杀软就这样被解决掉了</p>
+<p>闹了半天右下角有诺顿 图标是个文件夹（流汗黄豆）</p>
+<p>虽然进程终止不了 但是右键可以暂停服务 杀软就这样被解决掉了</p>
 <p>周末歇了两天 发现杀软关不掉了 额额想了半天 传上去了一个jsp大马和bat程序</p>
 <p>这样就实现了端口扫描和批量探测存活主机（）</p>
-<h2 id="内网打点，启动！"><a href="#内网打点，启动！" class="headerlink" title="内网打点，启动！"></a>内网打点，启动！</h2><p>bat程序ping下了c段所有ip，后面发现有一部分是linux，那些就先不管了，我也没法管（）</p>
+<h2 id="内网横向，启动！"><a href="#内网横向，启动！" class="headerlink" title="内网横向，启动！"></a>内网横向，启动！</h2><p>bat程序ping下了c段所有ip，后面发现有一部分是linux，那些就先不管了，我也没法管（）</p>
 <p>把windows部分的ip拿到大马上扫</p>
 <p>折磨人的时刻开始了……</p>
 <p>我的域控，你怎么啥也不开啊（捶桌）</p>
-<hr>
+<h2 id="第二次外网打点，意外和爱来自防火墙与VPN"><a href="#第二次外网打点，意外和爱来自防火墙与VPN" class="headerlink" title="第二次外网打点，意外和爱来自防火墙与VPN"></a>第二次外网打点，意外和爱来自防火墙与VPN</h2><h2 id="第二台主机Windows-2003"><a href="#第二台主机Windows-2003" class="headerlink" title="第二台主机Windows  2003"></a>第二台主机Windows  2003</h2><h2 id="第三台主机Server-2008与第四台主机Windows-7"><a href="#第三台主机Server-2008与第四台主机Windows-7" class="headerlink" title="第三台主机Server 2008与第四台主机Windows 7"></a>第三台主机Server 2008与第四台主机Windows 7</h2><h2 id="这不就拿下域控了？"><a href="#这不就拿下域控了？" class="headerlink" title="这不就拿下域控了？"></a>这不就拿下域控了？</h2><h2 id="看来事情没有这么简单-第三次外网打点，启动"><a href="#看来事情没有这么简单-第三次外网打点，启动" class="headerlink" title="看来事情没有这么简单    第三次外网打点，启动"></a>看来事情没有这么简单    第三次外网打点，启动</h2><hr>
 <blockquote>
 <p>对未来的真正慷慨,就是把最卓越的努力献给现在</p>
 </blockquote>
