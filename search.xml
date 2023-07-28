@@ -1807,9 +1807,6 @@
 <h2 id="Ubuntu-23-04"><a href="#Ubuntu-23-04" class="headerlink" title="Ubuntu 23.04"></a>Ubuntu 23.04</h2><p>首先，准备一个装好的、能上网的虚拟机</p>
 <p>关闭防火墙和SElinux</p>
 ]]></content>
-      <tags>
-        <tag>运维</tag>
-      </tags>
   </entry>
   <entry>
     <title>记一次针对某医院小程序的渗透测试(施工中)</title>
@@ -2058,33 +2055,6 @@
       <tags>
         <tag>碎碎念</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>洞态IAST的部署与使用体验(施工中)</title>
-    <url>/2023/07/11/%E6%B4%9E%E6%80%81IAST%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<blockquote>
-<p>洞态IAST官网<a href="https://dongtai.io/">https://dongtai.io/</a></p>
-</blockquote>
-<p>洞态IAST支持多种部署方案，这只是其中一种</p>
-<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#脚本需要root或sudo特权才能运行</span><br><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br><span class="line"></span><br><span class="line">#查看版本</span><br><span class="line">docker -v &amp;&amp; docker-compose --version</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<hr>
-<blockquote>
-<p>好学不倦,常思不足</p>
-</blockquote>
-]]></content>
   </entry>
   <entry>
     <title>一篇记录从外网打点到内网渗透全过程的笔记(施工中)</title>
