@@ -31,12 +31,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="难是不难 但跟我是问题大王有什么关系呢 纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑时的心路历程 外网打点，启动！一个目标 里面住着陈年老洞 ip和语言都是繁体区域的 找不到归属 开搞！  登录账号密码是弱口令admin&#x2F;admin 去网上找到了已知漏洞试着打了一下。strust2系列没扫出来，不过文件上传是存在的。 经过测试发现，传上去的压缩包会自动解压，因此我们只需把webshel">
+  <meta name="description" content="难是不难 但跟我是问题大王有什么关系呢 纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑时的心路历程 因为太老的缘故导致漏洞们都是一试一个准，不当靶场真可惜了 外网打点，启动！一个目标 里面住着陈年老洞 ip和语言都是繁体区域的 找不到归属 开搞！  登录账号密码是弱口令admin&#x2F;admin 去网上找到了已知漏洞试着打了一下。strust2系列没扫出来，不过文件上传是存在的。 经过测试发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一篇记录从外网打点到内网渗透全过程的笔记(施工中)">
 <meta property="og:url" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="各种write up">
-<meta property="og:description" content="难是不难 但跟我是问题大王有什么关系呢 纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑时的心路历程 外网打点，启动！一个目标 里面住着陈年老洞 ip和语言都是繁体区域的 找不到归属 开搞！  登录账号密码是弱口令admin&#x2F;admin 去网上找到了已知漏洞试着打了一下。strust2系列没扫出来，不过文件上传是存在的。 经过测试发现，传上去的压缩包会自动解压，因此我们只需把webshel">
+<meta property="og:description" content="难是不难 但跟我是问题大王有什么关系呢 纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑时的心路历程 因为太老的缘故导致漏洞们都是一试一个准，不当靶场真可惜了 外网打点，启动！一个目标 里面住着陈年老洞 ip和语言都是繁体区域的 找不到归属 开搞！  登录账号密码是弱口令admin&#x2F;admin 去网上找到了已知漏洞试着打了一下。strust2系列没扫出来，不过文件上传是存在的。 经过测试发">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/1.png">
 <meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/2.png">
@@ -66,8 +66,15 @@
 <meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/21.png">
 <meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/22.jpg">
 <meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/23.png">
+<meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/24.png">
+<meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/25.png">
+<meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/26.png">
+<meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/27.png">
+<meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/28.png">
+<meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/29.png">
+<meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/30.png">
 <meta property="article:published_time" content="2023-07-14T05:53:40.000Z">
-<meta property="article:modified_time" content="2023-07-26T09:59:31.141Z">
+<meta property="article:modified_time" content="2023-07-28T06:43:48.726Z">
 <meta property="article:author" content="Reigniting">
 <meta property="article:tag" content="渗透笔记">
 <meta property="article:tag" content="内网渗透">
@@ -265,7 +272,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-26 17:59:31" itemprop="dateModified" datetime="2023-07-26T17:59:31+08:00">2023-07-26</time>
+                <time title="修改时间：2023-07-28 14:43:48" itemprop="dateModified" datetime="2023-07-28T14:43:48+08:00">2023-07-28</time>
               </span>
 
           
@@ -281,14 +288,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -302,11 +309,14 @@
       
         <p>难是不难 但跟我是问题大王有什么关系呢</p>
 <p>纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑时的心路历程</p>
+<p>因为太老的缘故导致漏洞们都是一试一个准，不当靶场真可惜了</p>
 <h2 id="外网打点，启动！"><a href="#外网打点，启动！" class="headerlink" title="外网打点，启动！"></a>外网打点，启动！</h2><p>一个目标 里面住着陈年老洞 ip和语言都是繁体区域的 找不到归属 开搞！</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/1.png"></p>
 <p>登录账号密码是弱口令admin/admin</p>
 <p>去网上找到了已知漏洞试着打了一下。strust2系列没扫出来，不过文件上传是存在的。</p>
 <p>经过测试发现，传上去的压缩包会自动解压，因此我们只需把webshell放在压缩包里就高枕无忧了。</p>
+<span id="more"></span>
+
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/2.png"></p>
 <p>传上之后访问目录 用管理工具连上之后发现机子是繁体中文 于是又换了gbk编码</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/3.png"></p>
@@ -330,8 +340,8 @@
 
 <p>熟悉而又遥远的提示音  朴素却带给我无限启蒙的windows xp系统桌面映入眼帘</p>
 <p>你们拿到这种目标一般先干什么？</p>
-<p>黑客：横向 提权 留后门 持久化 拿下域控</p>
-<p>Reigniting：好耶 玩三维弹球咯~</p>
+<p>黑客：提权 横向 留后门 持久化 拿下域控</p>
+<p>我：好耶 玩三维弹球咯~</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/8.png"></p>
 <p>居然国内外均可访问，我哭死</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/9.png"></p>
@@ -369,36 +379,67 @@
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/19.1.png"></p>
 <p>和ups管理的web界面 我搜图标的四个字母找不到东西  找了半天好像是什么自带的？这得多老啊……</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/19.2.png"></p>
-<p>最终的解决思路：shift粘贴键后门 </p>
+<p>最终的解决思路：shift粘贴键后门    </p>
+<p>啊，没错，是不是听起来很久远很小学生？感觉像上个世纪的思路一样</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/19.3.png"></p>
-<p>实现畅通无阻的最高权限 成功kill掉杀软进程</p>
+<p>用大佬看不起的姿势成功拿下畅通无阻的最高权限 成功kill掉杀软进程</p>
 <h2 id="第二次外网打点，爱来自防火墙与VPN"><a href="#第二次外网打点，爱来自防火墙与VPN" class="headerlink" title="第二次外网打点，爱来自防火墙与VPN"></a>第二次外网打点，爱来自防火墙与VPN</h2><p>停在这台机子挪不动了 不知不觉过了一个星期了</p>
 <p>三维弹球玩不下去了 摸鱼也没性质了  得想想办法了……</p>
 <p>拿这台xp去找别的打永恒之蓝不太现实 走代理的话，因为机子太老了好多都不管用，openvpn整完根本用不成，试了别的结果也因为各种各样的理由无果而终。</p>
 <p>反正内网也不可能只有这一个机子，那就再去公网转一圈吧  </p>
-<p>公网域名的c段找了一下，发现了几个域名。好家伙还有辅导班？后台订单管理也是弱口令，看了一眼，哇好赚钱啊QAQ</p>
+<p>公网域名的c段找了一下，发现了几个域名。好家伙还有辅导班？后台订单管理也是弱口令，看了一眼，哇好赚钱哦QAQ</p>
 <p>找到了一个域名，这个内网的域的名字和公网域名对上了，那看来就是了</p>
-<p>找到归属的同时也让我确认了一点——其余几个网站应该也在这个域里</p>
 <p>fofa找到了一些资产，不过基本利用不了，甚至发现了致远 V5版本 好老……</p>
 <p>发现几个fofa显示302的，意外点进去，发现是登录界面。奥~原来还有vpn呀</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/20.jpg"></p>
-<p>这俩颜色不一样。不清楚是干啥的</p>
+<p>这俩颜色不一样。后来发现一个是vpn登录界面一个是防火墙web登录界面</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/21.png"></p>
-<p>若干年后的一天，某人回想起自己的渗透测试经历，思及此处仍不禁感慨，幸好那天有了一颗明知不可为却努力的心</p>
-<p>防火墙不止一处，虽然报错几回会被封，我还是没一个都尝试了一下弱口令，终于某一天……</p>
+<p>若干年后的一天，某人回想起自己的渗透测试经历，思及此处仍不禁感慨，幸好那天有了一颗明知不可为却努力的心（拜托完全没到那种程度好吗！）</p>
+<p>防火墙不止一处，虽然密码输错几回会被封，我还是没一个都尝试了一下弱口令，功夫不负有心人，发现了一个有问题的</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/22.jpg"></p>
 <p>我敲你快看，这是什么？这是什么！我问你这是什么！！！</p>
-<p>感觉进去瞅一眼，这个防火墙并不是弃之不用，里面的策略和配置还想当全乎，接下来可就有意思了。</p>
+<p>赶紧进去瞅一眼，这个防火墙并不是弃之不用，里面的策略和配置还相当全乎，接下来可就有意思了。</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/23.png"></p>
-<p>……有意思个鬼……啊  疑似有漏洞可以打，但是看描述有一定的蓝屏风险，想了想算了</p>
-<p>此时，某人的精神状态发生了亿些改变，变癫狂的程度</p>
+<p>……有意思个鬼……啊  疑似有漏洞可以打，但是看描述有一定的蓝屏风险，想了想还是算了</p>
+<p>又过了一段时间 此时，某人的精神状态发生了亿些改变，变癫狂的程度</p>
 <p>于是看了看防火墙，又对着别的资产研究了一会</p>
-<p>突然，醒悟了！</p>
-<p>防火墙内置的不就有个内置的vpn吗</p>
-<p>ipsec创建→选择出入口→设置账号密码→本地下个客户端</p>
-<h2 id="第二台主机Windows-2003"><a href="#第二台主机Windows-2003" class="headerlink" title="第二台主机Windows  2003"></a>第二台主机Windows  2003</h2><h2 id="第三台主机Server-2008与第四台主机Windows-7"><a href="#第三台主机Server-2008与第四台主机Windows-7" class="headerlink" title="第三台主机Server 2008与第四台主机Windows 7"></a>第三台主机Server 2008与第四台主机Windows 7</h2><h2 id="年纪轻轻成功拿下域控与域内456台主机（错乱）"><a href="#年纪轻轻成功拿下域控与域内456台主机（错乱）" class="headerlink" title="年纪轻轻成功拿下域控与域内456台主机（错乱）"></a>年纪轻轻成功拿下域控与域内456台主机（错乱）</h2><h2 id="看来事情没有这么简单-第三次外网，启不动了已经"><a href="#看来事情没有这么简单-第三次外网，启不动了已经" class="headerlink" title="看来事情没有这么简单    第三次外网，启不动了已经"></a>看来事情没有这么简单    第三次外网，启不动了已经</h2><p>内网也只能活动在那个c段域控 跨网段是一点点路都没有</p>
+<p>半天过去了，当事人突然醒悟了</p>
+<p>防火墙内置的不就有个vpn吗</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/24.png"></p>
+<p>ipsec创建→选择出入口→设置账号密码→本地下个客户端→连接  大功告成</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/25.png"></p>
+<p>吼吼 内网 我又回来了</p>
+<h2 id="第二台主机Windows-2003"><a href="#第二台主机Windows-2003" class="headerlink" title="第二台主机Windows  2003"></a>第二台主机Windows  2003</h2><p>之前配合粘贴键后门把杀软kill掉，现在内网畅通无阻了，cs&amp;msf走起</p>
+<p>本来没想尝试永恒之蓝，因为xp这台机子11年之后再也没打过补丁，17年特意回来补了永恒之蓝</p>
+<p>但是，万一呢</p>
+<p>msfconsole，启动</p>
+<p>你别说，你真别说，永恒之蓝还真能打成（当然也有没打成的）</p>
+<p>打成的长这个亚子↓</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/26.png"></p>
+<p>没打成的长这个亚子↓</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/27.png"></p>
+<p>打不成的原因后来也总结了一下：①内网有Kaspersky②内网有Norton③打补丁了④没开445</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/28.png"></p>
+<p>之所以这么容易来去自如也是因为这两款杀软到期了，而且是版本也很老不需要密码就能关，不然还真不能就这么算了</p>
+<p>打到了一台windows 2003，思路为：开3389→加用户加密码→登上去关杀软→抓密码</p>
+<p>这台机子抓到了域控的密码，看来那台xp域控管理员这20年来没有登过一次，震惊</p>
+<h2 id="Server-2008-Windows-7-NAS"><a href="#Server-2008-Windows-7-NAS" class="headerlink" title="Server 2008+Windows 7+NAS"></a>Server 2008+Windows 7+NAS</h2><p>因为有了域控密码，分分钟登主机，这里纯粹是为了水字数写的</p>
+<p>域内win7好像几乎没有，所以摸台win7登登看   08以后看来装的都是Kaspersky 03和xp这些是Norton</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/29.png"></p>
+<p>域里的nas</p>
+<p>【回过头写的时候完全忘了】</p>
+<p>好像是mimikaz不知道弄的哪个主机，里面有</p>
+<h2 id="年纪轻轻成功拿下域控与域内456台主机（错乱）"><a href="#年纪轻轻成功拿下域控与域内456台主机（错乱）" class="headerlink" title="年纪轻轻成功拿下域控与域内456台主机（错乱）"></a>年纪轻轻成功拿下域控与域内456台主机（错乱）</h2><p>原理：hash传递 或者135是开着的，这个思路也行得通</p>
+<p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/30.png"></p>
+<p>赶紧net group “domain computers” /domain 了一下，数了数w(ﾟДﾟ)w456台主机！！</p>
+<p>真的不小了，因为目标看起来不像要搞这么多信息建设的公司 这次的收获颇丰 重点让我意识到自己的基础有多烂 知识储备有多低</p>
+<h2 id="看来事情没有这么简单-第三次外网？启不动了已经"><a href="#看来事情没有这么简单-第三次外网？启不动了已经" class="headerlink" title="看来事情没有这么简单    第三次外网？启不动了已经"></a>看来事情没有这么简单    第三次外网？启不动了已经</h2><p>内网也只能活动在那个c段域控 跨网段是一点点路都没有</p>
 <p>又回到了防火墙，看看有没有什么新的思路吧</p>
 <p>果不其然，在配置列表发现了几个公网ip，应该都是一个归属，那就开搞！</p>
+<p>……</p>
+<p>……</p>
+<p>……</p>
+<p>这个域不存在域林环境，外网还有几个地址，内网有两个段没碰，我看就是员工办公网了，联网设备甚至有苹果耳机。本来还想在摸下去但是意义已经不大了，正好有别的事要忙，那这部分就先就到此为止吧。</p>
 <hr>
 <blockquote>
 <p>对未来的真正慷慨,就是把最卓越的努力献给现在</p>
@@ -494,7 +535,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="nav-number">1.</span> <span class="nav-text">外网打点，启动！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%8F%B0%E4%B8%BB%E6%9C%BA-Windows-XP"><span class="nav-number">2.</span> <span class="nav-text">第一台主机 Windows XP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E7%BD%91%E6%A8%AA%E5%90%91%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="nav-number">3.</span> <span class="nav-text">内网横向，启动！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%EF%BC%8C%E7%88%B1%E6%9D%A5%E8%87%AA%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8EVPN"><span class="nav-number">4.</span> <span class="nav-text">第二次外网打点，爱来自防火墙与VPN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%8F%B0%E4%B8%BB%E6%9C%BAWindows-2003"><span class="nav-number">5.</span> <span class="nav-text">第二台主机Windows  2003</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E5%8F%B0%E4%B8%BB%E6%9C%BAServer-2008%E4%B8%8E%E7%AC%AC%E5%9B%9B%E5%8F%B0%E4%B8%BB%E6%9C%BAWindows-7"><span class="nav-number">6.</span> <span class="nav-text">第三台主机Server 2008与第四台主机Windows 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B4%E7%BA%AA%E8%BD%BB%E8%BD%BB%E6%88%90%E5%8A%9F%E6%8B%BF%E4%B8%8B%E5%9F%9F%E6%8E%A7%E4%B8%8E%E5%9F%9F%E5%86%85456%E5%8F%B0%E4%B8%BB%E6%9C%BA%EF%BC%88%E9%94%99%E4%B9%B1%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">年纪轻轻成功拿下域控与域内456台主机（错乱）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%8B%E6%9D%A5%E4%BA%8B%E6%83%85%E6%B2%A1%E6%9C%89%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%A4%96%E7%BD%91%EF%BC%8C%E5%90%AF%E4%B8%8D%E5%8A%A8%E4%BA%86%E5%B7%B2%E7%BB%8F"><span class="nav-number">8.</span> <span class="nav-text">看来事情没有这么简单    第三次外网，启不动了已经</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="nav-number">1.</span> <span class="nav-text">外网打点，启动！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%8F%B0%E4%B8%BB%E6%9C%BA-Windows-XP"><span class="nav-number">2.</span> <span class="nav-text">第一台主机 Windows XP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E7%BD%91%E6%A8%AA%E5%90%91%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="nav-number">3.</span> <span class="nav-text">内网横向，启动！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%EF%BC%8C%E7%88%B1%E6%9D%A5%E8%87%AA%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8EVPN"><span class="nav-number">4.</span> <span class="nav-text">第二次外网打点，爱来自防火墙与VPN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%8F%B0%E4%B8%BB%E6%9C%BAWindows-2003"><span class="nav-number">5.</span> <span class="nav-text">第二台主机Windows  2003</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Server-2008-Windows-7-NAS"><span class="nav-number">6.</span> <span class="nav-text">Server 2008+Windows 7+NAS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B4%E7%BA%AA%E8%BD%BB%E8%BD%BB%E6%88%90%E5%8A%9F%E6%8B%BF%E4%B8%8B%E5%9F%9F%E6%8E%A7%E4%B8%8E%E5%9F%9F%E5%86%85456%E5%8F%B0%E4%B8%BB%E6%9C%BA%EF%BC%88%E9%94%99%E4%B9%B1%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">年纪轻轻成功拿下域控与域内456台主机（错乱）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%8B%E6%9D%A5%E4%BA%8B%E6%83%85%E6%B2%A1%E6%9C%89%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%A4%96%E7%BD%91%EF%BC%9F%E5%90%AF%E4%B8%8D%E5%8A%A8%E4%BA%86%E5%B7%B2%E7%BB%8F"><span class="nav-number">8.</span> <span class="nav-text">看来事情没有这么简单    第三次外网？启不动了已经</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -558,12 +599,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">63k</span>
+    <span title="站点总字数">64k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">57 分钟</span>
+    <span title="站点阅读时长">58 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
