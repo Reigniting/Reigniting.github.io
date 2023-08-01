@@ -31,12 +31,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="难是不难 但跟我是问题大王有什么关系呢 纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑时的心路历程 因为太老的缘故导致漏洞们都是一试一个准，不当靶场真可惜了 外网打点，启动！一个目标 里面住着陈年老洞 ip和语言都是繁体区域的 找不到归属 开搞！  登录账号密码是弱口令admin&#x2F;admin 去网上找到了已知漏洞试着打了一下。strust2系列没扫出来，不过文件上传是存在的。 经过测试发">
+  <meta name="description" content="难是不难 但跟我是问题大王有什么关系呢（掐腰） 纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑时的心路历程 因为太老的缘故导致漏洞们都是一试一个准，不当靶场真可惜了 外网打点，启动！一个目标 里面住着陈年老洞 ip和语言都是繁体区域的 找不到归属 开搞！  登录账号密码是弱口令admin&#x2F;admin 去网上找到了已知漏洞试着打了一下。strust2系列没扫出来，不过文件上传是存在的。 经">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一篇记录从外网打点到内网渗透全过程的笔记(施工中)">
+<meta property="og:title" content="一篇记录从外网打点到内网渗透全过程的笔记">
 <meta property="og:url" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="各种write up">
-<meta property="og:description" content="难是不难 但跟我是问题大王有什么关系呢 纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑时的心路历程 因为太老的缘故导致漏洞们都是一试一个准，不当靶场真可惜了 外网打点，启动！一个目标 里面住着陈年老洞 ip和语言都是繁体区域的 找不到归属 开搞！  登录账号密码是弱口令admin&#x2F;admin 去网上找到了已知漏洞试着打了一下。strust2系列没扫出来，不过文件上传是存在的。 经过测试发">
+<meta property="og:description" content="难是不难 但跟我是问题大王有什么关系呢（掐腰） 纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑时的心路历程 因为太老的缘故导致漏洞们都是一试一个准，不当靶场真可惜了 外网打点，启动！一个目标 里面住着陈年老洞 ip和语言都是繁体区域的 找不到归属 开搞！  登录账号密码是弱口令admin&#x2F;admin 去网上找到了已知漏洞试着打了一下。strust2系列没扫出来，不过文件上传是存在的。 经">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/1.png">
 <meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/2.png">
@@ -74,7 +74,7 @@
 <meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/29.png">
 <meta property="og:image" content="http://example.com/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/30.png">
 <meta property="article:published_time" content="2023-07-14T05:53:40.000Z">
-<meta property="article:modified_time" content="2023-07-28T06:45:16.292Z">
+<meta property="article:modified_time" content="2023-08-01T01:18:10.055Z">
 <meta property="article:author" content="Reigniting">
 <meta property="article:tag" content="渗透笔记">
 <meta property="article:tag" content="内网渗透">
@@ -94,7 +94,7 @@
   };
 </script>
 
-  <title>一篇记录从外网打点到内网渗透全过程的笔记(施工中) | 各种write up</title>
+  <title>一篇记录从外网打点到内网渗透全过程的笔记 | 各种write up</title>
   
 
 
@@ -255,7 +255,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          一篇记录从外网打点到内网渗透全过程的笔记(施工中)
+          一篇记录从外网打点到内网渗透全过程的笔记
         </h1>
 
         <div class="post-meta">
@@ -272,7 +272,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-28 14:45:16" itemprop="dateModified" datetime="2023-07-28T14:45:16+08:00">2023-07-28</time>
+                <time title="修改时间：2023-08-01 09:18:10" itemprop="dateModified" datetime="2023-08-01T09:18:10+08:00">2023-08-01</time>
               </span>
 
           
@@ -288,7 +288,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.2k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -307,7 +307,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>难是不难 但跟我是问题大王有什么关系呢</p>
+        <p>难是不难 但跟我是问题大王有什么关系呢（掐腰）</p>
 <p>纯属记录自己学习的过程，所以大部分篇幅用来阐述自己的踩坑时的心路历程</p>
 <p>因为太老的缘故导致漏洞们都是一试一个准，不当靶场真可惜了</p>
 <h2 id="外网打点，启动！"><a href="#外网打点，启动！" class="headerlink" title="外网打点，启动！"></a>外网打点，启动！</h2><p>一个目标 里面住着陈年老洞 ip和语言都是繁体区域的 找不到归属 开搞！</p>
@@ -394,8 +394,8 @@
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/20.jpg"></p>
 <p>这俩颜色不一样。后来发现一个是vpn登录界面一个是防火墙web登录界面</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/21.png"></p>
-<p>若干年后的一天，某人回想起自己的渗透测试经历，思及此处仍不禁感慨，幸好那天有了一颗明知不可为却努力的心（拜托完全没到那种程度好吗！）</p>
-<p>防火墙不止一处，虽然密码输错几回会被封，我还是没一个都尝试了一下弱口令，功夫不负有心人，发现了一个有问题的</p>
+<p>若干年后的一天，某人回想起自己的渗透测试经历，思及此处仍不禁感慨，幸好那天有了一颗明知不可为却努力的心（拜托完全没到那种程度好吗！？）</p>
+<p>防火墙不止一处，虽然密码输错几回会被封，但咱还是坚持每个都尝试了一下弱口令，功夫不负有心人，发现了一个有问题的</p>
 <p><img src="/2023/07/14/%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95%E4%BB%8E%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9%E5%88%B0%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%85%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/22.jpg"></p>
 <p>我敲你快看，这是什么？这是什么！我问你这是什么！！！</p>
 <p>赶紧进去瞅一眼，这个防火墙并不是弃之不用，里面的策略和配置还相当全乎，接下来可就有意思了。</p>
@@ -439,7 +439,8 @@
 <p>……</p>
 <p>……</p>
 <p>……</p>
-<p>这个域不存在域林环境，外网还有几个地址，内网有两个段没碰，我看就是员工办公网了，联网设备甚至有苹果耳机。本来还想在摸下去但是意义已经不大了，正好有别的事要忙，那这部分就先就到此为止吧。</p>
+<p>这个域不存在域林环境，外网还有几个地址，内网有两个段没碰，我看就是员工办公网了，联网设备甚至有平板。我不认为接下来还有这么大的域环境了。所以在摸下去但是意义不大，正好有别的事要忙，那本次渗透就先就到此为止吧^_^</p>
+<p>末尾感谢这两个星期提供帮助和解决思路的师傅们，感谢你们！！！</p>
 <hr>
 <blockquote>
 <p>对未来的真正慷慨,就是把最卓越的努力献给现在</p>
@@ -551,7 +552,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -604,7 +605,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">58 分钟</span>
+    <span title="站点阅读时长">57 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
