@@ -2051,34 +2051,4 @@
         <tag>内网渗透</tag>
       </tags>
   </entry>
-  <entry>
-    <title>挖洞日记预备篇——app与小程序挖掘(施工中)</title>
-    <url>/2023/08/09/%E6%8C%96%E6%B4%9E%E6%97%A5%E8%AE%B0%E9%A2%84%E5%A4%87%E7%AF%87%E2%80%94%E2%80%94app%E4%B8%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8C%96%E6%8E%98/</url>
-    <content><![CDATA[<p>越来越多的app和小程序出现了  挖洞怎么能放过呢</p>
-<h2 id="Burp-Proxifier"><a href="#Burp-Proxifier" class="headerlink" title="Burp+Proxifier"></a>Burp+Proxifier</h2><p>能抓到就测 抓不到就算了（）</p>
-<p>加密了就不管了 是国密的话可以用yakit尝试一下下哦</p>
-<h2 id="真机抓包"><a href="#真机抓包" class="headerlink" title="真机抓包"></a>真机抓包</h2><hr>
-<blockquote>
-<p>Keep a little fire burning;however small, however hidden.</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>挖洞日记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>挖洞日记预备篇——信息收集</title>
-    <url>/2023/08/09/%E6%8C%96%E6%B4%9E%E6%97%A5%E8%AE%B0%E9%A2%84%E5%A4%87%E7%AF%87%E2%80%94%E2%80%94%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</url>
-    <content><![CDATA[<p>信息收集意思一下就行了，别真给搜集全了（）</p>
-<p>本篇笔记以字节跳动为例</p>
-<p>挖洞呢，找那种家大业大的，搜集不全也没事，反正怎么找都是一大把</p>
-<h2 id="主要资产范围的搜集"><a href="#主要资产范围的搜集" class="headerlink" title="主要资产范围的搜集"></a>主要资产范围的搜集</h2><h3 id="从规范与细则下手"><a href="#从规范与细则下手" class="headerlink" title="从规范与细则下手"></a>从规范与细则下手</h3><h3 id="从集团官网下手"><a href="#从集团官网下手" class="headerlink" title="从集团官网下手"></a>从集团官网下手</h3><h3 id="从客服、招聘系统下手"><a href="#从客服、招聘系统下手" class="headerlink" title="从客服、招聘系统下手"></a>从客服、招聘系统下手</h3><h3 id="fofa-hunter"><a href="#fofa-hunter" class="headerlink" title="fofa+hunter"></a>fofa+hunter</h3><h2 id="子域、端口、目录的搜集"><a href="#子域、端口、目录的搜集" class="headerlink" title="子域、端口、目录的搜集"></a>子域、端口、目录的搜集</h2><h3 id="灯塔自动化收集"><a href="#灯塔自动化收集" class="headerlink" title="灯塔自动化收集"></a>灯塔自动化收集</h3><h3 id="fofa-hunter-1"><a href="#fofa-hunter-1" class="headerlink" title="fofa+hunter"></a>fofa+hunter</h3><hr>
-<blockquote>
-<p>让心中的火苗一直燃烧吧，不管那有多微弱，不管藏得有多深。</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>挖洞日记</tag>
-      </tags>
-  </entry>
 </search>
