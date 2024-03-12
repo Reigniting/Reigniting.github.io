@@ -31,24 +31,18 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="关于一些医院对外资产只有小程序这件事…… 没咋搞过小程序，真的不熟  很快就补全 【长期咕咕的一篇文章，又收获了或者有新的目标了填坑坑】 医院1发现一处逻辑漏洞 可导致信息泄露 某小程序里有一处功能点，输入姓名&amp;身份证号查询体检报告  但是该功能点未对姓名进行校验。比如……">
+  <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记一次针对某医院小程序的渗透测试(施工中)">
+<meta property="og:title" content="记一次针对某医院小程序的渗透测试">
 <meta property="og:url" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="各种write up">
-<meta property="og:description" content="关于一些医院对外资产只有小程序这件事…… 没咋搞过小程序，真的不熟  很快就补全 【长期咕咕的一篇文章，又收获了或者有新的目标了填坑坑】 医院1发现一处逻辑漏洞 可导致信息泄露 某小程序里有一处功能点，输入姓名&amp;身份证号查询体检报告  但是该功能点未对姓名进行校验。比如……">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png">
-<meta property="og:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png">
-<meta property="og:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/2.png">
-<meta property="og:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/3.jpeg">
-<meta property="og:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/4.png">
 <meta property="article:published_time" content="2023-06-19T01:49:59.000Z">
-<meta property="article:modified_time" content="2023-07-06T08:21:15.324Z">
+<meta property="article:modified_time" content="2024-03-11T09:18:37.147Z">
 <meta property="article:author" content="Reigniting">
 <meta property="article:tag" content="渗透笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png">
 
 <link rel="canonical" href="http://example.com/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
 
@@ -63,7 +57,7 @@
   };
 </script>
 
-  <title>记一次针对某医院小程序的渗透测试(施工中) | 各种write up</title>
+  <title>记一次针对某医院小程序的渗透测试 | 各种write up</title>
   
 
 
@@ -224,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          记一次针对某医院小程序的渗透测试(施工中)
+          记一次针对某医院小程序的渗透测试
         </h1>
 
         <div class="post-meta">
@@ -241,7 +235,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-06 16:21:15" itemprop="dateModified" datetime="2023-07-06T16:21:15+08:00">2023-07-06</time>
+                <time title="修改时间：2024-03-11 17:18:37" itemprop="dateModified" datetime="2024-03-11T17:18:37+08:00">2024-03-11</time>
               </span>
 
           
@@ -276,27 +270,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>关于一些医院对外资产只有小程序这件事……</p>
-<p>没咋搞过小程序，真的不熟  很快就补全</p>
-<p>【长期咕咕的一篇文章，又收获了或者有新的目标了填坑坑】</p>
-<h2 id="医院1"><a href="#医院1" class="headerlink" title="医院1"></a>医院1</h2><p>发现一处逻辑漏洞 可导致信息泄露</p>
-<p>某小程序里有一处功能点，输入姓名&amp;身份证号查询体检报告</p>
-<p><img src="/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png"></p>
-<p>但是该功能点未对姓名进行校验。比如……</p>
-<span id="more"></span>
-
-<p>比如这样↓↓↓</p>
-<p><img src="/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png"></p>
-<p>可以看到这个人真实姓名不叫大帅哥，但是依然可以通过功能点查询是否体检和体检信息</p>
-<p>只要身份证号输进入就会查询是否有体检信息，逻辑设计缺陷因此造成逻辑漏洞。</p>
-<p>那怎么把危害扩大呢……我们知道身份证号是有规律的，规律涉及性别、地区、登记顺序、出生年月日等，因此可以随机生成出真实的身份信息，收集后用于爆破。</p>
-<p>于是乎，拦截发送的数据包 对其身份证参数Idcard进行爆破</p>
-<p><img src="/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/2.png"></p>
-<p>可以看到，没有对请求次数做校验，也没有对姓名做校验。功能点被随意爆破身份信息。</p>
-<p><img src="/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/3.jpeg"></p>
-<p>等等！你没有爆破成功的案例呀！这里贴出来用于狡辩的言论（逃）</p>
-<p><img src="/2023/06/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%92%88%E5%AF%B9%E6%9F%90%E5%8C%BB%E9%99%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/4.png"></p>
-<h2 id="医院2"><a href="#医院2" class="headerlink" title="医院2"></a>医院2</h2><h2 id="医院3"><a href="#医院3" class="headerlink" title="医院3"></a>医院3</h2>
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="9e7e920c5806eaed4a2ccc3afbc070379b3b82b58e15dc776ec4fa45ff3842a1">f1bb5f87c68ee24d0d373c66e4e1d89eb522e2da9321c3dfa2f122a42e954c9ca5d3b4aee75b7709b8ac3a6a10f359a1b76cf92f5dbb8ddc5af5bb12f95dcc614c60a719456ac623ab13817741036ea9de5ccd8abb33155e82ff1bc191fed65de8e52df72f159ed2db25e6bda6c63278973fa9b1ba298bfc1061d9fb33c2d5be40c563ecad23a4394504dec23c5a41a68dbdb3e1b812043570f56143c13fd25faf94606a81637b6ef530b789cd7ccacc9eb5b45e929c6b20189d9ccac80d6406852af7c526cbec9b0c4ae942054cf9772b822417bbe15d9e239a67bff56b2e6f2374b19361fd785a533409e9b9552145eacd465c84a41bda885bf8992635b8babf93302daabcac3876f35d63d7aad6ca480b45be45ddfa92fb362fa702b37a2c89d7b6ede4e1e2edb2beed4a1e97b227d11eed0ac70215f9d81feb4dd885cde732e9b62d64fa5836ef2f104b89dbcc1c0e8dc2c586b3089edcd91e4b3c056c467926207f39ea1fa1bbb82236f86e535d0c282b2d3a306c97c9e6577901ccfb82938461710f3e0ee43f436521460de84e43f8ff8d15244c2b9473b687c23a75f2210702ac5bf56c4bfd928a992a4940b3b1e2dfd8fc81afe557716e8ff81e6e1062592b400e416563a137c552286af584b1c2997875d9cde30e232b352465d8475174a5fd812baf1402c8c5281e085fcfb782db1e280ca0d8d5d77bce8a254431cc352beec5ba8d549b674a4dc20639bb1af2d28dc79e5ea3f4a5df876d6160b2c3597cd7a577bb590c62dd57264d02d3d040c3e8f576f50b339fb6138424f2d5be95526e843a30d19dd676bd0da143664d71896f1f96716fa18719850c5a9d9be0819c5641bdc5dfffa3955a639bf8f9b25450cefa0f808b21e02b0265f3350af1a6704157e70ea05d5e6fdca0674a0e4da9ecd3d18ca113918e3653a0e77d2c4216d402cc774da3835b730771a2aa06568e77916be47ba75cc49b12e5c576b4c27e6ec99b83994f69ef9bdb83d2b32e77304c36d2b145cda1934299b92a1ddf2b677dbb2ccb73a060abc253e7fa86cac898f44508264099fd12709de23754c6d467081f2550faa1bdab8b991d93486d266f4279b0708333a1ee59ea2705a93f8f4ae99ded72424630d8acfadd4c172e6a01110aeede962861f282fb6c6ac84bf92d5733089db1cecf8e2998fda4e052f1bd041ec98c4ee3070ca6b4641c9f7407aba968d9b837813ce1327ee33df2bfbac357bd81837cb00e5e894def641a2ceb2c695fc5adb6642e7d489ac39eb00a4d877599b686b213ad099f6f80d798ca365f03ed99be4aaa62fee2fb679ba2ffc6748ada24f2443d9a48683d721ca19edcf729ec0d137f1315b9429d3cfb8c266735e454d9cb29ae25c988ec607925a9f7f50e5010e6cd3849b66e110c30015a8b25ed5cd9f33e1203b9b9c819203a54c67fdfdf33924092c69019232be41889aaa560e647b0a2cb009db7c1e7601ac2e35519b7d20dbda63318525e99580e5dfc5346002d8192fc94ae139facbf6643dc4ca412bccb8e5fb632dfcfa8c98173adce44120b98061795e038ea6d077df0a74d2808e16ff93cf464228a94efa6b218f96d3a8ef55f8f07e60da3e74864bf51b563f1860c44e59e34e017148e6a5ae1bcb2e1f19715c2a9d0f2df893ee5dbc6fa33f12c6c3a987f0f1d8e204c53b994cebcbeb7b55036e4f27b6ced241b6010f44bcfce6a56160842774bf47a9a471816cfed8c905419ea055511948932613303f68d703c2bb9a6a0a2b1fb7437de406d0479f200dc268f125630978e70cf1956038e6cb740545dacb229a3e67b573c1e1d6bf40e1dcdd1fbf5e9532ab82a588ac4507ebfc938ac206a6e9caaba415c8f66445a5b0f61f4b29f8868bbbbce482c0426bc007ad2e9bb53a94b5e4ae812827f56d0c44a810b816613b5b36f0f768b7a9ce2509b45e186254dd1016bb277291989196648d21646e085340c46971b506c3525643f4fdb35192a04df0d0a2a2c9bd466e43384f7769819a5e6199f7658b36da6056e02a02e27d8ceacea212d9be866a26bb947cee0584d9e528ffc672b9b1b465f3b151255a24bef5fbd3420ee682a6f07845b4311588501b7e3710adcf870741926cdb3f21d71273fee1f0ddd669ea101eb61fddae2368c0fd4457ff9c29544637ca6ed0ab70328c8625cc4fa656a44ea47764734ace4355203d67a983985cd955aa88c58f5a0db292ea7e1c1fc4486f8b6b7830c43ccaa6fee6e837f96cfc9359de2407500abe4e7f330276648ae389d63895a37e1a2ea23615aeb9ff3d4495956f4d158200f4801ae3b3144fda379756232d81ed0fba6e44628181494bfeb72cb91a3daeec95616f4ce37bf7ee340bdcb1361599cc37f4ea2f253e940f5b0dd60e03d5de6260273f5559c11617db3e1f4b093d018b18be6db95e9e204e8fd9475e02f1844fa65f13ee9e1d330f9770819398c9d8e46264cf171502559d922f56f113d7922546efdc5005d1ab17675b4b93b71ce44986c6b99d893cd4a4e254317169df983a9a0a9fbb9d1d56e980e01950025e6829f5275b964eb4e5683f1403795e6a4472d3ddb210cdb61aeb3abf6b3749cddefac1219682e05e6bf1092ca18658d295c00959007e8dee3511d7036c9e17e9d6f75fd530c91006284c88c666255d6fc71d5176b9159e1e50b48590b6e42755301089ce548f01caee26f5678a46950001f64b2bf6251b1bab29dc1aaf4a2aad2e0bc7e18570611ba46f07cae75e8e2c0ae4ca0e186d45e1c77671455343847d07ce377df1ce220a7dba30e32a40c1ca5935ef5bde32a4be02f01cb135283ef8a5d0c1363425794b4c3f357cc39acf9c89e97a6e2451ce39b2395994b46c82d60ccdc26a565858ee0407e41fef0052342196f77524d88317eca0b292726d5081b4a162c66e64bb68c8cd6dae5aba2cfc4d725d26a54fe95a98535265a566a0b5897cd5fb6cb6e27e2a0b58c7c9b28f9e2ffa645f465094b6c47afe0cafdd5eefeb964198fc785a102e0156fe62199dfaa9684400390723f544362309c633c457b7b5b381fbe9ac61b998185b93e2b9b2c894cc5b441105780e03b6b55aa699c6162e35d67d2ef95a6e2e7421a362ba8c0eb214fa1b7ea306680586a5452594a6052ec8faae65b1910fa4395a5fa9fb565769ccc406185488744d29f3d32ea378261fa9c82fdc56f4993d248ef4119bd879f823ce0892daa5250f6aec84de34abd4172f423700f4a75f2fb9e53ce38bf2b20254e533716a80f6f225cc99353e35b503f4908a2d7eb248479adfadcf4fdfdcac4f8b7f2dd99df964fd438eff27e645db3fa6192a28c7455f47627939c5e3b6576fa9431965863ec79643cccc4cca6977f83a13c1e9e445a91fddf31090f56a97c0be5f96cd234c296c2d840593d1eee0ce6433f6cf7ad09e2ff3b178d07bfe30c0b7415467ee1b05451f396d611a34e9e4a26aa88</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
     </div>
 
     
@@ -389,7 +374,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BB%E9%99%A21"><span class="nav-number">1.</span> <span class="nav-text">医院1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BB%E9%99%A22"><span class="nav-number">2.</span> <span class="nav-text">医院2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BB%E9%99%A23"><span class="nav-number">3.</span> <span class="nav-text">医院3</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
